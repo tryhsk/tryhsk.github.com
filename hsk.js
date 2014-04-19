@@ -5,18 +5,20 @@
 //    }
 
 
-var myDiv = document.createElement('div');
-myDiv.id = 'my';
-myDiv.className = 'some';
+
 
 $(document).ready(function(){
     $("#create").click( function(){
         $.getJSON('hsk_words.json', function(hsk_words) {
-            var output=" ";
-            for (var i in hsk_words.words) {
-                output+="<div class=\'"  + hsk_words.words[i].part_of_speech+ "  "+ hsk_words.words[i].meaning +" row\'>" +"<div class=\"char col-md-3 char_big\">" +hsk_words.words[i].char + "</div>"+" "+"<div class=\"pinyin col-md-3\">" + hsk_words.words[i].pinyin +"</div>"+" "+"<div class=\"russian col-md-3\">" + hsk_words.words[i].russian +"</div>"+" "+"<div class=\"english col-md-3\">" + hsk_words.words[i].english +"</div>"+ "</div>";
-            }
+            var output="<table class=\"table table-bordered\">";
+            output+="<thead><tr class=\"color number\"><th class='char'>char</th><th class='pinyin'>pinyin</th><th class='russian'>russian</th><th class='english'>english</th></tr></thead>";
+            output+="<tbody>";
 
+            for (var i in hsk_words.words) {
+                output+="<tr class=\'"  + hsk_words.words[i].part_of_speech+ "  "+ hsk_words.words[i].meaning +"\'>" +"<td class=\"char   char_big\">" +hsk_words.words[i].char + "</td>"+" "+"<td class=\"pinyin  \">" + hsk_words.words[i].pinyin +"</td>"+" "+"<td class=\"russian\">" + hsk_words.words[i].russian +"</td>"+" "+"<td class=\"english\">" + hsk_words.words[i].english +"</td>"+ "</tr>";
+            }
+            output+="</tbody>";
+            output+="</table>";
 
             document.getElementById("place").innerHTML=output;
             return false;
@@ -40,28 +42,28 @@ $(document).ready(function(){
 //        });
 
     $("#color").click(function (){
-        $("div#place > div:not(.color)").toggle();$("div.color").show();
+        $("tr:not(.color)").toggle();$("tr.color").show();
         return false;
     });
 
     $("#number").click(function (){
-        $("div#place > div:not(.number)").toggle();$("div.number").show();
+        $("tr:not(.number)").toggle();$("tr.number").show();
         return false;
     });
     $("#char").click(function (){
-        $("div.char").toggle();
+        $(".char").toggle();
         return false;
     });
     $("#pinyin").click(function (){
-        $("div.pinyin").toggle();
+        $(".pinyin").toggle();
         return false;
     });
     $("#russian").click(function (){
-        $("div.russian").toggle();
+        $(".russian").toggle();
         return false;
     });
     $("#english").click(function (){
-        $("div.english").toggle();
+        $(".english").toggle();
         return false;
     });
 
