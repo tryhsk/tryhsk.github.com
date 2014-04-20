@@ -1,14 +1,14 @@
 "use strict";
 
 $(document).ready(function(){
-
 //    TEST
     $.getJSON('hsk_words.json', function(hsk_words) {
 
 //        RANDOM CHAR
 
         var question = (Math.floor(Math.random() * (19 - 0 + 1)) + 0);
-        var output="<span>"+ hsk_words.words[question].char  +"</span></br>";
+        var output=hsk_words.words[question].char;
+        document.getElementById("place").innerHTML=output;
 
 //     check на одинаковые члены
         var test_random = (function (){
@@ -40,7 +40,7 @@ $(document).ready(function(){
 
 
 
-        document.getElementById("place").innerHTML=output;
+
 
 
 
@@ -50,7 +50,7 @@ $(document).ready(function(){
         document.getElementById("first_var").innerHTML=first_var;
 
         var first_ansver =""+ hsk_words.words[test_random[0]].char+"  "+ hsk_words.words[test_random[0]].pinyin+"  ";
-//         $("#first_content").css('background-color' , '#ddd');
+
 
         document.getElementById("first_ansver").innerHTML=first_ansver;
 
@@ -77,8 +77,5 @@ $(document).ready(function(){
 
         return false;
     });
-    return false;
-
-
-
+     return false;
 })
