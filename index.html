@@ -1,52 +1,87 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <link href="css/bootstrap.css" rel="stylesheet" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="product" content="Metro UI CSS Framework">
+    <meta name="description" content="Simple responsive css framework">
+    <meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
 
-    <script src="jquery-2.1.0.js"></script>
+    <link href="css/metro-bootstrap.css" rel="stylesheet">
+    <link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/iconFont.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <link href="js/prettify/prettify.css" rel="stylesheet">
+
+    <!-- Load JavaScript Libraries -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery/jquery.widget.min.js"></script>
+    <script src="js/jquery/jquery.mousewheel.js"></script>
+    <script src="js/prettify/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script>
+
+    <!-- Local JavaScript -->
+    <script src="js/docs.js"></script>
+    <script src="js/github.info.js"></script>
+
+    <title>Metro UI CSS : Metro Bootstrap CSS Library</title>
+
 </head>
-<body>
-<a href="index).html">Random</a>
-<!--<form>-->
-    <!--<button class="btn btn-xs btn-primary" id="create">all</button><br>-->
-    <!--<button class="btn btn-xs btn-primary" id="color">Color</button><br>-->
-    <!--<button class="btn btn-xs btn-primary" id="number">Number</button><br>-->
-    <!--<button class="btn btn-xs btn-primary" id="char">Char</button><br>-->
-    <!--<button class="btn btn-xs btn-primary" id="pinyin">Pinyin</button><br>-->
-    <!--<button class="btn btn-xs btn-primary" id="russian">Russian</button><br>-->
-    <!--<button class="btn btn-xs btn-primary" id="english">English</button><br>-->
-<!--</form>-->
+<body class="metro">
 
-<div id="button"></div>
-<div class="container">
-<div class="row">
-<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-    <form>
-        <button class="btn btn-xs btn-primary" id="create">all</button><br>
-        <button class="btn btn-xs btn-primary" id="color">Color</button><br>
-        <button class="btn btn-xs btn-primary" id="number">Number</button><br>
-        <button class="btn btn-xs btn-primary" id="char">Char</button><br>
-        <button class="btn btn-xs btn-primary" id="pinyin">Pinyin</button><br>
-        <button class="btn btn-xs btn-primary" id="russian">Russian</button><br>
-        <button class="btn btn-xs btn-primary" id="english">English</button><br>
-    </form>
+<a href="random.html">RANDOM</a>
 
-</div>
-
-    <div class="col-sm-8"  id="place" >
-
-</div>
+    <div class="container">
 
 
-</div>
-</div>
+                <h3 id="_bordered">Summary</h3>
+                <p class="description">
+                    Карточки <code>HSK</code>.
+                </p>
+        <div class="grid">
+        <div class="row">
+        <div class="span2" >
+        <form>
+            <button class="button info" id="create" >all</button><br>
+            <button class="button success" id="color">Color</button><br>
+            <button class="button info" id="number">Number</button><br>
+            <button class="button success" id="char">Char</button><br>
+            <button class="button info" id="pinyin">Pinyin</button><br>
+            <button class="button success" id="russian">Russian</button><br>
+            <button class="button info" id="english">English</button><br>
+        </form>
+        </div>
+
+            <div class="span10">
+                    <table class="table bordered">
+                        <thead>
+                        <tr class="color number">
+                            <th class="text-left color number char" >Char</th>
+                            <th class="text-left color number pinyin" >Pinyin</th>
+                            <th class="text-left color number russian" >Russian</th>
+                            <th class="text-left color number english" >English</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody id="place">
+
+                        </tbody>
 
 
+                    </table>
 
-<script src="hsk.js"></script>
-<script src="js/bootstrap.js"></script>
-<!--<script src="logic.js"></script>-->
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="js/hitua.js"></script>
+    <script src="hsk.js"></script>
+
+
 </body>
 </html>
