@@ -28,12 +28,9 @@ $(document).ready(function(){
 //     check на одинаковые члены
         var test_random = (function (){
             var test_random = [question,
-                    2,
-                    2,
-                    2];
-//            Math.floor(Math.random() * (19 - 0 + 1)) + 0,
-//                    Math.floor(Math.random() * (19 - 0 + 1)) + 0,
-//                    Math.floor(Math.random() * (19 - 0 + 1)) + 0];
+        Math.floor(Math.random() * (19 - 0 + 1)) + 0,
+                  Math.floor(Math.random() * (19 - 0 + 1)) + 0,
+                  Math.floor(Math.random() * (19 - 0 + 1)) + 0];
             for(var i=0; i<3; i++) {
                 for(var j=0; j<3; j++) {
                    if(i==j){
