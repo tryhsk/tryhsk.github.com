@@ -2,12 +2,14 @@
 
 $(document).ready(function(){
 //    TEST
+
    fill();
 
 
 
 
   $("#next").click(function (){
+      $("div.content").css("display","none");
       fill();
   });
 
@@ -26,9 +28,12 @@ $(document).ready(function(){
 //     check на одинаковые члены
         var test_random = (function (){
             var test_random = [question,
-                    Math.floor(Math.random() * (19 - 0 + 1)) + 0,
-                    Math.floor(Math.random() * (19 - 0 + 1)) + 0,
-                    Math.floor(Math.random() * (19 - 0 + 1)) + 0];
+                    2,
+                    2,
+                    2];
+//            Math.floor(Math.random() * (19 - 0 + 1)) + 0,
+//                    Math.floor(Math.random() * (19 - 0 + 1)) + 0,
+//                    Math.floor(Math.random() * (19 - 0 + 1)) + 0];
             for(var i=0; i<3; i++) {
                 for(var j=0; j<3; j++) {
                    if(i==j){
@@ -56,53 +61,27 @@ $(document).ready(function(){
 
 
 
+var russian_var= ["first_var","second_var","third_var","fourth_var"];
+for(var i=0; i<4;i++){
+    document.getElementById(russian_var[i]).innerHTML=hsk_words.words[test_random[i]].russian;
+}
+
+var char_var= ["first_ansver_char","second_ansver_char","third_ansver_char","fourth_ansver_char"];
+for(var i=0; i<4;i++){
+    document.getElementById(char_var[i]).innerHTML=hsk_words.words[test_random[i]].char;
+}
+
+var pinyin_var= ["first_ansver","second_ansver","third_ansver","fourth_ansver"];
+for(var i=0; i<4;i++){
+    document.getElementById(pinyin_var[i]).innerHTML=hsk_words.words[test_random[i]].pinyin;
+}
 
 
-
-        var  first_var =""+ hsk_words.words[test_random[0]].russian+"";
-        document.getElementById("first_var").innerHTML=first_var;
-
-        var first_ansver_char =hsk_words.words[test_random[0]].char;
-        document.getElementById("first_ansver_char").innerHTML=first_ansver_char;
-
-        var first_ansver =hsk_words.words[test_random[0]].pinyin;
-        document.getElementById("first_ansver").innerHTML=first_ansver;
-
-        var second_var =hsk_words.words[test_random[1]].russian;
-        document.getElementById("second_var").innerHTML=second_var;
-
-        var second_ansver_char =hsk_words.words[test_random[1]].char;
-        document.getElementById("second_ansver_char").innerHTML=second_ansver_char;
-
-        var second_ansver =hsk_words.words[test_random[1]].pinyin;
-        document.getElementById("second_ansver").innerHTML=second_ansver;
-
-        var  third_var = hsk_words.words[test_random[2]].russian ;
-        document.getElementById("third_var").innerHTML=third_var;
-
-        var third_ansver_char =hsk_words.words[test_random[2]].char;
-        document.getElementById("third_ansver_char").innerHTML=third_ansver_char;
-
-        var third_ansver =hsk_words.words[test_random[2]].pinyin;
-        document.getElementById("third_ansver").innerHTML=third_ansver;
-
-        var fourth_var = hsk_words.words[test_random[3]].russian ;
-        document.getElementById("fourth_var").innerHTML=fourth_var;
-
-        var fourth_ansver_char =hsk_words.words[test_random[3]].char;
-        document.getElementById("fourth_ansver_char").innerHTML=fourth_ansver_char;
-
-        var fourth_ansver =hsk_words.words[test_random[3]].pinyin;
-        document.getElementById("fourth_ansver").innerHTML=fourth_ansver;
 
         return false;
     });
      return false;}
 
-    function clear(){
-        document.getElementsByClassName("next23").innerHTML="";
-
-    }
 
 
 
