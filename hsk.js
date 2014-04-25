@@ -1,14 +1,7 @@
 "use strict";
 
-//    for(var i=0; i<2;i++){
-//        alert(data.chart[i].name+" "+data.chart[i].lastname);
-//    }
-
-
-
-
 $(document).ready(function(){
-
+    fill();
      function lol(){
         $.getJSON('hsk_words.json', function(hsk_words) {
             var output="";
@@ -56,9 +49,9 @@ lol();
 
 
 //    RANDOM
+//@todo  никогда ни выпадает первый вариант, возможно с этим связано зависание
 
 
-    fill();
 
     $("#next").click(function (){
         $("div.content").css("display","none");
@@ -104,6 +97,7 @@ lol();
             var russian_var= ["first_var","second_var","third_var","fourth_var"];
             for(var i=0; i<4;i++){
                 document.getElementById(russian_var[i]).innerHTML=hsk_words.words[test_random[i]].russian;
+
             }
 
             var char_var= ["first_ansver_char","second_ansver_char","third_ansver_char","fourth_ansver_char"];
@@ -114,6 +108,10 @@ lol();
             var pinyin_var= ["first_ansver","second_ansver","third_ansver","fourth_ansver"];
             for(var i=0; i<4;i++){
                 document.getElementById(pinyin_var[i]).innerHTML=hsk_words.words[test_random[i]].pinyin;
+                if (test_random[i] == question){
+ document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary ansverTrue\">Правильно!! Молодец!!</button>"
+                    ;
+                } else  document.getElementById("true_"+pinyin_var[i]).innerHTML="<p></p>" ;
             }
             return false;
         });
