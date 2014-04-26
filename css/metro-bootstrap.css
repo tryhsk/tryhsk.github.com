@@ -5729,7 +5729,7 @@ a {
   top: 0;
   left: 0;
   color: inherit;
-  background-color: #eeeeee;
+  background-color: white;
 }
 .metro .tab-control .tabs > li.active a {
   border-bottom-color: #ffffff;

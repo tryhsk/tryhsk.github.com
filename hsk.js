@@ -58,6 +58,7 @@ lol();
         fill();
     });
 
+
     function fill(){
         $.getJSON('hsk_words.json', function(hsk_words) {
 
@@ -109,15 +110,15 @@ lol();
             for(var i=0; i<4;i++){
                 document.getElementById(pinyin_var[i]).innerHTML=hsk_words.words[test_random[i]].pinyin;
                 if (test_random[i] == question){
- document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary ansverTrue\">Правильно!! Молодец!!</button>"
-                    ;
-                } else  document.getElementById("true_"+pinyin_var[i]).innerHTML="<p></p>" ;
+ document.getElementById("true_"+pinyin_var[i]).innerHTML="<button  id=\"next1\" class=\"primary next \">Правильно!! Молодец!!</button>";
+                } else  {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button   class=\"danger  next\">Попробуй ещё!!!</button>";
+                $(".next").click(function (){
+                    $("div.content").css("display","none");
+                    fill();
+                });}
             }
             return false;
         });
         return false;}
-
-
-
 
 });
