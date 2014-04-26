@@ -1,7 +1,11 @@
 "use strict";
 
 $(document).ready(function(){
-    fill();
+    try{
+    fill();}
+    catch(e){fill()}
+
+
      function lol(){
         $.getJSON('hsk_words.json', function(hsk_words) {
             var output="";
@@ -49,7 +53,7 @@ lol();
 
 
 //    RANDOM
-//@todo  никогда ни выпадает первый вариант, возможно с этим связано зависание
+//@todo  русские значения исключения
 
 
 
@@ -63,7 +67,7 @@ lol();
         $.getJSON('hsk_words.json', function(hsk_words) {
 
 //        RANDOM CHAR
-            var question = (Math.floor(Math.random() * (19 - 0 + 1)) + 0);
+            var question = (Math.floor(Math.random() * (18 - 0 + 1)) + 0);
             document.getElementById("random").innerHTML=hsk_words.words[question].char;
 
 //     check на одинаковые члены
@@ -98,19 +102,33 @@ lol();
             }
 
 
-
-
-
-
+function russian(){
             var russian_var= ["first_var","second_var","third_var","fourth_var"];
             for(var i=0; i<4;i++){
                 document.getElementById(russian_var[i]).innerHTML=hsk_words.words[test_random[i]].russian;
             }
+}
+            try{
+                russian();
+            }
+            catch (e){
+                alert("hello")
+//                russian();
+            }
+
+
+
+
+
 
             var char_var= ["first_ansver_char","second_ansver_char","third_ansver_char","fourth_ansver_char"];
             for(var i=0; i<4;i++){
                 document.getElementById(char_var[i]).innerHTML=hsk_words.words[test_random[i]].char;
             }
+
+
+
+
 
             var pinyin_var= ["first_ansver","second_ansver","third_ansver","fourth_ansver"];
             for(var i=0; i<4;i++){
