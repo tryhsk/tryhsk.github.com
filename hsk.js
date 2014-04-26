@@ -73,14 +73,14 @@ lol();
 //     check на одинаковые члены
             var test_random = (function (){
                 var test_random = [question,
-                        Math.floor(Math.random() * (19 - 0 + 1)) + 0,
-                        Math.floor(Math.random() * (19 - 0 + 1)) + 0,
-                        Math.floor(Math.random() * (19 - 0 + 1)) + 0];
+                        Math.floor(Math.random() * (18 - 0 + 1)) + 0,
+                        Math.floor(Math.random() * (18 - 0 + 1)) + 0,
+                        Math.floor(Math.random() * (18 - 0 + 1)) + 0];
                 for(var i=0; i<4; i++) {
                     for(var j=0; j<4; j++) {
                         if(i==j){
                         }else if (test_random[i]==test_random[j]){
-                            test_random[i]= Math.floor(Math.random() * (19 - 0 + 1)) + 0;
+                            test_random[i]= Math.floor(Math.random() * (18 - 0 + 1)) + 0;
                         }else  ;
                     }
                 }
