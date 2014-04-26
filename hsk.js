@@ -90,6 +90,13 @@ lol();
                 test_random[j] = t;
             }
 
+            for ( var i = test_random.length; i-->0; ) {
+                var t = test_random[i],
+                    j = Math.floor(i*Math.random());
+                test_random[i] = test_random[j];
+                test_random[j] = t;
+            }
+
 
 
 
@@ -98,7 +105,6 @@ lol();
             var russian_var= ["first_var","second_var","third_var","fourth_var"];
             for(var i=0; i<4;i++){
                 document.getElementById(russian_var[i]).innerHTML=hsk_words.words[test_random[i]].russian;
-
             }
 
             var char_var= ["first_ansver_char","second_ansver_char","third_ansver_char","fourth_ansver_char"];
