@@ -80,19 +80,13 @@ function fill(){
             test_random[i] = test_random[j];
             test_random[j] = t;
         }
-        function russian(){
+
             var russian_var= ["first_var","second_var","third_var","fourth_var"];
             for(var i=0; i<4;i++){
                 document.getElementById(russian_var[i]).innerHTML=hsk_words.words[test_random[i]].russian;
             }
-        }
-        try{
-            russian();
-        }
-        catch (e){
-            alert("hello")
-//                russian();
-        }
+
+
         var char_var= ["first_ansver_char","second_ansver_char","third_ansver_char","fourth_ansver_char"];
         for(var i=0; i<4;i++){
             document.getElementById(char_var[i]).innerHTML=hsk_words.words[test_random[i]].char;
@@ -101,8 +95,13 @@ function fill(){
         for(var i=0; i<4;i++){
             document.getElementById(pinyin_var[i]).innerHTML=hsk_words.words[test_random[i]].pinyin;
             if (test_random[i] == question){
-                document.getElementById("true_"+pinyin_var[i]).innerHTML="<button  id=\"next1\" class=\"primary next \">Правильно!! Молодец!!</button>";
-            } else  {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button   class=\"danger  next\">Попробуй ещё!!!</button>";
+                document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary next\">Правильно!! Молодец!!</button>";
+                $(".next").click(function () {
+                    $("div.content").css("display", "none");
+                    fill();})
+
+
+            } else {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"danger next\">Попробуй ещё!!!</button>";
                 $(".next").click(function (){
                     $("div.content").css("display","none");
                     fill();
