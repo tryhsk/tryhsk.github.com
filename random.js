@@ -49,6 +49,9 @@ function fill(){
 
 
         document.getElementById("random").innerHTML=hsk_words.words[question].char;
+        try{
+        document.getElementById("music").innerHTML= "<audio id=\"sound\" src=\"" + hsk_words.words[question].sound +"\"></audio>";
+        }catch (e){}
 
 //     check на одинаковые члены
         var test_random = (function (){
@@ -92,11 +95,11 @@ function fill(){
         for(var i=0; i<4;i++){
             document.getElementById(pinyin_var[i]).innerHTML=hsk_words.words[test_random[i]].pinyin;
             if (test_random[i] == question){
-                document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary next\">Правильно!! Молодец!!</button>";
+                document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary next\">Правильно!!</button>";
                 $(".next").click(function () {
                     $("div.content").css("display", "none");
                     fill();})
-            } else {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"danger next\">Попробуй ещё!!!</button>";
+            } else {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"danger next\">Попробуй ещё!!</button>";
                 $(".next").click(function (){
                     $("div.content").css("display","none");
                     fill();
@@ -105,3 +108,8 @@ function fill(){
         return false;
     });
     return false;}
+
+$("#random").click(function (){
+    document.getElementById('sound').play();
+    return false;
+});
