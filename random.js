@@ -73,7 +73,6 @@ function fill(){
             test_random[i] = test_random[j];
             test_random[j] = t;
         }
-
         for ( var i = test_random.length; i-->0; ) {
             var t = test_random[i],
                 j = Math.floor(i*Math.random());
@@ -85,8 +84,6 @@ function fill(){
             for(var i=0; i<4;i++){
                 document.getElementById(russian_var[i]).innerHTML=hsk_words.words[test_random[i]].russian;
             }
-
-
         var char_var= ["first_ansver_char","second_ansver_char","third_ansver_char","fourth_ansver_char"];
         for(var i=0; i<4;i++){
             document.getElementById(char_var[i]).innerHTML=hsk_words.words[test_random[i]].char;
@@ -99,8 +96,6 @@ function fill(){
                 $(".next").click(function () {
                     $("div.content").css("display", "none");
                     fill();})
-
-
             } else {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"danger next\">Попробуй ещё!!!</button>";
                 $(".next").click(function (){
                     $("div.content").css("display","none");
