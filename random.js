@@ -6,35 +6,43 @@ $("#next").click(function (){
     fill();
 });
 
+$('#prop').click(function(){
+    if ($('#prop').prop('checked')){alert("yes")}
+    else{alert("no")};
+    event.stopPropagation();
 
-
+});
 
 
 
 
 
 //
-//var old_var= new Array(10);
-//var push;
+var old_var= new Array(10);
+var push;
 var question;
+
+//    random question
+
+function randomize(){
+
+     var pquestion_p = (Math.floor(Math.random() * (18 - 0 + 1)) + 0);
+    pol: for(var i=0;i<10;i++){
+        if (old_var[i]!=question){console.log(question+" 1  "+old_var[i])}else{console.log(question+"  0000  "+old_var[i]); break pol;}
+
+    }
+        push = old_var.unshift(question);
+
+
+    question=pquestion_p;
+    return question;
+}
+
 
 function fill(){
     $.getJSON('hsk_words.json', function(hsk_words) {
 
-
-        question = (Math.floor(Math.random() * (18 - 0 + 1)) + 0);
-
-//        function random(){
-//            question = (Math.floor(Math.random() * (18 - 0 + 1)) + 0);
-//            push = old_var.unshift(question);
-//            alert(question);
-//            for(var i=0;i<10;i++){
-//                if (question==old_var[i]){question = (Math.floor(Math.random() * (18 - 0 + 1)) + 0);};
-//                console.log(old_var[i]);
-//            }
-//
-//            return question;
-//        }
+randomize();
 
 
 
@@ -42,6 +50,11 @@ function fill(){
 
 
 
+
+
+//$("label.english_toggle > input").click(function(){
+//    $("label.english_toggle > input").prop
+//});
 
 
 

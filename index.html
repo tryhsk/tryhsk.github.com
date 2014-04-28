@@ -30,13 +30,14 @@
 
 </head>
 <body class="metro"><p> </p>
+<input type="checkbox"/>
 <div class="container">
 
     <div class="tab-control" data-role="tab-control">
         <ul class="tabs">
             <li class="active"><a href="#_page_1">RANDOM</a></li>
             <li><a href="#_page_2">Summary</a></li>
-            <li><a href="#_page_3"><i class="icon-rocket"></i></a></li>
+            <!--<li><a href="#_page_3"><i class="icon-rocket"></i></a></li>-->
             <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
             <li class="place-right"><a href="#_page_4"><i class="icon-cog"></i></a></li>
         </ul>
@@ -59,7 +60,14 @@
                                     <li><p> </p></li>
                                     <li><button class="button success" id="color">Color</button></li>
                                     <li><p> </p></li>
-                                    <li> <button class="button info" id="number">Number</button></li>
+                                    <li> <div class="input-control checkbox" data-role="input-control">
+                                        <label id="prop" class="english_toggle">
+                                            <input type="checkbox"/>
+                                            <span class="check"></span>
+                                            Check me out
+                                        </label>
+                                    </div>
+                                    </li>
 
                                 </ul>
                             </li>
@@ -258,9 +266,9 @@
             <script src="hsk.js"></script>
 
             </div>
-            <div class="frame" id="_page_3">
-                <p>Rocket Tab</p>
-            </div>
+            <!--<div class="frame" id="_page_3">-->
+                <!--<p>Rocket Tab</p>-->
+            <!--</div>-->
             <div class="frame" id="_page_4">
                 <p>This tab placed right</p>
             </div>

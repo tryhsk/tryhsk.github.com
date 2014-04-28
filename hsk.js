@@ -51,7 +51,7 @@ function lol(){
         $(".english").toggle();
         return false;
     });
-    $("label").click(function(){
-        $(".english").toggle();
-        return false;
-    });
+//    $("label").click(function(){
+//        $(".english").toggle();
+//        return false;
+//    });
