@@ -10,31 +10,27 @@ $('#prop').click(function(){
     if ($('#prop').prop('checked')){alert("yes")}
     else{alert("no")};
     event.stopPropagation();
-
 });
 
 
-
-
-
-//
-var old_var= new Array(10);
-var push;
 var question;
+var arr=new Array(10);
 
-//    random question
 
 function randomize(){
+    question = (Math.floor(Math.random() * 19));
+    var repeat=true;
 
-     var pquestion_p = (Math.floor(Math.random() * (18 - 0 + 1)) + 0);
-    pol: for(var i=0;i<10;i++){
-        if (old_var[i]!=question){console.log(question+" 1  "+old_var[i])}else{console.log(question+"  0000  "+old_var[i]); break pol;}
+    do{
+        for(var i=0;i<10;i++){
+            if(question==arr[i]){question = (Math.floor(Math.random() * 19));repeat=true; break}else {repeat=false}
+        }}while(repeat);
+    arr.unshift(question);
 
+    for(var i=0;i<10;i++){
+        console.log(arr[i]);
     }
-        push = old_var.unshift(question);
 
-
-    question=pquestion_p;
     return question;
 }
 
@@ -43,11 +39,6 @@ function fill(){
     $.getJSON('hsk_words.json', function(hsk_words) {
 
 randomize();
-
-
-
-
-
 
 
 
@@ -125,8 +116,13 @@ if(length==1){$("#random").css("width",92)}else{
         return false;
     });
     return false;}
-
+//
 $("#random").click(function (){
+    document.getElementById('sound').play();
+    return false;
+});
+
+$('div:contains(hsk_words.words[question].char)').click(function (){
     document.getElementById('sound').play();
     return false;
 });
