@@ -2,13 +2,12 @@
 fill();
 
 $("#next").click(function (){
-    $("div.content").css("display","none");
     fill();
 });
 
 $('#prop').click(function(){
     if ($('#prop').prop('checked')){alert("yes")}
-    else{alert("no")};
+    else{alert("no")}
     event.stopPropagation();
 });
 
@@ -36,6 +35,8 @@ function randomize(){
 
 
 function fill(){
+    $("div.content").css("display","none").css("border","");
+
     $.getJSON('hsk_words.json', function(hsk_words) {
 
 randomize();
@@ -103,18 +104,21 @@ if(length==1){$("#random").css("width",92)}else{
         for(var i=0; i<4;i++){
             document.getElementById(pinyin_var[i]).innerHTML=hsk_words.words[test_random[i]].pinyin;
             if (test_random[i] == question){
-                document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary next\">Правильно!!</button>";
+                 document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary next\">Правильно!!</button>";
                 $(".next").click(function () {
-                    $("div.content").css("display", "none");
+
                     fill();})
             } else {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"danger next\">Попробуй ещё!!</button>";
                 $(".next").click(function (){
-                    $("div.content").css("display","none");
+
                     fill();
                 });}
         }
+        $("div.content:has(button.primary)").css("border","2px solid green");
+        $("div.content:has(button.danger)").css("border","2px solid red");
         return false;
     });
+
     return false;}
 //
 $("#random").click(function (){
