@@ -58,10 +58,14 @@ randomize();
 
 
 
-
-
+        var length=hsk_words.words[question].char.length;
+if(length==1){$("#random").css("width",92)}else{
+    $("#random").css("width",80*length)
+}
 
         document.getElementById("random").innerHTML=hsk_words.words[question].char;
+
+
         try{
         document.getElementById("music").innerHTML= "<audio id=\"sound\" src=\"" + hsk_words.words[question].sound +"\"></audio>";
         }catch (e){}
