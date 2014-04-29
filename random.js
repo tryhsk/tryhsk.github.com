@@ -1,9 +1,16 @@
 "use strict";
 fill();
+next();
 
-$("#next").click(function (){
-    fill();
-});
+
+function next(){
+    $(".next").click(function (){
+        fill();
+    });
+}
+
+
+
 
 $('#prop').click(function(){
     if ($('#prop').prop('checked')){alert("yes")}
@@ -105,14 +112,10 @@ if(length==1){$("#random").css("width",92)}else{
             document.getElementById(pinyin_var[i]).innerHTML=hsk_words.words[test_random[i]].pinyin;
             if (test_random[i] == question){
                  document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary next\">Правильно!!</button>";
-                $(".next").click(function () {
-
-                    fill();})
+                next();
             } else {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"danger next\">Попробуй ещё!!</button>";
-                $(".next").click(function (){
-
-                    fill();
-                });}
+                next();
+                }
         }
         $("div.content:has(button.primary)").css("border","2px solid green");
         $("div.content:has(button.danger)").css("border","2px solid red");
