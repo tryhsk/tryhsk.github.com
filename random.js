@@ -16,7 +16,7 @@ $('#prop').click(function(){
 var question;
 var arr=new Array(10);
 
-
+//h
 function randomize(){
     question = (Math.floor(Math.random() * 19));
     var repeat=true;
