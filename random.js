@@ -110,15 +110,12 @@ if(length==1){$("#random").css("width",92)}else{
             if (test_random[i] == question){
                  document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary next\">Правильно!!</button>";
                 $(".next").click(function (){
-                    $(".next").click(function (){
-                        fill();
-                    });
+                    fill();
                 });
+
             } else {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"danger next\">Попробуй ещё!!</button>";
                 $(".next").click(function (){
-                    $(".next").click(function (){
-                        fill();
-                    });
+                    fill();
                 });
                 }
         }
