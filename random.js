@@ -1,14 +1,11 @@
 "use strict";
 fill();
-next();
 
 
-function next(){
-    $(".next").click(function (){
-        fill();
-    });
-}
 
+$("#next").click(function (){
+    fill();
+});
 
 
 
@@ -17,7 +14,7 @@ $('#prop').click(function(){
     else{alert("no")}
     event.stopPropagation();
 });
-
+//d
 
 var question;
 var arr=new Array(10);
@@ -26,7 +23,7 @@ var arr=new Array(10);
 function randomize(){
     question = (Math.floor(Math.random() * 19));
     var repeat=true;
-
+//sdsd?
     do{
         for(var i=0;i<10;i++){
             if(question==arr[i]){question = (Math.floor(Math.random() * 19));repeat=true; break}else {repeat=false}
@@ -112,9 +109,17 @@ if(length==1){$("#random").css("width",92)}else{
             document.getElementById(pinyin_var[i]).innerHTML=hsk_words.words[test_random[i]].pinyin;
             if (test_random[i] == question){
                  document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"primary next\">Правильно!!</button>";
-                next();
+                $(".next").click(function (){
+                    $(".next").click(function (){
+                        fill();
+                    });
+                });
             } else {document.getElementById("true_"+pinyin_var[i]).innerHTML="<button class=\"danger next\">Попробуй ещё!!</button>";
-                next();
+                $(".next").click(function (){
+                    $(".next").click(function (){
+                        fill();
+                    });
+                });
                 }
         }
         $("div.content:has(button.primary)").css("border","2px solid green");
