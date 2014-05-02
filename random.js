@@ -1,29 +1,25 @@
 "use strict";
 fill();
 
-
-
 $("#next").click(function (){
     fill();
 });
 
-
+var apply_music;
 
 $('#prop').click(function(){
     if ($('#prop').prop('checked')){alert("yes")}
     else{alert("no")}
     event.stopPropagation();
 });
-//d
 
 var question;
 var arr=new Array(10);
 
-//h
 function randomize(){
-    question = (Math.floor(Math.random() * 19));
+
+    question = (Math.floor(Math.random() * 11));
     var repeat=true;
-//sdsd?
     do{
         for(var i=0;i<10;i++){
             if(question==arr[i]){question = (Math.floor(Math.random() * 19));repeat=true; break}else {repeat=false}
@@ -44,8 +40,11 @@ function fill(){
     $.getJSON('hsk_words.json', function(hsk_words) {
 
 randomize();
+music();
 
-
+        function music(){
+            document.getElementById("music").innerHTML= "<audio id=\"sound\" src=\"" + hsk_words.words[question].sound +"\" autoplay></audio>";
+        }
 
 
 //$("label.english_toggle > input").click(function(){
@@ -62,9 +61,9 @@ if(length==1){$("#random").css("width",92)}else{
         document.getElementById("random").innerHTML=hsk_words.words[question].char;
 
 
-        try{
-        document.getElementById("music").innerHTML= "<audio id=\"sound\" src=\"" + hsk_words.words[question].sound +"\"></audio>";
-        }catch (e){}
+
+
+
 
 //     check на одинаковые члены
         var test_random = (function (){
@@ -126,6 +125,24 @@ if(length==1){$("#random").css("width",92)}else{
 
     return false;}
 //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $("#random").click(function (){
     document.getElementById('sound').play();
     return false;
