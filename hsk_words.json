@@ -5,6 +5,7 @@
         "english":"one",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/y/yi1-1_song1.mp3"
     },
     {"char":"二",
@@ -13,6 +14,7 @@
         "english":"two",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/er4-1_song1.mp3"
     },
     {"char":"三",
@@ -21,6 +23,7 @@
         "english":"three",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/s/san1-1_song1.mp3"
     },
     {"char":"四",
@@ -29,6 +32,7 @@
         "english":"four",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://upload.wikimedia.org/wikipedia/commons/6/60/Zh-s%C3%AC.ogg"
     },
     {"char":"五",
@@ -37,6 +41,7 @@
         "english":"five",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/w/wu3-1_song1.mp3"
     },
     {"char":"六",
@@ -45,6 +50,7 @@
         "english":"six",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/liu4-1_song1.mp3"
     },
     {"char":"七",
@@ -53,6 +59,7 @@
         "english":"seven",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/q/qi1-1_song1.mp3"
     },
     {"char":"八",
@@ -61,6 +68,7 @@
         "english":"eight",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/ba1-2_song1.mp3"
     },
     {"char":"九",
@@ -69,6 +77,7 @@
         "english":"nain",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/jiu3-1_song1.mp3"
     },
     {"char":"十",
@@ -77,6 +86,7 @@
         "english":"ten",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/s/shi2-1_song1.mp3"
     },
     {"char":"百",
@@ -85,6 +95,7 @@
         "english":"hundred",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/bai3-3_song1.mp3"
     },
     {"char":"千",
@@ -93,6 +104,7 @@
         "english":"thousand",
         "part_of_speech":"numeral",
         "meaning":"number",
+        "number": true,
         "sound":"http://china-standart.ru/words/q/qian1-1_song1.mp3"
     },
     {"char":"为什么",

@@ -12,12 +12,16 @@ $("#random").click(function (){
     return false;
 });
 
+function random_var(){
+    return Math.floor(Math.random() * 30);
+}
+
 function randomize(){
-    question = (Math.floor(Math.random() * 11));
+    question = random_var();
     var repeat=true;
     do{
         for(var i=0;i<10;i++){
-            if(question==arr[i]){question = (Math.floor(Math.random() * 19));repeat=true; break}else {repeat=false}
+            if(question==arr[i]){question = (random_var());repeat=true; break}else {repeat=false}
         }}while(repeat);
     arr.unshift(question);
     for(var i=0;i<10;i++){
@@ -34,7 +38,7 @@ function fill(){
         main_char();
         generate_var();
         music();
-
+console.log('length  '+hsk_words.words.length);
 
 function music(){
     document.getElementById("music").innerHTML= "<audio id=\"sound\" src=\"" + hsk_words.words[question].sound +"\" autoplay></audio>";
@@ -52,14 +56,14 @@ function main_char(){
 function generate_var(){
     var test_random = (function (){
         var test_random = [question,
-                Math.floor(Math.random() * (18 - 0 + 1)) + 0,
-                Math.floor(Math.random() * (18 - 0 + 1)) + 0,
-                Math.floor(Math.random() * (18 - 0 + 1)) + 0];
+                random_var(),
+                random_var(),
+                random_var()];
         for(var i=0; i<4; i++) {
             for(var j=0; j<4; j++) {
                 if(i==j){
                 }else if (test_random[i]==test_random[j]){
-                    test_random[i]= Math.floor(Math.random() * (18 - 0 + 1)) + 0;
+                    test_random[i]= random_var();
                 }else  ;
             }
         }

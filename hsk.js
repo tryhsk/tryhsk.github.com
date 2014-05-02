@@ -4,19 +4,25 @@ summary();
 
 function summary(){
         $.getJSON('hsk_words.json', function(hsk_words) {
+
+
             var output="";
             for (var i in hsk_words.words) {
-                output+="<tr class=\'"  + hsk_words.words[i].part_of_speech+ "  "+ hsk_words.words[i].meaning +"\'>" +"<td class=\"char char_big\">" +hsk_words.words[i].char + "</td>"+" "+"<td class=\"pinyin\">" + hsk_words.words[i].pinyin +"<span class=\"glyphicon glyphicon-play\"></span></td>"+" "+"<td class=\"russian\">" + hsk_words.words[i].russian +"</td>"+" "+"<td class=\"english\">" + hsk_words.words[i].english +"</td>"+ "</tr>";
+                if(hsk_words.words[i].number){
+                output+="<tr class=\'"  + hsk_words.words[i].part_of_speech+ "  "+ hsk_words.words[i].meaning +"\'>" +"<td class=\"char char_big\">" +hsk_words.words[i].char + "</td>"+" "+"<td class=\"pinyin\">" + hsk_words.words[i].pinyin +"<span class=\"glyphicon glyphicon-play\"></span></td>"+" "+"<td class=\"russian\">" + hsk_words.words[i].russian +"</td>"+" "+"<td class=\"english\">" + hsk_words.words[i].english +"</td>"+ "</tr>";}
+                else{}
             }
             document.getElementById("place").innerHTML=output;
             return false;
+
+
         });
         return false;
     }
 
 
     $("#create").click(function (){
-        $("#_page_2").show();
+        $("#_page_2 > *").show();
         return false;
     });
 
@@ -27,10 +33,7 @@ function summary(){
         }else{
             $(".color").hide();
         }
-
-//
-//        $("tr.color").show();
-        return false;
+         return false;
     });
 
 $("#number").change(function (){
@@ -40,9 +43,6 @@ $("#number").change(function (){
     }else{
         $(".number").hide();
     }
-
-//
-//        $("tr.color").show();
     return false;
 });
 
