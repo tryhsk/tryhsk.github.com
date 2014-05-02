@@ -15,23 +15,45 @@ function summary(){
     }
 
 
-//    $("#create").click(function (){
-//        $("*").show();
+    $("#create").click(function (){
+        $("#_page_2").show();
+        return false;
+    });
+
+    $("#color").change(function (){
+
+        if($("#color").prop('checked')){
+             $(".color").show();
+        }else{
+            $(".color").hide();
+        }
+
+//
+//        $("tr.color").show();
+        return false;
+    });
+
+$("#number").change(function (){
+
+    if($("#number").prop('checked')){
+         $(".number").show();
+    }else{
+        $(".number").hide();
+    }
+
+//
+//        $("tr.color").show();
+    return false;
+});
+
+
+
+
+//    $("#number").click(function (){
+//        $("tr:not(.number)").toggle();
+//        $("tr.number").show();
 //        return false;
 //    });
-
-    $("#color").click(function (){
-        $("tr:not(.color)").toggle();
-        $("tr.color").show();
-        return false;
-    });
-
-
-    $("#number").click(function (){
-        $("tr:not(.number)").toggle();
-        $("tr.number").show();
-        return false;
-    });
     $("#char").click(function (){
         $(".char").toggle();
         return false;
