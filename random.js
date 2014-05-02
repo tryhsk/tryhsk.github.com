@@ -11,10 +11,8 @@ $("#random").click(function (){
     document.getElementById('sound').play();
     return false;
 });
+var length_words;
 
-function random_var(){
-    return Math.floor(Math.random() * 30);
-}
 
 function randomize(){
     question = random_var();
@@ -30,15 +28,21 @@ function randomize(){
     return question;
 }
 
+function random_var(){
+    return Math.floor(Math.random() * length_words);
+}
 
 function fill(){
     $("div.content").css("display","none").css("border","");
     $.getJSON('hsk_words.json', function(hsk_words) {
+        length_words = hsk_words.words.length-1;
         randomize();
         main_char();
         generate_var();
         music();
-console.log('length  '+hsk_words.words.length);
+
+
+
 
 function music(){
     document.getElementById("music").innerHTML= "<audio id=\"sound\" src=\"" + hsk_words.words[question].sound +"\" autoplay></audio>";
@@ -55,10 +59,7 @@ function main_char(){
 
 function generate_var(){
     var test_random = (function (){
-        var test_random = [question,
-                random_var(),
-                random_var(),
-                random_var()];
+        var test_random = [question,random_var(),random_var(),random_var()];
         for(var i=0; i<4; i++) {
             for(var j=0; j<4; j++) {
                 if(i==j){
