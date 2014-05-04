@@ -2,7 +2,7 @@
 var json;
 var color_bool= true;
 var number_bool= true;
-
+// nak
 $.getJSON('hsk_words.json', function(hsk_words) {
     json=hsk_words;
 });
