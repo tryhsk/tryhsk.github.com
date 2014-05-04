@@ -1,0 +1,33 @@
+<script src="jquery-2.1.0.js"></script>
+        <script>
+            "use strict";
+            var category = [];
+
+//            for (var j=0;j<=category.length;j++){
+//                console.log(category[j])
+//            }
+
+            ( function create_array(){
+                $.getJSON('hsk_words.json', function(hsk_words) {
+
+//
+                    if($("#number_var").prop('checked')){
+                        first : for(var meaning in hsk_words){
+                            for (var j=0;j<=category.length;j++){
+                                if(hsk_words.meaning[i]==category[j]){
+                                    break first;
+                                }else{}
+
+                                category.push(hsk_words.meaning[i])
+                            }
+                        }
+                        alert('if');
+                    }else{alert('else');
+                    }
+                    return false;
+                });
+//    })
+            })()
+
+//            create_array();
+        </script>
