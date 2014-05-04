@@ -4,7 +4,7 @@ var category = [];
 for (var j=0;j<=category.length;j++){
     console.log(category[j])
 }
-
+// lol
 function create_array(){
     $.getJSON('hsk_words.json', function(hsk_words) {
 
