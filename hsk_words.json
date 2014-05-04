@@ -1,264 +1,761 @@
-{"words":[
-    {"char":"一",
-        "pinyin":"yī",
-        "russian":"один",
-        "english":"one",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/y/yi1-1_song1.mp3"
-    },
-    {"char":"二",
-        "pinyin":"èr",
-        "russian":"два",
-        "english":"two",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/er4-1_song1.mp3"
-    },
-    {"char":"三",
-        "pinyin":"sān",
-        "russian":"три",
-        "english":"three",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/s/san1-1_song1.mp3"
-    },
-    {"char":"四",
-        "pinyin":"sì",
-        "russian":"четыре",
-        "english":"four",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://upload.wikimedia.org/wikipedia/commons/6/60/Zh-s%C3%AC.ogg"
-    },
-    {"char":"五",
-        "pinyin":"wǔ",
-        "russian":"пять",
-        "english":"five",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/w/wu3-1_song1.mp3"
-    },
-    {"char":"六",
-        "pinyin":"liù",
-        "russian":"шесть",
-        "english":"six",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/liu4-1_song1.mp3"
-    },
-    {"char":"七",
-        "pinyin":"qī",
-        "russian":"семь",
-        "english":"seven",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/q/qi1-1_song1.mp3"
-    },
-    {"char":"八",
-        "pinyin":"bā",
-        "russian":"восемь",
-        "english":"eight",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/ba1-2_song1.mp3"
-    },
-    {"char":"九",
-        "pinyin":"jiǔ",
-        "russian":"девять",
-        "english":"nain",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/jiu3-1_song1.mp3"
-    },
-    {"char":"十",
-        "pinyin":"shí",
-        "russian":"десять",
-        "english":"ten",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/s/shi2-1_song1.mp3"
-    },
-    {"char":"百",
-        "pinyin":"bǎi",
-        "russian":"сто",
-        "english":"hundred",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/bai3-3_song1.mp3"
-    },
-    {"char":"千",
-        "pinyin":"qiān",
-        "russian":"тысяча",
-        "english":"thousand",
-        "part_of_speech":"numeral",
-        "meaning":"number",
-        "number": true,
-        "sound":"http://china-standart.ru/words/q/qian1-1_song1.mp3"
-    },
-    {"char":"为什么",
-     "pinyin":"wèishénme",
-     "russian":"почему",
-     "english":"one",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/sounds2/7/cmn-7fd1a980.mp3"
-     },
-    {"char":"昨天",
-     "pinyin":"zuótiān",
-     "russian":"вчера",
-     "english":"two",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/sounds2/d/cmn-d23e74ed.mp3"
-     },
-    {"char":"东西",
-     "pinyin":"dōngxī",
-     "russian":"вещь",
-     "english":"three",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/sounds2/c/cmn-c4698257.mp3"
-     },
-    {"char":"晩上",
-     "pinyin":"wǎnshàng",
-     "russian":"вечером",
-     "english":"four",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":""
-     },
-    {"char":"半",
-     "pinyin":"bàn",
-     "russian":"половина",
-     "english":"five",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/words/ban4-3_song1.mp3"
-     },
-    {"char":"写",
-     "pinyin":"xiě",
-     "russian":"писать",
-     "english":"six",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/words/x/xie3-1_song1.mp3"
-     },
-    {"char":"汉子",
-     "pinyin":"hànzì",
-     "russian":"китайские иероглифы",
-     "english":"seven",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/sounds2/1/cmn-16c25721.mp3"
-     },
-    {"char":"睡觉",
-     "pinyin":"shuìjiào",
-     "russian":"спать",
-     "english":"eight",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/sounds2/b/cmn-b41187ea.mp3"
-     },
-    {"char":"起床",
-     "pinyin":"qǐchuáng",
-     "russian":"встать",
-     "english":"nain",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/sounds2/a/cmn-af39f74c.mp3"
-     },
-    {"char":"应该",
-     "pinyin":"yīnggāi",
-     "russian":"надо",
-     "english":"ten",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/sounds2/b/cmn-b7cc3b8d.mp3"
-     },
-    {"char":"问题",
-     "pinyin":"wèntí",
-     "russian":"вопрос,проблема",
-     "english":"hundred",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/sounds2/8/cmn-8acd50ed.mp3"
-     },
-    {"char":"可以",
-     "pinyin":"kěyǐ",
-     "russian":"можно",
-     "english":"thousand",
-     "part_of_speech":"numeral",
-     "meaning":"11",
-        "sound":"http://china-standart.ru/sounds2/d/cmn-de935dea.mp3"
-     },
-    {"char":"绿",
-     "pinyin":"Lǜ",
-     "russian":"зелёный",
-     "english":"green",
-     "part_of_speech":"adjective",
-     "meaning":"color",
-        "sound":"http://china-standart.ru/words/lv4-1_song1.mp3"
-     },
-    {"char":"红",
-     "pinyin":"hóng",
-     "russian":"красный",
-     "english":"red",
-     "part_of_speech":"adjective",
-     "meaning":"color",
-      "sound":"http://china-standart.ru/words/hong2-1_song1.mp3"
-     },
-    {"char":"黄",
-     "pinyin":"huáng",
-     "russian":"жёлтый",
-     "english":"yellow",
-     "part_of_speech":"adjective",
-     "meaning":"color",
-        "sound":"http://china-standart.ru/words/huang2-1_song1.mp3"
-     },
-    {"char":"紫",
-     "pinyin":"Zǐ",
-     "russian":"фиолетовый",
-     "english":"purple",
-     "part_of_speech":"adjective",
-     "meaning":"color",
-        "sound":"http://china-standart.ru/words/z/zi3-1_song1.mp3"
-     },
-    {"char":"白",
-     "pinyin":"Bái",
-     "russian":"белый",
-     "english":"white",
-     "part_of_speech":"adjective",
-     "meaning":"color",
-        "sound":"http://china-standart.ru/words/bai2-1_song1.mp3"
-     },
-    {"char":"黑",
-     "pinyin":"Hēi",
-     "russian":"чёрный",
-     "english":"black",
-     "part_of_speech":"adjective",
-     "meaning":"color",
-        "sound":"http://china-standart.ru/words/hei1-2_song1.mp3"
-     },
-    {"char":"青",
-     "pinyin":"Qīng",
-     "russian":"синий",
-     "english":"blue",
-     "part_of_speech":"adjective",
-     "meaning":"color",
-        "sound":"http://china-standart.ru/words/q/qing1-1_song1.mp3"
-     }
-]
-
+{"words":[ {
+    "char" : "爱",
+    "pinyin" : "ài",
+    "russian" : "любить",
+    "sound" : "http://china-standart.ru/words/ai4-1_song1.mp3"
+}, {
+    "char" : "八",
+    "pinyin" : "bā",
+    "russian" : "восемь"
+}, {
+    "char" : "爸爸",
+    "pinyin" : "bàba",
+    "russian" : "папа",
+    "sound" : "http://china-standart.ru/sounds2/7/cmn-799ef867.mp3"
+}, {
+    "char" : "杯子",
+    "pinyin" : "bēizi",
+    "russian" : "чашка; чарка, рюмка",
+    "sound" : "http://china-standart.ru/sounds2/0/cmn-09cef065.mp3"
+}, {
+    "char" : "北京",
+    "pinyin" : "běijīng",
+    "russian" : "Пекин",
+    "sound" : "http://china-standart.ru/words/bei3-1_song9.mp3"
+}, {
+    "char" : "本",
+    "pinyin" : "běn",
+    "russian" : "счётное слово для книг",
+    "sound" : "http://china-standart.ru/words/ben3-1_song1.mp3"
+}, {
+    "char" : "不",
+    "pinyin" : "bù",
+    "russian" : "нет;отрицание",
+    "sound" : "http://china-standart.ru/words/bu4-1_song1.mp3"
+}, {
+    "char" : "不客气",
+    "pinyin" : "bùkèqì",
+    "russian" : "пожалуйста! не стоит благодарности! не за что!",
+    "sound" : "http://china-standart.ru/words/bu4-1_song92.mp3"
+}, {
+    "char" : "菜",
+    "pinyin" : "cài",
+    "russian" : "овощи; зелень",
+    "sound" : "http://china-standart.ru/words/cai4-1_song1.mp3"
+}, {
+    "char" : "茶",
+    "pinyin" : "chá",
+    "russian" : " чай китайский",
+    "sound" : "http://china-standart.ru/words/cha2-1_song1.mp3"
+}, {
+    "char" : "吃",
+    "pinyin" : "chī ",
+    "russian" : "есть",
+    "sound" : "http://china-standart.ru/words/chi1-1_song1.mp3"
+}, {
+    "char" : "出租车",
+    "pinyin" : "chūzūchē",
+    "russian" : "такси"
+}, {
+    "char" : "打电话",
+    "pinyin" : "dǎ diànhuà",
+    "russian" : "звонить по телефону",
+    "sound" : "http://china-standart.ru/words/da2-1_song19.mp3"
+}, {
+    "char" : "大",
+    "pinyin" : "dà",
+    "russian" : "большой",
+    "sound" : "http://china-standart.ru/words/da4-1_song1.mp3"
+}, {
+    "char" : "的",
+    "pinyin" : "de",
+    "russian" : " синтаксическое служебное слово; формант слова, выступающего в функции определения и обозначающего",
+    "sound" : "http://china-standart.ru/words/de5-1_song1.mp3"
+}, {
+    "char" : "点",
+    "pinyin" : "diǎn",
+    "russian" : "час",
+    "sound" : "http://china-standart.ru/words/dian3-1_song1.mp3"
+}, {
+    "char" : "电脑",
+    "pinyin" : "diànnǎo",
+    "russian" : "компьютер",
+    "sound" : "http://china-standart.ru/sounds2/c/cmn-cbbfca64.mp3"
+}, {
+    "char" : "电视",
+    "pinyin" : "diànshì",
+    "russian" : "телевидение",
+    "sound" : "http://china-standart.ru/sounds2/f/cmn-f6c538c2.mp3"
+}, {
+    "char" : "电影",
+    "pinyin" : "diànyǐng",
+    "russian" : "кино",
+    "sound" : "http://china-standart.ru/sounds2/f/cmn-f68df445.mp3"
+}, {
+    "char" : "东西",
+    "pinyin" : "dōngxī",
+    "russian" : "вещь",
+    "sound" : "http://china-standart.ru/sounds2/c/cmn-c4698257.mp3"
+}, {
+    "char" : "都",
+    "pinyin" : "dōu",
+    "russian" : "все",
+    "sound" : "http://china-standart.ru/words/dou1-1_song1.mp3"
+}, {
+    "char" : "读",
+    "pinyin" : "dú",
+    "russian" : "читать",
+    "sound" : "http://china-standart.ru/words/du2-1_song1.mp3"
+}, {
+    "char" : "对不起",
+    "pinyin" : "duìbuqǐ",
+    "russian" : "извините меня!",
+    "sound" : "http://china-standart.ru/sounds2/8/cmn-893fa634.mp3"
+}, {
+    "char" : "多",
+    "pinyin" : "duō",
+    "russian" : "много",
+    "sound" : "http://china-standart.ru/words/duo1-1_song1.mp3"
+}, {
+    "char" : "多少",
+    "pinyin" : "duōshao",
+    "russian" : "сколько",
+    "sound" : "http://china-standart.ru/sounds2/6/cmn-6cf50c25.mp3"
+}, {
+    "char" : "儿子",
+    "pinyin" : "érzi",
+    "russian" : "сын",
+    "sound" : "http://china-standart.ru/sounds2/b/cmn-b2b320a7.mp3"
+}, {
+    "char" : "二",
+    "pinyin" : "èr",
+    "russian" : 2,
+    "sound" : "http://china-standart.ru/words/er4-1_song1.mp3"
+}, {
+    "char" : "饭馆",
+    "pinyin" : "fànguǎn",
+    "russian" : "ресторан; столовая",
+    "sound" : "http://china-standart.ru/sounds2/d/cmn-ddfaec82.mp3"
+}, {
+    "char" : "飞机",
+    "pinyin" : "fēijī",
+    "russian" : "самолёт",
+    "sound" : "http://china-standart.ru/sounds2/b/cmn-b1beabae.mp3"
+}, {
+    "char" : "分钟",
+    "pinyin" : "fēnzhōng",
+    "russian" : "минута",
+    "sound" : "http://china-standart.ru/sounds2/3/cmn-3b1bb444.mp3"
+}, {
+    "char" : "高兴",
+    "pinyin" : "gāoxìng",
+    "russian" : "щастливый",
+    "sound" : "http://china-standart.ru/sounds2/d/cmn-da5b85f5.mp3"
+}, {
+    "char" : "个",
+    "pinyin" : "ge",
+    "sound" : "http://china-standart.ru/words/ge4-1_song1.mp3"
+}, {
+    "char" : "工作",
+    "pinyin" : "gōngzuò",
+    "russian" : "работа",
+    "sound" : "http://china-standart.ru/sounds2/2/cmn-29206147.mp3"
+}, {
+    "char" : "狗",
+    "pinyin" : "gǒu",
+    "russian" : "собака",
+    "sound" : "http://china-standart.ru/words/gou3-1_song1.mp3"
+}, {
+    "char" : "汉语",
+    "pinyin" : "hànyǔ",
+    "russian" : "китайский язык",
+    "sound" : "http://china-standart.ru/sounds2/e/cmn-ea207f42.mp3"
+}, {
+    "char" : "好",
+    "pinyin" : "hǎo",
+    "russian" : "хорошо",
+    "sound" : "http://china-standart.ru/words/hao3-1_song1.mp3"
+}, {
+    "char" : "喝",
+    "pinyin" : "hē",
+    "russian" : "пить",
+    "sound" : "http://china-standart.ru/words/he1-1_song1.mp3"
+}, {
+    "char" : "和",
+    "pinyin" : "hé",
+    "russian" : "и",
+    "sound" : "http://china-standart.ru/words/he2-1_song1.mp3"
+}, {
+    "char" : "很",
+    "pinyin" : "hěn",
+    "russian" : "очень",
+    "sound" : "http://china-standart.ru/words/hen3-2_song1.mp3"
+}, {
+    "char" : "后面",
+    "pinyin" : "hòumiàn",
+    "russian" : "взади",
+    "sound" : "http://china-standart.ru/sounds2/7/cmn-71cf1036.mp3"
+}, {
+    "char" : "回",
+    "pinyin" : "huí",
+    "russian" : "возвращаться",
+    "sound" : "http://china-standart.ru/words/hui2-1_song1.mp3"
+}, {
+    "char" : "会",
+    "pinyin" : "huì",
+    "russian" : "мочь",
+    "sound" : "http://china-standart.ru/words/hui4-1_song1.mp3"
+}, {
+    "char" : "火车站",
+    "pinyin" : "huǒchēzhàn",
+    "russian" : "железнодорожная станци",
+    "sound" : "http://china-standart.ru/words/huo3-2_song6.mp3"
+}, {
+    "char" : "几",
+    "pinyin" : "jī",
+    "russian" : "сколько",
+    "sound" : "http://china-standart.ru/words/ji1-1_song1.mp3"
+}, {
+    "char" : "家",
+    "pinyin" : "jiā",
+    "russian" : "семья дом",
+    "sound" : "http://china-standart.ru/words/jia1-1_song1.mp3"
+}, {
+    "char" : "叫",
+    "pinyin" : "jiào",
+    "russian" : "зваться",
+    "sound" : "http://china-standart.ru/words/jiao4-1_song1.mp3"
+}, {
+    "char" : "今天",
+    "pinyin" : "jīntiān",
+    "russian" : "сегодня",
+    "sound" : "http://china-standart.ru/sounds2/1/cmn-13ace787.mp3"
+}, {
+    "char" : "九",
+    "pinyin" : "jiǔ",
+    "russian" : 9,
+    "sound" : "http://china-standart.ru/words/jiu3-1_song1.mp3"
+}, {
+    "char" : "开",
+    "pinyin" : "kāi",
+    "russian" : "открыть",
+    "sound" : "http://china-standart.ru/words/kai1-1_song1.mp3"
+}, {
+    "char" : "看",
+    "pinyin" : "kàn",
+    "russian" : "смотреть",
+    "sound" : "http://china-standart.ru/words/kan1-1_song1.mp3"
+}, {
+    "char" : "看见",
+    "pinyin" : "kànjiàn",
+    "russian" : "видеть",
+    "sound" : "http://china-standart.ru/sounds2/4/cmn-48256932.mp3"
+}, {
+    "char" : "块",
+    "pinyin" : "kuài",
+    "russian" : "кусок",
+    "sound" : "http://china-standart.ru/words/kuai4-2_song1.mp3"
+}, {
+    "char" : "来",
+    "pinyin" : "lai2",
+    "russian" : "придти",
+    "sound" : "http://china-standart.ru/words/lai2-1_song1.mp3"
+}, {
+    "char" : "老师",
+    "pinyin" : "lao3 shi1",
+    "russian" : "учитель",
+    "sound" : "http://china-standart.ru/sounds2/c/cmn-cf806469.mp3"
+}, {
+    "char" : "了",
+    "pinyin" : "le5",
+    "russian" : "завершение",
+    "sound" : "http://china-standart.ru/words/le5-1b_song1.mp3"
+}, {
+    "char" : "冷",
+    "pinyin" : "lěng",
+    "russian" : "холодно",
+    "sound" : "http://china-standart.ru/words/leng3-1_song1.mp3"
+}, {
+    "char" : "里",
+    "pinyin" : "lǐ",
+    "russian" : "внутри",
+    "sound" : "http://china-standart.ru/words/li3-1_song1.mp3"
+}, {
+    "char" : "零",
+    "pinyin" : "ling2",
+    "russian" : 0,
+    "sound" : "http://china-standart.ru/words/ling2-1_song1.mp3"
+}, {
+    "char" : "六",
+    "pinyin" : "liu4",
+    "russian" : 6,
+    "sound" : "http://china-standart.ru/words/liu4-1_song1.mp3"
+}, {
+    "char" : "妈妈",
+    "pinyin" : "ma1 ma5",
+    "russian" : "мама",
+    "sound" : "http://china-standart.ru/sounds2/9/cmn-94d6dd46.mp3"
+}, {
+    "char" : "吗",
+    "pinyin" : "ma5",
+    "russian" : "вопрос",
+    "sound" : "http://china-standart.ru/words/ma2-1_song1.mp3"
+}, {
+    "char" : "买",
+    "pinyin" : "mai3",
+    "russian" : "купить",
+    "sound" : "http://china-standart.ru/words/mai3-1_song1.mp3"
+}, {
+    "char" : "猫",
+    "pinyin" : "mao1",
+    "russian" : "кошка",
+    "sound" : "http://china-standart.ru/words/mao1-1_song1.mp3"
+}, {
+    "char" : "没",
+    "pinyin" : "mei2",
+    "russian" : "отрицание",
+    "sound" : "http://china-standart.ru/words/mei2-1_song1.mp3"
+}, {
+    "char" : "没关系",
+    "pinyin" : "mei2 guan1 xi5",
+    "russian" : "ничего страшного",
+    "sound" : "http://china-standart.ru/sounds2/d/cmn-d594e032.mp3"
+}, {
+    "char" : "米饭",
+    "pinyin" : "mi3 fan4",
+    "russian" : "рис",
+    "sound" : "http://china-standart.ru/sounds2/4/cmn-45c7369f.mp3"
+}, {
+    "char" : "明天",
+    "pinyin" : "ming2 tian1",
+    "russian" : "завтра",
+    "sound" : "http://china-standart.ru/sounds2/5/cmn-5767840f.mp3"
+}, {
+    "char" : "名字",
+    "pinyin" : "ming2 zi5",
+    "russian" : "имя",
+    "sound" : "http://china-standart.ru/sounds2/e/cmn-e395b46c.mp3"
+}, {
+    "char" : "哪",
+    "pinyin" : "na3",
+    "russian" : "какой",
+    "sound" : "http://china-standart.ru/words/n/na3-1_song1.mp3"
+}, {
+    "char" : "哪儿",
+    "pinyin" : "na3 r5",
+    "russian" : "где",
+    "sound" : "http://china-standart.ru/words/n/na3-1_song6.mp3"
+}, {
+    "char" : "那",
+    "pinyin" : "na4",
+    "russian" : "тот",
+    "sound" : "http://china-standart.ru/words/n/na1-1_song1.mp3"
+}, {
+    "char" : "那儿",
+    "pinyin" : "na4 r5",
+    "russian" : "там",
+    "sound" : "http://china-standart.ru/words/n/na1-1_song10.mp3"
+}, {
+    "char" : "呢",
+    "pinyin" : "ne5",
+    "russian" : "вопросительная",
+    "sound" : "http://china-standart.ru/words/n/ne5-1_song1.mp3"
+}, {
+    "char" : "能",
+    "pinyin" : "neng2",
+    "russian" : "уметь",
+    "sound" : "http://china-standart.ru/words/n/neng2-1_song1.mp3"
+}, {
+    "char" : "你",
+    "pinyin" : "ni3",
+    "russian" : "ты",
+    "sound" : "http://china-standart.ru/words/n/ni3-1_song1.mp3"
+}, {
+    "char" : "年",
+    "pinyin" : "nian2",
+    "russian" : "год",
+    "sound" : "http://china-standart.ru/words/n/nian2-1_song1.mp3"
+}, {
+    "char" : "女儿",
+    "pinyin" : "nv3 er2",
+    "russian" : "дочь",
+    "sound" : "http://china-standart.ru/sounds2/e/cmn-eb533b19.mp3"
+}, {
+    "char" : "朋友",
+    "pinyin" : "peng2 you5",
+    "russian" : "друг",
+    "sound" : "http://china-standart.ru/sounds2/3/cmn-36296e70.mp3"
+}, {
+    "char" : "漂亮",
+    "pinyin" : "piao4 liang5",
+    "russian" : "красивый",
+    "sound" : "http://china-standart.ru/sounds2/6/cmn-62177238.mp3"
+}, {
+    "char" : "苹果",
+    "pinyin" : "ping2 guo3",
+    "russian" : "яблоко",
+    "sound" : "http://china-standart.ru/sounds2/5/cmn-568d6c36.mp3"
+}, {
+    "char" : "七",
+    "pinyin" : "qi1",
+    "russian" : 7,
+    "sound" : "http://china-standart.ru/words/q/qi1-1_song1.mp3"
+}, {
+    "char" : "钱",
+    "pinyin" : "qian2",
+    "russian" : "деньги",
+    "sound" : "http://china-standart.ru/words/q/qian2-1_song1.mp3"
+}, {
+    "char" : "前面",
+    "pinyin" : "qian2 mian4",
+    "russian" : "над",
+    "sound" : "http://china-standart.ru/sounds2/0/cmn-0e8a4a2b.mp3"
+}, {
+    "char" : "请",
+    "pinyin" : "qing3",
+    "russian" : "ответ",
+    "sound" : "http://china-standart.ru/words/q/qing3-1_song1.mp3"
+}, {
+    "char" : "去",
+    "pinyin" : "qu4",
+    "russian" : "идти",
+    "sound" : "http://china-standart.ru/words/q/qu4-1_song1.mp3"
+}, {
+    "char" : "热",
+    "pinyin" : "re4",
+    "russian" : "горячо",
+    "sound" : "http://china-standart.ru/words/r/re4-1_song1.mp3"
+}, {
+    "char" : "人",
+    "pinyin" : "ren2",
+    "russian" : "человек",
+    "sound" : "http://china-standart.ru/words/r/ren2-1_song1.mp3"
+}, {
+    "char" : "认识",
+    "pinyin" : "ren4 shi5",
+    "russian" : "знакомить",
+    "sound" : "http://china-standart.ru/sounds2/c/cmn-cc7e90c2.mp3"
+}, {
+    "char" : "日",
+    "pinyin" : "ri4",
+    "russian" : "солнце",
+    "sound" : "http://china-standart.ru/words/r/ri4-1_song1.mp3"
+}, {
+    "char" : "三",
+    "pinyin" : "san1",
+    "russian" : 3,
+    "sound" : "http://china-standart.ru/words/s/san1-1_song1.mp3"
+}, {
+    "char" : "商店",
+    "pinyin" : "shang1 dian4",
+    "russian" : "магазин",
+    "sound" : "http://china-standart.ru/sounds2/f/cmn-f9f7388b.mp3"
+}, {
+    "char" : "上",
+    "pinyin" : "shang4",
+    "russian" : "низ",
+    "sound" : "http://china-standart.ru/words/s/shang4-1_song1.mp3"
+}, {
+    "char" : "上午",
+    "pinyin" : "shang4 wu3",
+    "russian" : "утро",
+    "sound" : "http://china-standart.ru/sounds2/5/cmn-5c2312e2.mp3"
+}, {
+    "char" : "少",
+    "pinyin" : "shao3",
+    "russian" : "мало",
+    "sound" : "http://china-standart.ru/words/s/shao3-1_song1.mp3"
+}, {
+    "char" : "谁",
+    "pinyin" : "shei2",
+    "russian" : "кто",
+    "sound" : "http://china-standart.ru/words/s/shei2-1_song1.mp3"
+}, {
+    "char" : "什么",
+    "pinyin" : "shen2 me5",
+    "russian" : "что",
+    "sound" : "http://china-standart.ru/sounds2/c/cmn-ced61196.mp3"
+}, {
+    "char" : "十",
+    "pinyin" : "shi2",
+    "russian" : 10,
+    "sound" : "http://china-standart.ru/words/s/shi2-1_song1.mp3"
+}, {
+    "char" : "时候",
+    "pinyin" : "shi2 hou5",
+    "russian" : "время",
+    "sound" : "http://china-standart.ru/sounds2/3/cmn-3799129a.mp3"
+}, {
+    "char" : "是",
+    "pinyin" : "shi4",
+    "russian" : "да",
+    "sound" : "http://china-standart.ru/words/s/shi4-1_song1.mp3"
+}, {
+    "char" : "书",
+    "pinyin" : "shu1",
+    "russian" : "книга",
+    "sound" : "http://china-standart.ru/words/s/shu1-1_song1.mp3"
+}, {
+    "char" : "水",
+    "pinyin" : "shui3",
+    "russian" : "вода",
+    "sound" : "http://china-standart.ru/words/s/shui3-1_song1.mp3"
+}, {
+    "char" : "水果",
+    "pinyin" : "shui3 guo3",
+    "russian" : "фрукт",
+    "sound" : "http://china-standart.ru/sounds2/4/cmn-481c5c0c.mp3"
+}, {
+    "char" : "睡觉",
+    "pinyin" : "shui4 jiao4",
+    "russian" : "спать",
+    "sound" : "http://china-standart.ru/sounds2/b/cmn-b41187ea.mp3"
+}, {
+    "char" : "说话",
+    "pinyin" : "shuo1 hua4",
+    "russian" : "слово",
+    "sound" : "http://china-standart.ru/words/s/shuo1-1_song22.mp3"
+}, {
+    "char" : "四",
+    "pinyin" : "si4",
+    "russian" : 4,
+    "sound" : "http://china-standart.ru/words/s/si4-2_song1.mp3"
+}, {
+    "char" : "岁",
+    "pinyin" : "sui4",
+    "russian" : "лет",
+    "sound" : "http://china-standart.ru/words/s/sui4-1_song1.mp3"
+}, {
+    "char" : "他",
+    "pinyin" : "ta1",
+    "russian" : "он",
+    "sound" : "http://china-standart.ru/words/t/ta1-1_song1.mp3"
+}, {
+    "char" : "她",
+    "pinyin" : "ta1",
+    "russian" : "он",
+    "sound" : "http://china-standart.ru/words/t/ta1-1_song1.mp3"
+}, {
+    "char" : "太",
+    "pinyin" : "tai4",
+    "russian" : "очень ..",
+    "sound" : "http://china-standart.ru/words/t/tai4.mp3"
+}, {
+    "char" : "天气",
+    "pinyin" : "tian1 qi4",
+    "russian" : "погода",
+    "sound" : "http://china-standart.ru/sounds2/f/cmn-fc4711bc.mp3"
+}, {
+    "char" : "听",
+    "pinyin" : "ting1",
+    "sound" : "http://china-standart.ru/words/t/ting1-2_song1.mp3"
+}, {
+    "char" : "同学",
+    "pinyin" : "tong2 xue2",
+    "russian" : "клас",
+    "sound" : "http://china-standart.ru/sounds2/0/cmn-0af7d333.mp3"
+}, {
+    "char" : "喂",
+    "pinyin" : "wei4",
+    "sound" : "http://china-standart.ru/words/w/wei4-1_song1.mp3"
+}, {
+    "char" : "我",
+    "pinyin" : "wo3",
+    "russian" : "яблоко",
+    "sound" : "http://china-standart.ru/words/w/wo3-1_song1.mp3"
+}, {
+    "char" : "我们",
+    "pinyin" : "wo3 men5",
+    "russian" : "мы",
+    "sound" : "http://china-standart.ru/sounds2/8/cmn-830fc462.mp3"
+}, {
+    "char" : "五",
+    "pinyin" : "wu3",
+    "russian" : 5,
+    "sound" : "http://china-standart.ru/words/w/wu3-1_song1.mp3"
+}, {
+    "char" : "喜欢",
+    "pinyin" : "xi3 huan5",
+    "russian" : "нравиться",
+    "sound" : "http://china-standart.ru/sounds2/c/cmn-c99e3a0d.mp3"
+}, {
+    "char" : "下",
+    "pinyin" : "xia4",
+    "russian" : "низ",
+    "sound" : "http://china-standart.ru/words/x/xia4-1_song1.mp3"
+}, {
+    "char" : "下午",
+    "pinyin" : "xia4 wu3",
+    "russian" : "вечер",
+    "sound" : "http://china-standart.ru/sounds2/e/cmn-e49f7587.mp3"
+}, {
+    "char" : "下雨",
+    "pinyin" : "xia4 yu3",
+    "russian" : "дождь",
+    "sound" : "http://china-standart.ru/sounds2/e/cmn-e49f7587.mp3"
+}, {
+    "char" : "先生",
+    "pinyin" : "xian1 sheng5",
+    "russian" : "господин",
+    "sound" : "http://china-standart.ru/sounds2/7/cmn-7f908d4a.mp3"
+}, {
+    "char" : "现在",
+    "pinyin" : "xian4 zai4",
+    "russian" : "сейчас",
+    "sound" : "http://china-standart.ru/sounds2/0/cmn-03f73677.mp3"
+}, {
+    "char" : "想",
+    "pinyin" : "xiang3",
+    "russian" : "думать",
+    "sound" : "http://china-standart.ru/words/x/xiang3-1_song1.mp3"
+}, {
+    "char" : "小",
+    "pinyin" : "xiao3",
+    "russian" : "маленький",
+    "sound" : "http://china-standart.ru/words/x/xiao3-1_song1.mp3"
+}, {
+    "char" : "小姐",
+    "pinyin" : "xiao3 jie5",
+    "russian" : "молодая леди",
+    "sound" : "http://china-standart.ru/sounds2/e/cmn-ecd62eca.mp3"
+}, {
+    "char" : "些",
+    "pinyin" : "xie1",
+    "russian" : "несколько",
+    "sound" : "http://china-standart.ru/words/x/xie1-2_song1.mp3"
+}, {
+    "char" : "写",
+    "pinyin" : "xie3",
+    "russian" : "писать",
+    "sound" : "http://china-standart.ru/words/x/xie3-1_song1.mp3"
+}, {
+    "char" : "谢谢",
+    "pinyin" : "xie4 xie5",
+    "russian" : "спаибо",
+    "sound" : "http://china-standart.ru/sounds2/c/cmn-c79c0cb2.mp3"
+}, {
+    "char" : "星期",
+    "pinyin" : "xing1 qi1",
+    "russian" : "неделя",
+    "sound" : "http://china-standart.ru/sounds2/6/cmn-65a123ce.mp3"
+}, {
+    "char" : "学生",
+    "pinyin" : "xue2 sheng5",
+    "russian" : "студент",
+    "sound" : "http://china-standart.ru/sounds2/c/cmn-cecc3182.mp3"
+}, {
+    "char" : "学习",
+    "pinyin" : "xue2 xi2",
+    "russian" : "учиться",
+    "sound" : "http://china-standart.ru/sounds2/5/cmn-5ac6f809.mp3"
+}, {
+    "char" : "学校",
+    "pinyin" : "xue2 xiao4",
+    "russian" : "школа",
+    "sound" : "http://china-standart.ru/sounds2/b/cmn-b545b5e9.mp3"
+}, {
+    "char" : "一",
+    "pinyin" : "yi1",
+    "russian" : 1,
+    "sound" : "http://china-standart.ru/words/y/yi1-1_song1.mp3"
+}, {
+    "char" : "衣服",
+    "pinyin" : "yi1 fu5",
+    "russian" : "одежда",
+    "sound" : "http://china-standart.ru/sounds2/b/cmn-badeae18.mp3"
+}, {
+    "char" : "医生",
+    "pinyin" : "yi1 sheng1",
+    "russian" : "доктор",
+    "sound" : "http://china-standart.ru/sounds2/9/cmn-901eb874.mp3"
+}, {
+    "char" : "医院",
+    "pinyin" : "yi1 yuan4",
+    "russian" : "больница",
+    "sound" : "http://china-standart.ru/sounds2/7/cmn-7746a722.mp3"
+}, {
+    "char" : "椅子",
+    "pinyin" : "yi3 zi5",
+    "sound" : "http://china-standart.ru/sounds2/6/cmn-6a7065c8.mp3"
+}, {
+    "char" : "有",
+    "pinyin" : "you3",
+    "russian" : "иметь",
+    "sound" : "http://china-standart.ru/words/y/you3-1_song1.mp3"
+}, {
+    "char" : "月",
+    "pinyin" : "yue4",
+    "russian" : "месяц",
+    "sound" : "http://china-standart.ru/words/y/yue4-1_song1.mp3"
+}, {
+    "char" : "在",
+    "pinyin" : "zai4",
+    "russian" : "в",
+    "sound" : "http://china-standart.ru/words/z/zai4-1_song1.mp3"
+}, {
+    "char" : "再见",
+    "pinyin" : "zai4 jian4",
+    "russian" : "давай досвидания",
+    "sound" : "http://china-standart.ru/sounds2/0/cmn-0ad618c6.mp3"
+}, {
+    "char" : "怎么",
+    "pinyin" : "zen3 me5",
+    "russian" : "как",
+    "sound" : "http://china-standart.ru/sounds2/b/cmn-b5304e39.mp3"
+}, {
+    "char" : "怎么样",
+    "pinyin" : "zen3 me5 yang4",
+    "russian" : "как",
+    "sound" : "http://china-standart.ru/sounds2/c/cmn-cab5634b.mp3"
+}, {
+    "char" : "这",
+    "pinyin" : "zhe4",
+    "russian" : "это",
+    "sound" : "http://china-standart.ru/words/z/zhe4-1_song1.mp3"
+}, {
+    "char" : "这儿",
+    "pinyin" : "zhe4 r5",
+    "russian" : "здесь",
+    "sound" : "http://china-standart.ru/words/z/zhe4-2_song8.mp3"
+}, {
+    "char" : "中国",
+    "pinyin" : "Zhong1 guo2",
+    "russian" : "китай",
+    "sound" : "http://china-standart.ru/words/z/zhong1-1_song13.mp3"
+}, {
+    "char" : "中午",
+    "pinyin" : "zhong1 wu3",
+    "russian" : "полдень",
+    "sound" : "http://china-standart.ru/sounds2/6/cmn-61c68565.mp3"
+}, {
+    "char" : "住",
+    "pinyin" : "zhu4",
+    "russian" : "жить",
+    "sound" : "http://china-standart.ru/words/z/zhu4-1_song1.mp3"
+}, {
+    "char" : "桌子",
+    "pinyin" : "zhuo1 zi5",
+    "russian" : "доска",
+    "sound" : "http://china-standart.ru/sounds2/d/cmn-df98a532.mp3"
+}, {
+    "char" : "字",
+    "pinyin" : "zi4",
+    "russian" : "иерглиф",
+    "sound" : "http://china-standart.ru/words/z/zi4-1_song1.mp3"
+}, {
+    "char" : "昨天",
+    "pinyin" : "zuo2 tian1",
+    "russian" : "вчера",
+    "sound" : "http://china-standart.ru/sounds2/d/cmn-d23e74ed.mp3"
+}, {
+    "char" : "做",
+    "pinyin" : "zuo4",
+    "russian" : "делать",
+    "sound" : "http://china-standart.ru/words/z/zuo4-1_song1.mp3"
+}, {
+    "char" : "坐",
+    "pinyin" : "zuo4",
+    "russian" : "сидеть",
+    "sound" : "http://china-standart.ru/words/z/zuo4-1_song1.mp3"
+} ]
 }

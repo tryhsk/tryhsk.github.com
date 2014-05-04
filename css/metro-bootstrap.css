@@ -5984,7 +5984,7 @@ a {
   cursor: pointer;
 }
 .metro .sidebar > ul ul li:hover {
-  background: #edf4fc;
+  background: white;
   border-color: #a8d2fd;
 }
 .metro .sidebar > ul ul li.checked a:before,
