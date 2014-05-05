@@ -32,8 +32,6 @@
 </head>
 <body class="metro"><p> </p>
 
-
-
 <div class="container">
 
     <div class="tab-control" data-role="tab-control">
@@ -59,41 +57,70 @@
 
                         <ul class="treeview" data-role="treeview">
                             <li class="node">
-                                <a href="#"><span class="node-toggle"></span>main</a>
+                            <a href="#"><span class="node-toggle"></span>part of speech</a>
+                            <ul>
+                                <li> <div class="input-control checkbox" data-role="input-control">
+                                    <label class="english_toggle">
+                                        <input type="checkbox"  id="noun" checked />
+                                        <span class="check"></span>
+                                        noun
+                                    </label>
+                                </div>
+                                </li>
+                                <li> <div class="input-control checkbox" data-role="input-control">
+                                    <label class="english_toggle">
+                                        <input type="checkbox" id="pronoun"  checked />
+                                        <span class="check"></span>
+                                        pronoun
+                                    </label>
+                                </div>
+                                </li>
+                                <li> <div class="input-control checkbox" data-role="input-control">
+                                    <label class="english_toggle">
+                                        <input type="checkbox"  id="verb" checked />
+                                        <span class="check"></span>
+                                        verb
+                                    </label>
+                                </div>
+                                </li>
+                                <li> <div class="input-control checkbox" data-role="input-control">
+                                    <label class="english_toggle">
+                                        <input type="checkbox" id='subject' checked />
+                                        <span class="check"></span>
+                                        subject
+                                    </label>
+                                </div>
+                                </li>
+                            </ul>
+                        </li>
+                            <li class="node">
+                                <a href="#"><span class="node-toggle"></span>HSK level</a>
                                 <ul>
-                                    <!--<li><button class="button info" id="create" >all</button></li>-->
                                     <li> <div class="input-control checkbox" data-role="input-control">
                                         <label class="english_toggle">
-                                            <input type="checkbox"  id="noun" checked />
+                                            <input type="checkbox"  id="" disabled checked />
                                             <span class="check"></span>
-                                            noun
+                                            HSK 1
                                         </label>
                                     </div>
                                     </li>
                                     <li> <div class="input-control checkbox" data-role="input-control">
                                         <label class="english_toggle">
-                                            <input type="checkbox" id="pronoun"  checked />
+                                            <input type="checkbox" id=""  disabled />
                                             <span class="check"></span>
-                                            pronoun
+                                            HSK 2
                                         </label>
                                     </div>
                                     </li>
                                     <li> <div class="input-control checkbox" data-role="input-control">
                                         <label class="english_toggle">
-                                            <input type="checkbox"  id="verb" checked />
+                                            <input type="checkbox"  id="" disabled />
                                             <span class="check"></span>
-                                            verb
+                                            HSK 3
                                         </label>
                                     </div>
                                     </li>
-                                    <li> <div class="input-control checkbox" data-role="input-control">
-                                        <label class="english_toggle">
-                                            <input type="checkbox" id='subject' checked />
-                                            <span class="check"></span>
-                                            subject
-                                        </label>
-                                    </div>
-                                    </li>
+
                                 </ul>
                             </li>
                         </ul>
