@@ -19,8 +19,6 @@ $.ajax({
 
 fill();
 
-
-
 function fill(){
     $("div.content").css("display","none").css("border","");
     get_arr();
@@ -32,17 +30,6 @@ function fill(){
     $("div.content:has(button.danger)").css("border","2px solid red");
     return false;
 }
-
-
-
-
-
-
-
-//console.log(question);
-//console.log(words[test_arr[2]].char);
-//console.log(words[2].char);
-
 
 function get_arr(){
     test_arr=[];        //@todo destructor
@@ -71,7 +58,6 @@ function get_arr(){
     }
 }
 
-
 function random_var(){
     return Math.floor(Math.random() * test_arr.length-1);  // @todo ask Dima pro  -1
 }
@@ -95,7 +81,6 @@ function randomize(){
     return question;
 }
 
-
 function main_char(){
     var length=words[test_arr[question]].char.length;
     if(length==1){$("#random").css("width",92)}else{
@@ -104,13 +89,10 @@ function main_char(){
     document.getElementById("random").innerHTML=words[test_arr[question]].char;
 }
 
-
 function music(){
     document.getElementById("music").innerHTML= "<audio id=\"sound\" src=\"" + words[test_arr[question]].sound +"\" autoplay></audio>";
     return function(){};
 }
-
-
 
 function generate_var(){
 
@@ -143,7 +125,6 @@ function generate_var(){
 for(var f=0;f<4;f++){
     console.log("test_random  "+test_random[f])
 }
-
 
     var russian_var= ["first_var","second_var","third_var","fourth_var"];
     for(var i=0; i<4;i++){
@@ -214,4 +195,70 @@ $("#random").click(function (){
 });
 
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  HSK    SUMMARY
 
+
+
+summary();
+
+function summary() {
+
+    var output = "";
+    for (var i in  words) {
+
+//  old variant      output += "<tr class=\'" + words[i].part_of_speech + "  " + words[i].meaning + "\'>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\">" + words[i].english + "</td>" + "</tr>";
+        output += "<tr>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\">" + words[i].english + "</td>" + "</tr>";
+    }
+    document.getElementById("place").innerHTML = output;
+    return false;
+
+}
+
+
+$("#create").click(function () {
+    $("#_page_2 > *").show();
+    return false;
+});
+
+$("#color").change(function () {
+
+    if ($("#color").prop('checked')) {
+        $(".color").show();
+    } else {
+        $(".color").hide();
+    }
+    return false;
+});
+
+$("#number").change(function () {
+
+    if ($("#number").prop('checked')) {
+        $(".number").show();
+    } else {
+        $(".number").hide();
+    }
+    return false;
+});
+
+
+$("#char").click(function () {
+    $(".char").toggle();
+    return false;
+});
+$("#pinyin").click(function () {
+    $(".pinyin").toggle();
+    return false;
+});
+$("#russian").click(function () {
+    $(".russian").toggle();
+    return false;
+});
+$("#english").click(function () {
+    $(".english").toggle();
+    return false;
+});
+
+//    $("label").click(function(){
+//        $(".english").toggle();
+//        return false;
+//    });
