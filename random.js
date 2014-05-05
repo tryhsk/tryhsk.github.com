@@ -2,28 +2,51 @@
 var question;
 var length_words;
 var arr=new Array(10);
-var color_bool= true;
-var number_bool= true;
+var noun_bool= true;
+var pronoun_bool= true;
+var verb_bool= true;
+var subject_bool= true;
 
-$("#color_var").change(function (){
+$("#noun").change(function (){
 
-    color_bool = !!$("#color_var").prop('checked');
-    console.log(color_bool);
+    noun_bool = !!$("#noun").prop('checked');
+    console.log(noun_bool);
     return false;
 });
-$("#number_var").change(function (){
 
-    number_bool = !!$("#cnumber_var").prop('checked');
-    console.log(color_bool);
+
+$("#pronoun").change(function (){
+
+    pronoun_bool = !!$("#pronoun").prop('checked');
+    console.log(noun_bool);
     return false;
 });
+
+
+$("#verb").change(function (){
+
+    verb_bool = !!$("#verb").prop('checked');
+    console.log(noun_bool);
+    return false;
+});
+
+
+$("#subject").change(function (){
+
+    subject_bool = !!$("#subject").prop('checked');
+    console.log(noun_bool);
+    return false;
+});
+
+
+
 
 
 choose_machine();
 
 
 function choose_machine(){
-    if(color_bool&&number_bool){fill();}else{
+    if(noun_bool&&pronoun_bool){fill();}else{
     var light=[];
 
     }
@@ -76,9 +99,23 @@ function music(json){
     return function(){};
 }
 
+var test_arr=[];
+
 function fill(){
     $("div.content").css("display","none").css("border","");
     $.getJSON('hsk_words.json', function(hsk_words) {
+
+console.log(noun_bool);
+        if(noun_bool){
+            for(var i=1;i<hsk_words.words.length;i++){
+                if(hsk_words.words.noun){
+                  test_arr.unshift(hsk_words.words.id)  ;
+
+                }
+            }
+        }
+console.log(test_arr);
+
         length_words = hsk_words.words.length-1;
         randomize();
         main_char(hsk_words);
@@ -147,7 +184,12 @@ function generate_var(json){
 }
 
 
+(function(){
+    var i;
+    for( i;i < test_arr.length;i++){
+    console.log(test_arr[i]);
 
+}})();
 
 
 
