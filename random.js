@@ -134,6 +134,10 @@ for(var f=0;f<4;f++){
     for(var i=0; i<4;i++){
         document.getElementById(char_var[i]).innerHTML=words[test_random[i]].char;
     }
+    var music_var= ["first_ansver_sound","second_ansver_sound","third_ansver_sound","fourth_ansver_sound"];
+    for(var i=0; i<4;i++){
+        document.getElementById(music_var[i]).innerHTML="<audio id=\"sound_"+music_var[i]+"\" src=\"" + words[test_random[i]].sound +"\" ></audio>"
+    }
     var pinyin_var= ["first_ansver","second_ansver","third_ansver","fourth_ansver"];
     for(var i=0; i<4;i++){
         document.getElementById(pinyin_var[i]).innerHTML=words[test_random[i]].pinyin;
@@ -191,6 +195,30 @@ $("#next").click(function (){
 
 $("#random").click(function (){
     document.getElementById('sound').play();
+    return false;
+});
+
+
+$(".music1").click(function (){
+    document.getElementById('sound_first_ansver_sound').play();
+    return false;
+});
+
+
+$(".music2").click(function (){
+    document.getElementById('sound_second_ansver_sound').play();
+    return false;
+});
+
+
+$(".music3").click(function (){
+    document.getElementById('sound_third_ansver_sound').play();
+    return false;
+});
+
+
+$(".music4").click(function (){
+    document.getElementById('sound_fourth_ansver_sound').play();
     return false;
 });
 
