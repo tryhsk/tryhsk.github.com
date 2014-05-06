@@ -197,11 +197,10 @@ $("#random").click(function (){
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  HSK    SUMMARY
 
-var char_bool=true;
-var pinyin_bool=true;
-var russian_bool=true;
-var english_bool=false;
-
+var noun_bool_s= true;
+var pronoun_bool_s= true;
+var verb_bool_s= true;
+var subject_bool_s= true;
 summary();
 
 function summary() {
@@ -210,7 +209,7 @@ function summary() {
     for (var i in  words) {
 
 //  old variant      output += "<tr class=\'" + words[i].part_of_speech + "  " + words[i].meaning + "\'>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\">" + words[i].english + "</td>" + "</tr>";
-
+if()
 
         output += "<tr>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[i].english + "</td>" + "</tr>";
     }
