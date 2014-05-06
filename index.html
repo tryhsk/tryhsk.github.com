@@ -93,7 +93,8 @@
                                 </li>
                             </ul>
                         </li>
-                            <li class="node">
+
+                            <li class="node collapsed">
                                 <a href="#"><span class="node-toggle"></span>HSK level</a>
                                 <ul>
                                     <li> <div class="input-control checkbox" data-role="input-control">
@@ -244,44 +245,114 @@
 
                 <div class="grid fluid">
                     <div class="row">
-                        <div class="span2" >
+                        <div class="span2">
+
+
                             <ul class="treeview" data-role="treeview">
                                 <li class="node">
-                                    <a href="#"><span class="node-toggle"></span>main</a>
+                                    <a href="#"><span class="node-toggle"></span>part of speech</a>
                                     <ul>
-                                        <li><button class="button info" id="create" >all</button></li>
                                         <li> <div class="input-control checkbox" data-role="input-control">
                                             <label class="english_toggle">
-                                                <input type="checkbox"  id="number" checked />
+                                                <input type="checkbox"  id="noun_summary" checked />
                                                 <span class="check"></span>
-                                                number
+                                                noun
                                             </label>
                                         </div>
                                         </li>
                                         <li> <div class="input-control checkbox" data-role="input-control">
                                             <label class="english_toggle">
-                                                <input type="checkbox" id="color"  checked />
+                                                <input type="checkbox" id="pronoun_summary"  checked />
                                                 <span class="check"></span>
-                                                color
+                                                pronoun
                                             </label>
                                         </div>
                                         </li>
                                         <li> <div class="input-control checkbox" data-role="input-control">
                                             <label class="english_toggle">
-                                                <input type="checkbox"  id="1w" checked />
+                                                <input type="checkbox"  id="verb_summary" checked />
                                                 <span class="check"></span>
-                                                gdrgr
+                                                verb
                                             </label>
                                         </div>
                                         </li>
                                         <li> <div class="input-control checkbox" data-role="input-control">
                                             <label class="english_toggle">
-                                                <input type="checkbox" checked />
+                                                <input type="checkbox" id='subject_summary' checked />
                                                 <span class="check"></span>
-                                                Check me out
+                                                subject
                                             </label>
                                         </div>
                                         </li>
+                                    </ul>
+                                </li>
+
+                                <li class="node ">
+                                    <a href="#"><span class="node-toggle"></span>colums</a>
+                                    <ul>
+                                        <li> <div class="input-control checkbox" data-role="input-control">
+                                            <label class="english_toggle">
+                                                <input type="checkbox"  id="char" checked />
+                                                <span class="check"></span>
+                                                char
+                                            </label>
+                                        </div>
+                                        </li>
+                                        <li> <div class="input-control checkbox" data-role="input-control">
+                                            <label class="english_toggle">
+                                                <input type="checkbox" id="pinyin"  checked />
+                                                <span class="check"></span>
+                                                pinyin
+                                            </label>
+                                        </div>
+                                        </li>
+                                        <li> <div class="input-control checkbox" data-role="input-control">
+                                            <label class="english_toggle">
+                                                <input type="checkbox"  id="russian" checked />
+                                                <span class="check"></span>
+                                                russian
+                                            </label>
+                                        </div>
+                                        </li>
+                                        <li> <div class="input-control checkbox" data-role="input-control">
+                                            <label class="english_toggle">
+                                                <input type="checkbox" id='english' />
+                                                <span class="check"></span>
+                                                english
+                                            </label>
+                                        </div>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="node collapsed">
+                                    <a href="#"><span class="node-toggle"></span>HSK level</a>
+                                    <ul>
+                                        <li> <div class="input-control checkbox" data-role="input-control">
+                                            <label class="english_toggle">
+                                                <input type="checkbox"    disabled checked />
+                                                <span class="check"></span>
+                                                HSK 1
+                                            </label>
+                                        </div>
+                                        </li>
+                                        <li> <div class="input-control checkbox" data-role="input-control">
+                                            <label class="english_toggle">
+                                                <input type="checkbox"    disabled />
+                                                <span class="check"></span>
+                                                HSK 2
+                                            </label>
+                                        </div>
+                                        </li>
+                                        <li> <div class="input-control checkbox" data-role="input-control">
+                                            <label class="english_toggle">
+                                                <input type="checkbox"     disabled />
+                                                <span class="check"></span>
+                                                HSK 3
+                                            </label>
+                                        </div>
+                                        </li>
+
                                     </ul>
                                 </li>
                             </ul>
@@ -293,7 +364,7 @@
                                     <th class="text-left  char" >Char</th>
                                     <th class="text-left  pinyin" >Pinyin</th>
                                     <th class="text-left  russian" >Russian</th>
-                                    <th class="text-left  english" >English</th>
+                                    <th class="text-left  english" style="display: none">English</th>
                                 </tr>
                                 </thead>
                                 <tbody id="place">

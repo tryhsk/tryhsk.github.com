@@ -197,7 +197,10 @@ $("#random").click(function (){
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  HSK    SUMMARY
 
-
+var char_bool=true;
+var pinyin_bool=true;
+var russian_bool=true;
+var english_bool=false;
 
 summary();
 
@@ -207,7 +210,9 @@ function summary() {
     for (var i in  words) {
 
 //  old variant      output += "<tr class=\'" + words[i].part_of_speech + "  " + words[i].meaning + "\'>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\">" + words[i].english + "</td>" + "</tr>";
-        output += "<tr>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\">" + words[i].english + "</td>" + "</tr>";
+
+
+        output += "<tr>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[i].english + "</td>" + "</tr>";
     }
     document.getElementById("place").innerHTML = output;
     return false;
@@ -215,50 +220,46 @@ function summary() {
 }
 
 
-$("#create").click(function () {
-    $("#_page_2 > *").show();
-    return false;
-});
 
-$("#color").change(function () {
+$("#char").change(function () {
 
-    if ($("#color").prop('checked')) {
-        $(".color").show();
+    if ($("#char").prop('checked')) {
+        $(".char").show();
     } else {
-        $(".color").hide();
+        $(".char").hide();
     }
     return false;
 });
 
-$("#number").change(function () {
+$("#pinyin").change(function () {
 
-    if ($("#number").prop('checked')) {
-        $(".number").show();
+    if ($("#pinyin").prop('checked')) {
+        $(".pinyin").show();
     } else {
-        $(".number").hide();
+        $(".pinyin").hide();
+    }
+    return false;
+});
+
+$("#russian").change(function () {
+
+    if ($("#russian").prop('checked')) {
+        $(".russian").show();
+    } else {
+        $(".russian").hide();
+    }
+    return false;
+});
+
+$("#english").change(function () {
+
+    if ($("#english").prop('checked')) {
+        $(".english").show();
+    } else {
+        $(".english").hide();
     }
     return false;
 });
 
 
-$("#char").click(function () {
-    $(".char").toggle();
-    return false;
-});
-$("#pinyin").click(function () {
-    $(".pinyin").toggle();
-    return false;
-});
-$("#russian").click(function () {
-    $(".russian").toggle();
-    return false;
-});
-$("#english").click(function () {
-    $(".english").toggle();
-    return false;
-});
 
-//    $("label").click(function(){
-//        $(".english").toggle();
-//        return false;
-//    });
