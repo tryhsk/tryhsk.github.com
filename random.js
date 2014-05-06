@@ -197,10 +197,10 @@ $("#random").click(function (){
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  HSK    SUMMARY
 
-var noun_bool_s= true;
-var pronoun_bool_s= true;
-var verb_bool_s= true;
-var subject_bool_s= true;
+//var noun_bool_s= true;
+//var pronoun_bool_s= true;
+//var verb_bool_s= true;
+//var subject_bool_s= true;
 summary();
 
 function summary() {
@@ -209,14 +209,70 @@ function summary() {
     for (var i in  words) {
 
 //  old variant      output += "<tr class=\'" + words[i].part_of_speech + "  " + words[i].meaning + "\'>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\">" + words[i].english + "</td>" + "</tr>";
-if()
+if(words[i].noun){ output+="<tr class='noun'>"}
+if(words[i].pronoun){ output+="<tr class='pronoun'>"}
+if(words[i].verb){ output+="<tr class='verb'>"}
+if(words[i].subject){ output+="<tr class='subject'>"}
 
-        output += "<tr>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[i].english + "</td>" + "</tr>";
+        output += "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[i].english + "</td>" + "</tr>";
     }
     document.getElementById("place").innerHTML = output;
     return false;
 
 }
+
+
+
+$("#subject_summary").change(function () {
+
+    if ($("#subject_summary").prop('checked')) {
+        $(".subject").show();
+    } else {
+        $(".subject").hide();
+    }
+    return false;
+});
+
+$("#noun_summary").change(function () {
+
+    if ($("#noun_summary").prop('checked')) {
+        $(".noun").show();
+    } else {
+        $(".noun").hide();
+    }
+    return false;
+});
+
+$("#pronoun_summary").change(function () {
+
+    if ($("#pronoun_summary").prop('checked')) {
+        $(".pronoun").show();
+    } else {
+        $(".pronoun").hide();
+    }
+    return false;
+});
+
+$("#verb_summary").change(function () {
+
+    if ($("#verb_summary").prop('checked')) {
+        $(".verb").show();
+    } else {
+        $(".verb").hide();
+    }
+    return false;
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 
