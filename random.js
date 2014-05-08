@@ -5,11 +5,12 @@ var noun_bool= true;
 var pronoun_bool= true;
 var verb_bool= true;
 var subject_bool= true;
+var numeral_bool= true;
 var test_arr=[];
 var words;
 
 $.ajax({
-    url: 'hsk_words.json',
+    url: 'words.json',
     async: false,
     dataType: 'json',
     success: function (json) {
@@ -56,6 +57,12 @@ function get_arr(){
             if(words[i].subject){test_arr.unshift(words[i].id)}
         }
     }
+
+    if(numeral_bool){
+        for(var i=0;i<words.length;i++){
+            if(words[i].numeral){test_arr.unshift(words[i].id)}
+        }
+    }
 }
 
 function random_var(){
@@ -66,7 +73,7 @@ function randomize(){
     question = random_var();
     var repeat=true;
     do{
-        for(var i=0;i<10;i++){
+        for(var i=0;i<Math.floor(test_arr.length*0.75);i++){
             if(question==arr[i]){
                 question = (random_var());repeat=true; break
             }else {
@@ -173,6 +180,14 @@ $("#pronoun").change(function (){
 });
 
 
+$("#numeral").change(function (){
+
+    numeral_bool = !!$("#numeral").prop('checked');
+    console.log(numeral_bool);
+    return false;
+});
+
+
 $("#verb").change(function (){
 
     verb_bool = !!$("#verb").prop('checked');
@@ -241,6 +256,7 @@ if(words[i].noun){ output+="<tr class='noun'>"}
 if(words[i].pronoun){ output+="<tr class='pronoun'>"}
 if(words[i].verb){ output+="<tr class='verb'>"}
 if(words[i].subject){ output+="<tr class='subject'>"}
+if(words[i].numeral){ output+="<tr class='numeral'>"}
 
         output += "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[i].english + "</td>" + "</tr>";
     }
@@ -257,6 +273,15 @@ $("#subject_summary").change(function () {
         $(".subject").show();
     } else {
         $(".subject").hide();
+    }
+    return false;
+});
+$("#numeral_summary").change(function () {
+
+    if ($("#numeral_summary").prop('checked')) {
+        $(".numeral").show();
+    } else {
+        $(".numeral").hide();
     }
     return false;
 });
