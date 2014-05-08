@@ -22,6 +22,7 @@ fill();
 
 function fill(){
     $("div.content").css("display","none").css("border","");
+    if (( noun_bool || pronoun_bool  || verb_bool   || subject_bool ||  numeral_bool)){}else{return alert("Ничего не выбрано")}
     get_arr();
     randomize();
     main_char();
