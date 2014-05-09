@@ -259,10 +259,11 @@ $(".music4").click(function (){
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  HSK    SUMMARY
 
-//var noun_bool_s= true;
-//var pronoun_bool_s= true;
-//var verb_bool_s= true;
-//var subject_bool_s= true;
+var noun_bool_s= true;
+var pronoun_bool_s= true;
+var verb_bool_s= true;
+var subject_bool_s= true;
+var numeral_bool_s= true;
 summary();
 
 function summary() {
@@ -284,15 +285,25 @@ if(words[i].numeral){ output+="<tr class='numeral'>"}
     return false;
 
 }
+var sum_arr=[];
+function check_summ(){
 
 
+    if(noun_bool){
+        for(var i=0; i<words.length; i++){
+            if(words[i].noun){sum_arr.unshift(words[i].id)}
+        }
+    }
+}
 
 $("#subject_summary").change(function () {
 
     if ($("#subject_summary").prop('checked')) {
         $(".subject").show();
+        subject_bool_s= true;
     } else {
         $(".subject").hide();
+        subject_bool_s= false;
     }
     return false;
 });
@@ -300,8 +311,10 @@ $("#numeral_summary").change(function () {
 
     if ($("#numeral_summary").prop('checked')) {
         $(".numeral").show();
+        numeral_bool_s= true;
     } else {
         $(".numeral").hide();
+        numeral_bool_s= false;
     }
     return false;
 });
@@ -310,8 +323,10 @@ $("#noun_summary").change(function () {
 
     if ($("#noun_summary").prop('checked')) {
         $(".noun").show();
+        noun_bool_s= true;
     } else {
         $(".noun").hide();
+        noun_bool_s= false;
     }
     return false;
 });
@@ -320,8 +335,10 @@ $("#pronoun_summary").change(function () {
 
     if ($("#pronoun_summary").prop('checked')) {
         $(".pronoun").show();
+        pronoun_bool_s= true;
     } else {
         $(".pronoun").hide();
+        pronoun_bool_s= false;
     }
     return false;
 });
@@ -330,8 +347,10 @@ $("#verb_summary").change(function () {
 
     if ($("#verb_summary").prop('checked')) {
         $(".verb").show();
+         verb_bool_s= true;
     } else {
         $(".verb").hide();
+        verb_bool_s= false;
     }
     return false;
 });
