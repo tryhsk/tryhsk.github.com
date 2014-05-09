@@ -280,6 +280,7 @@ if(words[i].numeral){ output+="<tr class='numeral'>"}
         output += "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[i].english + "</td>" + "</tr>";
     }
     document.getElementById("place").innerHTML = output;
+
     return false;
 
 }

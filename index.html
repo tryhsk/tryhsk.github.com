@@ -274,7 +274,7 @@
 
                 <div class="grid fluid">
                     <div class="row">
-                        <div class="span2">
+                        <div class="span2" >
 
 
                             <ul class="treeview" data-role="treeview">
@@ -395,7 +395,8 @@
                             </ul>
                         </div>
                         <div class="span8 offset1">
-                            <table class="table" style="overflow: auto !important;height: 400px!important">
+                            <!--style="overflow: auto !important;height: 400px!important"-->
+                            <table class="table" id="table" data-role="scrollbox" data-scroll="vertical" style="height:5000px">
                                 <thead>
                                 <tr class=" ">
                                     <th class="text-left  char" >Иероглиф</th>
@@ -404,7 +405,7 @@
                                     <th class="text-left  english" style="display: none">English</th>
                                 </tr>
                                 </thead>
-                                <tbody id="place">
+                                <tbody id="place" >
                                 </tbody>
                             </table>
                         </div>
