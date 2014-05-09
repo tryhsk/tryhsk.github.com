@@ -33,6 +33,9 @@ function fill(){
     return false;
 }
 
+
+
+
 function get_arr(){
     test_arr=[];        //@todo destructor
     if(noun_bool){
@@ -64,10 +67,20 @@ function get_arr(){
             if(words[i].numeral){test_arr.unshift(words[i].id)}
         }
     }
+    document.getElementById("value").innerHTML='Выбрано ';
+      var klin=test_arr.length.toString().substr(test_arr.length.toString().length-1,1);
+//    var klin ='9';
+if(klin==='1'){document.getElementById("value").innerHTML+=test_arr.length+' слово'}
+     else {
+    if(klin=='2'||klin=='3'||klin=='4'){
+        document.getElementById("value").innerHTML+=test_arr.length+' слова'}
+else{
+        document.getElementById("value").innerHTML+=test_arr.length+' слов'}
+}
 }
 
 function random_var(){
-    return Math.floor(Math.random() * test_arr.length-1);  // @todo ask Dima pro  -1
+    return Math.floor(Math.random() * test_arr.length-1);
 }
 
 function randomize(){
@@ -169,6 +182,7 @@ $("#noun").change(function (){
 
     noun_bool = !!$("#noun").prop('checked');
     console.log(noun_bool);
+    get_arr();
     return false;
 });
 
@@ -177,6 +191,7 @@ $("#pronoun").change(function (){
 
     pronoun_bool = !!$("#pronoun").prop('checked');
     console.log(pronoun_bool);
+    get_arr();
     return false;
 });
 
@@ -185,6 +200,7 @@ $("#numeral").change(function (){
 
     numeral_bool = !!$("#numeral").prop('checked');
     console.log(numeral_bool);
+    get_arr();
     return false;
 });
 
@@ -193,6 +209,7 @@ $("#verb").change(function (){
 
     verb_bool = !!$("#verb").prop('checked');
     console.log(verb_bool);
+    get_arr();
     return false;
 });
 
@@ -201,6 +218,7 @@ $("#subject").change(function (){
 
     subject_bool = !!$("#subject").prop('checked');
     console.log(subject_bool);
+    get_arr();
     return false;
 });
 
