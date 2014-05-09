@@ -33,11 +33,8 @@ function fill(){
     return false;
 }
 
-
-
-
 function get_arr(){
-    test_arr=[];        //@todo destructor
+    test_arr=[];
     if(noun_bool){
         for(var i=0; i<words.length; i++){
             if(words[i].noun){test_arr.unshift(words[i].id)}
@@ -67,16 +64,37 @@ function get_arr(){
             if(words[i].numeral){test_arr.unshift(words[i].id)}
         }
     }
-    document.getElementById("value").innerHTML='Выбрано ';
-      var klin=test_arr.length.toString().substr(test_arr.length.toString().length-1,1);
-//    var klin ='9';
-if(klin==='1'){document.getElementById("value").innerHTML+=test_arr.length+' слово'}
-     else {
-    if(klin=='2'||klin=='3'||klin=='4'){
-        document.getElementById("value").innerHTML+=test_arr.length+' слова'}
-else{
-        document.getElementById("value").innerHTML+=test_arr.length+' слов'}
+    ammount_words();
+    scroll();
 }
+
+function  scroll(){
+
+    $('#table').css('height',test_arr.length*33);
+//        $("#table").scrollbar({
+//            height: test_arr.length*36,
+//            axis: 'y'
+//        });
+
+}
+
+
+
+
+function ammount_words(){
+    document.getElementById("value").innerHTML='Выбрано ';
+    var last_number=test_arr.length.toString().substr(test_arr.length.toString().length-1,1);
+    var number=test_arr.length.toString();
+    if(last_number==='1'){document.getElementById("value").innerHTML+=test_arr.length+' слово'}
+    else {
+        if(last_number=='2'||last_number=='3'||last_number=='4'){
+            if(number=='12'||number=='13'||number=='14'){
+                document.getElementById("value").innerHTML+=test_arr.length+' слов'}
+            else {document.getElementById("value").innerHTML+=test_arr.length+' слова'}
+        }
+        else{
+            document.getElementById("value").innerHTML+=test_arr.length+' слов'}
+    }
 }
 
 function random_var(){
@@ -178,49 +196,75 @@ for(var f=0;f<4;f++){
 
 
 
-$("#noun").change(function (){
-
-    noun_bool = !!$("#noun").prop('checked');
-    console.log(noun_bool);
+$(".noun").change(function (){
+    noun_bool = !noun_bool;
+    $('.noun').prop('checked', noun_bool);
+    if (noun_bool) {
+        $(".noun_tr").show();
+    } else {
+        $(".noun_tr").hide();
+    }
     get_arr();
     return false;
 });
 
 
-$("#pronoun").change(function (){
-
-    pronoun_bool = !!$("#pronoun").prop('checked');
-    console.log(pronoun_bool);
+$(".pronoun").change(function (){
+    pronoun_bool = !pronoun_bool;
+    $('.pronoun').prop('checked', pronoun_bool);
+    if (pronoun_bool) {
+        $(".pronoun_tr").show();
+    } else {
+        $(".pronoun_tr").hide();
+    }
     get_arr();
     return false;
 });
 
 
-$("#numeral").change(function (){
-
-    numeral_bool = !!$("#numeral").prop('checked');
-    console.log(numeral_bool);
+$(".numeral").change(function (){
+    numeral_bool = !numeral_bool;
+    $('.numeral').prop('checked', numeral_bool);
+    if (numeral_bool) {
+        $(".numeral_tr").show();
+    } else {
+        $(".numeral_tr").hide();
+    }
     get_arr();
     return false;
 });
 
 
-$("#verb").change(function (){
-
-    verb_bool = !!$("#verb").prop('checked');
-    console.log(verb_bool);
+$(".verb").change(function (){
+    verb_bool = !verb_bool;
+    $('.verb').prop('checked', verb_bool);
+    if (verb_bool) {
+        $(".verb_tr").show();
+    } else {
+        $(".verb_tr").hide();
+    }
     get_arr();
     return false;
 });
 
 
-$("#subject").change(function (){
-
-    subject_bool = !!$("#subject").prop('checked');
-    console.log(subject_bool);
+$(".subject").change(function (){
+    subject_bool = !subject_bool;
+    $('.subject').prop('checked', subject_bool);
+    if (subject_bool) {
+        $(".subject_tr").show();
+    } else {
+        $(".subject_tr").hide();
+    }
     get_arr();
     return false;
 });
+
+
+
+
+
+
 
 
 $("#next").click(function (){
@@ -259,101 +303,27 @@ $(".music4").click(function (){
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  HSK    SUMMARY
 
-var noun_bool_s= true;
-var pronoun_bool_s= true;
-var verb_bool_s= true;
-var subject_bool_s= true;
-var numeral_bool_s= true;
+
 summary();
 
 function summary() {
-
     var output = "";
-    for (var i in  words) {
+    for (var i=0;i<test_arr.length;i++) {
+if(words[test_arr[i]].noun){ output+="<tr class='noun_tr'>"}
+if(words[test_arr[i]].pronoun){ output+="<tr class='pronoun_tr'>"}
+if(words[test_arr[i]].verb){ output+="<tr class='verb_tr'>"}
+if(words[test_arr[i]].subject){ output+="<tr class='subject_tr'>"}
+if(words[test_arr[i]].numeral){ output+="<tr class='numeral_tr'>"}
 
-//  old variant      output += "<tr class=\'" + words[i].part_of_speech + "  " + words[i].meaning + "\'>" + "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\">" + words[i].english + "</td>" + "</tr>";
-if(words[i].noun){ output+="<tr class='noun'>"}
-if(words[i].pronoun){ output+="<tr class='pronoun'>"}
-if(words[i].verb){ output+="<tr class='verb'>"}
-if(words[i].subject){ output+="<tr class='subject'>"}
-if(words[i].numeral){ output+="<tr class='numeral'>"}
-
-        output += "<td class=\"char char_big\">" + words[i].char + "</td>" + " " + "<td class=\"pinyin\">" + words[i].pinyin + "<span class=\"glyphicon glyphicon-play\"></span></td>" + " " + "<td class=\"russian\">" + words[i].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[i].english + "</td>" + "</tr>";
+        output += "<td class=\"char char_big\">" + words[test_arr[i]].char + "</td>" + " " + "<td class=\"pinyin\">" + words[test_arr[i]].pinyin + "</td>" + " " + "<td class=\"russian\">" + words[test_arr[i]].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[test_arr[i]].english + "</td>" + "</tr>";
     }
     document.getElementById("place").innerHTML = output;
 
     return false;
 
 }
-var sum_arr=[];
-function check_summ(){
 
 
-    if(noun_bool){
-        for(var i=0; i<words.length; i++){
-            if(words[i].noun){sum_arr.unshift(words[i].id)}
-        }
-    }
-}
-
-$("#subject_summary").change(function () {
-
-    if ($("#subject_summary").prop('checked')) {
-        $(".subject").show();
-        subject_bool_s= true;
-    } else {
-        $(".subject").hide();
-        subject_bool_s= false;
-    }
-    return false;
-});
-$("#numeral_summary").change(function () {
-
-    if ($("#numeral_summary").prop('checked')) {
-        $(".numeral").show();
-        numeral_bool_s= true;
-    } else {
-        $(".numeral").hide();
-        numeral_bool_s= false;
-    }
-    return false;
-});
-
-$("#noun_summary").change(function () {
-
-    if ($("#noun_summary").prop('checked')) {
-        $(".noun").show();
-        noun_bool_s= true;
-    } else {
-        $(".noun").hide();
-        noun_bool_s= false;
-    }
-    return false;
-});
-
-$("#pronoun_summary").change(function () {
-
-    if ($("#pronoun_summary").prop('checked')) {
-        $(".pronoun").show();
-        pronoun_bool_s= true;
-    } else {
-        $(".pronoun").hide();
-        pronoun_bool_s= false;
-    }
-    return false;
-});
-
-$("#verb_summary").change(function () {
-
-    if ($("#verb_summary").prop('checked')) {
-        $(".verb").show();
-         verb_bool_s= true;
-    } else {
-        $(".verb").hide();
-        verb_bool_s= false;
-    }
-    return false;
-});
 
 
 
