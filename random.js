@@ -133,6 +133,18 @@ function music(){
     return function(){};
 }
 
+
+function mixer(arr){
+    for ( var i = arr.length; i-->0; ) {
+        var t = arr[i],
+            j = Math.floor(i*Math.random());
+        arr[i] = arr[j];
+        arr[j] = t;
+    }
+    return arr;
+}
+
+
 function generate_var(){
 
     var test_random = (function (){
@@ -148,18 +160,11 @@ function generate_var(){
         return test_random;
     }) ();
 
-    for ( var i = test_random.length; i-->0; ) {
-        var t = test_random[i],
-            j = Math.floor(i*Math.random());
-        test_random[i] = test_random[j];
-        test_random[j] = t;
-    }
-    for ( var i = test_random.length; i-->0; ) {
-        var t = test_random[i],
-            j = Math.floor(i*Math.random());
-        test_random[i] = test_random[j];
-        test_random[j] = t;
-    }
+    mixer(test_random);
+    mixer(test_random);
+
+
+
 
 for(var f=0;f<4;f++){
     console.log("test_random  "+test_random[f])

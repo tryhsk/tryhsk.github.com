@@ -998,7 +998,7 @@
 }, {
   "id" : 125,
   "char" : "些",
-  "pinyin" : "xie1",
+  "pinyin" : "xiē",
   "pronoun" : true,
   "english" : "some; few; several; (a measure word)",
   "russian" : "немного; несколько ",
@@ -1006,7 +1006,7 @@
 }, {
   "id" : 126,
   "char" : "写",
-  "pinyin" : "xie3",
+  "pinyin" : "xiě",
   "verb" : true,
   "english" : "to write",
   "russian" : "писать; записывать; описывать ",
@@ -1014,7 +1014,7 @@
 }, {
   "id" : 127,
   "char" : "谢谢",
-  "pinyin" : "xie4 xie5",
+  "pinyin" : "xièxie",
   "pronoun" : true,
   "english" : "to thank; thanks",
   "russian" : "спасибо; благодарю; благодарить ",
@@ -1022,7 +1022,7 @@
 }, {
   "id" : 128,
   "char" : "星期",
-  "pinyin" : "xing1 qi1",
+  "pinyin" : "xīngqī",
   "noun" : true,
   "english" : "week",
   "russian" : "неделя ",
@@ -1030,7 +1030,7 @@
 }, {
   "id" : 129,
   "char" : "学生",
-  "pinyin" : "xue2 sheng5",
+  "pinyin" : "xuésheng",
   "noun" : true,
   "english" : "student; school child",
   "russian" : "студент; ученик; учащийся",
@@ -1038,7 +1038,7 @@
 }, {
   "id" : 130,
   "char" : "学习",
-  "pinyin" : "xue2 xi2",
+  "pinyin" : "xuéxí",
   "verb" : true,
   "english" : "to learn; to study",
   "russian" : "учиться; обучаться; обучение; учёба ",
@@ -1046,7 +1046,7 @@
 }, {
   "id" : 131,
   "char" : "学校",
-  "pinyin" : "xue2 xiao4",
+  "pinyin" : "xuéxiào",
   "noun" : true,
   "english" : "school",
   "russian" : "школа; учебное заведение; училище ",

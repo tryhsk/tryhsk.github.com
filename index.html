@@ -28,6 +28,8 @@
 
     <title>HSK. Китайский язык 汉语</title>
 </head>
+<script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript">
+</script>
 <body class="metro">
 
 <div class="container">
@@ -415,7 +417,7 @@
                     <option id="ru">Русский</option>
                     <option id="eng">English</option>
                     <option id="zh">汉语</option>
-                </select>
+                </select><div id="vk"></div>
             </div>
             <div class="frame" id="_page_5">
 
@@ -436,7 +438,21 @@
 <!--<script>-->
     <!--gremlins.createHorde().unleash();-->
 <!--</script>-->
+<script type="text/javascript">
+    VK.init(function() {
+        // API initialization succeeded
+        // Your code here
+        var inf=users.get;
+        alert(inf)
 
+
+    }, function() {
+        // API initialization failed
+        // Can reload page here
+
+        alert('no')
+    }, '5.21');
+</script>
 
 </body>
 </html>
