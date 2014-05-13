@@ -3,14 +3,13 @@ var question;
 var arr=new Array(10);
 var noun_bool= true;
 var pronoun_bool= true;
-try{ getCookie('pronoun_bool'); }catch(err){console.log('errror!!!!!!!!!    '+err)}
 var verb_bool= true;
 var subject_bool= true;
 var numeral_bool= true;
 var test_arr=[];
 var words;
 
-
+try{ pronoun_bool=getCookie('pronoun_bool'); }catch(err){console.log('errror!!!  '+err)};
 
 
 
@@ -387,8 +386,6 @@ function getCookie(name) {
     var matches = document.cookie.match(new RegExp(
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
-    console.log('matches'+matches);
-    console.log(decodeURIComponent(matches[1]));
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
