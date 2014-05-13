@@ -17,6 +17,7 @@ $.ajax({
         words = json;
     }
 });
+alert( document.cookie );
 
 fill();
 
