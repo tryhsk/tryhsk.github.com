@@ -432,26 +432,37 @@
 
 <script src="js/hitua.js"></script>
 <script src="random.js"></script>
-<script src="engine.js"></script>
 
 <!--<script src="gremlins.min.js"></script>-->
 <!--<script>-->
     <!--gremlins.createHorde().unleash();-->
 <!--</script>-->
-<script type="text/javascript">
-    VK.init(function() {
-        // API initialization succeeded
-        // Your code here
-        var inf=users.get.id;
-        alert(inf)
+<script type="text/javascript" charset="cp1251" >
+    window.onload = (function() {   // когда загрузится вся страница
+        VK.init(function() {    // инициализируем Vk API
 
+            // узнаём flashVars, переданные приложению GET запросом. Сохраняем их в переменную flashVars
+            var parts=document.location.search.substr(1).split("&");
+            var flashVars={}, curr;
+            for (i=0; i<parts.length; i++) {
+                curr = parts[i].split('=');
+                // записываем в массив flashVars значения. Например: flashVars['viewer_id'] = 1;
+                flashVars[curr[0]] = curr[1];
+            }
 
-    }, function() {
-        // API initialization failed
-        // Can reload page here
-
-        alert('no')
-    }, '5.21');
+            // получаем viewer_id из полученных переменных
+            var viewer_id = flashVars['viewer_id'];
+alert(viewer_id);
+            // выполняем запрос получения профиля
+//            VK.api("getProfiles", {uids:viewer_id,fields:"photo_big"}, function(data) {
+//// проверяем был ли ответ
+//                if(data.response) {
+//                    // отправляем полученные данные пост запросом через ajax jquery:
+//                    $.post("vbazy.php", { id: viewer_id, imya: data.response[0].first_name, famylia: data.response[0].last_name, photo: data.response[0].photo_big }, function(data) {   alert('пользователь успешно занесен в базу'); } );
+//                }
+//            });
+        });
+    });
 </script>
 
 </body>
