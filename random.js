@@ -2,14 +2,12 @@
 var question;
 var arr=new Array(10);
 var noun_bool= true;
-var pronoun_bool= true;
+var pronoun_bool;
 var verb_bool= true;
 var subject_bool= true;
 var numeral_bool= true;
 var test_arr=[];
 var words;
-
-
 
 
 
@@ -24,7 +22,17 @@ $.ajax({
     }
 });
 
+
+bool_val();
 fill();
+
+
+function bool_val(){
+    pronoun_bool= true;
+    try{ pronoun_bool = getCookie('pronoun_bool'); }catch(err){console.log('cookies haven\'t '+err)};
+    console.log('pronoun='+pronoun_bool);
+    if (pronoun_bool==false ){ $(".pronoun").prop('checked', false) }
+}
 
 function fill(){
     $("div.content").css("display","none").css("border","");
@@ -232,8 +240,7 @@ $(".pronoun").change(function (){
     get_arr();
     return false;
 });
-try{ pronoun_bool = getCookie('pronoun_bool'); }catch(err){console.log('errror!!!  '+err)};
-if(!pronoun_bool){$(".pronoun").prop('checked', pronoun_bool)}
+
 
 
 
