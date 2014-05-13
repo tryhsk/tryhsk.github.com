@@ -387,6 +387,8 @@ function getCookie(name) {
     var matches = document.cookie.match(new RegExp(
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
+    console.log('matches'+matches);
+    console.log(decodeURIComponent(matches[1]));
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
@@ -425,5 +427,3 @@ function setCookie(name, value, options) {
 function deleteCookie(name) {
     setCookie(name, "", { expires: -1 })
 }
-
-
