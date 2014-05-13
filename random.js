@@ -3,7 +3,7 @@ var question;
 var arr=new Array(10);
 var noun_bool= true;
 var pronoun_bool= true;
-getCookie('pronoun_bool');
+try{ getCookie('pronoun_bool'); }catch(err){console.log('errror!!!!!!!!!    '+err)}
 var verb_bool= true;
 var subject_bool= true;
 var numeral_bool= true;
