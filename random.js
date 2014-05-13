@@ -9,7 +9,6 @@ var numeral_bool= true;
 var test_arr=[];
 var words;
 
-try{ pronoun_bool=getCookie('pronoun_bool'); }catch(err){console.log('errror!!!  '+err)};
 
 
 
@@ -233,6 +232,12 @@ $(".pronoun").change(function (){
     get_arr();
     return false;
 });
+try{ pronoun_bool = getCookie('pronoun_bool'); }catch(err){console.log('errror!!!  '+err)};
+if(!pronoun_bool){$(".pronoun").prop('checked', pronoun_bool)}
+
+
+
+
 
 
 $(".numeral").change(function (){
