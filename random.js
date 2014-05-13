@@ -224,7 +224,7 @@ $(".noun").change(function (){
 $(".pronoun").change(function (){
     pronoun_bool = !pronoun_bool;
     $('.pronoun').prop('checked', pronoun_bool);
-    setCookie(pronoun_bool,pronoun_bool);
+    setCookie('pronoun_bool',pronoun_bool);
     if (pronoun_bool) {
         $(".pronoun_tr").show();
     } else {
