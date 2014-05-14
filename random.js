@@ -10,7 +10,16 @@ var test_arr=[];
 var words;
 
 
+function bool_val(){
+    pronoun_bool= true;
+    try{ pronoun_bool = getCookie('pronoun_bool'); }catch(err){console.log('cookies haven\'t '+err)};
+    if(pronoun_bool=="false"){pronoun_bool=false}
+    if (!pronoun_bool){ $(".pronoun").prop('checked', false)}
+    return pronoun_bool;
+}
 
+
+bool_val();
 
 
 $.ajax({
@@ -22,17 +31,9 @@ $.ajax({
     }
 });
 
-
-bool_val();
-fill();
+setTimeout(fill(),1000);
 
 
-function bool_val(){
-    pronoun_bool= true;
-    try{ pronoun_bool = getCookie('pronoun_bool'); }catch(err){console.log('cookies haven\'t '+err)};
-    console.log('pronoun='+pronoun_bool);
-    if (pronoun_bool==false ){ $(".pronoun").prop('checked', false) }
-}
 
 function fill(){
     $("div.content").css("display","none").css("border","");
@@ -56,6 +57,7 @@ function get_arr(){
     }
 
     if(pronoun_bool){
+
         for(var i=0;i<words.length;i++){
             if(words[i].pronoun){test_arr.unshift(words[i].id)}
         }
@@ -80,6 +82,8 @@ function get_arr(){
     }
     ammount_words();
     scroll();
+    console.log(test_arr.length);
+    return test_arr;
 }
 
 function  scroll(){
