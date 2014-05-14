@@ -1,7 +1,7 @@
 "use strict";
 var question;
 var arr=new Array(10);
-var noun_bool= true;
+var noun_bool;
 var pronoun_bool;
 var verb_bool= true;
 var subject_bool= true;
@@ -10,13 +10,7 @@ var test_arr=[];
 var words;
 
 
-function bool_val(){
-    pronoun_bool= true;
-    try{ pronoun_bool = getCookie('pronoun_bool'); }catch(err){console.log('cookies haven\'t '+err)};
-    if(pronoun_bool=="false"){pronoun_bool=false}
-    if (!pronoun_bool){ $(".pronoun").prop('checked', false)}
-    return pronoun_bool;
-}
+
 
 
 bool_val();
@@ -31,7 +25,7 @@ $.ajax({
     }
 });
 
-setTimeout(fill(),1000);
+fill();
 
 
 
@@ -222,6 +216,7 @@ for(var f=0;f<4;f++){
 $(".noun").change(function (){
     noun_bool = !noun_bool;
     $('.noun').prop('checked', noun_bool);
+    setCookie('noun_bool',noun_bool);
     if (noun_bool) {
         $(".noun_tr").show();
     } else {
@@ -246,7 +241,17 @@ $(".pronoun").change(function (){
 });
 
 
+function bool_val(){
+    pronoun_bool= true;
+    try{ pronoun_bool = getCookie('pronoun_bool'); }catch(err){console.log('cookies haven\'t '+err)};
+    if(pronoun_bool=="false"){pronoun_bool=false}
+    if (!pronoun_bool){ $(".pronoun").prop('checked', false)}
 
+    noun_bool= true;
+    try{ noun_bool = getCookie('noun_bool'); }catch(err){console.log('cookies haven\'t '+err)};
+    if(noun_bool=="false"){noun_bool=false}
+    if (!noun_bool){ $(".noun").prop('checked', false)}
+}
 
 
 
