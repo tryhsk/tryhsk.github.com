@@ -5,7 +5,7 @@ var noun_bool;
 var pronoun_bool;
 var verb_bool= true;
 var subject_bool= true;
-var numeral_bool= true;
+var numeral_bool = new all_z('numeral');
 var test_arr=[];
 var words;
 
@@ -14,8 +14,6 @@ var words;
 
 
 bool_val();
-
-
 $.ajax({
     url: 'words.json',
     async: false,
@@ -44,6 +42,7 @@ function fill(){
 
 function get_arr(){
     test_arr=[];
+
     if(noun_bool){
         for(var i=0; i<words.length; i++){
             if(words[i].noun){test_arr.unshift(words[i].id)}
@@ -76,7 +75,6 @@ function get_arr(){
     }
     ammount_words();
     scroll();
-    console.log(test_arr.length);
     return test_arr;
 }
 
@@ -127,7 +125,6 @@ function randomize(){
     }while(repeat);
     arr.unshift(question);
     for(var i=0;i<10;i++){
-        console.log('question  '+arr[i]);
     }
     return question;
 }
@@ -178,9 +175,7 @@ function generate_var(){
 
 
 
-for(var f=0;f<4;f++){
-    console.log("test_random  "+test_random[f])
-}
+
 
     var russian_var= ["first_var","second_var","third_var","fourth_var"];
     for(var i=0; i<4;i++){
@@ -241,6 +236,8 @@ $(".pronoun").change(function (){
 });
 
 
+
+
 function bool_val(){
     pronoun_bool= true;
     try{ pronoun_bool = getCookie('pronoun_bool'); }catch(err){console.log('cookies haven\'t '+err)};
@@ -254,19 +251,53 @@ function bool_val(){
 }
 
 
+function all_z(p){
+//    var numeral_bool;
+    try{ numeral_bool = getCookie(p+'_bool')}catch(err){console.log('cookies haven\'t :'+err);numeral_bool= true;};
+    if(numeral_bool=="false"){numeral_bool=false}else{numeral_bool=true}
+    if (!numeral_bool){ $("." +p).prop('checked', false)}
 
 
-$(".numeral").change(function (){
-    numeral_bool = !numeral_bool;
-    $('.numeral').prop('checked', numeral_bool);
-    if (numeral_bool) {
-        $(".numeral_tr").show();
-    } else {
-        $(".numeral_tr").hide();
-    }
-    get_arr();
-    return false;
-});
+    $("." +p).change(function (){
+        numeral_bool = !numeral_bool;
+        $("." +p).prop('checked', numeral_bool);
+        setCookie(p+'_bool',numeral_bool);
+        if (numeral_bool) {
+            $("." +p+"_tr").show();
+        } else {
+            $("." +p+"_tr").hide();
+        }
+        get_arr();
+        return false;
+    });
+}
+
+
+
+
+
+
+//function all_z(){
+//    try{ numeral_bool = getCookie('numeral_bool'); }catch(err){numeral_bool= true;console.log('cookies haven\'t :'+err)};
+//    if(numeral_bool=="false"){numeral_bool=false}else{numeral_bool=true}
+//    if (!numeral_bool){ $(".numeral").prop('checked', false)}
+//
+//
+//    $(".numeral").change(function (){
+//        numeral_bool = !numeral_bool;
+//        $('.numeral').prop('checked', numeral_bool);
+//        setCookie('numeral_bool',numeral_bool);
+//        if (numeral_bool) {
+//            $(".numeral_tr").show();
+//        } else {
+//            $(".numeral_tr").hide();
+//        }
+//        get_arr();
+//        return false;
+//    });
+//
+//}
+
 
 
 $(".verb").change(function (){
@@ -293,6 +324,8 @@ $(".subject").change(function (){
     get_arr();
     return false;
 });
+
+
 
 
 
@@ -366,26 +399,36 @@ $("#char").change(function () {
     }
     return false;
 });
+//
+//$("#pinyin").change(function () {
+//
+//    if ($("#pinyin").prop('checked')) {
+//        $(".pinyin").show();
+//    } else {
+//        $(".pinyin").hide();
+//    }
+//    return false;
+//});
+var rus=["pinyin","pinyin"];
 
-$("#pinyin").change(function () {
+function lipa(rus){
 
-    if ($("#pinyin").prop('checked')) {
-        $(".pinyin").show();
-    } else {
-        $(".pinyin").hide();
-    }
-    return false;
-});
 
-$("#russian").change(function () {
 
-    if ($("#russian").prop('checked')) {
-        $(".russian").show();
-    } else {
-        $(".russian").hide();
-    }
-    return false;
-});
+    return function(){
+            $("#"+rus).change(function () {
+                if ($("#"+rus).prop('checked')) {
+                    $("."+rus).show();
+                } else {
+                    $("."+rus).hide();
+                }
+                return false;
+            });
+        }
+}
+lipa(rus);
+
+
 
 $("#english").change(function () {
 
