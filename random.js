@@ -1,11 +1,36 @@
 "use strict";
+
+function all_z(name){
+    var bool;
+    try{ bool = getCookie(name+'_bool')}catch(err){console.log('cookies haven\'t :'+err);bool= true;};
+    if(bool=="false"){bool=false}else{bool=true}
+    if (!bool){ $("." +name).prop('checked', false)}
+
+
+    $("." +name).change(function (){
+        bool = !bool;
+        $("." +name).prop('checked', bool);
+        setCookie(name+'_bool',bool);
+        if (bool) {
+            $("." +name+"_tr").show();
+        } else {
+            $("." +name+"_tr").hide();
+        }
+        get_arr();
+        return false;
+    });
+    return bool;
+}
+
+
 var question;
+
 var arr=new Array(10);
 var noun_bool;
 var pronoun_bool;
-var verb_bool= true;
-var subject_bool= true;
-var numeral_bool = new all_z('numeral');
+//var verb_bool= all_z('verb');
+//var numeral_bool = new all_z('numeral');
+//var subject_bool= true;
 var test_arr=[];
 var words;
 
@@ -29,7 +54,7 @@ fill();
 
 function fill(){
     $("div.content").css("display","none").css("border","");
-    if (( noun_bool || pronoun_bool  || verb_bool   || subject_bool ||  numeral_bool)){}else{return alert("Ничего не выбрано")}
+    if (( all_z('noun') || all_z('pronoun')  || all_z('verb')   || all_z('subject') || all_z('numeral') )){}else{return alert("Ничего не выбрано")}
     get_arr();
     randomize();
     main_char();
@@ -43,32 +68,32 @@ function fill(){
 function get_arr(){
     test_arr=[];
 
-    if(noun_bool){
+    if(all_z('noun')){
         for(var i=0; i<words.length; i++){
             if(words[i].noun){test_arr.unshift(words[i].id)}
         }
     }
 
-    if(pronoun_bool){
+    if(all_z('pronoun')){
 
         for(var i=0;i<words.length;i++){
             if(words[i].pronoun){test_arr.unshift(words[i].id)}
         }
     }
 
-    if(verb_bool){
+    if(all_z('verb')){
         for(var i=0;i<words.length;i++){
             if(words[i].verb){test_arr.unshift(words[i].id)}
         }
     }
 
-    if(subject_bool){
+    if(all_z('subject')){
         for(var i=0;i<words.length;i++){
             if(words[i].subject){test_arr.unshift(words[i].id)}
         }
     }
 
-    if(numeral_bool){
+    if(all_z('numeral')){
         for(var i=0;i<words.length;i++){
             if(words[i].numeral){test_arr.unshift(words[i].id)}
         }
@@ -250,27 +275,24 @@ function bool_val(){
     if (!noun_bool){ $(".noun").prop('checked', false)}
 }
 
+//for(var counter=1; counter <=10; counter ++){
+//    $('<div>').css({
+//        "border": "solid 1px blue",
+//        "height": "50px",
+//        "margin":  "10px",
+//        "text-align": "center",
+//        "width": "100px"
+//    }).html('<h1>'+ counter +'</h1>')
+//        .appendTo('body')
+//        .click((function(iCounter){
+//            return function(){
+//                alert(iCounter);
+//            }
+//        })(counter));
+//}
 
-function all_z(p){
-//    var numeral_bool;
-    try{ numeral_bool = getCookie(p+'_bool')}catch(err){console.log('cookies haven\'t :'+err);numeral_bool= true;};
-    if(numeral_bool=="false"){numeral_bool=false}else{numeral_bool=true}
-    if (!numeral_bool){ $("." +p).prop('checked', false)}
 
 
-    $("." +p).change(function (){
-        numeral_bool = !numeral_bool;
-        $("." +p).prop('checked', numeral_bool);
-        setCookie(p+'_bool',numeral_bool);
-        if (numeral_bool) {
-            $("." +p+"_tr").show();
-        } else {
-            $("." +p+"_tr").hide();
-        }
-        get_arr();
-        return false;
-    });
-}
 
 
 
@@ -300,31 +322,31 @@ function all_z(p){
 
 
 
-$(".verb").change(function (){
-    verb_bool = !verb_bool;
-    $('.verb').prop('checked', verb_bool);
-    if (verb_bool) {
-        $(".verb_tr").show();
-    } else {
-        $(".verb_tr").hide();
-    }
-    get_arr();
-    return false;
-});
+//$(".verb").change(function (){
+//    verb_bool = !verb_bool;
+//    $('.verb').prop('checked', verb_bool);
+//    if (verb_bool) {
+//        $(".verb_tr").show();
+//    } else {
+//        $(".verb_tr").hide();
+//    }
+//    get_arr();
+//    return false;
+//});
 
-
-$(".subject").change(function (){
-    subject_bool = !subject_bool;
-    $('.subject').prop('checked', subject_bool);
-    if (subject_bool) {
-        $(".subject_tr").show();
-    } else {
-        $(".subject_tr").hide();
-    }
-    get_arr();
-    return false;
-});
-
+//
+//$(".subject").change(function (){
+//    subject_bool = !subject_bool;
+//    $('.subject').prop('checked', subject_bool);
+//    if (subject_bool) {
+//        $(".subject_tr").show();
+//    } else {
+//        $(".subject_tr").hide();
+//    }
+//    get_arr();
+//    return false;
+//});
+`
 
 
 
