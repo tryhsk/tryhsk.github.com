@@ -467,14 +467,14 @@
          // работаем с полученными данными
          });
          */
-        VK.api("setNameInMenu", 'HSK');
+//        VK.api("setNameInMenu", 'HSK');
 
-        VK.api("friends.get", {fields: "photo_medium"}, function(data) {
-            // Действия с полученными данными
-            for(c=0;c<data.response.length;c++){
-                $("body").append("<img src='"+data.response[c].photo_medium+"'>");
-            }
-        });
+//        VK.api("friends.get", {fields: "photo_medium"}, function(data) {
+//            // Действия с полученными данными
+//            for(c=0;c<data.response.length;c++){
+//                $("body").append("<img src='"+data.response[c].photo_medium+"'>");
+//            }
+//        });
 
         VK.api("wall.post", {owner_id: "59379236"}, function(data) {
             // Действия с полученными данными
@@ -485,8 +485,48 @@
     $(document).ready(function(){
         doIt();
     });
+brag_sending()
+    function brag_sending() {
+        var json_obj;
+        show_indicator('Получение адреса сервера.');
+        VK.api('wall.getPhotoUploadServer', function (data) {
+            if (data.response) {
+                show_indicator('Загрузка фотографии предмета на сервер ВКонтакте.');
+                $.post('/upload/photo/to/vk/', {
+                    csrfmiddlewaretoken: $('#brag_form input[name=csrfmiddlewaretoken]').attr('value'),
+                    server: data.response.upload_url,
+                    photo_url: $('#brag_form input[name=photo_url]').attr('value')
+                }, function (data) {
+                    json_obj = $.parseJSON(data);
+                    if (json_obj.photo.length > 0) {
+                        show_indicator('Сохранение поста.');
+                        VK.api('wall.savePost', {
+                            wall_id: $('#brag_form input[name=uid]').attr('value'),
+                            post_id: $('#brag_form input[name=item_id]').attr('value'),
+                            server: json_obj.server,
+                            photo: json_obj.photo,
+                            hash: json_obj.hash,
+                            message: $('#brag_message').val()
+                        }, function (data) {
+                            if (data.response) {
+                                VK.callMethod('saveWallPost', data.response.post_hash);
+                                close_form('brag_form');
+                            } else {
+                                brag_error('Saving post error: ' + data.error.error_code);
+                            }
+                        });
 
-
+                    } else {
+                        brag_error('Loading photo error: ' + data);
+                    }
+                }).error(function (jqXHR) {
+                    brag_error('Internal server error: ' + jqXHR.responseText);
+                });
+            } else {
+                brag_error('Getting photo upload server failed: ' + data.error.error_code);
+            }
+        });
+    }
 
 </script>
 
