@@ -6,7 +6,7 @@ var arr = new Array(10),
     pronoun_bool = first_bool('pronoun'),
     verb_bool = first_bool('verb'),
     numeral_bool = first_bool('numeral'),
-    subject_bool = first_bool('subject');
+    adjective_bool = first_bool('adjective');
 
 var test_arr = [];
 var words;
@@ -22,7 +22,7 @@ function first_bool(name) {
     return bool;
 }
 
-var massiv = [ 'noun', 'pronoun', 'verb', 'numeral', 'subject'];
+var massiv = [ 'noun', 'pronoun', 'verb', 'numeral', 'adjective'];
 //
 //function fa(massiv){
 //    return function(){
@@ -58,13 +58,13 @@ $(".verb").change(function () {
 });
 
 
-$(".subject").change(function () {
-    subject_bool = !subject_bool;
-    $('.subject').prop('checked', subject_bool);
-    if (subject_bool) {
-        $(".subject_tr").show();
+$(".adjective").change(function () {
+    adjective_bool = !adjective_bool;
+    $('.adjective').prop('checked', adjective_bool);
+    if (adjective_bool) {
+        $(".adjective_tr").show();
     } else {
-        $(".subject_tr").hide();
+        $(".adjective_tr").hide();
     }
     get_arr();
     return false;
@@ -128,7 +128,7 @@ $.ajax({
 
 function fill() {
     $("div.content").css("display", "none").css("border", "");
-    if (noun_bool || pronoun_bool || verb_bool || subject_bool || numeral_bool) { } else {return alert("Ничего не выбрано"); }
+    if (noun_bool || pronoun_bool || verb_bool || adjective_bool || numeral_bool) { } else {return alert("Ничего не выбрано"); }
     get_arr();
     randomize();
     main_char();
@@ -162,15 +162,15 @@ function get_arr() {
         }
     }
 
-    if(subject_bool){
+    if(adjective_bool){
         for(var i=0;i<words.length;i++){
-            if(words[i].subject){test_arr.unshift(words[i].id)}
+            if(words[i].adjective){test_arr.unshift(words[i].id)}
         }
     }
 
     if(numeral_bool){
         for(var i=0;i<words.length;i++){
-            if(words[i].numeral){test_arr.unshift(words[i].id)}
+            if(words[i].number){test_arr.unshift(words[i].id)}
         }
     }
     ammount_words();
@@ -376,7 +376,7 @@ function summary() {
 if(words[test_arr[i]].noun){ output+="<tr class='noun_tr'>"}
 if(words[test_arr[i]].pronoun){ output+="<tr class='pronoun_tr'>"}
 if(words[test_arr[i]].verb){ output+="<tr class='verb_tr'>"}
-if(words[test_arr[i]].subject){ output+="<tr class='subject_tr'>"}
+if(words[test_arr[i]].adjective){ output+="<tr class='adjective_tr'>"}
 if(words[test_arr[i]].numeral){ output+="<tr class='numeral_tr'>"}
 
         output += "<td class=\"char char_big\">" + words[test_arr[i]].char + "</td>" + " " + "<td class=\"pinyin\">" + words[test_arr[i]].pinyin + "</td>" + " " + "<td class=\"russian\">" + words[test_arr[i]].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[test_arr[i]].english + "</td>" + "</tr>";
@@ -420,12 +420,12 @@ var rus=["russian","pinyin"];
 //try{ noun_bool = getCookie('noun_bool')}catch(err){noun_bool= true;}
 //try{ verb_bool = getCookie('verb_bool')}catch(err){verb_bool= true;}
 //try{ numeral_bool = getCookie('numeral_bool')}catch(err){numeral_bool= true;}
-//try{ subject_bool = getCookie('subject_bool')}catch(err){subject_bool= true;}
+//try{ adjective_bool = getCookie('adjective_bool')}catch(err){adjective_bool= true;}
 //if(pronoun_bool=="false"){pronoun_bool=false}else{pronoun_bool=true}
 //if(noun_bool=="false"){noun_bool=false}else{noun_bool=true}
 //if(verb_bool=="false"){verb_bool=false}else{verb_bool=true}
 //if(numeral_bool=="false"){numeral_bool=false}else{numeral_bool=true}
-//if(subject_bool=="false"){subject_bool=false}else{subject_bool=true}
+//if(adjective_bool=="false"){adjective_bool=false}else{adjective_bool=true}
 
 
 
@@ -466,7 +466,7 @@ $( window ).unload(function() {
     setCookie('pronoun_bool',pronoun_bool);
     setCookie('verb_bool',verb_bool);
     setCookie('numeral_bool',numeral_bool);
-    setCookie('subject_bool',subject_bool);
+    setCookie('adjective_bool',adjective_bool);
 });
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++      cookie

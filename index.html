@@ -85,7 +85,7 @@
                                 </li>
                                 <li> <div class="input-control checkbox" data-role="input-control">
                                     <label>
-                                        <input type="checkbox" class='subject' checked />
+                                        <input type="checkbox" class='adjective' checked />
                                         <span class="check"></span>
                                         прилагательные
                                     </label>
@@ -288,7 +288,7 @@
                                         </li>
                                         <li> <div class="input-control checkbox" data-role="input-control">
                                             <label>
-                                                <input type="checkbox" class='subject' checked />
+                                                <input type="checkbox" class='adjective' checked />
                                                 <span class="check"></span>
                                                 прилагательные
                                             </label>
@@ -433,102 +433,62 @@
 <script src="js/hitua.js"></script>
 <script src="random.js"></script>
 
-<!--<script src="gremlins.min.js"></script>-->
-<!--<script>-->
-    <!--gremlins.createHorde().unleash();-->
+<!--&lt;!&ndash;<script src="gremlins.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+    <!--&lt;!&ndash;gremlins.createHorde().unleash();&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+<!--<script type="text/javascript" charset="cp1251" >-->
+    <!--window.onload = (function() {   // когда загрузится вся страница-->
+        <!--VK.init(function() {    // инициализируем Vk API-->
+
+            <!--// узнаём flashVars, переданные приложению GET запросом. Сохраняем их в переменную flashVars-->
+            <!--var parts=document.location.search.substr(1).split("&");-->
+            <!--var flashVars={}, curr;-->
+            <!--for (i=0; i<parts.length; i++) {-->
+                <!--curr = parts[i].split('=');-->
+                <!--// записываем в массив flashVars значения. Например: flashVars['viewer_id'] = 1;-->
+                <!--flashVars[curr[0]] = curr[1];-->
+            <!--}-->
+
+            <!--// получаем viewer_id из полученных переменных-->
+            <!--//@fixme  ой как плохо!!!-->
+            <!--var viewer_id = flashVars['viewer_id'];-->
+<!--//            var b = wall.get(59379236);-->
+            <!--alert( viewer_id)//-->
+
+        <!--});-->
+        <!--account.setNameInMenu('HSK')-->
+    <!--});-->
+
+    <!--// Функция получения друзей и вывода их на экран-->
+    <!--function doIt(){-->
+        <!--/*-->
+         <!--VK.api('метод', {параметр: "значение"}, callback функция{-->
+         <!--// работаем с полученными данными-->
+         <!--});-->
+         <!--*/-->
+<!--//        VK.api("setNameInMenu", 'HSK');-->
+
+<!--//        VK.api("friends.get", {fields: "photo_medium"}, function(data) {-->
+<!--//            // Действия с полученными данными-->
+<!--//            for(c=0;c<data.response.length;c++){-->
+<!--//                $("body").append("<img src='"+data.response[c].photo_medium+"'>");-->
+<!--//            }-->
+<!--//        });-->
+
+        <!--VK.api("wall.post", {owner_id: "59379236"}, function(data) {-->
+            <!--// Действия с полученными данными-->
+           <!--return 'lol';-->
+
+        <!--});-->
+    <!--}-->
+    <!--$(document).ready(function(){-->
+        <!--doIt();-->
+    <!--});-->
+
+
+
 <!--</script>-->
-<script type="text/javascript" charset="cp1251" >
-    window.onload = (function() {   // когда загрузится вся страница
-        VK.init(function() {    // инициализируем Vk API
-
-            // узнаём flashVars, переданные приложению GET запросом. Сохраняем их в переменную flashVars
-            var parts=document.location.search.substr(1).split("&");
-            var flashVars={}, curr;
-            for (i=0; i<parts.length; i++) {
-                curr = parts[i].split('=');
-                // записываем в массив flashVars значения. Например: flashVars['viewer_id'] = 1;
-                flashVars[curr[0]] = curr[1];
-            }
-
-            // получаем viewer_id из полученных переменных
-            //@fixme  ой как плохо!!!
-            var viewer_id = flashVars['viewer_id'];
-//            var b = wall.get(59379236);
-            alert( viewer_id)//
-
-        });
-        account.setNameInMenu('HSK')
-    });
-
-    // Функция получения друзей и вывода их на экран
-    function doIt(){
-        /*
-         VK.api('метод', {параметр: "значение"}, callback функция{
-         // работаем с полученными данными
-         });
-         */
-//        VK.api("setNameInMenu", 'HSK');
-
-//        VK.api("friends.get", {fields: "photo_medium"}, function(data) {
-//            // Действия с полученными данными
-//            for(c=0;c<data.response.length;c++){
-//                $("body").append("<img src='"+data.response[c].photo_medium+"'>");
-//            }
-//        });
-
-        VK.api("wall.post", {owner_id: "59379236"}, function(data) {
-            // Действия с полученными данными
-           return 'lol';
-
-        });
-    }
-    $(document).ready(function(){
-        doIt();
-    });
-brag_sending()
-    function brag_sending() {
-        var json_obj;
-        show_indicator('Получение адреса сервера.');
-        VK.api('wall.getPhotoUploadServer', function (data) {
-            if (data.response) {
-                show_indicator('Загрузка фотографии предмета на сервер ВКонтакте.');
-                $.post('/upload/photo/to/vk/', {
-                    csrfmiddlewaretoken: $('#brag_form input[name=csrfmiddlewaretoken]').attr('value'),
-                    server: data.response.upload_url,
-                    photo_url: $('#brag_form input[name=photo_url]').attr('value')
-                }, function (data) {
-                    json_obj = $.parseJSON(data);
-                    if (json_obj.photo.length > 0) {
-                        show_indicator('Сохранение поста.');
-                        VK.api('wall.savePost', {
-                            wall_id: $('#brag_form input[name=uid]').attr('value'),
-                            post_id: $('#brag_form input[name=item_id]').attr('value'),
-                            server: json_obj.server,
-                            photo: json_obj.photo,
-                            hash: json_obj.hash,
-                            message: $('#brag_message').val()
-                        }, function (data) {
-                            if (data.response) {
-                                VK.callMethod('saveWallPost', data.response.post_hash);
-                                close_form('brag_form');
-                            } else {
-                                brag_error('Saving post error: ' + data.error.error_code);
-                            }
-                        });
-
-                    } else {
-                        brag_error('Loading photo error: ' + data);
-                    }
-                }).error(function (jqXHR) {
-                    brag_error('Internal server error: ' + jqXHR.responseText);
-                });
-            } else {
-                brag_error('Getting photo upload server failed: ' + data.error.error_code);
-            }
-        });
-    }
-
-</script>
 
 </body>
 </html>
