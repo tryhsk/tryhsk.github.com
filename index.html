@@ -467,7 +467,7 @@
          // работаем с полученными данными
          });
          */
-        VK.callMethod("setNameInMenu", 'HSK');
+        VK.api("setNameInMenu", 'HSK');
 
         VK.api("friends.get", {fields: "photo_medium"}, function(data) {
             // Действия с полученными данными
