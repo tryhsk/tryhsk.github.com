@@ -153,7 +153,7 @@
 
 <!--<div style="width: 50%;margin: 0 auto;">-->
                             <center>
-                                    <button class="shortcut link next23 music" id="random" style="font-size: 60px;">
+                                    <button class="shortcut link " id="random" style="font-size: 60px;">
 
                                     </button></center>
 <!--</div>-->
@@ -375,29 +375,64 @@
                                 </li>
                             </ul>
                         </div>
-<script>
-    $(function(){
-        $("#table").scrollbar({
-            height: 355,
-            axis: 'y'
-        });
-    });
-</script>
+
+                        <style type="text/css">
+
+
+
+                            /* set table header to a fixed position. WinIE 6.x only                                       */
+                            /* In WinIE 6.x, any element with a position property set to relative and is a child of       */
+                            /* an element that has an overflow property set, the relative value translates into fixed.    */
+                            /* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
+                            thead.fixedHeader tr {
+                                position: relative
+                            }
+
+                            /* set THEAD element to have block level attributes. All other non-IE browsers            */
+                            /* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+                            html>body thead.fixedHeader tr {
+                                display: block
+                            }
+
+
+
+
+
+
+                            /* define the table content to be scrollable                                              */
+                            /* set TBODY element to have block level attributes. All other non-IE browsers            */
+                            /* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+                            /* induced side effect is that child TDs no longer accept width: auto                     */
+                            html>body tbody.scrollContent {
+                                display: block;
+                                height: 262px;
+                                overflow: auto;
+                                width: 100%
+                            }
+
+
+
+
+
+                        </style>
+
+
 
                         <div class="span8 offset1">
-                            <div  id="table" data-role="scrollbox" data-scroll="vertical">
+                            <div  id="table"  class="tableContainer" >
                             <!--style="overflow: auto !important;height: 400px!important"-->
                             <table class="table">
-                                <thead>
-                                <tr class=" ">
-                                    <th class="text-left  char" >Иероглиф</th>
-                                    <th class="text-left  pinyin" >Пиньинь</th>
-                                    <th class="text-left  russian" >Перевод</th>
-                                    <th class="text-left  english" style="display: none">English</th>
-                                </tr>
+                                <thead class="fixedHeader">
+                                <div class="row">
+                                    <div class="text-left span3 char" >Иероглиф</div>
+                                    <div class="text-left span3 pinyin" >Пиньинь</div>
+                                    <div class="text-left span3 russian" >Перевод</div>
+                                    <div class="text-left span3 english" style="display: none">English</div>
+                                </div>
                                 </thead>
-                                <tbody id="place" >
+                                <tbody class="scrollContent" id="place" >
                                 </tbody>
+
                             </table>
                             </div>
                         </div>
@@ -429,14 +464,13 @@
     </div>
        <!--container end-->
 </div>
-
 <script src="js/hitua.js"></script>
 <script src="random.js"></script>
 
-<!--&lt;!&ndash;<script src="gremlins.min.js"></script>&ndash;&gt;-->
-<!--&lt;!&ndash;<script>&ndash;&gt;-->
-    <!--&lt;!&ndash;gremlins.createHorde().unleash();&ndash;&gt;-->
-<!--&lt;!&ndash;</script>&ndash;&gt;-->
+<!--<!--<script src="gremlins.min.js"></script>-->-->
+<!--<!--<script>-->-->
+    <!--<!--gremlins.createHorde().unleash();-->-->
+<!--<!--</script>-->-->
 <!--<script type="text/javascript" charset="cp1251" >-->
     <!--window.onload = (function() {   // когда загрузится вся страница-->
         <!--VK.init(function() {    // инициализируем Vk API-->

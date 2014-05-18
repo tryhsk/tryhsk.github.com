@@ -1,15 +1,13 @@
 "use strict";
-var question;
-
-var arr = new Array(10),
-    noun_bool = first_bool('noun'),
-    pronoun_bool = first_bool('pronoun'),
-    verb_bool = first_bool('verb'),
-    numeral_bool = first_bool('numeral'),
-    adjective_bool = first_bool('adjective');
-
-var test_arr = [];
-var words;
+var  question
+    ,arr = new Array(10)
+    ,noun_bool = first_bool('noun')
+    ,pronoun_bool = first_bool('pronoun')
+    ,verb_bool = first_bool('verb')
+    ,numeral_bool = first_bool('numeral')
+    ,adjective_bool = first_bool('adjective')
+    ,test_arr = []
+    ,words;
 
 
 
@@ -22,8 +20,7 @@ function first_bool(name) {
     return bool;
 }
 
-var massiv = [ 'noun', 'pronoun', 'verb', 'numeral', 'adjective'];
-//
+
 //function fa(massiv){
 //    return function(){
 //        for(var i=0;i<massiv.length;i++){
@@ -48,11 +45,7 @@ var massiv = [ 'noun', 'pronoun', 'verb', 'numeral', 'adjective'];
 $(".verb").change(function () {
     verb_bool = !verb_bool;
     $('.verb').prop('checked', verb_bool);
-    if (verb_bool) {
-        $(".verb_tr").show();
-    } else {
-        $(".verb_tr").hide();
-    }
+    summary();
     get_arr();
     return false;
 });
@@ -61,11 +54,7 @@ $(".verb").change(function () {
 $(".adjective").change(function () {
     adjective_bool = !adjective_bool;
     $('.adjective').prop('checked', adjective_bool);
-    if (adjective_bool) {
-        $(".adjective_tr").show();
-    } else {
-        $(".adjective_tr").hide();
-    }
+    summary();
     get_arr();
     return false;
 });
@@ -75,11 +64,7 @@ $(".adjective").change(function () {
 $(".noun").change(function () {
     noun_bool = !noun_bool;
     $('.noun').prop('checked', noun_bool);
-    if (noun_bool) {
-        $(".noun_tr").show();
-    } else {
-        $(".noun_tr").hide();
-    }
+    summary();
     get_arr();
     return false;
 });
@@ -88,11 +73,7 @@ $(".noun").change(function () {
 $(".pronoun").change(function () {
     pronoun_bool = !pronoun_bool;
     $('.pronoun').prop('checked', pronoun_bool);
-    if (pronoun_bool) {
-        $(".pronoun_tr").show();
-    } else {
-        $(".pronoun_tr").hide();
-    }
+    summary();
     get_arr();
     return false;
 });
@@ -100,11 +81,7 @@ $(".pronoun").change(function () {
 $(".numeral").change(function () {
     numeral_bool = !numeral_bool;
     $('.numeral').prop('checked', numeral_bool);
-    if (numeral_bool) {
-        $(".numeral_tr").show();
-    } else {
-        $(".numeral_tr").hide();
-    }
+    summary();
     get_arr();
     return false;
 });
@@ -174,13 +151,13 @@ function get_arr() {
         }
     }
     ammount_words();
-    scroll();
+//    scroll();
     return test_arr;
 }
 
 function  scroll(){
 
-    $('#table').css('height',test_arr.length*33);
+//    $('#table').css('height',test_arr.length*33);
 //        $("#table").scrollbar({
 //            height: test_arr.length*36,
 //            axis: 'y'
@@ -373,17 +350,50 @@ summary();
 function summary() {
     var output = "";
     for (var i=0;i<test_arr.length;i++) {
-if(words[test_arr[i]].noun){ output+="<tr class='noun_tr'>"}
-if(words[test_arr[i]].pronoun){ output+="<tr class='pronoun_tr'>"}
-if(words[test_arr[i]].verb){ output+="<tr class='verb_tr'>"}
-if(words[test_arr[i]].adjective){ output+="<tr class='adjective_tr'>"}
-if(words[test_arr[i]].numeral){ output+="<tr class='numeral_tr'>"}
 
-        output += "<td class=\"char char_big\">" + words[test_arr[i]].char + "</td>" + " " + "<td class=\"pinyin\">" + words[test_arr[i]].pinyin + "</td>" + " " + "<td class=\"russian\">" + words[test_arr[i]].russian + "</td>" + " " + "<td class=\"english\" style=\"display:none\">" + words[test_arr[i]].english + "</td>" + "</tr>";
+        if (noun_bool) {
+            if(words[test_arr[i]].noun){ output+="<div  class=\'row row_c noun_tr' "}
+        }
+
+        if(pronoun_bool){
+
+            if(words[test_arr[i]].pronoun){ output+="<div  class=\'row row_c pronoun_tr' "}
+        }
+
+        if(verb_bool){
+            if(words[test_arr[i]].verb){ output+="<div  class=\'row row_c verb_tr' "}
+        }
+
+        if(adjective_bool){
+            if(words[test_arr[i]].adjective){ output+="<div  class=\'row row_c adjective_tr' "}
+        }
+
+        if(numeral_bool){
+            if(words[test_arr[i]].numeral){ output+="<div  class=\'row row_c numeral_tr' "}
+        }
+
+
+        output +='id=\''+words[test_arr[i]].id +'\'>';
+
+
+
+
+
+        output += "<div class=\"char char_big span3\">" + words[test_arr[i]].char + "</div>" + " " + "<div class=\"pinyin span3\">" + words[test_arr[i]].pinyin + "</div>" + " " + "<div class=\"russian span6\">" + words[test_arr[i]].russian + "</div>" + " " + "<div class=\"english span5\" style=\"display:none\">" + words[test_arr[i]].english + "</div></div>" + "</tr>";
     }
     document.getElementById("place").innerHTML = output;
     return false;
 }
+
+$('.row_c').click(function () {
+    $('.row_c>*').removeClass("shortcut link").css('font-size','inherit');
+    $(this).find('.char').addClass("shortcut link").css('font-size',60).click(function(){
+        $(this).removeClass("shortcut link").css('font-size','inherit');
+    }).click(function() {
+        $(this).find('.char').removeClass("shortcut link").css('font-size','inherit');
+    })
+});
+
 
 $("#char").change(function () {
 
@@ -458,9 +468,6 @@ $("#english").change(function () {
     return false;
 });
 
-
-
-
 $( window ).unload(function() {
     setCookie('noun_bool',noun_bool);
     setCookie('pronoun_bool',pronoun_bool);
@@ -468,7 +475,6 @@ $( window ).unload(function() {
     setCookie('numeral_bool',numeral_bool);
     setCookie('adjective_bool',adjective_bool);
 });
-
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++      cookie
 
 // возвращает cookie с именем name, если есть, если нет, то undefined
