@@ -53,6 +53,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
 
             question = random_var(data);
             var repeat = true;
+            
             do {
                 for (var i = 0; i < Math.floor(data.length * 0.75); i++) {
                     console.log(Math.floor(data.length * 0.75));
@@ -163,8 +164,12 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
 
         $scope.fresh = function () {
             sortWords.getSortWords().then(function (words) {
-                if (words.length == 0) {
-                    $scope.amount = 'Ничего не выбрано';
+                if (words.length < 10 ) {
+                    if (words.length == 0) {
+                        $scope.amount = 'Ничего не выбрано';
+                    } else {
+                        $scope.amount = 'Слишком мало слов';
+                    }
                 } else {
                     $scope.fill(words);
                     g = new Hamster();
