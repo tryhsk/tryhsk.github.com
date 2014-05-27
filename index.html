@@ -6,13 +6,11 @@
     <meta name="product" content="">
     <meta name="description" content="Популярный тренажер для экзамена HSK. И просто отличное приложение для изучения основной лексики 汉语.">
     <meta name="author" content="">
-
     <link href="css/metro-bootstrap.css" rel="stylesheet">
     <link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
     <link href="css/iconFont.css" rel="stylesheet">
     <link href="css/docs.css" rel="stylesheet">
     <link href="js/prettify/prettify.css" rel="stylesheet">
-
     <!-- Load JavaScript Libraries -->
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/jquery/jquery.widget.min.js"></script>
@@ -25,482 +23,95 @@
     <!-- Local JavaScript -->
     <script src="js/docs.js"></script>
     <script src="js/github.info.js"></script>
-
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-resource/angular-resource.js"></script>
+    <script src="src/ngCookies/cookies.js"></script>
+    <script src="work/app.js"></script>
+    <script src="work/controllers.js"></script>
+    <script src="work/filters.js"></script>
+    <script src="work/services.js"></script>
 
     <title>HSK. Китайский язык 汉语</title>
 </head>
-<script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript">
-</script>
-<body class="metro">
+<!--<script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript">-->
+<!--</script>-->
+<body class="metro" ng-app="tryHsk">
+<div class="loader" ng-show="loader"><div class="loader-content">Loading...</div></div>
 
-<div class="container">
+ <!--<div ng-include="'partials/study.html'" ></div>-->
 
-    <div class="tab-control" data-role="tab-control">
-        <ul class="tabs">
-            <li class="active"><a href="#_page_1">ТЕСТ</a></li>
-            <li><a href="#_page_2">СЛОВАРЬ</a></li>
-            <!--<li><a href="#_page_3"><i class="icon-rocket"></i></a></li>-->
-            <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
-            <li class="place-right"><a href="#_page_4"><i class="icon-cog"></i></a></li>
-        </ul>
 
 
-        <div class="frames">
-            <div class="frame" id="_page_1">
+<div class= "container" >
+<div class="tab-control" data-role="tab-control">
+<ul class="tabs">
 
+    <li class="active"><a href="#_page_1">ТЕСТ</a></li>
+    <li><a href="#_page_2">СЛОВАРЬ</a></li>
+    <!--<li><a href="#_page_3"><i class="icon-rocket"></i></a></li>-->
+    <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
+    <li class="place-right"><a href="#_page_4"><i class="icon-cog"></i></a></li>
+</ul>
 
-            <div class="grid fluid">
-                <div class="row">
 
-                    <div class="span4">
+<div class="frames">
 
-
-                        <ul class="treeview" data-role="treeview">
-                            <li class="node">
-                            <a href="#"><span class="node-toggle"></span>часть речи</a>
-                            <ul>
-                                <li> <div class="input-control checkbox" data-role="input-control">
-                                    <label>
-                                        <input type="checkbox"  class="noun" checked />
-                                        <span class="check"></span>
-                                        существительные
-                                    </label>
-                                </div>
-                                </li>
-                                <li> <div class="input-control checkbox" data-role="input-control">
-                                    <label>
-                                        <input type="checkbox" class="pronoun"  checked />
-                                        <span class="check"></span>
-                                        местоимения
-                                    </label>
-                                </div>
-                                </li>
-                                <li> <div class="input-control checkbox" data-role="input-control">
-                                    <label>
-                                        <input type="checkbox"  class="verb" checked />
-                                        <span class="check"></span>
-                                        глаголы
-                                    </label>
-                                </div>
-                                </li>
-                                <li> <div class="input-control checkbox" data-role="input-control">
-                                    <label>
-                                        <input type="checkbox" class='adjective' checked />
-                                        <span class="check"></span>
-                                        прилагательные
-                                    </label>
-                                </div>
-                                </li>
-                                <li> <div class="input-control checkbox" data-role="input-control">
-                                    <label>
-                                        <input type="checkbox" class='numeral' checked />
-                                        <span class="check"></span>
-                                        числительные
-                                    </label>
-                                </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                            <li class="node collapsed">
-                                <a href="#"><span class="node-toggle"></span>HSK level</a>
-                                <ul>
-                                    <li> <div class="input-control checkbox" data-role="input-control">
-                                        <label>
-                                            <input type="checkbox" disabled checked />
-                                            <span class="check"></span>
-                                            HSK 1
-                                        </label>
-                                    </div>
-                                    </li>
-                                    <li> <div class="input-control checkbox" data-role="input-control">
-                                        <label>
-                                            <input type="checkbox" disabled />
-                                            <span class="check"></span>
-                                            HSK 2
-                                        </label>
-                                    </div>
-                                    </li>
-                                    <li> <div class="input-control checkbox" data-role="input-control">
-                                        <label>
-                                            <input type="checkbox" disabled />
-                                            <span class="check"></span>
-                                            HSK 3
-                                        </label>
-                                    </div>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-
-                    <div class="span8">
-                        <!--<div class="row">-->
-                        <!--<div style="margin-top: 20px">-->
-                            <!--<button class="button" id="next">NEXT</button>-->
-                        <!--</div>-->
-<div id="music"></div>
-<div id="first_ansver_sound"></div>
-<div id="second_ansver_sound"></div>
-<div id="third_ansver_sound"></div>
-<div id="fourth_ansver_sound"></div>
-                        <!--</div>-->
-                        <div class="row" style="margin-top: 0">
-                            <button class="button" id="next" style="margin-left:50px">СЛЕДУЮЩИЙ</button>
-                            <output id="value"></output>
-
-<!--<div style="width: 50%;margin: 0 asuto;">-->
-                            <center>
-                                    <button class="shortcut link " id="random" style="font-size: 60px;">
-
-                                    </button></center>
-<!--</div>-->
-
-                        </div>
-
-  <!--@todo  убрать h2 это порнография-->
-  <!--@todo  не понятно как воспроизвести музыку юзабилити-->
-                        <div class="row">
-                            <!--<div style="width: 50%;margin: 0 auto;">-->
-                       <div class="accordion with-marker  place-center margin10" data-role="accordion" data-closeany="true" style="width: 50%;margin: 0 auto;">
-                            <div class="accordion-frame">
-                                <a class="heading" id="first_var" href="#"></a>
-                                <div class="content">
-
-                                    <div class="grid" style="margin-top:0;margin-bottom:0">
-                                        <div class="row" style="margin-top:0;margin-bottom:0">
-                                            <div class="span4"><h2 class="music1" id="first_ansver_char"></h2></div>
-                                            <div class="span8"><h2 class="music1" id="first_ansver"></h2></div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div id="true_first_ansver"></div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-frame">
-                                <a class="heading" id="second_var" href="#"></a>
-                                <div class="content ">
-                                    <div class="grid" style="margin-top:0;margin-bottom:0">
-                                        <div class="row" style="margin-top:0;margin-bottom:0">
-                                            <div class="span4"><h2 class="music2" id="second_ansver_char"></h2></div>
-                                            <div class="span8"><h2 class="music2" id="second_ansver"></h2></div>
-                                        </div>
-                                    </div>
-                                    <div id="true_second_ansver"></div>
-                                </div>
-                            </div>
-                            <div class="accordion-frame">
-                                <a class="heading" id="third_var" href="#"></a>
-                                <div class="content">
-                                    <div class="grid" style="margin-top:0;margin-bottom:0">
-                                        <div class="row" style="margin-top:0;margin-bottom:0">
-                                            <div class="span4"><h2 class="music3" id="third_ansver_char"></h2></div>
-                                            <div class="span8"><h2 class="music3" id="third_ansver"></h2></div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <!--<div id="third_ansver_char"></div>-->
-                                    <!--<div id="third_ansver"></div>-->
-                                    <div id="true_third_ansver"></div>
-                                </div>
-                            </div>
-                            <div class="accordion-frame">
-                                <a class="heading" id="fourth_var" href="#"></a>
-                                <div class="content">
-
-                                    <div class="grid" style="margin-top:0;margin-bottom:0">
-                                        <div class="row" style="margin-top:0;margin-bottom:0">
-                                            <div class="span4"><h2 class="music4" id="fourth_ansver_char"></h2></div>
-                                            <div class="span8"><h2 class="music4" id="fourth_ansver"></h2></div>
-                                        </div>
-                                    </div>
-
-
-                                    <div id="true_fourth_ansver"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--</div>-->
-                        </div>
-
-                    </div>
-
-
-
-
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-            </div>
-
-
-            <div class="frame" id="_page_2">
-
-
-
-
-                <div class="grid fluid">
-                    <div class="row">
-                        <div class="span2" >
-
-
-                            <ul class="treeview" data-role="treeview">
-                                <li class="node collapsed">
-                                    <a href="#"><span class="node-toggle"></span>часть речи</a>
-                                    <ul>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label>
-                                                <input type="checkbox"  class="noun" checked />
-                                                <span class="check"></span>
-                                                существительные
-                                            </label>
-                                        </div>
-                                        </li>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label>
-                                                <input type="checkbox" class="pronoun"  checked />
-                                                <span class="check"></span>
-                                                местоимения
-                                            </label>
-                                        </div>
-                                        </li>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label>
-                                                <input type="checkbox"  class="verb" checked />
-                                                <span class="check"></span>
-                                                глаголы
-                                            </label>
-                                        </div>
-                                        </li>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label>
-                                                <input type="checkbox" class='adjective' checked />
-                                                <span class="check"></span>
-                                                прилагательные
-                                            </label>
-                                        </div>
-                                        </li>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label>
-                                                <input type="checkbox" class='numeral' checked />
-                                                <span class="check"></span>
-                                                числительные
-                                            </label>
-                                        </div>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="node ">
-                                    <a href="#"><span class="node-toggle"></span>категория</a>
-                                    <ul>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label class="english_toggle">
-                                                <input type="checkbox"  id="char" checked />
-                                                <span class="check"></span>
-                                                иероглиф
-                                            </label>
-                                        </div>
-                                        </li>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label class="english_toggle">
-                                                <input type="checkbox" id="pinyin"  checked />
-                                                <span class="check"></span>
-                                                пиньинь
-                                            </label>
-                                        </div>
-                                        </li>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label class="english_toggle">
-                                                <input type="checkbox"  id="russian" checked />
-                                                <span class="check"></span>
-                                                русский
-                                            </label>
-                                        </div>
-                                        </li>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label class="english_toggle">
-                                                <input type="checkbox" id='english' />
-                                                <span class="check"></span>
-                                                english
-                                            </label>
-                                        </div>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="node collapsed">
-                                    <a href="#"><span class="node-toggle"></span>HSK level</a>
-                                    <ul>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label>
-                                                <input type="checkbox" disabled checked />
-                                                <span class="check"></span>
-                                                HSK 1
-                                            </label>
-                                        </div>
-                                        </li>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label>
-                                                <input type="checkbox" disabled />
-                                                <span class="check"></span>
-                                                HSK 2
-                                            </label>
-                                        </div>
-                                        </li>
-                                        <li> <div class="input-control checkbox" data-role="input-control">
-                                            <label>
-                                                <input type="checkbox" disabled />
-                                                <span class="check"></span>
-                                                HSK 3
-                                            </label>
-                                        </div>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <style type="text/css">
-
-
-
-                            /* set table header to a fixed position. WinIE 6.x only                                       */
-                            /* In WinIE 6.x, any element with a position property set to relative and is a child of       */
-                            /* an element that has an overflow property set, the relative value translates into fixed.    */
-                            /* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
-                            thead.fixedHeader tr {
-                                position: relative
-                            }
-
-                            /* set THEAD element to have block level attributes. All other non-IE browsers            */
-                            /* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
-                            html>body thead.fixedHeader tr {
-                                display: block
-                            }
-
-
-
-
-
-
-                            /* define the table content to be scrollable                                              */
-                            /* set TBODY element to have block level attributes. All other non-IE browsers            */
-                            /* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
-                            /* induced side effect is that child TDs no longer accept width: auto                     */
-                            html>body tbody.scrollContent {
-                                display: block;
-                                height: 262px;
-                                overflow: auto;
-                                width: 100%
-                            }
-
-
-
-
-
-                        </style>
-
-
-
-                        <div class="span8 offset1">
-                            <div  id="table"  class="tableContainer" >
-                            <!--style="overflow: auto !important;height: 400px!important"-->
-                            <table class="table">
-                                <thead class="fixedHeader">
-                                <div class="row">
-                                    <div class="text-left span3 char" >Иероглиф</div>
-                                    <div class="text-left span3 pinyin" >Пиньинь</div>
-                                    <div class="text-left span3 russian" >Перевод</div>
-                                    <div class="text-left span3 english" style="display: none">English</div>
-                                </div>
-                                </thead>
-                                <tbody class="scrollContent" id="place" >
-                                </tbody>
-
-                            </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-            <!--<div class="frame" id="_page_3">-->
-                <!--<p>Rocket Tab</p>-->
-            <!--</div>-->
-            <div class="frame" id="_page_4">
-                <select disabled>
-                    <option id="ru">Русский</option>
-                    <option id="eng">English</option>
-                    <option id="zh">汉语</option>
-                </select><div id="vk"></div>
-            </div>
-            <div class="frame" id="_page_5">
-
-            </div>
-
-            <!--frame-->
-        </div>
-    <!--tab control-->
+    <div class="frame" id="_page_1">
+        <div ng-include="'partials/test.html'"></div>
     </div>
-       <!--container end-->
+
+    <div class="frame" id="_page_2">
+        <div ng-include="'partials/summary.html'" ></div>
+    </div>
+
+    <div class="frame" id="_page_4" ng-controller="settingsCtrl">
+        <div ng-include="'partials/settings.html'" ></div>
+    </div>
+
+    <div class="frame" id="_page_5" ng-controller="loveCtrl">
+    </div>
+
+
+
+
+
+<!--frame-->
 </div>
+<!--tab control-->
+</div>
+<!--container end-->
+</div>
+
+
+
 <script src="js/hitua.js"></script>
-<script src="random.js"></script>
-
-<!--<!--<script src="gremlins.min.js"></script>-->-->
-<!--<!--<script>-->-->
-    <!--<!--gremlins.createHorde().unleash();-->-->
-<!--<!--</script>-->-->
 <!--<script type="text/javascript" charset="cp1251" >-->
-    <!--window.onload = (function() {   // когда загрузится вся страница-->
-        <!--VK.init(function() {    // инициализируем Vk API-->
-
-            <!--// узнаём flashVars, переданные приложению GET запросом. Сохраняем их в переменную flashVars-->
-            <!--var parts=document.location.search.substr(1).split("&");-->
-            <!--var flashVars={}, curr;-->
-            <!--for (i=0; i<parts.length; i++) {-->
-                <!--curr = parts[i].split('=');-->
-                <!--// записываем в массив flashVars значения. Например: flashVars['viewer_id'] = 1;-->
-                <!--flashVars[curr[0]] = curr[1];-->
-            <!--}-->
-
-            <!--// получаем viewer_id из полученных переменных-->
-            <!--//@fixme  ой как плохо!!!-->
-            <!--var viewer_id = flashVars['viewer_id'];-->
+<!--window.onload = (function() {   // когда загрузится вся страница-->
+<!--VK.init(function() {    // инициализируем Vk API-->
+<!--// узнаём flashVars, переданные приложению GET запросом. Сохраняем их в переменную flashVars-->
+<!--var parts=document.location.search.substr(1).split("&");-->
+<!--var flashVars={}, curr;-->
+<!--for (i=0; i<parts.length; i++) {-->
+<!--curr = parts[i].split('=');-->
+<!--// записываем в массив flashVars значения. Например: flashVars['viewer_id'] = 1;-->
+<!--flashVars[curr[0]] = curr[1];-->
+<!--}-->
+<!--// получаем viewer_id из полученных переменных-->
+<!--//@fixme  ой как плохо!!!-->
+<!--var viewer_id = flashVars['viewer_id'];-->
 <!--//            var b = wall.get(59379236);-->
-            <!--alert( viewer_id)//-->
-
-        <!--});-->
-        <!--account.setNameInMenu('HSK')-->
-    <!--});-->
-
-    <!--// Функция получения друзей и вывода их на экран-->
-    <!--function doIt(){-->
-        <!--/*-->
-         <!--VK.api('метод', {параметр: "значение"}, callback функция{-->
-         <!--// работаем с полученными данными-->
-         <!--});-->
-         <!--*/-->
+<!--alert( viewer_id)//-->
+<!--});-->
+<!--account.setNameInMenu('HSK')-->
+<!--});-->
+<!--// Функция получения друзей и вывода их на экран-->
+<!--function doIt(){-->
+<!--/*-->
+<!--VK.api('метод', {параметр: "значение"}, callback функция{-->
+<!--// работаем с полученными данными-->
+<!--});-->
+<!--*/-->
 <!--//        VK.api("setNameInMenu", 'HSK');-->
 
 <!--//        VK.api("friends.get", {fields: "photo_medium"}, function(data) {-->
@@ -510,17 +121,15 @@
 <!--//            }-->
 <!--//        });-->
 
-        <!--VK.api("wall.post", {owner_id: "59379236"}, function(data) {-->
-            <!--// Действия с полученными данными-->
-           <!--return 'lol';-->
+<!--VK.api("wall.post", {owner_id: "59379236"}, function(data) {-->
+<!--// Действия с полученными данными-->
+<!--return 'lol';-->
 
-        <!--});-->
-    <!--}-->
-    <!--$(document).ready(function(){-->
-        <!--doIt();-->
-    <!--});-->
-
-
+<!--});-->
+<!--}-->
+<!--$(document).ready(function(){-->
+<!--doIt();-->
+<!--});-->
 
 <!--</script>-->
 
