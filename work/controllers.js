@@ -36,6 +36,56 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
             , test_randoms = [];
         var g;
 
+        $scope.danger = function() {
+
+
+            window.onload = (function() {   // когда загрузится вся страница
+                VK.init(function() {    // инициализируем Vk API
+// узнаём flashVars, переданные приложению GET запросом. Сохраняем их в переменную flashVars
+                    var parts=document.location.search.substr(1).split("&");
+                    var flashVars={}, curr;
+                    for (var i=0; i<parts.length; i++) {
+                        curr = parts[i].split('=');
+// записываем в массив flashVars значения. Например: flashVars['viewer_id'] = 1;
+                        flashVars[curr[0]] = curr[1];
+                    }
+// получаем viewer_id из полученных переменных
+//@fixme  ой как плохо!!!
+                    var viewer_id = flashVars['viewer_id'];
+//            var b = wall.get(59379236);
+                    alert( viewer_id)
+                });
+                account.setNameInMenu('HSK')
+            });
+// Функция получения друзей и вывода их на экран
+            function doIt(){
+                /*
+                 VK.api('метод', {параметр: "значение"}, callback функция{
+                 // работаем с полученными данными
+                 });
+                 */
+                VK.api("setNameInMenu", 'HSK');
+
+                VK.api("friends.get", {fields: "photo_medium"}, function(data) {
+                    // Действия с полученными данными
+                    for(c=0;c<data.response.length;c++){
+                        $("body").append("<img src='"+data.response[c].photo_medium+"'>");
+                    }
+                });
+
+//                VK.api("wall.post", {owner_id: "59379236"}, function(data) {
+//// Действия с полученными данными
+//                    return 'lol';
+//
+//                });
+            }
+            $(document).ready(function(){
+                doIt();
+            });
+
+
+        };
+
         function random_var(words) {
             return Math.floor(Math.random() * (words.length - 1));
         }
