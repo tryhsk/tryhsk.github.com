@@ -10528,4 +10528,5 @@ a {
 
 .tab-control {
      width: 100% !important;
+    position: absolute;
 }
