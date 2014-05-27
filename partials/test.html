@@ -20,7 +20,7 @@
                 <div class="row" style="margin-top: 0">
                     <!--@todo src      porevo!!!!!-->
                     <object height="1" width="1" data="http://china-standart.ru{{sound}}"></object>
-                    <button class="button" ng-click="fresh()"   style="margin-left:50px">СЛЕДУЮЩИЙ</button>
+                    <button class="button" ng-click="nextWord()"   style="margin-left:50px">СЛЕДУЮЩИЙ</button>
                     <output id="value"></output>  {{amount}}  <h1>{{result}}</h1>
 <!--@fixme pornography  <center>-->
                     <center>
@@ -47,7 +47,7 @@
                                         <div class="span4"><h2>{{wordsTest.char}}</h2></div>
                                         <div class="span4"><h2>{{wordsTest.pinyin}}</h2></div>
                                     </div>
-                                    <button class="button {{wordsTest.ansver}}" ng-click="fresh()" style="margin-left:50px">{{wordsTest.button}}</button>
+                                    <button class="button {{wordsTest.ansver}}" ng-click="nextWord()" style="margin-left:50px">{{wordsTest.button}}</button>
                                 </div>
                             </div>
                         </div>

@@ -25,6 +25,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
     function ($scope, Word, sortWords, amountWords) {
 // @todo remember  object porno
         var question
+            ,swords
             , arr = new Array(10)
             , wordsTests = [
                 {},
@@ -55,9 +56,9 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
             var repeat = true;
             
             do {
-                for (var i = 0; i < Math.floor(data.length * 0.75); i++) {
-                    console.log(Math.floor(data.length * 0.75));
+                for (var i = 0; i < 8; i++) {
                     if (question == arr[i]) {
+                        console.log(arr);
                         question = (random_var(data));
                         repeat = true;
                         break
@@ -66,6 +67,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                     }
                 }
             } while (repeat);
+            console.log(arr);
             arr.unshift(question);
             return question;
         }
@@ -161,6 +163,29 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
             }
         };
 
+        $scope.nextWord = function() {
+            if (swords.length < 10 ) {
+                if (swords.length == 0) {
+                } else {
+                }
+            } else {
+                $("div.content").css("display", "none").css("border", "");
+                randomize(swords);
+                main_char(swords);
+                $scope.char = swords[question].char;
+                var n = swords[question].sound.split('http://china-standart.ru');
+                $scope.sound = n[1];
+                generate_var(swords);
+                fill_test(swords);
+                setTimeout(function () {
+                    $("div.content:has(button.primary)").css("border", "2px solid green");
+                    $("div.content:has(button.danger)").css("border", "2px solid red");
+                }, 500);
+                g = new Hamster();
+                return wordsTests;
+            }
+        };
+
 
         $scope.fresh = function () {
             sortWords.getSortWords().then(function (words) {
@@ -171,6 +196,8 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                         $scope.amount = 'Слишком мало слов';
                     }
                 } else {
+                    swords = words;
+                    arr = new Array(10);
                     $scope.fill(words);
                     g = new Hamster();
                     amountWords.getAmountWords().then(function (amount) {
