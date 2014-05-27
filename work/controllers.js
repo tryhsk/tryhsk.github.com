@@ -27,8 +27,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                 {},
                 {}
             ]
-            , test_randoms = []
-            , words;
+            , test_randoms = [];
         var g;
 
         function random_var(words) {
@@ -50,7 +49,8 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
             question = random_var(data);
             var repeat = true;
             do {
-                for (var i = 0; i < 10; i++) {
+                for (var i = 0; i < Math.floor(data.length * 0.75); i++) {
+                    console.log(Math.floor(data.length * 0.75));
                     if (question == arr[i]) {
                         question = (random_var(data));
                         repeat = true;
@@ -61,8 +61,6 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                 }
             } while (repeat);
             arr.unshift(question);
-            for (var i = 0; i < 10; i++) {
-            }
             return question;
         }
 
@@ -120,6 +118,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
 
         $scope.fill = function (data) {
 //@todo не забыть про исключение, когда ничего не выбрано
+
             $("div.content").css("display", "none").css("border", "");
             randomize(data);
             main_char(data);
@@ -158,14 +157,17 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
         };
 
 
-
         $scope.fresh = function () {
             sortWords.getSortWords().then(function (words) {
-                $scope.fill(words);
-                g = new Hamster();
-                amountWords.getAmountWords().then(function (amount) {
-                    $scope.amount = amount;
-                });
+                if (words.length == 0) {
+                    $scope.amount = 'Ничего не выбрано';
+                } else {
+                    $scope.fill(words);
+                    g = new Hamster();
+                    amountWords.getAmountWords().then(function (amount) {
+                        $scope.amount = amount;
+                    });
+                }
             });
         };
 
