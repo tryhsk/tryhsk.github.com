@@ -5,10 +5,14 @@ var tryHskControllers = angular.module('tryHskControllers', []);
 tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, amountWords) {
     $scope.refresh = function () {
         sortWords.getSortWords().then(function (words) {
-            $scope.words = words;
-            amountWords.getAmountWords().then(function (amount) {
-                $scope.amount = amount;
-            });
+            if (words.length == 0) {
+                $scope.amount = 'Ничего не выбрано';
+            } else {
+                $scope.words = words;
+                amountWords.getAmountWords().then(function (amount) {
+                    $scope.amount = amount;
+                });
+            }
         });
     };
     $scope.refresh();
