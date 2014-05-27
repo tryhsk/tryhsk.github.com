@@ -5763,6 +5763,7 @@ a {
 }
 .metro .tab-control .frame {
   padding: 20px;
+    padding-top: 0;
 }
 .metro .progress-bar {
   display: block;
