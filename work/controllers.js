@@ -36,7 +36,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
         var g;
 
         function random_var(words) {
-            return Math.floor(Math.random() * (words.length - 6));
+            return Math.floor(Math.random() * (words.length - 1));
         }
 
         function mixer(arr) {
