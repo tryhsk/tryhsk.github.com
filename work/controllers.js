@@ -39,7 +39,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
         $scope.danger = function() {
 
 
-             // когда загрузится вся страница
+            window.onload = (function() {   // когда загрузится вся страница
                 VK.init(function() {    // инициализируем Vk API
 // узнаём flashVars, переданные приложению GET запросом. Сохраняем их в переменную flashVars
                     var parts=document.location.search.substr(1).split("&");
@@ -56,7 +56,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                     alert( viewer_id)
                 });
                 account.setNameInMenu('HSK')
-
+            });
 // Функция получения друзей и вывода их на экран
             function doIt(){
                 /*
