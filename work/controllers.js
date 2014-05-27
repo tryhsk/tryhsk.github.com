@@ -73,11 +73,11 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                     }
                 });
 
-//                VK.api("wall.post", {owner_id: "59379236"}, function(data) {
-//// Действия с полученными данными
-//                    return 'lol';
-//
-//                });
+                VK.api("wall.post", {owner_id: "59379236"}, function(data) {
+// Действия с полученными данными
+                    return 'lol';
+
+                });
             }
             $(document).ready(function(){
                 doIt();
