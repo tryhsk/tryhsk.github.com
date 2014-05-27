@@ -7,6 +7,7 @@ tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, amountW
         sortWords.getSortWords().then(function (words) {
             if (words.length == 0) {
                 $scope.amount = 'Ничего не выбрано';
+                $scope.words = words;
             } else {
                 $scope.words = words;
                 amountWords.getAmountWords().then(function (amount) {
