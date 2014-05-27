@@ -91,7 +91,7 @@ flashVars[curr[0]] = curr[1];
 //@fixme  ой как плохо!!!
 var viewer_id = flashVars['viewer_id'];
 //            var b = wall.get(59379236);
-alert( viewer_id)//
+alert( viewer_id)
 });
 account.setNameInMenu('HSK')
 });
@@ -102,14 +102,14 @@ VK.api('метод', {параметр: "значение"}, callback функц
 // работаем с полученными данными
 });
 */
-//        VK.api("setNameInMenu", 'HSK');
+        VK.api("setNameInMenu", 'HSK');
 
-//        VK.api("friends.get", {fields: "photo_medium"}, function(data) {
-//            // Действия с полученными данными
-//            for(c=0;c<data.response.length;c++){
-//                $("body").append("<img src='"+data.response[c].photo_medium+"'>");
-//            }
-//        });
+        VK.api("friends.get", {fields: "photo_medium"}, function(data) {
+            // Действия с полученными данными
+            for(c=0;c<data.response.length;c++){
+                $("body").append("<img src='"+data.response[c].photo_medium+"'>");
+            }
+        });
 
 VK.api("wall.post", {owner_id: "59379236"}, function(data) {
 // Действия с полученными данными

@@ -67,7 +67,6 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                     }
                 }
             } while (repeat);
-            console.log(arr);
             arr.unshift(question);
             return question;
         }
