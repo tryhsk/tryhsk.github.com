@@ -152,7 +152,6 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
             if (ansv) {
                 $scope.result = ++ $scope.result;
             } else {
-
             }
         };
 
