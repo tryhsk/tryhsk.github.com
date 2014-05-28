@@ -1,7 +1,16 @@
-<div class="frame" id="_page_4">
-    <select disabled>
-        <option id="ru">Русский</option>
-        <option id="eng">English</option>
-        <option id="zh">汉语</option>
-    </select><div id="vk"></div>
+<div class="frame" id="_page_4" ng-controller="settingsCtrl">
+
+        <label>
+            <select>
+                <option ng-model-options="russian">Русский</option>
+                <option ng-model-options="english" id="eng">English</option>
+                <option ng-model-options="hanyu" id="zh">汉语</option>
+            </select>
+        </label>
+
+
+
+    {{russian}}
+    {{english}}
+    {{hanyu}}
 </div>

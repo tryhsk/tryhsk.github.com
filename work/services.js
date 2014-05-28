@@ -158,6 +158,8 @@ tryHskServices.factory('sortWords', function($q, Word, valueBoolean) {
 
 });
 
+
+//@todo пришпилить локализацию
 tryHskServices.factory('amountWords', function($q, sortWords) {
 
     var getAmountWords = function() {

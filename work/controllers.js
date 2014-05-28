@@ -218,7 +218,9 @@ tryHskControllers.controller('loveCtrl', function ($scope) {
 });
 
 tryHskControllers.controller('settingsCtrl', function ($scope) {
-    $scope.set = 'settings';
+   $scope.changeLanguage = function() {
+
+   }
 });
 
 tryHskControllers.controller('treeviewCtrl', function ($scope, valueBoolean) {
