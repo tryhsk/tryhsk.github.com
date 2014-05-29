@@ -1,0 +1,38 @@
+<div class="frame" id="_page_2" ng-controller="summaryCtrl">
+    <div style="height: 20px;width: 100%;"></div>
+    {{langua.search}}: {{messages}} <input ng-model="query">
+    {{amount}}
+    <div class="grid fluid">
+        <div class="row">
+
+<div class="span3">
+<div ng-include="'partials/treeview.html'"></div>
+</div>
+
+            <div class="span9 tableContainer" id="table" >
+                  <table class="table" >
+                        <thead class="fixedHeader">
+                        <div class="row">
+                      <div class="text-left span3 char" ><a href="" ng-click="predicate = 'id'; reverse=false">{{langua.char}}</a>
+                          (<a href="" ng-click="predicate = '-id'; reverse=false">^</a>)</div>
+                      <div class="text-left span3 pinyin" ><a href="" ng-click="predicate = 's'; reverse=!reverse">{{langua.pinyin}}</a></div>
+                      <div class="text-left span3 russian" ><a href="" ng-click="predicate = 'russian'; reverse=!reverse">{{langua.translate}}</a></div>
+                      <div class="text-left span3 english" style="display: none"><a href="" ng-click="predicate = 'english'; reverse=!reverse">{{langua.eng}}</a></div>
+                        </div>
+                        </thead>
+                        <tbody class="scrollContent">
+                        <div  style="height: 500px ;overflow: scroll;overflow-x: hidden ">
+                            <div ng-class="row" ng-repeat="word in words | filter:query | orderBy:predicate:reverse" >
+                                <div class="char char_big span3">{{word.id}}  {{word.char}}</div>
+                                <div class="pinyin span3">{{word.pinyin }}</div>
+                                <div class="russian span6">{{word.russian}}</div>
+                                <div class="english span5" style="display:none">{{word.english}}</div>
+                                <div style="display:none">{{word.s}}</div>
+                            </div>
+                            </div>
+                        </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>

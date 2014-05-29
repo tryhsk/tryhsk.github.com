@@ -1,0 +1,59 @@
+<div class="frame" id="_page_1" ng-controller="testCtrl">
+    <h1 style="position: absolute;left: 20px; margin-top: 0">{{result}}</h1>
+    <div class="grid fluid">
+        <div class="row">
+
+            <div class="span8">
+                <!--@fixme pornography  style="margin-top: 0"-->
+                <div class="row" style="margin-top: 0">
+                    <!--@todo src porevo!!!!!-->
+                    <object height="1" width="1" data="http://china-standart.ru{{sound}}"></object>
+                    <button class="button" ng-click="nextWord()" style="margin-left:50px">СЛЕДУЮЩИЙ</button>
+                    <output id="value"></output>
+                    {{amount}}
+                    <!--@fixme pornography  <center>-->
+                    <center>
+                        <button class="shortcut link " id="random" style="font-size: 60px;">{{char}}
+                        </button>
+                    </center>
+                </div>
+
+
+                <!--@todo  убрать h2 это порнография-->
+                <!--@todo  не понятно как воспроизвести музыку юзабилити-->
+                <div class="row">
+                    <!--@fixme pornography  style="margin-top: 0"-->
+                    <div class="accordion place-center margin10" data-role="accordion" data-closeany="true"
+                         style="width: 50%;margin: 0 auto;">
+
+
+                        <div class="accordion-frame" ng-repeat="wordsTest in wordsTests">
+                            <a class="heading" href="#" ng-click="checkAnsver(wordsTest.ansv)">{{wordsTest.russian}}</a>
+
+                            <div class="content">
+                                <div class="grid" style="margin-top:0;margin-bottom:0">
+                                    <div class="row" style="margin-top:0;margin-bottom:0">
+                                        <audio ngsrc="{{wordsTest.sound}}"></audio>
+                                        <div class="span4"><h2>{{wordsTest.char}}</h2></div>
+                                        <div class="span4"><h2>{{wordsTest.pinyin}}</h2></div>
+                                    </div>
+                                    <button class="button {{wordsTest.ansver}}" ng-click="nextWord()"
+                                            style="margin-left:50px">{{wordsTest.button}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="span3">
+                    <div ng-include="'partials/treeview.html'"></div>
+            </div>
+
+        </div>
+    </div>
+</div>

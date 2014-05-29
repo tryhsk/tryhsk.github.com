@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="product" content="">
+    <meta name="description"
+          content="Популярный тренажер для экзамена HSK. И просто отличное приложение для изучения основной лексики 汉语.">
+    <meta name="author" content="">
+
+    <!--Metro UI-->
+    <link rel="stylesheet" href="css/metro-bootstrap.css">
+    <link href="css/iconFont.css" rel="stylesheet">
+    <script src="js/jquery/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery/jquery.widget.min.js"></script>
+    <script src="js/metro.min.js"></script>
+    <script src="js/docs.js"></script>
+
+    <!--AngularJS-->
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-resource/angular-resource.js"></script>
+    <script src="src/ngCookies/cookies.js"></script>
+    <script src="work/app.js"></script>
+    <script src="work/controllers.js"></script>
+    <script src="work/filters.js"></script>
+    <script src="work/services.js"></script>
+
+    <title>HSK. Китайский язык 汉语</title>
+    <!--<script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>-->
+</head>
+<body class="metro" ng-app="tryHsk">
+
+
+<div class="container">
+    <div class="tab-control" data-role="tab-control">
+        <ul class="tabs">
+
+            <li class="active"><a href="#_page_1">ТЕСТ</a></li>
+            <li><a href="#_page_2">СЛОВАРЬ</a></li>
+            <!--<li><a href="#_page_3"><i class="icon-rocket"></i></a></li>-->
+            <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
+            <li class="place-right"><a href="#_page_4"><i class="icon-cog"></i></a></li>
+        </ul>
+
+
+        <div class="frames">
+
+            <div class="frame" id="_page_1">
+                <div ng-include="'partials/test.html'"></div>
+            </div>
+
+            <div class="frame" id="_page_2">
+                <div ng-include="'partials/summary.html'"></div>
+            </div>
+
+            <div class="frame" id="_page_4" ng-controller="settingsCtrl">
+                <div ng-include="'partials/settings.html'"></div>
+            </div>
+
+            <div class="frame" id="_page_5" ng-controller="loveCtrl">
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!--<script type="text/javascript" charset="cp1251" >-->
+<!--window.onload = (function() {   // когда загрузится вся страница-->
+<!--VK.init(function() {    // инициализируем Vk API-->
+<!--// узнаём flashVars, переданные приложению GET запросом. Сохраняем их в переменную flashVars-->
+<!--var parts=document.location.search.substr(1).split("&");-->
+<!--var flashVars={}, curr;-->
+<!--for (i=0; i<parts.length; i++) {-->
+<!--curr = parts[i].split('=');-->
+<!--// записываем в массив flashVars значения. Например: flashVars['viewer_id'] = 1;-->
+<!--flashVars[curr[0]] = curr[1];-->
+<!--}-->
+<!--// получаем viewer_id из полученных переменных-->
+<!--//@fixme  ой как плохо!!!-->
+<!--var viewer_id = flashVars['viewer_id'];-->
+<!--//            var b = wall.get(59379236);-->
+<!--alert( viewer_id)-->
+<!--});-->
+<!--account.setNameInMenu('HSK')-->
+<!--});-->
+<!--// Функция получения друзей и вывода их на экран-->
+<!--function doIt(){-->
+<!--/*-->
+<!--VK.api('метод', {параметр: "значение"}, callback функция{-->
+<!--// работаем с полученными данными-->
+<!--});-->
+<!--*/-->
+<!--VK.api("setNameInMenu", 'HSK');-->
+
+<!--VK.api("friends.get", {fields: "photo_medium"}, function(data) {-->
+<!--// Действия с полученными данными-->
+<!--for(c=0;c<data.response.length;c++){-->
+<!--$("body").append("<img src='"+data.response[c].photo_medium+"'>");-->
+<!--}-->
+<!--});-->
+
+<!--VK.api("wall.post", {owner_id: "59379236"}, function(data) {-->
+<!--// Действия с полученными данными-->
+<!--return 'lol';-->
+
+<!--});-->
+<!--}-->
+<!--$(document).ready(function(){-->
+<!--doIt();-->
+<!--});-->
+
+<!--</script>-->
+
+
+</body>
+</html>
