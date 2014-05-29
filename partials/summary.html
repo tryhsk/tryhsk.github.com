@@ -1,28 +1,23 @@
 <div class="frame" id="_page_2" ng-controller="summaryCtrl">
     <div style="height: 20px;width: 100%;"></div>
-    Search{{langua.search}}: {{messages}} <input ng-model="query">
+    {{langua.search}}: {{messages}} <input ng-model="query">
     {{amount}}
     <div class="grid fluid">
         <div class="row">
 
-<div class="span3" style="height: 500px ;overflow: scroll;overflow-x: hidden ">
-    <ul class="treeview" data-role="treeview">
-<!--<div ng-include="'partials/treeview_column.html'" ></div>-->
+<div class="span3">
 <div ng-include="'partials/treeview.html'"></div>
-
-
-    </ul>
 </div>
 
             <div class="span9 tableContainer" id="table" >
                   <table class="table" >
                         <thead class="fixedHeader">
                         <div class="row">
-                      <div class="text-left span3 char" ><a href="" ng-click="predicate = 'id'; reverse=false">Иероглиф{{langua.char}}</a>
+                      <div class="text-left span3 char" ><a href="" ng-click="predicate = 'id'; reverse=false">{{langua.char}}</a>
                           (<a href="" ng-click="predicate = '-id'; reverse=false">^</a>)</div>
-                      <div class="text-left span3 pinyin" ><a href="" ng-click="predicate = 's'; reverse=!reverse">Пиньинь{{langua.pinyin}}</a></div>
-                      <div class="text-left span3 russian" ><a href="" ng-click="predicate = 'russian'; reverse=!reverse">Перевод{{langua.translate}}</a></div>
-                      <div class="text-left span3 english" style="display: none"><a href="" ng-click="predicate = 'english'; reverse=!reverse">English{{langua.eng}}</a></div>
+                      <div class="text-left span3 pinyin" ><a href="" ng-click="predicate = 's'; reverse=!reverse">{{langua.pinyin}}</a></div>
+                      <div class="text-left span3 russian" ><a href="" ng-click="predicate = 'russian'; reverse=!reverse">{{langua.translate}}</a></div>
+                      <div class="text-left span3 english" style="display: none"><a href="" ng-click="predicate = 'english'; reverse=!reverse">{{langua.eng}}</a></div>
                         </div>
                         </thead>
                         <tbody class="scrollContent">

@@ -1,18 +1,9 @@
 <div class="frame" id="_page_1" ng-controller="testCtrl">
-    <h1 style="position: absolute;right: 20px">{{result}}</h1>
+    <h1 style="position: absolute;left: 20px; margin-top: 0">{{result}}</h1>
     <div class="grid fluid">
         <div class="row">
 
-            <div class="span3">
-                <ul class="treeview" data-role="treeview">
-
-                    <div ng-include="'partials/treeview.html'"></div>
-
-                </ul>
-            </div>
-            <div class="span8">
-
-
+            <div class="span9">
                 <!--@fixme pornography  style="margin-top: 0"-->
                 <div class="row" style="margin-top: 0">
                     <!--@todo src      porevo!!!!!-->
@@ -57,6 +48,12 @@
                 </div>
 
             </div>
+
+
+            <div class="span3">
+                    <div ng-include="'partials/treeview.html'"></div>
+            </div>
+
         </div>
     </div>
 </div>

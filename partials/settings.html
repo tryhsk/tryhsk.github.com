@@ -1,16 +1,14 @@
 <div class="frame" id="_page_4" ng-controller="settingsCtrl">
-
+{{langua.select}}
         <label>
-            <select>
-                <option ng-model-options="russian">Русский</option>
-                <option ng-model-options="english" id="eng">English</option>
-                <option ng-model-options="hanyu" id="zh">汉语</option>
+            <select  ng-model="myLang" ng-options="language.text for language in languages">
+                <option>_</option>
             </select>
         </label>
 
 
 
-    {{russian}}
-    {{english}}
-    {{hanyu}}
+    {{myLang}}
+    {{langua}}
+
 </div>
