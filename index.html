@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="product" content="">
-    <meta name="description" content="Популярный тренажер для экзамена HSK. И просто отличное приложение для изучения основной лексики 汉语.">
+    <meta name="description"
+          content="Популярный тренажер для экзамена HSK. И просто отличное приложение для изучения основной лексики 汉语.">
     <meta name="author" content="">
-    <link href="css/metro-bootstrap.css" rel="stylesheet">
-    <!--<link href="css/metro-bootstrap-responsive.css" rel="stylesheet">-->
-    <link href="css/iconFont.css" rel="stylesheet">
-    <!-- Load JavaScript Libraries -->
-    <script src="js/jquery/jquery.min.js"></script>
-    <script src="js/jquery/jquery.widget.min.js"></script>
-    <!-- Metro UI CSS JavaScript plugins -->
-    <script src="js/load-metro.js"></script>
 
-    <!-- Local JavaScript -->
+    <!--Metro UI-->
+    <link rel="stylesheet" href="css/metro-bootstrap.css">
+    <link href="css/iconFont.css" rel="stylesheet">
+    <script src="js/jquery/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery/jquery.widget.min.js"></script>
+    <script src="js/metro.min.js"></script>
     <script src="js/docs.js"></script>
-    <!--<script src="js/github.info.js"></script>-->
+
+    <!--AngularJS-->
     <script src="angular/angular.js"></script>
     <script src="angular-route/angular-route.js"></script>
     <script src="angular-resource/angular-resource.js"></script>
@@ -28,52 +27,44 @@
     <script src="work/services.js"></script>
 
     <title>HSK. Китайский язык 汉语</title>
+    <!--<script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>-->
 </head>
-<!--<script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript">-->
-<!--</script>-->
 <body class="metro" ng-app="tryHsk">
 
 
-<div class= "container" >
-<div class="tab-control" data-role="tab-control">
-<ul class="tabs">
+<div class="container">
+    <div class="tab-control" data-role="tab-control">
+        <ul class="tabs">
 
-    <li class="active"><a href="#_page_1">ТЕСТ</a></li>
-    <li><a href="#_page_2">СЛОВАРЬ</a></li>
-    <!--<li><a href="#_page_3"><i class="icon-rocket"></i></a></li>-->
-    <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
-    <li class="place-right"><a href="#_page_4"><i class="icon-cog"></i></a></li>
-</ul>
+            <li class="active"><a href="#_page_1">ТЕСТ</a></li>
+            <li><a href="#_page_2">СЛОВАРЬ</a></li>
+            <!--<li><a href="#_page_3"><i class="icon-rocket"></i></a></li>-->
+            <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
+            <li class="place-right"><a href="#_page_4"><i class="icon-cog"></i></a></li>
+        </ul>
 
 
-<div class="frames">
+        <div class="frames">
 
-    <div class="frame" id="_page_1">
-        <div ng-include="'partials/test.html'"></div>
+            <div class="frame" id="_page_1">
+                <div ng-include="'partials/test.html'"></div>
+            </div>
+
+            <div class="frame" id="_page_2">
+                <div ng-include="'partials/summary.html'"></div>
+            </div>
+
+            <div class="frame" id="_page_4" ng-controller="settingsCtrl">
+                <div ng-include="'partials/settings.html'"></div>
+            </div>
+
+            <div class="frame" id="_page_5" ng-controller="loveCtrl">
+            </div>
+
+
+        </div>
     </div>
-
-    <div class="frame" id="_page_2">
-        <div ng-include="'partials/summary.html'" ></div>
-    </div>
-
-    <div class="frame" id="_page_4" ng-controller="settingsCtrl">
-        <div ng-include="'partials/settings.html'" ></div>
-    </div>
-
-    <div class="frame" id="_page_5" ng-controller="loveCtrl">
-    </div>
-
-
-
-
-
-<!--frame-->
 </div>
-<!--tab control-->
-</div>
-<!--container end-->
-</div>
-
 
 
 <!--<script type="text/javascript" charset="cp1251" >-->
@@ -102,14 +93,14 @@
 <!--// работаем с полученными данными-->
 <!--});-->
 <!--*/-->
-        <!--VK.api("setNameInMenu", 'HSK');-->
+<!--VK.api("setNameInMenu", 'HSK');-->
 
-        <!--VK.api("friends.get", {fields: "photo_medium"}, function(data) {-->
-            <!--// Действия с полученными данными-->
-            <!--for(c=0;c<data.response.length;c++){-->
-                <!--$("body").append("<img src='"+data.response[c].photo_medium+"'>");-->
-            <!--}-->
-        <!--});-->
+<!--VK.api("friends.get", {fields: "photo_medium"}, function(data) {-->
+<!--// Действия с полученными данными-->
+<!--for(c=0;c<data.response.length;c++){-->
+<!--$("body").append("<img src='"+data.response[c].photo_medium+"'>");-->
+<!--}-->
+<!--});-->
 
 <!--VK.api("wall.post", {owner_id: "59379236"}, function(data) {-->
 <!--// Действия с полученными данными-->
@@ -123,19 +114,6 @@
 
 <!--</script>-->
 
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
