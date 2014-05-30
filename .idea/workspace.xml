@@ -6,7 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d433702c-ef6e-45f0-8775-8fe09e2f67b3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/underscore-min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/test.html" afterPath="$PROJECT_DIR$/partials/test.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tryhsk.github.com.iws" />
@@ -40,21 +40,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="test.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/partials/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="1152">
-              <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.544586" vertical-offset="0" max-vertical-offset="1152">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63206106" vertical-offset="3906" max-vertical-offset="8496">
-              <caret line="240" column="7" selection-start-line="240" selection-start-column="7" selection-end-line="240" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3690" max-vertical-offset="8496">
+              <caret line="234" column="23" selection-start-line="234" selection-start-column="23" selection-end-line="234" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -101,9 +101,9 @@
         <option value="$PROJECT_DIR$/partials/summary.html" />
         <option value="$PROJECT_DIR$/partials/settings.html" />
         <option value="$PROJECT_DIR$/work/services.js" />
-        <option value="$PROJECT_DIR$/partials/test.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/work/controllers.js" />
+        <option value="$PROJECT_DIR$/partials/test.html" />
       </list>
     </option>
   </component>
@@ -386,7 +386,11 @@
       <created>1401477794584</created>
       <updated>1401477794584</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="zastavka">
+      <created>1401478007969</created>
+      <updated>1401478007969</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -431,7 +435,8 @@
     <MESSAGE value="Hello   AngularJS!!!!!!!!!" />
     <MESSAGE value="ch" />
     <MESSAGE value="memory weak" />
-    <option name="LAST_COMMIT_MESSAGE" value="memory weak" />
+    <MESSAGE value="zastavka" />
+    <option name="LAST_COMMIT_MESSAGE" value="zastavka" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -745,18 +750,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/test.html">
+    <entry file="file://$PROJECT_DIR$/work/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="1152">
-          <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3690" max-vertical-offset="8496">
+          <caret line="234" column="23" selection-start-line="234" selection-start-column="23" selection-end-line="234" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work/controllers.js">
+    <entry file="file://$PROJECT_DIR$/partials/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63206106" vertical-offset="3906" max-vertical-offset="8496">
-          <caret line="240" column="7" selection-start-line="240" selection-start-column="7" selection-end-line="240" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.544586" vertical-offset="0" max-vertical-offset="1152">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
