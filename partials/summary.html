@@ -1,6 +1,6 @@
 <div class="frame" id="_page_2" ng-controller="summaryCtrl">
     <div style="height: 20px;width: 100%;"></div>
-    {{langua.search}}: {{messages}} <input ng-model="query">
+    {{language.search}}: {{messages}} <input ng-model="query">
     {{amount}}
     <div class="grid fluid">
         <div class="row">
@@ -13,11 +13,11 @@
                   <table class="table" >
                         <thead class="fixedHeader">
                         <div class="row">
-                      <div class="text-left span3 char" ><a href="" ng-click="predicate = 'id'; reverse=false">{{langua.char}}</a>
+                      <div class="text-left span3 char" ><a href="" ng-click="predicate = 'id'; reverse=false">{{language.char}}</a>
                           (<a href="" ng-click="predicate = '-id'; reverse=false">^</a>)</div>
-                      <div class="text-left span3 pinyin" ><a href="" ng-click="predicate = 's'; reverse=!reverse">{{langua.pinyin}}</a></div>
-                      <div class="text-left span3 russian" ><a href="" ng-click="predicate = 'russian'; reverse=!reverse">{{langua.translate}}</a></div>
-                      <div class="text-left span3 english" style="display: none"><a href="" ng-click="predicate = 'english'; reverse=!reverse">{{langua.eng}}</a></div>
+                      <div class="text-left span3 pinyin" ><a href="" ng-click="predicate = 's'; reverse=!reverse">{{language.pinyin}}</a></div>
+                      <div class="text-left span3 russian" ><a href="" ng-click="predicate = 'russian'; reverse=!reverse">{{language.translate}}</a></div>
+                      <div class="text-left span3 english" style="display: none"><a href="" ng-click="predicate = 'english'; reverse=!reverse">{{language.eng}}</a></div>
                         </div>
                         </thead>
                         <tbody class="scrollContent">

@@ -2,10 +2,12 @@
 
 var tryHskControllers = angular.module('tryHskControllers', []);
 
-tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, amountWords, $rootScope) {
-    $scope.langua = $rootScope.langua;
-    $scope.changeLanguage = $rootScope.changeLanguage();
+tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, amountWords, $rootScope, language, StateManager) {
+
+    StateManager.add('summary');
+    $scope.language = language.getLanguage();
     $scope.refresh = function () {
+
         sortWords.getSortWords().then(function (words) {
             if (words.length == 0) {
                 $scope.amount = 'Ничего не выбрано';
@@ -17,14 +19,17 @@ tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, amountW
                 });
             }
         });
+
     };
     $scope.refresh();
     $scope.predicate = 'id';
+    StateManager.remove('summary');
+
 });
 
 
-tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amountWords',
-    function ($scope, Word, sortWords, amountWords) {
+tryHskControllers.controller('testCtrl',
+    function ($scope, Word, sortWords, amountWords,$timeout , StateManager) {
 // @todo remember  object porno
         var question
             ,swords
@@ -37,11 +42,12 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
             ]
             , test_randoms = [];
         var g;
-
+        StateManager.add('d');
+//Выдаёт рандомное число в зависимости от размера массива
         function random_var(array) {
             return Math.floor(Math.random() * (array.length - 1));
         }
-
+//Перемешивает массив
         function mixer(array) {
             for (var i = array.length; i-- > 0;) {
                 var t = array[i],
@@ -51,12 +57,10 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
             }
             return array;
         }
-
+//Выдаёт id  следующего слова учитывая предъидущие
         function randomize(data) {
-
             question = random_var(data);
             var repeat = true;
-            
             do {
                 for (var i = 0; i < 8; i++) {
                     if (question == arr[i]) {
@@ -72,7 +76,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
             arr.unshift(question);
             return question;
         }
-
+//Изменяет ширину окна главного иероглифа
         function main_char(words) {
             var length = words[question].char.length;
             if (length == 1) {
@@ -81,7 +85,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                 $("#random").css("width", 80 * length);
             }
         }
-
+//Создаётся массив из 4 элементов, один из них id главного иероглифа
         function generate_var(data) {
             var test_random = (function () {
                 var test_random = [question, random_var(data), random_var(data), random_var(data)];
@@ -95,12 +99,11 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                 }
                 return test_random;
             })();
-
             mixer(test_random);
             mixer(test_random);
             test_randoms = test_random;
         }
-
+//Создаёт 4 обьекта по id из  generate_var
         function fill_test(words) {
             for (var i = 0; i < 4; i++) {
                 wordsTests[i].char = words[test_randoms[i]].char;
@@ -177,7 +180,6 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
 
 
         $scope.nextWord = function() {
-            console.log(swords.length);
             if (swords.length < 10 ) {
                 if (swords.length == 0) {
                     $scope.amount = 'Ничего не выбрано';
@@ -197,7 +199,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                 generate_var(swords);
                 fill_test(swords);
                 setTimeout(function () {
-                    $("div.content:has(button.primary)").css("border", "2px solid green");
+                    $("div.content:has(button.success)").css("border", "2px solid #60a917");
                     $("div.content:has(button.danger)").css("border", "2px solid red");
                 }, 500);
                 g = new Hamster();
@@ -208,7 +210,6 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
 
         $scope.fresh = function () {
             sortWords.getSortWords().then(function (words) {
-                console.log(words.length);
                 swords = words;
                 if (words.length < 10 ) {
                     if (words.length == 0) {
@@ -225,6 +226,7 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
                     g = new Hamster();
                     amountWords.getAmountWords().then(function (amount) {
                         $scope.amount = amount;
+                        StateManager.remove('d');
                     });
                 }
             });
@@ -234,81 +236,38 @@ tryHskControllers.controller('testCtrl', ['$scope', 'Word', 'sortWords', 'amount
 
         $scope.wordsTests = wordsTests;
 
-    }]);
+    });
 
 
-tryHskControllers.controller('loveCtrl', function ($scope) {
-    $scope.love = 'love';
+tryHskControllers.controller('loveCtrl', function ($scope,language) {
+
 });
 
-tryHskControllers.controller('settingsCtrl', function ($scope, $rootScope) {
-    $scope.languages = [
-        {name:'russian',
-            text: 'Русский',
-            search : 'Поиск',
-            select : 'Выберите язык',
-            char : "Иероглиф",
-            pinyin : "Пиньинь",
-            translate : "Перевод",
-            eng : "Английский"},
-        {name:'hanyu',
-            text: '汉语',
-            search : 'Поиск',
-            select : 'Выберите язык',
-            char : "Иероглиф",
-            pinyin : "Пиньинь",
-            translate : "Перевод",
-            eng : "Английский"},
-        {name:'english',
-            text: 'English',
-            search : 'Search',
-            select : 'Choose language',
-            char : "Hieroglyph",
-            pinyin : "Pinyin",
-            translate : "Russian",
-            eng : "English"}
+tryHskControllers.controller('settingsCtrl', function ($scope, language) {
+    $scope.languages = language.getLanguage();
+    $scope.selections = [
+        {name: 'russian',
+            text: 'Русский'},
+        {name: 'hanyu',
+            text: '汉语'},
+        {name: 'english',
+            text: 'English'}
     ];
 
-    $scope.myLang = $scope.languages[1];
-//    $scope.langua = $rootScope.languages;
-//    $rootScope.changeLanguage();
-   $rootScope.changeLanguage = function() {
-       switch($scope.myLang.name) {
-           case 'russian' :  $rootScope.langua = {
-               "search" : 'Поиск',
-               "select" : 'Выберите язык',
-               "char" : "Иероглиф",
-               "pinyin" : "Пиньинь",
-               "translate" : "Перевод",
-               "eng" : "Английский"
-           };
-               break;
-           case 'hanyu' :  $rootScope.langua = {
-               "search" : '搜索',
-               "select" : '选择语言',
-               "char" : "???",
-               "pinyin" : "拼音",
-               "translate" : "俄语",
-               "eng" : "英语"
-           }; break;
-           case 'english' : $rootScope.langua = {
-               "search" : 'Search',
-               "select" : 'Choose language',
-               "char" : "Hieroglyph",
-               "pinyin" : "Pinyin",
-               "translate" : "Russian",
-               "eng" : "English"
-           };  break;
-           default:
-               console.log('Error  language()');
-               break
-       }
+    console.log($scope.select);
 
-   }
+    $scope.nextWord = function() {
+        language.select = $scope.select;
+        $scope.languages = language.getLanguage();
+        $scope.select = language.select;
+
+    }
+
 });
 
-tryHskControllers.controller('treeviewCtrl', function ($scope, valueBoolean) {
+tryHskControllers.controller('treeviewCtrl', function ($scope, $rootScope, valueBoolean) {
     fresh();
+    console.log(valueBoolean);
     function fresh() {
         $scope.adjective = valueBoolean.adjective;
         $scope.numeral = valueBoolean.numeral;
@@ -316,6 +275,7 @@ tryHskControllers.controller('treeviewCtrl', function ($scope, valueBoolean) {
         $scope.verb = valueBoolean.verb;
         $scope.noun = valueBoolean.noun;
         $scope.hsk1 = valueBoolean.hsk1;
+        $rootScope.hsk1 = valueBoolean.hsk1;
         $scope.hsk2 = valueBoolean.hsk2;
         $scope.hsk3 = valueBoolean.hsk3;
         $scope.place = valueBoolean.place;
@@ -327,8 +287,23 @@ tryHskControllers.controller('treeviewCtrl', function ($scope, valueBoolean) {
 
     $scope.refresh = $scope.$parent.refresh;
     $scope.fill = $scope.$parent.fresh;
-    $scope.HSK1 = function () {
+
+//    $scope.$watch('hsk1', function() {
+//        valueBoolean.hsk1 = $scope.hsk1;
+//        fresh();
+//        try {
+//            $scope.refresh()
+//        } catch (e) {
+//        }
+//        try {
+//            $scope.fill()
+//        } catch (e) {
+//        }
+//    });
+
+    $rootScope.$watch('hsk1', function() {
         valueBoolean.hsk1 = $scope.hsk1;
+        $rootScope.hsk1 = valueBoolean.hsk1;
         fresh();
         try {
             $scope.refresh()
@@ -338,8 +313,22 @@ tryHskControllers.controller('treeviewCtrl', function ($scope, valueBoolean) {
             $scope.fill()
         } catch (e) {
         }
+    });
 
-    };
+
+//    $scope.HSK1 = function () {
+//        valueBoolean.hsk1 = $scope.hsk1;
+//        fresh();
+//        try {
+//            $scope.refresh()
+//        } catch (e) {
+//        }
+//        try {
+//            $scope.fill()
+//        } catch (e) {
+//        }
+//
+//    };
     $scope.HSK2 = function () {
         valueBoolean.hsk2 = $scope.hsk2;
         fresh();
@@ -474,7 +463,3 @@ tryHskControllers.controller('treeviewCtrl', function ($scope, valueBoolean) {
     };
 
 });
-
-
-
-

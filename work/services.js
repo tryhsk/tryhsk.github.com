@@ -4,8 +4,6 @@
 
 var tryHskServices = angular.module('tryHskServices', ['ngResource']);
 
-
-
 tryHskServices.factory('Word', ['$resource',
     function($resource){
         return $resource('words.json', {}, {
@@ -13,19 +11,23 @@ tryHskServices.factory('Word', ['$resource',
         });
     }]);
 
-tryHskServices.value('valueBoolean', {
-    hsk1: true,
-    hsk2: true,
-    hsk3: true,
-    verb: true,
-    numeral: true,
-    adjective: true,
-    pronoun: true,
-    place: true,
-    relate: true,
-    noun: true,
-    otherPart: true,
-    otherThemes: true
+
+
+tryHskServices.factory('valueBoolean', function() {
+      return {
+          hsk1: true,
+          hsk2: true,
+          hsk3: true,
+          verb: true,
+          numeral: true,
+          adjective: true,
+          pronoun: true,
+          place: true,
+          relate: true,
+          noun: true,
+          otherPart: true,
+          otherThemes: true
+      }
 });
 
 
@@ -35,18 +37,10 @@ tryHskServices.factory('sortWords', function($q, Word, valueBoolean) {
         var deferred = $q.defer();
         var words = Word.query();
 
-
-
-
         deferred.resolve(  words.$promise.then(
             function () {
 
-
-
-
-
                 function filterOfHskLevel(words) {
-
                     var result = [];
                     for (var i = 0; i < words.length; i++) {
                         var hsk;
@@ -113,7 +107,6 @@ tryHskServices.factory('sortWords', function($q, Word, valueBoolean) {
                 }
 
                 function filterOfThemes(array) {
-
                     var result = [];
                     for (var i = 0; i < array.length; i++) {
                         if (valueBoolean.place) {
@@ -196,5 +189,180 @@ tryHskServices.factory('amountWords', function($q, sortWords) {
     return {
         getAmountWords: getAmountWords
     };
+
+});
+
+
+// Сервис отвечает за язык
+tryHskServices.factory('language', function () {
+
+    var selections = [
+            {name: 'russian',
+                text: 'Русский'},
+            {name: 'hanyu',
+                text: '汉语'},
+            {name: 'english',
+                text: 'English'}
+        ],
+        select = selections[2],
+        getLanguage = function () {
+            console.log(select);
+            var language = {};
+            switch (select.name) {
+                case 'russian' :
+                    language = {
+                        "search": 'Поиск',
+                        "select": 'Выберите язык',
+                        "char": "Иероглиф",
+                        "pinyin": "Пиньинь",
+                        "translate": "Перевод",
+                        "eng": "Английский"
+                    };
+                    break;
+                case 'hanyu' :
+                    language = {
+                        "search": '搜索',
+                        "select": '选择语言',
+                        "char": "字",
+                        "pinyin": "拼音",
+                        "translate": "俄语",
+                        "eng": "英语"
+                    };
+                    break;
+                case 'english' :
+                    language = {
+                        "search": 'Search',
+                        "select": 'Choose language',
+                        "char": "Hieroglyph",
+                        "pinyin": "Pinyin",
+                        "translate": "Russian",
+                        "eng": "English"
+                    };
+                    break;
+                default:
+                    console.log('Error language()');
+                    break
+            }
+            return language;
+        };
+
+    return {
+        //Возвращает язык
+        getLanguage: getLanguage,
+        //Возвращает значения для <select>
+        selections: selections,
+        //Возвращает выбранное значение из/для <select>
+        select: select
+    };
+
+});
+
+
+
+
+
+//tryHskServices.factory('langua',
+//    function($scope){
+//        var lan = {};
+//
+//
+//        $scope.languages = [
+//            {name:'russian',
+//                text: 'Русский',
+//                search : 'Поиск',
+//                select : 'Выберите язык',
+//                char : "Иероглиф",
+//                pinyin : "Пиньинь",
+//                translate : "Перевод",
+//                eng : "Английский"},
+//            {name:'hanyu',
+//                text: '汉语',
+//                search : 'Поиск',
+//                select : 'Выберите язык',
+//                char : "Иероглиф",
+//                pinyin : "Пиньинь",
+//                translate : "Перевод",
+//                eng : "Английский"},
+//            {name:'english',
+//                text: 'English',
+//                search : 'Search',
+//                select : 'Choose language',
+//                char : "Hieroglyph",
+//                pinyin : "Pinyin",
+//                translate : "Russian",
+//                eng : "English"}
+//        ];
+//
+//        $scope.myLang = $scope.languages[1];
+//        $rootScope.changeLanguage = function() {
+//            switch($scope.myLang.name) {
+//                case 'russian' :  lan  = {
+//                    "search" : 'Поиск',
+//                    "select" : 'Выберите язык',
+//                    "char" : "Иероглиф",
+//                    "pinyin" : "Пиньинь",
+//                    "translate" : "Перевод",
+//                    "eng" : "Английский"
+//                };
+//                    break;
+//                case 'hanyu' :  lan  = {
+//                    "search" : '搜索',
+//                    "select" : '选择语言',
+//                    "char" : "字",
+//                    "pinyin" : "拼音",
+//                    "translate" : "俄语",
+//                    "eng" : "英语"
+//                }; break;
+//                case 'english' : lan  = {
+//                    "search" : 'Search',
+//                    "select" : 'Choose language',
+//                    "char" : "Hieroglyph",
+//                    "pinyin" : "Pinyin",
+//                    "translate" : "Russian",
+//                    "eng" : "English"
+//                };  break;
+//                default:
+//                    console.log('Error language()');
+//                    break
+//            }
+//        };
+//        $rootScope.changeLanguage();
+//        console.log(lan);
+//        return lan  ;
+//    });
+
+
+tryHskServices.factory('StateManager', function($rootScope, $log) {
+
+    var stateContainer = [];
+
+    return {
+        add: function (service) {
+            stateContainer.push(service);
+            $rootScope.globalLoader = true;
+            $log.log('Add service: ' + service);
+        },
+
+        remove: function (service) {
+            stateContainer = _.without(stateContainer, service);
+            $log.log('Remove service: ' + service);
+
+            if (stateContainer.length === 0) {
+                $rootScope.globalLoader = false;
+                $log.log('StateContainer is empty.');
+            }
+
+        },
+
+        getByName: function (service) {
+            return _.include(stateContainer, service)
+        },
+
+        clear: function () {
+            stateContainer.length = 0;
+            $log.log('StateContainer clear.');
+            return true;
+        }
+    }
 
 });

@@ -8403,15 +8403,15 @@ a {
   content: "\e000";
   float: right;
   color: inherit;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
+  /*-webkit-transform: rotate(180deg);*/
+  /*-moz-transform: rotate(180deg);*/
+  -ms-transform: rotate(90deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .metro [data-role=panel].collapsed .panel-header:after {
   content: "\e000";
-  -webkit-transform: rotate(90deg);
+  /*-webkit-transform: rotate(90deg);*/
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg);

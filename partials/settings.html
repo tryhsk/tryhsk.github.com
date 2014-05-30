@@ -1,14 +1,10 @@
 <div class="frame" id="_page_4" ng-controller="settingsCtrl">
-{{langua.select}}
+{{languages.select}}
         <label>
-            <select  ng-model="myLang" ng-options="language.text for language in languages">
-                <option>_</option>
+            <select  ng-model="select" ng-options="select.text for select in selections">
+                <option></option>
             </select>
         </label>
-
-
-
-    {{myLang}}
-    {{langua}}
-
+    {{select}}
+    <button class="button" ng-click="nextWord()">СЛЕДУЮЩИЙ</button>
 </div>

@@ -15,6 +15,7 @@
     <script src="js/jquery/jquery.widget.min.js"></script>
     <script src="js/metro.min.js"></script>
     <script src="js/docs.js"></script>
+    <script src="js/underscore-min.js"></script>
 
     <!--AngularJS-->
     <script src="angular/angular.js"></script>
@@ -32,15 +33,90 @@
 <body class="metro" ng-app="tryHsk">
 
 
+<style>
+    .loader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+        opacity: 1;background-color: #ffffff;
+    }
+
+
+    .spinner {
+        margin: 100px auto;
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .spinner > div {
+        background-color: #333;
+        height: 100%;
+        width: 6px;
+        display: inline-block;
+
+        -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+        animation: stretchdelay 1.2s infinite ease-in-out;
+    }
+
+    .spinner .rect2 {
+        -webkit-animation-delay: -1.1s;
+        animation-delay: -1.1s;
+    }
+
+    .spinner .rect3 {
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+    }
+
+    .spinner .rect4 {
+        -webkit-animation-delay: -0.9s;
+        animation-delay: -0.9s;
+    }
+
+    .spinner .rect5 {
+        -webkit-animation-delay: -0.8s;
+        animation-delay: -0.8s;
+    }
+
+    @-webkit-keyframes stretchdelay {
+        0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+        20% { -webkit-transform: scaleY(1.0) }
+    }
+
+    @keyframes stretchdelay {
+        0%, 40%, 100% {
+            transform: scaleY(0.4);
+            -webkit-transform: scaleY(0.4);
+        }  20% {
+               transform: scaleY(1.0);
+               -webkit-transform: scaleY(1.0);
+           }
+    }
+
+</style>
+<div class="loader" ng-show="globalLoader">
+    <div class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+</div>
+</div>
+
+
 <div class="container">
     <div class="tab-control" data-role="tab-control">
         <ul class="tabs">
 
             <li class="active"><a href="#_page_1">ТЕСТ</a></li>
             <li><a href="#_page_2">СЛОВАРЬ</a></li>
-            <!--<li><a href="#_page_3"><i class="icon-rocket"></i></a></li>-->
-            <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
-            <li class="place-right"><a href="#_page_4"><i class="icon-cog"></i></a></li>
+            <li class="place-right"><a href="#_page_3"><i class="icon-cog"></i></a></li>
+            <li class="place-right"><a href="#_page_4"><i class="icon-heart"></i></a></li>
+            <li class="place-right"><a href="#_page_5"><i class="icon-book"></i></a></li>
         </ul>
 
 
@@ -54,11 +130,16 @@
                 <div ng-include="'partials/summary.html'"></div>
             </div>
 
+            <div class="frame" id="_page_3" ng-controller="settingsCtrl">
+                <div ng-include="'partials/settings.html'"></div>
+            </div>
+
             <div class="frame" id="_page_4" ng-controller="settingsCtrl">
                 <div ng-include="'partials/settings.html'"></div>
             </div>
 
             <div class="frame" id="_page_5" ng-controller="loveCtrl">
+                {{love}}
             </div>
 
 
