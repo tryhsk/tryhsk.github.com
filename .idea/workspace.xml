@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/work/controllers.js" line="245" mnemonic="5" />
+    <bookmark url="file://$PROJECT_DIR$/work/controllers.js" line="247" mnemonic="5" />
     <bookmark url="file://$PROJECT_DIR$/work/controllers.js" line="4" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d433702c-ef6e-45f0-8775-8fe09e2f67b3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/controllers.js" afterPath="$PROJECT_DIR$/work/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/metro-bootstrap.css" afterPath="$PROJECT_DIR$/css/metro-bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/services.js" afterPath="$PROJECT_DIR$/work/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/settings.html" afterPath="$PROJECT_DIR$/partials/settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/summary.html" afterPath="$PROJECT_DIR$/partials/summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tryhsk.github.com.iws" />
@@ -58,8 +53,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/work/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6870229" vertical-offset="4068" max-vertical-offset="8460">
-              <caret line="201" column="53" selection-start-line="201" selection-start-column="53" selection-end-line="201" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.5221374" vertical-offset="3906" max-vertical-offset="8496">
+              <caret line="236" column="39" selection-start-line="236" selection-start-column="39" selection-end-line="236" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -383,7 +378,11 @@
       <created>1401374798099</created>
       <updated>1401374798099</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="memory weak">
+      <created>1401477702962</created>
+      <updated>1401477702963</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -391,8 +390,9 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23572475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23572475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -401,7 +401,6 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -714,6 +713,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51592356" vertical-offset="0" max-vertical-offset="774">
           <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -751,8 +751,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6870229" vertical-offset="4068" max-vertical-offset="8460">
-          <caret line="201" column="53" selection-start-line="201" selection-start-column="53" selection-end-line="201" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.5221374" vertical-offset="3906" max-vertical-offset="8496">
+          <caret line="236" column="39" selection-start-line="236" selection-start-column="39" selection-end-line="236" selection-end-column="39" />
           <folding />
         </state>
       </provider>

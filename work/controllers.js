@@ -235,7 +235,9 @@ tryHskControllers.controller('testCtrl',
         $scope.fresh();
 
         $scope.wordsTests = wordsTests;
-
+        $timeout(function() {
+            StateManager.remove('d');
+        }, 3000);
     });
 
 
