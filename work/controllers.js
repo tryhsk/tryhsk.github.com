@@ -233,7 +233,7 @@ tryHskControllers.controller('testCtrl',
         };
 
         $scope.fresh();
-
+//дурацкий костыль от вспышек
         $timeout(function() {
            $('#f').hide();
         }, 500);
