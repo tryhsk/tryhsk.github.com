@@ -34,9 +34,11 @@
 
 <style>
     .loader {
-        position: fixed;
-        width: 100%;
-        height: 100%;
+       height: 1000px;
+        width: 500px;
+            /*position: fixed;*/
+        /*width: 100%;*/
+        /*height: 100%;*/
         z-index: 1000;
         opacity: 1;
         background-color: #ffffff;
@@ -97,7 +99,7 @@
     }
 
 </style>
-<div class="loader" style="height: 1000px; width: 500px;" ng-show="globalLoader">
+<div class="loader" ng-show="globalLoader">
     <div class="spinner">
     <div class="rect1"></div>
     <div class="rect2"></div>
