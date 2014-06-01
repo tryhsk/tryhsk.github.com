@@ -7,7 +7,6 @@ tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, amountW
     StateManager.add('summary');
     $scope.language = language.getLanguage();
     $scope.refresh = function () {
-
         sortWords.getSortWords().then(function (words) {
             if (words.length == 0) {
                 $scope.amount = 'Ничего не выбрано';
@@ -28,11 +27,23 @@ tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, amountW
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 tryHskControllers.controller('testCtrl',
-    function ($scope, Word, sortWords, amountWords,$timeout , StateManager) {
+    function ($scope, Word, sortWords, amountWords, $timeout , StateManager) {
 // @todo remember  object porno
         var question
-            ,swords
+            , swords
             , arr = new Array(10)
             , wordsTests = [
                 {},
@@ -104,48 +115,6 @@ tryHskControllers.controller('testCtrl',
             test_randoms = test_random;
         }
 //Создаёт 4 обьекта по id из  generate_var
-        function fill_test(words) {
-            for (var i = 0; i < 4; i++) {
-                wordsTests[i].char = words[test_randoms[i]].char;
-                wordsTests[i].pinyin = words[test_randoms[i]].pinyin;
-                wordsTests[i].russian = words[test_randoms[i]].russian;
-                wordsTests[i].sound = words[test_randoms[i]].sound;
-                wordsTests[i].id = words[test_randoms[i]].id;
-                if (test_randoms[i] == question) {
-                    wordsTests[i].ansver = 'success';
-                    wordsTests[i].ansv = true;
-                    wordsTests[i].button = 'Молодец!';
-                } else {
-                    wordsTests[i].ansver = 'danger';
-                    wordsTests[i].ansv = false;
-                    wordsTests[i].button = 'Всё получится!';
-                }
-            }
-
-            return wordsTests;
-        }
-
-
-
-        $scope.fill = function (data) {
-//@todo не забыть про исключение, когда ничего не выбрано
-
-            $("div.content").css("display", "none").css("border", "");
-            randomize(data);
-            main_char(data);
-            $scope.char = data[question].char;
-            var n = data[question].sound.split('http://china-standart.ru');
-            $scope.sound = n[1];
-
-            generate_var(data);
-            fill_test(data);
-            setTimeout(function () {
-                $("div.content:has(button.success)").css("border", "2px solid #60a917");
-                $("div.content:has(button.danger)").css("border", "2px solid red");
-            }, 500);
-
-            return wordsTests;
-        };
 
 
         $scope.result = 0;
@@ -165,7 +134,6 @@ tryHskControllers.controller('testCtrl',
         function setSmock() {
             var arr = ['❤','☀','♞','☭'];
             $scope.char = '☯';
-
             for(var i = 0;i < 4; i++) {
                 wordsTests[i].char = arr[i];
                 wordsTests[i].pinyin = '☀';
@@ -173,41 +141,59 @@ tryHskControllers.controller('testCtrl',
                 wordsTests[i].sound = '';  // звук птичек на звонке
                 wordsTests[i].ansver = 'primary';
                 wordsTests[i].button = 'лол!!!';
-
             }
         }
+        function fill_test(words) {
 
+            for (var i = 0; i < 4; i++) {
+                wordsTests[i].char = words[test_randoms[i]].char;
+                wordsTests[i].pinyin = words[test_randoms[i]].pinyin;
+                wordsTests[i].russian = words[test_randoms[i]].russian;
+                wordsTests[i].sound = words[test_randoms[i]].sound;
+                wordsTests[i].id = words[test_randoms[i]].id;
+                if (test_randoms[i] == question) {
+                    wordsTests[i].ansver = 'success';
+                    wordsTests[i].ansv = true;
+                    wordsTests[i].button = 'Молодец!';
+                } else {
+                    wordsTests[i].ansver = 'danger';
+                    wordsTests[i].ansv = false;
+                    wordsTests[i].button = 'Всё получится!';
+                }
+            }
+            return wordsTests;
+        }
 
-
+        $scope.fill = function (data) {
+            $("div.content").css("display", "none").css("border", "");
+            randomize(data);
+            main_char(data);
+            $scope.char = data[question].char;
+            var n = data[question].sound.split('http://china-standart.ru');
+            $scope.sound = n[1];
+            generate_var(data);
+            fill_test(data);
+            setTimeout(function () {
+                $("div.content:has(button.success)").css("border", "2px solid #60a917");
+                $("div.content:has(button.danger)").css("border", "2px solid red");
+            }, 500);
+            return wordsTests;
+        };
         $scope.nextWord = function() {
             if (swords.length < 10 ) {
                 if (swords.length == 0) {
                     $scope.amount = 'Ничего не выбрано';
                     setSmock();
-
                 } else {
                     $scope.amount = 'Слишком мало слов';
                     setSmock();
                 }
             } else {
-                $("div.content").css("display", "none").css("border", "");
-                randomize(swords);
-                main_char(swords);
-                $scope.char = swords[question].char;
-                var n = swords[question].sound.split('http://china-standart.ru');
-                $scope.sound = n[1];
-                generate_var(swords);
-                fill_test(swords);
-                setTimeout(function () {
-                    $("div.content:has(button.success)").css("border", "2px solid #60a917");
-                    $("div.content:has(button.danger)").css("border", "2px solid red");
-                }, 500);
+                $scope.fill(swords);
                 g = new Hamster();
                 return wordsTests;
             }
         };
-
-
         $scope.fresh = function () {
             sortWords.getSortWords().then(function (words) {
                 swords = words;
@@ -220,7 +206,6 @@ tryHskControllers.controller('testCtrl',
                         setSmock();
                     }
                 } else {
-                    swords = words;
                     arr = new Array(10);
                     $scope.fill(words);
                     g = new Hamster();
@@ -306,23 +291,9 @@ tryHskControllers.controller('treeviewCtrl', function ($scope, $rootScope, value
 //        }
 //    });
 
-    $rootScope.$watch('hsk1', function() {
-        valueBoolean.hsk1 = $scope.hsk1;
-        $rootScope.hsk1 = valueBoolean.hsk1;
-        fresh();
-        try {
-            $scope.refresh()
-        } catch (e) {
-        }
-        try {
-            $scope.fill()
-        } catch (e) {
-        }
-    });
-
-
-//    $scope.HSK1 = function () {
+//    $rootScope.$watch('hsk1', function() {
 //        valueBoolean.hsk1 = $scope.hsk1;
+//        $rootScope.hsk1 = valueBoolean.hsk1;
 //        fresh();
 //        try {
 //            $scope.refresh()
@@ -332,8 +303,22 @@ tryHskControllers.controller('treeviewCtrl', function ($scope, $rootScope, value
 //            $scope.fill()
 //        } catch (e) {
 //        }
-//
-//    };
+//    });
+
+
+    $scope.HSK1 = function () {
+        valueBoolean.hsk1 = $scope.hsk1;
+        fresh();
+        try {
+            $scope.refresh()
+        } catch (e) {
+        }
+        try {
+            $scope.fill()
+        } catch (e) {
+        }
+
+    };
     $scope.HSK2 = function () {
         valueBoolean.hsk2 = $scope.hsk2;
         fresh();
