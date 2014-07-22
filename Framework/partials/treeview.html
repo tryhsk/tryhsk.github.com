@@ -1,0 +1,118 @@
+<div  style="height: 500px ;overflow: scroll;overflow-x: hidden ">
+<ul class="treeview" data-role="treeview" ng-controller="checkboxCtrl">
+
+    <li class="node">
+        <a href="#"><span class="node-toggle"></span>HSK level</a>
+        <ul>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.hsk1"/>
+                    <span class="check"></span>
+                    HSK 1
+                </label>
+            </div>
+            </li>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.hsk2"/>
+                    <span class="check"></span>
+                    HSK 2
+                </label>
+            </div>
+            </li>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.hsk3"/>
+                    <span class="check"></span>
+                    HSK 3
+                </label>
+            </div>
+            </li>
+
+        </ul>
+    </li>
+
+    <li class="node">
+        <a href="#"><span class="node-toggle"></span>часть речи</a>
+        <ul>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.noun"/>
+                    <span class="check"></span>
+                    существительные
+                </label>
+            </div>
+            </li>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.pronoun"/>
+                    <span class="check"></span>
+                    местоимения
+                </label>
+            </div>
+            </li>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.verb"/>
+                    <span class="check"></span>
+                    глаголы
+                </label>
+            </div>
+            </li>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.adjective"/>
+                    <span class="check"></span>
+                    прилагательные
+                </label>
+            </div>
+            </li>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.numeral"/>
+                    <span class="check"></span>
+                    числительные
+                </label>
+            </div>
+            </li>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.otherPart"/>
+                    <span class="check"></span>
+                    другие
+                </label>
+            </div>
+            </li>
+        </ul>
+    </li>
+    <li class="node">
+        <a href="#"><span class="node-toggle"></span>Тематические</a>
+        <ul>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.place"/>
+                    <span class="check"></span>
+                    Место
+                </label>
+            </div>
+            </li>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.relate"/>
+                    <span class="check"></span>
+                    Отношения
+                </label>
+            </div>
+            </li>
+            <li> <div class="input-control checkbox" data-role="input-control">
+                <label>
+                    <input type="checkbox" ng-model="checkboxValues.otherThemes"/>
+                    <span class="check"></span>
+                    другие
+                </label>
+            </div>
+            </li>
+         </ul>
+    </li>
+</ul>
+</div>
