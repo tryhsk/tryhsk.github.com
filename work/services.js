@@ -42,8 +42,6 @@ tryHskServices.factory('checkboxValues', ['$cookies', function ($cookies) {
 }]);
 
 
-
-
 tryHskServices.factory('sortWords', function ($q, Word, checkboxValues) {
 
     var getSortWords = function () {
