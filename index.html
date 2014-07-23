@@ -14,19 +14,19 @@
     <link href="css/tryhsk.css" rel="stylesheet">
     <script src="js/jquery/jquery-2.1.1.min.js"></script>
     <script src="js/jquery/jquery.widget.min.js"></script>
-    <script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
+    <script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
     <script>
         var vkid;
-            VK.init(function () {    // инициализируем Vk API
-                var parts = document.location.search.substr(1).split("&");
-                var flashVars = {}, curr;
-                for (i = 0; i < parts.length; i++) {
-                    curr = parts[i].split('=');
-                    flashVars[curr[0]] = curr[1];
-                }
-                vkid = flashVars['viewer_id'];
+        VK.init(function () {    // инициализируем Vk API
+            var parts = document.location.search.substr(1).split("&");
+            var flashVars = {}, curr;
+            for (i = 0; i < parts.length; i++) {
+                curr = parts[i].split('=');
+                flashVars[curr[0]] = curr[1];
+            }
+            vkid = flashVars['viewer_id'];
 //                vkid = 1000000;   // develop
-            });
+        });
     </script>
     <script src="js/metro.min.js"></script>
     <script src="js/docs.js"></script>
@@ -56,66 +56,65 @@
 <body class="metro" ng-app="tryHsk" ng-cloak>
 <div class="loader" ng-show="globalLoader">
     <div class="spinner">
-    <div class="rect1"></div>
-    <div class="rect2"></div>
-    <div class="rect3"></div>
-    <div class="rect4"></div>
-    <div class="rect5"></div>
-</div>
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
 </div>
 <!--дурацкий костыль от вспышек-->
 <div id="f" style="height: 1000px; width: 500px;"></div>
-    <div class="tab-control" data-role="tab-control" id="tab-control">
-        <ul class="tabs">
+<div class="tab-control" data-role="tab-control" id="tab-control">
+    <ul class="tabs">
 
-            <li class="active"><a href="#_page_1">ТЕСТ</a></li>
-            <li><a href="#_page_2">СЛОВАРЬ</a></li>
-            <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
-            <!--<li class="place-right "><a href="#_page_4"><i class="icon-cog"></i></a></li>-->
-            <li class="place-right"><a href="#_page_3"><i class="icon-book"></i></a></li>
-        </ul>
+        <li class="active"><a href="#_page_1">ТЕСТ</a></li>
+        <li><a href="#_page_2">СЛОВАРЬ</a></li>
+        <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
+        <!--<li class="place-right "><a href="#_page_4"><i class="icon-cog"></i></a></li>-->
+        <li class="place-right"><a href="#_page_3"><i class="icon-book"></i></a></li>
+    </ul>
 
-        <div class="frames">
+    <div class="frames">
 
-            <div class="frame" id="_page_1" style="padding: 0">
-                <div ng-include="'partials/test.html'"></div>
-            </div>
-
-            <div class="frame" id="_page_2" style="padding: 0">
-                <div ng-include="'partials/summary.html'"></div>
-            </div>
-
-            <div class="frame" id="_page_3">
-                <div ng-include="'partials/info.html'"></div>
-            </div>
-
-            <div class="frame" id="_page_4">
-                <div ng-include="'partials/settings.html'"></div>
-            </div>
-
-            <div class="frame" id="_page_5">
-                <div ng-include="'partials/love.html'"></div>
-            </div>
-
-
-
-
-            <div class="grid" style="margin-top:0;margin-bottom:0">
-                <div class="row" style="margin-top:0;margin-bottom:0">
-                    <div class="accordion" data-role="accordion" data-closeany="true">
-                        <div class="accordion-frame">
-                            <a class="active heading" href="#">Рейтинг пользователей</a>
-                            <div class="content rating_content">
-                                <div class="grid">
-                                    <div class="row" style="margin: 0!important" ng-controller="ratingCtrl">
-<div class="span1" ng-repeat="user in users.response" >
-    <div class="image-container">
-        <img class="image" height="60px" width="60px" src="{{user.photo_medium}}">
-        <div class="overlay">
-            {{user.first_name}}
+        <div class="frame" id="_page_1" style="padding: 0">
+            <div ng-include="'partials/test.html'"></div>
         </div>
-    </div>
-</div>
+
+        <div class="frame" id="_page_2" style="padding: 0">
+            <div ng-include="'partials/summary.html'"></div>
+        </div>
+
+        <div class="frame" id="_page_3">
+            <div ng-include="'partials/info.html'"></div>
+        </div>
+
+        <div class="frame" id="_page_4">
+            <div ng-include="'partials/settings.html'"></div>
+        </div>
+
+        <div class="frame" id="_page_5">
+            <div ng-include="'partials/love.html'"></div>
+        </div>
+
+
+        <div class="grid" style="margin-top:0;margin-bottom:0">
+            <div class="row" style="margin-top:0;margin-bottom:0">
+                <div class="accordion" data-role="accordion" data-closeany="true">
+                    <div class="accordion-frame">
+                        <a class="active heading" href="#">Рейтинг пользователей</a>
+
+                        <div class="content rating_content">
+                            <div class="grid">
+                                <div class="row" style="margin: 0!important" ng-controller="ratingCtrl">
+                                    <div class="span1" ng-repeat="user in users.response">
+                                        <div class="image-container">
+                                            <img class="image" height="60px" width="60px" src="{{user.photo_medium}}">
+
+                                            <div class="overlay">
+                                                {{user.first_name}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -123,23 +122,21 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
-
 </div>
+
+
 
 
 <script type="text/javascript" charset="cp1251">
     var height = document.getElementById('tab-control').offsetHeight;
-    setInterval(function() {
+    setInterval(function () {
         if (height !== document.getElementById('tab-control').offsetHeight) {
             height = document.getElementById('tab-control').offsetHeight;
-            VK.callMethod('resizeWindow',1000,height);
+            VK.callMethod('resizeWindow', 1000, height);
         }
-    },10);
+    }, 10);
 </script>
 
 
