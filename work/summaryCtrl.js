@@ -4,9 +4,7 @@ tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, Summary
 		sortWords.getSortWords().then(function (words) {
 			var length = words.length;
 			for(var i = 0;i < length;i++ ) {
-				console.log(words[i].pinyin);continue;
-//				words[i].pinyin = splitOfColor(words[i].pinyin);
-				console.log(words[i].pinyin);
+				words[i].pinyin = splitOfColor(words[i].pinyin);
 			}
 			$scope.words = words;
 			SummaryStateManager.remove('summary');
@@ -20,7 +18,6 @@ tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, Summary
 			tone = {},
 			tones = [];
 		arrayOfSyllable = string.split(/\d/);
-		console.log(arrayOfSyllable);
 		arrayOfSyllable.pop();
 		intermediateArray = string.split(/[^0-9]/);
 		for (var i = 0; i < intermediateArray.length; i++) {
@@ -68,7 +65,6 @@ tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, Summary
 			}
 			tones.push(tone);
 		}
-		console.log(tones);
 		return tones;
 	}
 
