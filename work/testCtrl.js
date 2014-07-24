@@ -2,7 +2,7 @@ tryHskControllers.controller('testCtrl',
 	function ($scope, $rootScope, Word, sortWords, $timeout, StateManager, $resource) {
 		var question
 			, swords
-			, arr = new Array(10)
+			, arr = []
 			, wordsTests = [
 				{},
 				{},
@@ -94,11 +94,12 @@ tryHskControllers.controller('testCtrl',
 //Выдаёт id  следующего слова учитывая предъидущие
 		function randomize(data) {
 			question = random_var(data);
-			var repeat = true;
+			var repeat = true,
+			length = Math.floor(data.length * 0.85);
 			do {
-				for (var i = 0; i < 8; i++) {
+				for (var i = 0; i < length; i++) {
 					if (question == arr[i]) {
-						question = (random_var(data));
+						question = random_var(data);
 						repeat = true;
 						break
 					} else {
