@@ -7,7 +7,7 @@
                      'few': 'Выбрано {} слово',
                      'many': 'Выбрано {} слов'}">
     </ng-pluralize>
-    <div class="grid fluid">
+    <div class="grid fluid"> // TODO  вернуть предикат s и назвать нормально, чтоб больше не удалять
         <div class="row">
 
 <div class="span3">
@@ -40,9 +40,8 @@
                         <div  style="height: 500px ;overflow: scroll;overflow-x: hidden ">
                             <div ng-class="row" ng-repeat="word in words | filter:query | orderBy:predicate:reverse" >
                                 <div class="char char_big span3">{{word.id}}  {{word.char}}</div>
-                                <!--<div class="pinyin span3">{{word.pinyin }}</div>-->
-                                <div class="pinyin span3" ng-repeat="tone in words.pinyin">
-                                    <span style="color:{{tone.color}}" >{{tone.pinyin }}</span>
+                                <div class="pinyin span3">
+                                    <span style="color:{{tone.color}}" ng-repeat="tone in word.pinyin">{{tone.pinyin }}</span>
                                 </div>
                                 <div class="russian span6">{{word.russian}}</div>
                                 <div class="english span5" style="display:none">{{word.english}}</div>

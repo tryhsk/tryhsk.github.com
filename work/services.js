@@ -57,7 +57,6 @@ tryHskServices.factory('sortWords', function ($q, Word, checkboxValues) {
                     var result = [];
 //                        len = words.length;
                     for (var i = 0; i < words.length; i++) {
-
                         var hsk;
                         hsk = words[i].hsk.split('-');
                         switch (hsk[0]) {

@@ -1,6 +1,6 @@
 tryHskControllers.controller('infoCtrl', function ($scope, $rootScope) {
 
-	$rootScope.$watch('result', function () {
+/*	$rootScope.$watch('result', function () {
 
 		if (parseInt($rootScope.result.amount) < 100) {
 			$scope.rating = 'Для получения рейтинга, нужно сделать не менее ста попыток';
@@ -12,6 +12,5 @@ tryHskControllers.controller('infoCtrl', function ($scope, $rootScope) {
 		}
 		$scope.amount = $rootScope.result.amount;
 		$scope.rights = $rootScope.result.rights;
-	}, true);
-
+	}, true);*/
 });

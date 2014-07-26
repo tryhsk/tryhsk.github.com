@@ -15,8 +15,8 @@ tryHskControllers.controller('testCtrl',
 		document.getElementById('classCurrentRights').style.display = 'none';
 		StateManager.add('test');
 
-
-		$resource('/register?id=' + vkid, {}, {
+//берет ивставляет в базу результаты для рейтинга
+/*		$resource('/register?id=' + vkid, {}, {
 			query: {method:'GET',isArray:false}
 		}).query().$promise.then(function(stat) {
 				$scope.result = stat;
@@ -27,7 +27,7 @@ tryHskControllers.controller('testCtrl',
 			$resource('/fresh?id='+ vkid+ '&amount=' + $scope.result.amount + '&rights=' + $scope.result.rights, {}, {
 				query: {method:'GET',isArray:false}
 			}).query()
-		}, true);
+		}, true);*/
 
 
 
@@ -49,7 +49,7 @@ tryHskControllers.controller('testCtrl',
 			if (ansv) {
 				$scope.currentRights = ++$scope.currentRights;
 				document.getElementById('classCurrentRights').style.display = 'inline';
-				$scope.result.rights = ++$scope.result.rights;
+//				$scope.result.rights = ++$scope.result.rights;
 			} else {
 			}
 		};
@@ -189,7 +189,7 @@ tryHskControllers.controller('testCtrl',
 				$("div.content:has(button.success)").css("border", "2px solid #60a917");
 				$("div.content:has(button.danger)").css("border", "2px solid red");
 			}, 500);
-			$scope.result.amount = ++$scope.result.amount;
+//			$scope.result.amount = ++$scope.result.amount;
 			return wordsTests;
 		};
 
