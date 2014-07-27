@@ -38,7 +38,7 @@
                         </thead>
                         <tbody class="scrollContent">
                         <div  style="height: 500px ;overflow: scroll;overflow-x: hidden ">
-                            <div ng-class="row" ng-repeat="word in words | filter:query | orderBy:predicate:reverse" >
+                            <div ng-class="row" ng-repeat="word in words | filter:query | orderBy:predicate:reverse">
                                 <div class="char char_big span3">{{word.id}}  {{word.char}}</div>
                                 <div class="pinyin span3">
                                     <span style="color:{{tone.color}}" ng-repeat="tone in word.pinyin">{{tone.pinyin }}</span>

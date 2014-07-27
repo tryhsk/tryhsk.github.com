@@ -4,7 +4,7 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 		sortWords.getSortWords().then(function (words) {
 			var length = words.length;
 			for(var i = 0;i < length;i++ ) {
-				words[i].pinyin = processingOfPinyin(words[i].pinyin);
+				words[i].pinyin = $rootScope.processingOfPinyin(words[i].pinyin);
 			}
 			$scope.words = words;
 			SummaryStateManager.remove('summary');
@@ -30,7 +30,7 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 	 */
 
 
-	function processingOfPinyin(string) {
+	$rootScope.processingOfPinyin = function(string) {
 		var arrayOfSyllable,
 			intermediateArray,
 			arrayOfNumber = [],

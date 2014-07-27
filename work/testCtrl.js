@@ -157,7 +157,8 @@ tryHskControllers.controller('testCtrl',
 
 			for (var i = 0; i < 4; i++) {
 				wordsTests[i].char = words[test_randoms[i]].char;
-				wordsTests[i].pinyin = words[test_randoms[i]].pinyin;
+//				wordsTests[i].pinyin = words[test_randoms[i]].pinyin;
+				wordsTests[i].pinyin = $rootScope.processingOfPinyin(words[test_randoms[i]].pinyin);
 				wordsTests[i].russian = words[test_randoms[i]].russian;
 				wordsTests[i].sound = words[test_randoms[i]].sound;
 				wordsTests[i].id = words[test_randoms[i]].id;

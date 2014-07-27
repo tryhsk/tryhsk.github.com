@@ -50,7 +50,9 @@
                                     <div class="row" style="margin-top:0;margin-bottom:0">
                                         <audio ngsrc="{{wordsTest.sound}}"></audio>
                                         <div class="span4"><h2>{{wordsTest.char}}</h2></div>
-                                        <div class="span4"><h2>{{wordsTest.pinyin}}</h2></div>
+                                        <div class="span4"><h2>
+                                            <span style="color:{{tone.color}}" ng-repeat="tone in wordsTest.pinyin">{{tone.pinyin }}</span>
+                                        </h2></div>
                                     </div>
                                     <div class="row" style="margin-top:0;margin-bottom:0">
                                         <div class="span4">
