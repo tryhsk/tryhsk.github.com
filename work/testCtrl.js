@@ -182,8 +182,9 @@ tryHskControllers.controller('testCtrl',
 			randomize(data);
 			main_char(data);
 			$scope.char = data[question].char;
-			var n = data[question].sound.split('http://china-standart.ru');
-			$scope.sound = n[1];
+//			$scope.sound = n[1];
+//			var n = data[question].sound.split('http://china-standart.ru');
+			$scope.sound = data[question].sound;
 			generate_var(data);
 			fill_test(data);
 			setTimeout(function () {
@@ -206,6 +207,13 @@ tryHskControllers.controller('testCtrl',
 				setSmock();
 			} else {
 				$scope.fill(swords);
+				setTimeout(function () {
+					if($rootScope.settings.sound) {
+						document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\" autoplay ></audio>";
+					} else {
+						document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\"></audio>";
+					}
+				}, 100);
 				return wordsTests;
 			}
 		};
@@ -227,6 +235,13 @@ tryHskControllers.controller('testCtrl',
 					arr = new Array(10);
 					$scope.fill(words);
 					StateManager.remove('test');
+					setTimeout(function () {
+						if($rootScope.settings.sound) {
+							document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\" autoplay ></audio>";
+						} else {
+							document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\"></audio>";
+						}
+					}, 500);
 				}
 			});
 		};
@@ -264,4 +279,19 @@ tryHskControllers.controller('testCtrl',
 		$timeout(function () {
 			StateManager.remove('test');
 		}, 3000);
+
+
+
+		$("#random").click(function (){
+			document.getElementById('playSound').play();
+			return false;
+		});
+
+
+
+
+
+
+
+
 	});

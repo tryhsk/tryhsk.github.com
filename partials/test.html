@@ -8,7 +8,9 @@
                 <!--@fixme pornography  style="margin-top: 0"-->
                 <div class="row" style="margin-top: 0">
                     <!--@todo src porevo!!!!!-->
-                    <object height="1" width="1" data="http://china-standart.ru{{sound}}"></object>
+                    <div id="sound"></div>
+
+                    <!--<object height="1" width="1" data="http://china-standart.ru{{sound}}"></object>-->
                     <button class="button {{class_button_next}}" ng-click="nextWord()" style="margin-left:50px">{{button_next}} <i id='id_button_next' class="icon-spin"></i></button>
                     <output id="value"></output>
                     <ng-pluralize count="words.length"

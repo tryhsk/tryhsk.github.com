@@ -9,6 +9,12 @@
     <!--<button class="button" ng-click="nextWord()">СЛЕДУЮЩИЙ</button>-->
     <div class="input-control checkbox" data-role="input-control">
         <label>
+            <input type="checkbox" ng-model="settings.sound"/>
+            <span class="check"></span>
+            Произношение
+        </label>
+    </div> <div class="input-control checkbox" data-role="input-control">
+        <label>
             <input type="checkbox" ng-model="settings.color"/>
             <span class="check"></span>
             Расскаска слогов по тонам

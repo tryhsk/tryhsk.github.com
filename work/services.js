@@ -47,6 +47,7 @@ tryHskServices.factory('settings', ['$cookies', function ($cookies) {
 		getSettings: function () {
 			if ($cookies.settings === undefined) {
 				return {
+					sound: true,
 					color: true,
 					number: false
 				}
