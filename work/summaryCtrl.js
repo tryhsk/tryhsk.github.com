@@ -1,10 +1,10 @@
-tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, SummaryStateManager) {
+tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWords, SummaryStateManager) {
 	$scope.refresh = function () {
 		SummaryStateManager.add('summary');
 		sortWords.getSortWords().then(function (words) {
 			var length = words.length;
 			for(var i = 0;i < length;i++ ) {
-				words[i].pinyin = splitOfColor(words[i].pinyin);
+				words[i].pinyin = processingOfPinyin(words[i].pinyin);
 			}
 			$scope.words = words;
 			SummaryStateManager.remove('summary');
@@ -30,12 +30,28 @@ tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, Summary
 	 */
 
 
-	function splitOfColor(string) {
+	function processingOfPinyin(string) {
 		var arrayOfSyllable,
 			intermediateArray,
 			arrayOfNumber = [],
 			tone = {},
 			tones = [];
+		if(!$rootScope.settings.color) {
+			if($rootScope.settings.number) {
+				return [{
+					color: 'black',
+					pinyin: string
+				}]
+			}
+			arrayOfSyllable = string.split(/\d/);
+			if(arrayOfSyllable.length > 1)arrayOfSyllable.pop();
+			string = arrayOfSyllable.join('');
+			return [{
+				color: 'black',
+				pinyin: string
+			}]
+		}
+
 		arrayOfSyllable = string.split(/\d/);
 		if(arrayOfSyllable.length > 1)arrayOfSyllable.pop();
 		intermediateArray = string.split(/[^0-9]/);
@@ -46,35 +62,38 @@ tryHskControllers.controller('summaryCtrl', function ($scope, sortWords, Summary
 		if(arrayOfNumber.length == 0) arrayOfNumber = ['ERROR'];
 		for (var k = 0; k < arrayOfSyllable.length; k++) {
 			tone = {};
+			if(!$rootScope.settings.number) {
+				arrayOfNumber[k] = ""
+			}
 			switch (arrayOfNumber[k]) {
 				case '1':
 					tone = {
 						color: 'blue',
-						pinyin: arrayOfSyllable[k]
+						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
 					};
 					break;
 				case '2':
 					tone = {
 						color: 'orange',
-						pinyin: arrayOfSyllable[k]
+						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
 					};
 					break;
 				case '3':
 					tone = {
 						color: 'green',
-						pinyin: arrayOfSyllable[k]
+						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
 					};
 					break;
 				case '4':
 					tone = {
 						color: 'red',
-						pinyin: arrayOfSyllable[k]
+						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
 					};
 					break;
 				case '0':
 					tone = {
 						color: 'gray',
-						pinyin: arrayOfSyllable[k]
+						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
 					};
 					break;
 				default :

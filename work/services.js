@@ -42,7 +42,23 @@ tryHskServices.factory('checkboxValues', ['$cookies', function ($cookies) {
 }]);
 
 
-
+tryHskServices.factory('settings', ['$cookies', function ($cookies) {
+	return {
+		getSettings: function () {
+			if ($cookies.settings === undefined) {
+				return {
+					color: true,
+					number: false
+				}
+			} else {
+				return JSON.parse($cookies.settings);
+			}
+		},
+		refreshSettings: function (object) {
+			$cookies.settings = JSON.stringify(object);
+		}
+	};
+}]);
 
 tryHskServices.factory('sortWords', function ($q, Word, checkboxValues) {
 
