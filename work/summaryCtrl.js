@@ -35,7 +35,10 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 			intermediateArray,
 			arrayOfNumber = [],
 			tone = {},
-			tones = [];
+			tones = [],
+			mockForNumber = ''; //нужно для
+//		console.log($rootScope.settings.color);
+//		console.log($rootScope.settings.number);
 		if(!$rootScope.settings.color) {
 			if($rootScope.settings.number) {
 				return [{
@@ -62,38 +65,38 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 		if(arrayOfNumber.length == 0) arrayOfNumber = ['ERROR'];
 		for (var k = 0; k < arrayOfSyllable.length; k++) {
 			tone = {};
-			if(!$rootScope.settings.number) {
-				arrayOfNumber[k] = ""
+			if($rootScope.settings.number) {
+				mockForNumber = arrayOfNumber[k];
 			}
 			switch (arrayOfNumber[k]) {
 				case '1':
 					tone = {
 						color: 'blue',
-						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
+						pinyin: arrayOfSyllable[k] + mockForNumber
 					};
 					break;
 				case '2':
 					tone = {
 						color: 'orange',
-						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
+						pinyin: arrayOfSyllable[k] + mockForNumber
 					};
 					break;
 				case '3':
 					tone = {
 						color: 'green',
-						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
+						pinyin: arrayOfSyllable[k] + mockForNumber
 					};
 					break;
 				case '4':
 					tone = {
 						color: 'red',
-						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
+						pinyin: arrayOfSyllable[k] + mockForNumber
 					};
 					break;
 				case '0':
 					tone = {
 						color: 'gray',
-						pinyin: arrayOfSyllable[k] + arrayOfNumber[k]
+						pinyin: arrayOfSyllable[k] + mockForNumber
 					};
 					break;
 				default :
@@ -103,6 +106,7 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 						pinyin: arrayOfSyllable[k]
 					};
 			}
+//			console.log(tone);
 			tones.push(tone);
 		}
 		return tones;

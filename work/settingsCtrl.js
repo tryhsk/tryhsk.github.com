@@ -1,5 +1,5 @@
 tryHskControllers.controller('settingsCtrl', function ($scope, $rootScope, language, settings) {
-	$rootScope.settings = settings.getSettings();
+	$scope.settings = $rootScope.settings = settings.getSettings();
 	$scope.$watch('settings', function () {
 		settings.refreshSettings($scope.settings);
 		$rootScope.settings = $scope.settings;
