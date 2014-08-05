@@ -49,6 +49,7 @@ tryHskServices.factory('settings', ['$cookies', function ($cookies) {
 				return {
 					sound: true,
 					color: true,
+					letter: false,
 					number: false
 				}
 			} else {

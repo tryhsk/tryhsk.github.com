@@ -1,30 +1,62 @@
 <div class="frame" id="_page_4" ng-controller="settingsCtrl">
-<!--{{languages.select}}-->
-        <!--<label>-->
-            <!--<select  ng-model="select" ng-options="select.text for select in selections">-->
-                <!--<option></option>-->
-            <!--</select>-->
-        <!--</label>-->
+    <!--{{languages.select}}-->
+    <!--<label>-->
+    <!--<select  ng-model="select" ng-options="select.text for select in selections">-->
+    <!--<option></option>-->
+    <!--</select>-->
+    <!--</label>-->
     <!--{{select}}-->
     <!--<button class="button" ng-click="nextWord()">СЛЕДУЮЩИЙ</button>-->
-    <div class="input-control checkbox" data-role="input-control">
-        <label>
-            <input type="checkbox" ng-model="settings.sound"/>
-            <span class="check"></span>
-            Произношение
-        </label>
-    </div> <div class="input-control checkbox" data-role="input-control">
-        <label>
-            <input type="checkbox" ng-model="settings.color"/>
-            <span class="check"></span>
-            Расскаска слогов по тонам
-        </label>
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span6">
+
+                <div class="row">
+
+                <div class="input-control checkbox" data-role="input-control">
+                    <label>
+                        <input type="checkbox" ng-model="settings.sound"/>
+                        <span class="check"></span>
+                        Произношение
+                    </label>
+                </div>
+                </div>
+                <div class="row">
+
+                <div class="input-control checkbox" data-role="input-control">
+                    <label>
+                        <input type="checkbox" ng-model="settings.color"/>
+                        <span class="check"></span>
+                        Расскаска слогов по тонам
+                    </label>
+                </div>
+                </div>
+                <div class="row">
+
+                <div class="input-control checkbox" data-role="input-control">
+                    <label>
+                        <input type="checkbox" ng-model="settings.number"/>
+                        <span class="check"></span>
+                        Цифры тонов
+                    </label>
+                </div>
+            </div>
+                <div class="row">
+
+                    <div class="input-control checkbox" data-role="input-control">
+                        <label>
+                            <input type="checkbox" ng-model="settings.letter"/>
+                            <span class="check"></span>
+                            Подчёркивания
+                        </label>
+                    </div>
+                </div>
+        </div>
+            <div class="span6">
+                <div class="pinyin span3">
+                    <span style="color:{{tone.color}}" ng-repeat="tone in example">{{tone.pinyin }}</span>
+                </div>
     </div>
-    <div class="input-control checkbox" data-role="input-control">
-        <label>
-            <input type="checkbox" ng-model="settings.number"/>
-            <span class="check"></span>
-            Цифры тонов
-        </label>
     </div>
+</div>
 </div>
