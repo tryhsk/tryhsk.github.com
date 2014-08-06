@@ -16,8 +16,10 @@
     <script src="js/jquery/jquery.widget.min.js"></script>
     <script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
     <!--id пользователя-->
-<!--    <script>
-        var vkid;
+    <script>
+        var vkid,
+                is_app_user,
+                language;
         VK.init(function () {    // инициализируем Vk API
             var parts = document.location.search.substr(1).split("&");
             var flashVars = {}, curr;
@@ -26,9 +28,13 @@
                 flashVars[curr[0]] = curr[1];
             }
             vkid = flashVars['viewer_id'];
+            language = flashVars['language'];
+            is_app_user = flashVars['is_app_user'];
+            console.log(language);
+            console.log(is_app_user);
 //                vkid = 1000000;   // develop
         });
-    </script>-->
+    </script>
     <script src="js/metro.min.js"></script>
     <script src="js/docs.js"></script>
     <script src="js/underscore-min.js"></script>
