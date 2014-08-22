@@ -1,3 +1,15 @@
+tryHskServices = angular.module('tryHskServices', ['ngResource'])
+
+tryHskServices.factory('getWords',
+  [
+    '$resource'
+    ($resource)->
+      $resource('words.json', {}, {
+        query: {method: 'GET', isArray: true}
+      })
+  ])
+
+
 tryHskServices.factory('checkboxValues',
   [
     '$cookies'
@@ -22,6 +34,17 @@ tryHskServices.factory('checkboxValues',
         $cookies.checkboxValues = JSON.stringify object
         null
   ])
+
+
+
+
+
+
+
+
+
+
+
 
 tryHskServices.factory('prepareWords',
   [
@@ -52,4 +75,4 @@ $rootScope.getNumberOfPinyin = (string)->
   arrayOfLetter = string.split('')
   lengthOfArrayOfLetter = arrayOfLetter.length
   for letter in arrayOfLetter
-    
+

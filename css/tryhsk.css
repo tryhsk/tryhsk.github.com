@@ -90,3 +90,10 @@ body  {
 .rating_content > .row {
     margin: 0!important;
 }
+
+.char_main {
+    font-size: 60px;
+}
+.rassian_main {
+    font-size: 20px;
+}
