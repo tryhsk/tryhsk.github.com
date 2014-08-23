@@ -31,7 +31,7 @@ tryHskControllers.controller('testCtrl',
 
 
 
-        $scope.icon = 'icon-volume-5';
+
 
 
 		$scope.checkAnswer = function (ansv) {
@@ -113,11 +113,11 @@ tryHskControllers.controller('testCtrl',
 
 //Изменяет ширину окна главного иероглифа
 		function main_char(words) {
-			var length = words[162].russian.length;
+			var length = words[question].char.length;
 			if (length == 1) {
 				$("#random").css("width", 92)
 			} else {
-				$("#random").css("width", 20 * length);
+				$("#random").css("width", 80 * length);
 			}
 		}
 
@@ -181,7 +181,7 @@ tryHskControllers.controller('testCtrl',
 			$("div.content").css("display", "none").css("border", "");
 			randomize(data);
 			main_char(data);
-			$scope.char = data[162].russian;
+			$scope.char = data[question].char;
 //			$scope.sound = n[1];
 //			var n = data[question].sound.split('http://china-standart.ru');
 			$scope.sound = data[question].sound;
