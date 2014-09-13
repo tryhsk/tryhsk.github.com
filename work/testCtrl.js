@@ -244,10 +244,7 @@ tryHskControllers.controller('testCtrl',
 		$scope.nextWord = function () {
 
 			document.getElementById('id_button_next').style.display = 'none';
-			var elems = document.getElementsByClassName('text-muted');
-			for(var i = 0; i < elems.length; i++) {
-				elems[i].style.display = 'none';
-			}
+
 			$scope.button_next = 'СЛЕДУЮЩИЙ';
 			$scope.class_button_next = 'info';
 
@@ -268,10 +265,7 @@ tryHskControllers.controller('testCtrl',
 
 		$scope.fresh = function () {
 			document.getElementById('id_button_next').style.display = 'none';
-			var elems = document.getElementsByClassName('text-muted');
-			for(var i = 0; i < elems.length; i++) {
-				elems[i].style.display = 'none';
-			}
+
 			$scope.button_next = 'СЛЕДУЮЩИЙ';
 			$scope.class_button_next = 'info';
 			sortWords.getSortWords().then(function (words) {
@@ -310,10 +304,7 @@ tryHskControllers.controller('testCtrl',
 			$scope.button_next = 'ОБНОВИТЬ';
 			$scope.class_button_next = 'warning';
 			document.getElementById('id_button_next').style.display = 'inline';
-			var elems = document.getElementsByClassName('text-muted');
-			for(var i = 0; i < elems.length; i++) {
-				elems[i].style.display = 'inline';
-			}
+
 			result_client = null;
 
 		};
@@ -322,10 +313,7 @@ tryHskControllers.controller('testCtrl',
 			$scope.button_next = 'ОБНОВИТЬ';
 			$scope.class_button_next = 'warning';
 			document.getElementById('id_button_next').style.display = 'inline';
-			var elems = document.getElementsByClassName('text-muted');
-			for(var i = 0; i < elems.length; i++) {
-				elems[i].style.display = 'inline';
-			}
+
 			result_client = null;
 			sortWords.getSortWords().then(function (words) {
 				$scope.words = words;
