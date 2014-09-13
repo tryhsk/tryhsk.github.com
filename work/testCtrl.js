@@ -9,11 +9,22 @@ tryHskControllers.controller('testCtrl',
 				{},
 				{}
 			]
-			, test_randoms = []
+			,random = document.getElementById('random')
+			,russian_char = document.getElementById('russian_char')
+			,sound_test = document.getElementById('sound_test')
+		, test_randoms = []
 			,result_client;
 		$scope.currentRights = 0;
 		document.getElementById('classCurrentRights').style.display = 'none';
 		StateManager.add('test');
+
+		$scope.regimes = [
+			'иероглиф - перевод',
+			'перевод - иероглиф',
+			'произношение - перевод',
+			'произношение - иероглиф'
+		];
+		$scope.select = $scope.regimes[0];
 
 //берет ивставляет в базу результаты для рейтинга
 /*		$resource('/register?id=' + vkid, {}, {
@@ -128,9 +139,11 @@ tryHskControllers.controller('testCtrl',
 				for (var i = 0; i < 4; i++) {
 					for (var j = 0; j < 4; j++) {
 						if (i == j) {
-						} else if (test_random[i] == test_random[j]) {
+						} else {
+							if (test_random[i] == test_random[j]) {
 							test_random[i] = random_var(data);
-						} else  ;
+							}
+						}
 					}
 				}
 				return test_random;
@@ -159,7 +172,13 @@ tryHskControllers.controller('testCtrl',
 				wordsTests[i].char = words[test_randoms[i]].char;
 //				wordsTests[i].pinyin = words[test_randoms[i]].pinyin;
 				wordsTests[i].pinyin = $rootScope.processingOfPinyin(words[test_randoms[i]].pinyin);
-				wordsTests[i].russian = words[test_randoms[i]].russian;
+				//путаница ...  будет больше опыта в именование переменных
+				if ($scope.select === 'произношение - перевод' || $scope.select === 'иероглиф - перевод') {
+					wordsTests[i].russian = words[test_randoms[i]].russian;
+				}
+				if ($scope.select === 'перевод - иероглиф' || $scope.select === 'произношение - иероглиф') {
+					wordsTests[i].russian = words[test_randoms[i]].char;
+				}
 				wordsTests[i].sound = words[test_randoms[i]].sound;
 				wordsTests[i].id = words[test_randoms[i]].id;
 				if (test_randoms[i] == question) {
@@ -182,6 +201,33 @@ tryHskControllers.controller('testCtrl',
 			randomize(data);
 			main_char(data);
 			$scope.char = data[question].char;
+			$scope.russian = data[question].russian;
+
+			switch ($scope.select) {
+				case 'иероглиф - перевод':
+					russian_char.style.display = 'none';
+					random.style.display = 'inline';
+					sound_test.style.display = 'none';
+					break;
+				case 'перевод - иероглиф':
+					russian_char.style.display = 'inline';
+					random.style.display = 'none';
+					sound_test.style.display = 'none';
+
+					break;
+				case 'произношение - перевод':
+					russian_char.style.display = 'none';
+					random.style.display = 'none';
+					sound_test.style.display = 'inline';
+					document.getElementById('playSound').play();
+					break;
+				case 'произношение - иероглиф':
+					russian_char.style.display = 'none';
+					random.style.display = 'none';
+					sound_test.style.display = 'inline';
+					document.getElementById('playSound').play();
+					break;
+			}
 //			$scope.sound = n[1];
 //			var n = data[question].sound.split('http://china-standart.ru');
 			$scope.sound = data[question].sound;
@@ -196,6 +242,7 @@ tryHskControllers.controller('testCtrl',
 		};
 
 		$scope.nextWord = function () {
+
 			document.getElementById('id_button_next').style.display = 'none';
 			var elems = document.getElementsByClassName('text-muted');
 			for(var i = 0; i < elems.length; i++) {
@@ -203,12 +250,13 @@ tryHskControllers.controller('testCtrl',
 			}
 			$scope.button_next = 'СЛЕДУЮЩИЙ';
 			$scope.class_button_next = 'info';
+
 			if (swords.length < 10) {
 				setSmock();
 			} else {
 				$scope.fill(swords);
 				setTimeout(function () {
-					if($rootScope.settings.sound) {
+					if($rootScope.settings.sound || $scope.select === 'произношение - перевод' || $scope.select === 'произношение - иероглиф') {
 						document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\" autoplay ></audio>";
 					} else {
 						document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\"></audio>";
@@ -254,7 +302,21 @@ tryHskControllers.controller('testCtrl',
 			$scope.nextWord();
 		});
 
+		$scope.$watch('select', function () {
+			$scope.refresh_regime();
+		}, true);
 
+		$scope.refresh_regime = function() {
+			$scope.button_next = 'ОБНОВИТЬ';
+			$scope.class_button_next = 'warning';
+			document.getElementById('id_button_next').style.display = 'inline';
+			var elems = document.getElementsByClassName('text-muted');
+			for(var i = 0; i < elems.length; i++) {
+				elems[i].style.display = 'inline';
+			}
+			result_client = null;
+
+		};
 
 		$scope.refresh = function() {
 			$scope.button_next = 'ОБНОВИТЬ';
@@ -283,6 +345,10 @@ tryHskControllers.controller('testCtrl',
 
 
 		$("#random").click(function (){
+			document.getElementById('playSound').play();
+			return false;
+		});
+		$("#sound_test").click(function (){
 			document.getElementById('playSound').play();
 			return false;
 		});

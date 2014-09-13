@@ -1,7 +1,14 @@
 <div class="frame" id="_page_1" ng-controller="testCtrl" style="padding-bottom: 0">
     <h1 id="classCurrentRights" style="position: absolute;left: 20px;top: 100px; margin-top: 0">{{currentRights}}</h1>
     <!--<h1 style="position: absolute;left: 20px;top: 200px; margin-top: 0">{{result.amount}}</h1>-->
-    <div class="grid fluid">
+
+
+	<label>
+		<select  ng-model="select" ng-options="select for select in regimes">
+		</select>
+	</label>
+
+	<div class="grid fluid">
         <div class="row">
 
             <div class="span9">
@@ -30,12 +37,11 @@
                     </ng-pluralize>
                     <!--@fixme pornography  <center>-->
                     <center>
-                        <button class="shortcut link " id="random" style="font-size: 60px;">{{char}}
-                        </button>
+                        <button class="shortcut link " id="sound_test" style="font-size: 40px;height: 120px !important;width: 120px !important;"><i class="icon-volume-5"></i></button>
+                        <button class="shortcut link " id="random" style="font-size: 60px;">{{char}}</button>
+						<div class="russian-char" style="font-size: 20px;" id="russian_char">{{russian}}</div>
                     </center>
                 </div>
-
-
                 <!--@todo  убрать h2 это порнография-->
                 <!--@todo  не понятно как воспроизвести музыку юзабилити-->
                 <div class="row">

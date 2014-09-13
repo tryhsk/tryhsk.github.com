@@ -190,9 +190,9 @@ tryHskServices.factory('language', function () {
 
     var selections = [
             {name: 'russian',
-                text: 'Русский'},
+			text: 'Русский'},
             {name: 'hanyu',
-                text: '汉语'},
+			text: '汉语'},
             {name: 'english',
                 text: 'English'}
         ],
