@@ -123,15 +123,15 @@ tryHskServices.factory('sortWords', function ($q, prepareWord, checkboxValues) {
 						var result = [],
 							length = array.length;
 						for (var i = 0; i < length; i++) {
-							if (value.verb && !!(words[array[i]].mask & 8 )) {
+							if (value.noun && !!(words[array[i]].mask & 8 )) {
 								result.push(array[i]);
 								continue;
 							}
-							if (value.adjective  && !!(words[array[i]].mask & 16 )) {
+							if (value.verb  && !!(words[array[i]].mask & 16 )) {
 								result.push(array[i]);
 								continue;
 							}
-							if (value.noun  && !!(words[array[i]].mask & 32 )) {
+							if (value.adjective  && !!(words[array[i]].mask & 32 )) {
 								result.push(array[i]);
 								continue;
 							}
