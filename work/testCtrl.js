@@ -1,5 +1,5 @@
 tryHskControllers.controller('testCtrl',
-	function ($scope, $rootScope, Word, sortWords, $timeout, StateManager, $resource) {
+	function ($scope, $rootScope, sortWords, $timeout, StateManager, $resource) {
 		var question
 			, swords
 			, arr = []
@@ -247,7 +247,6 @@ tryHskControllers.controller('testCtrl',
 
 			$scope.button_next = 'СЛЕДУЮЩИЙ';
 			$scope.class_button_next = 'info';
-
 			if (swords.length < 10) {
 				setSmock();
 			} else {
@@ -271,7 +270,8 @@ tryHskControllers.controller('testCtrl',
 			sortWords.getSortWords().then(function (words) {
 				$scope.words = words;
 				swords = words;
-				if (words.length < 10) {
+
+                if (words.length < 10) {
 					setSmock();
 				} else {
 					arr = new Array(10);
