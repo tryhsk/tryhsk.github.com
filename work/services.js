@@ -11,6 +11,44 @@ tryHskServices.factory('Word', ['$resource',
 		})
 	}]);
 
+
+
+
+
+
+tryHskServices.service('words', ['Word', '$q',
+    function (Word, $q) {
+        return {
+            words: [],
+            getWords : function() {
+                console.log(this.words.length);
+                if (this.words.length === 0) {
+                    var deferred = $q.defer();
+                    deferred.resolve(Word.query().$promise.then(
+                        function (words) {
+                            var array = [],
+                                object,
+                                length = words.length;
+                            for (var i = 0; i < length; i++) {
+                                object = {};
+                                object.char = words[i].c;
+                                object.pinyin = words[i].p;
+                                object.russian = words[i].r;
+                                object.sound = 'http://china-standart.ru/' + words[i].s;
+                                object.mask = parseInt(words[i].i, 2);
+                                object.id = i;
+                                array.push(object);
+                            }
+                            return array;
+                        }
+                    ));
+                    return deferred.promise;
+                }
+                return this.words;
+            }
+        }
+    }]);
+
 tryHskServices.factory('prepareWord', ['Word', '$q',
 	function (Word, $q) {
 
@@ -155,14 +193,14 @@ tryHskServices.factory('language', ['$cookies', function ($cookies) {
 
 }])
 
-tryHskServices.factory('sortWords', function ($q, prepareWord, checkboxValues) {
+tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
 
 	return {
 		getSortWords: function () {
 			var deferred = $q.defer(),
 				value = checkboxValues.getCheckboxValues();
 
-			deferred.resolve(prepareWord.getPrepareWords().then(function (words) {
+			deferred.resolve(words.getWords().then(function (words) {
 					function filterOfHskLevel(words) {
 						var result = [],
 							length = words.length;
