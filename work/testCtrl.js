@@ -12,7 +12,7 @@ tryHskControllers.controller('testCtrl',
 			,random = document.getElementById('random')
 			,russian_char = document.getElementById('russian_char')
 			,sound_test = document.getElementById('sound_test')
-		, test_randoms = []
+		    ,test_randoms = []
 			,result_client;
 		$scope.currentRights = 0;
 		document.getElementById('classCurrentRights').style.display = 'none';
@@ -136,6 +136,7 @@ tryHskControllers.controller('testCtrl',
 		function generate_var(data) {
 			var test_random = (function () {
 				var test_random = [question, random_var(data), random_var(data), random_var(data)];
+
 				for (var i = 0; i < 4; i++) {
 					for (var j = 0; j < 4; j++) {
 						if (i == j) {
@@ -148,8 +149,7 @@ tryHskControllers.controller('testCtrl',
 				}
 				return test_random;
 			})();
-			mixer(test_random);
-			mixer(test_random);
+			test_random = _.shuffle(test_random);
 			test_randoms = test_random;
 		}
 

@@ -7,6 +7,12 @@
     <!--</label>-->
     <!--{{select}}-->
     <!--<button class="button" ng-click="nextWord()">СЛЕДУЮЩИЙ</button>-->
+    <label>
+        <select  ng-model="selectLang"
+                 ng-options="selectLang for selectLang in languages"
+                 ng-change="freshLanguage(selectLang)" >
+        </select>
+    </label>
     <div class="grid fluid">
         <div class="row">
             <div class="span6">

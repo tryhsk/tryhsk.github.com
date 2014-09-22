@@ -116,8 +116,6 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
             string =  arrayOfLetter.join('');
 
         }
-//		console.log($rootScope.settings.color);
-//		console.log($rootScope.settings.number);
 		if(!$rootScope.settings.color) {
 			if($rootScope.settings.number) {
 				return [{
@@ -185,11 +183,10 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 						pinyin: arrayOfSyllable[k]
 					};
 			}
-//			console.log(tone);
 			tones.push(tone);
 		}
 		return tones;
-	}
+	};
 
 	$scope.refresh();
 	$scope.predicate = 'id';
