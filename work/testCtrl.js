@@ -267,25 +267,35 @@ tryHskControllers.controller('testCtrl',
 
 			$scope.button_next = 'СЛЕДУЮЩИЙ';
 			$scope.class_button_next = 'info';
-			sortWords.getSortWords().then(function (words) {
-				$scope.words = words;
-				swords = words;
+            var wo = sortWords.getSortWords();
+            if( wo.then){
+
+                sortWords.getSortWords().then(temp(words));
+            } else {
+                temp(wo)
+            }
+
+            function temp(words) {
+
+                $scope.words = words;
+                swords = words;
 
                 if (words.length < 10) {
-					setSmock();
-				} else {
-					arr = new Array(10);
-					$scope.fill(words);
-					StateManager.remove('test');
-					setTimeout(function () {
-						if($rootScope.settings.sound) {
-							document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\" autoplay ></audio>";
-						} else {
-							document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\"></audio>";
-						}
-					}, 500);
-				}
-			});
+                    setSmock();
+                } else {
+                    arr = new Array(10);
+                    $scope.fill(words);
+                    StateManager.remove('test');
+                    setTimeout(function () {
+                        if($rootScope.settings.sound) {
+                            document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\" autoplay ></audio>";
+                        } else {
+                            document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\"></audio>";
+                        }
+                    }, 500);
+                }
+            }
+
 		};
 // todo  костыль/  только первый запуск
 		$timeout(function () {
@@ -309,7 +319,8 @@ tryHskControllers.controller('testCtrl',
 
 		};
 
-		$scope.refresh = function() {
+		$scope.refresh = function(fr) {
+            console.log(fr);
 			$scope.button_next = 'ОБНОВИТЬ';
 			$scope.class_button_next = 'warning';
 			document.getElementById('id_button_next').style.display = 'inline';

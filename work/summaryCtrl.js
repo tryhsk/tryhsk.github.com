@@ -1,8 +1,11 @@
 tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWords, SummaryStateManager) {
-	$scope.refresh = function () {
+
+	$scope.refresh = function (fr) {
 		SummaryStateManager.add('summary');
 		sortWords.getSortWords().then(function (words) {
-			var length = words.length;
+            console.log(fr);
+
+            var length = words.length;
             for(var i = 0;i < length;i++ ) {
                 words[i].pinyin = $rootScope.processingOfPinyin(words[i].pinyin);
 			}
@@ -188,6 +191,6 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 		return tones;
 	};
 
-	$scope.refresh();
+	$scope.refresh('меня звали');
 	$scope.predicate = 'id';
 });

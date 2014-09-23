@@ -1,3 +1,4 @@
+###
 tryHskServices.factory('checkboxValues',
   [
     '$cookies'
@@ -52,4 +53,4 @@ $rootScope.getNumberOfPinyin = (string)->
   arrayOfLetter = string.split('')
   lengthOfArrayOfLetter = arrayOfLetter.length
   for letter in arrayOfLetter
-    
+    ###

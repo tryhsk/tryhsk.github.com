@@ -16,96 +16,212 @@ tryHskServices.factory('Word', ['$resource',
 
 
 
-tryHskServices.service('words', ['Word', '$q',
+tryHskServices.service('prepareWords', ['Word', '$q',
     function (Word, $q) {
-        return {
-            words: [],
-            getWords : function() {
-                console.log(this.words.length);
-                if (this.words.length === 0) {
-                    var deferred = $q.defer();
-                    deferred.resolve(Word.query().$promise.then(
-                        function (words) {
-                            var array = [],
-                                object,
-                                length = words.length;
-                            for (var i = 0; i < length; i++) {
-                                object = {};
-                                object.char = words[i].c;
-                                object.pinyin = words[i].p;
-                                object.russian = words[i].r;
-                                object.sound = 'http://china-standart.ru/' + words[i].s;
-                                object.mask = parseInt(words[i].i, 2);
-                                object.id = i;
-                                array.push(object);
-                            }
-                            return array;
+        this.words = [];
+        this.getWords = function() {
+            var self = this;
+            if (this.words.length === 0) {
+                var deferred = $q.defer();
+                deferred.resolve(Word.query().$promise.then(
+                    function (words) {
+                        var array = [],
+                            object,
+                            length = words.length;
+                        for (var i = 0; i < length; i++) {
+                            object = {};
+                            object.char = words[i].c;
+                            object.pinyin = words[i].p;
+                            object.russian = words[i].r;
+                            object.sound = 'http://china-standart.ru/' + words[i].s;
+                            object.mask = parseInt(words[i].i, 2);
+                            object.id = i;
+                            array.push(object);
                         }
-                    ));
-                    return deferred.promise;
-                }
-                return this.words;
+                        self.words = array;
+                        return array;
+                    }
+                ));
+                return deferred.promise;
             }
-        }
+            return this.words;
+        };
     }]);
 
-tryHskServices.factory('prepareWord', ['Word', '$q',
-	function (Word, $q) {
 
-		return {
-			getPrepareWords: function () {
-				var deferred = $q.defer();
+tryHskServices.service('sortWords', ['$q', 'prepareWords', 'checkboxValues',
+    function ($q, prepareWords, checkboxValues) {
 
-				deferred.resolve(Word.query().$promise.then(
-					function (words) {
-						var array = [],
-							object,
-							length = words.length;
-						for (var i = 0; i < length; i++) {
-							object = {};
-							object.char = words[i].c;
-							object.pinyin = words[i].p;
-							object.russian = words[i].r;
-							object.sound = 'http://china-standart.ru/' + words[i].s;
-							object.mask = parseInt(words[i].i, 2);
-							object.id = i;
-							array.push(object);
-						}
+    this.words = [];
+    this.promise = false;
+    this.getSortWords = function () {
+        var self = this,
+            value = checkboxValues.getCheckboxValues();
+        if (this.words.length === 0) {
+            if (!this.promise) {
+                var deferred = $q.defer();
+                deferred.resolve(prepareWords.getWords().then(function (words) {
+                        self.words = words;
+                        return tempMosnster(words);
+                    })
+                );
+                this.promise = deferred.promise;
 
-						return array;
-					}
-				));
-				return deferred.promise;
-			}
-		};
-	}]);
+                return this.promise;
+            } else {
+                return this.promise;
+            }
+        }
+        function tempMosnster(words) {
+            function filterOfHskLevel(words) {
+                var result = [],
+                    length = words.length;
+                for (var i = 0; i < length; i++) {
+                    if (value.hsk1 && !!(words[i].mask & 1)) {
+                        result.push(i);
+                        continue;
+                    }
+                    if (value.hsk2 && !!(words[i].mask & 2)) {
+                        result.push(i);
+                        continue;
+                    }
+                    if (value.hsk3 && !!(words[i].mask & 4)) {
+                        result.push(i);
+                    }
+                }
+                return result;
+            }
 
-tryHskServices.factory('checkboxValues', ['$cookies', function ($cookies) {
-	return {
-		getCheckboxValues: function () {
-			if ($cookies.checkboxValues === undefined) {
-				return {
-					hsk1: true,
-					hsk2: true,
-					hsk3: true,
-					verb: true,
-					numeral: true,
-					adjective: true,
-					pronoun: true,
-					place: true,
-					relate: true,
-					noun: true,
-					otherPart: true,
-					otherThemes: true
-				}
-			} else {
-				return JSON.parse($cookies.checkboxValues);
-			}
-		},
-		refreshCheckboxValues: function (object) {
-			$cookies.checkboxValues = JSON.stringify(object);
-		}
-	};
+            function filterOfPartOfSpeach(array) {
+
+                var result = [],
+                    length = array.length;
+                for (var i = 0; i < length; i++) {
+                    if (value.noun && !!(words[array[i]].mask & 8 )) {
+                        result.push(array[i]);
+                        continue;
+                    }
+                    if (value.verb && !!(words[array[i]].mask & 16 )) {
+                        result.push(array[i]);
+                        continue;
+                    }
+                    if (value.adjective && !!(words[array[i]].mask & 32 )) {
+                        result.push(array[i]);
+                        continue;
+                    }
+                    if (value.numeral && !!(words[array[i]].mask & 64 )) {
+                        result.push(array[i]);
+                        continue;
+                    }
+                    if (value.pronoun && !!(words[array[i]].mask & 128 )) {
+                        result.push(array[i]);
+                        continue;
+                    }
+                    if (value.otherPart && !(words[array[i]].mask & 248 )) {
+                        result.push(array[i]);
+                    }
+                }
+                return result;
+            }
+
+            function filterOfThemes(array) {
+                var result = [],
+                    length = array.length;
+                for (var i = 0; i < length; i++) {
+                    if (value.place && !!(words[array[i]].mask & 256)) {
+                        result.push(array[i]);
+                        continue;
+                    }
+                    if (value.relate && !!(words[array[i]].mask & 512)) {
+                        result.push(array[i]);
+                        continue;
+                    }
+                    if (value.otherThemes && !(words[array[i]].mask & 768  )) {
+                        result.push(array[i]);
+                    }
+                }
+                return result;
+            }
+
+            function createFilterWords(array) {
+                var result = [];
+                for (var i = 0; i < array.length; i++) {
+                    result.push(words[array[i]])
+                }
+                return result;
+            }
+
+            return createFilterWords(filterOfThemes(filterOfPartOfSpeach(filterOfHskLevel(words))));
+        }
+        return tempMosnster(this.words);
+
+
+
+
+    }
+
+}]);
+
+
+
+
+
+//tryHskServices.factory('prepareWord', ['Word', '$q',
+//	function (Word, $q) {
+//
+//		return {
+//			getPrepareWords: function () {
+//				var deferred = $q.defer();
+//
+//				deferred.resolve(Word.query().$promise.then(
+//					function (words) {
+//						var array = [],
+//							object,
+//							length = words.length;
+//						for (var i = 0; i < length; i++) {
+//							object = {};
+//							object.char = words[i].c;
+//							object.pinyin = words[i].p;
+//							object.russian = words[i].r;
+//							object.sound = 'http://china-standart.ru/' + words[i].s;
+//							object.mask = parseInt(words[i].i, 2);
+//							object.id = i;
+//							array.push(object);
+//						}
+//
+//						return array;
+//					}
+//				));
+//				return deferred.promise;
+//			}
+//		};
+//	}]);
+
+tryHskServices.service('checkboxValues', ['$cookies',
+    function ($cookies) {
+        this.getCheckboxValues = function () {
+            if ($cookies.checkboxValues === void 0 || $cookies.checkboxValues === 'undefined') {
+                return {
+                    hsk1: true,
+                    hsk2: true,
+                    hsk3: true,
+                    verb: true,
+                    numeral: true,
+                    adjective: true,
+                    pronoun: true,
+                    place: true,
+                    relate: true,
+                    noun: true,
+                    otherPart: true,
+                    otherThemes: true
+                }
+            } else {
+                return JSON.parse($cookies.checkboxValues);
+            }
+        };
+        this.refreshCheckboxValues = function (object) {
+            $cookies.checkboxValues = JSON.stringify(object);
+        };
 }]);
 
 tryHskServices.factory('settings', ['$cookies', function ($cookies) {
@@ -193,101 +309,6 @@ tryHskServices.factory('language', ['$cookies', function ($cookies) {
 
 }])
 
-tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
-
-	return {
-		getSortWords: function () {
-			var deferred = $q.defer(),
-				value = checkboxValues.getCheckboxValues();
-
-			deferred.resolve(words.getWords().then(function (words) {
-					function filterOfHskLevel(words) {
-						var result = [],
-							length = words.length;
-						for (var i = 0; i < length; i++) {
-							if (value.hsk1 && !!(words[i].mask & 1)) {
-								result.push(i);
-								continue;
-							}
-							if (value.hsk2 && !!(words[i].mask & 2)) {
-								result.push(i);
-								continue;
-							}
-							if (value.hsk3 && !!(words[i].mask & 4)) {
-								result.push(i);
-							}
-						}
-						return result;
-					}
-
-					function filterOfPartOfSpeach(array) {
-
-						var result = [],
-							length = array.length;
-						for (var i = 0; i < length; i++) {
-							if (value.noun && !!(words[array[i]].mask & 8 )) {
-								result.push(array[i]);
-								continue;
-							}
-							if (value.verb  && !!(words[array[i]].mask & 16 )) {
-								result.push(array[i]);
-								continue;
-							}
-							if (value.adjective  && !!(words[array[i]].mask & 32 )) {
-								result.push(array[i]);
-								continue;
-							}
-							if (value.numeral  && !!(words[array[i]].mask & 64 )) {
-								result.push(array[i]);
-								continue;
-							}
-							if (value.pronoun  && !!(words[array[i]].mask & 128 )) {
-								result.push(array[i]);
-								continue;
-							}
-							if (value.otherPart && !(words[array[i]].mask & 248 )) {
-								result.push(array[i]);
-							}
-						}
-						return result;
-					}
-
-					function filterOfThemes(array) {
-						var result = [],
-							length = array.length;
-						for (var i = 0; i < length; i++) {
-							if (value.place && !!(words[array[i]].mask & 256)) {
-								result.push(array[i]);
-								continue;
-							}
-							if (value.relate  && !!(words[array[i]].mask & 512)) {
-								result.push(array[i]);
-								continue;
-							}
-							if (value.otherThemes && !(words[array[i]].mask & 768  )) {
-								result.push(array[i]);
-							}
-						}
-						return result;
-					}
-
-					function createFilterWords(array) {
-						var result = [];
-						for (var i = 0; i < array.length; i++) {
-							result.push(words[array[i]])
-						}
-						return result;
-					}
-					return createFilterWords(filterOfThemes(filterOfPartOfSpeach(filterOfHskLevel(words))));
-
-				})
-			);
-
-			return deferred.promise;
-		}
-	}
-
-});
 
 
 

@@ -1,15 +1,21 @@
 tryHskControllers.controller('checkboxCtrl', function ($scope, $rootScope, checkboxValues) {
-
+    var flag = false;
 	$rootScope.checkboxValues = checkboxValues.getCheckboxValues();
 	$scope.checkboxValues = $rootScope.checkboxValues;
+
 	$scope.$watch('checkboxValues', function () {
 		checkboxValues.refreshCheckboxValues($scope.checkboxValues);
 		$rootScope.checkboxValues = $scope.checkboxValues;
-		try {
-			$scope.$parent.refresh();
-		} catch (e) {
-		}
+        if (flag) {
+            try {
+                $scope.$parent.refresh('меня не звали');
+            } catch (e) {
+            }
+        }
+        setTimeout(function() {flag = true}, 500)
+
 	}, true);
+
 	$rootScope.$watch('checkboxValues', function () {
 		$scope.checkboxValues = $rootScope.checkboxValues;
 	}, true);
