@@ -21,7 +21,6 @@ tryHskServices.service('words', ['Word', '$q',
         return {
             words: [],
             getWords : function() {
-                console.log(this.words.length);
                 if (this.words.length === 0) {
                     var deferred = $q.defer();
                     deferred.resolve(Word.query().$promise.then(
