@@ -37,7 +37,8 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 			tone = {},
 			tones = [],
 			mockForNumber = ''; //нужно для
-        if($rootScope.settings.letter) {
+		//!  из за лени
+        if(!$rootScope.settings.letter) {
             var arrayOfLetter,
                 lengthOfArrayOfLetter;
             arrayOfLetter = string.split('');
@@ -179,8 +180,8 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 				default :
 					tone = {
 						color: 'black',
-//						pinyin: 'ERROR:' + arrayOfSyllable[k]
-						pinyin: arrayOfSyllable[k]
+						pinyin: 'ERROR:' + arrayOfSyllable[k]
+						//pinyin: arrayOfSyllable[k]
 					};
 			}
 			tones.push(tone);

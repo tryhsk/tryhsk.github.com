@@ -204,6 +204,10 @@ tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
 						var result = [],
 							length = words.length;
 						for (var i = 0; i < length; i++) {
+							if (value.hsk3 && !!(words[i].mask & 4)) {
+								result.push(i);
+								continue;
+							}
 							if (value.hsk1 && !!(words[i].mask & 1)) {
 								result.push(i);
 								continue;
@@ -212,9 +216,7 @@ tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
 								result.push(i);
 								continue;
 							}
-							if (value.hsk3 && !!(words[i].mask & 4)) {
-								result.push(i);
-							}
+							console.log(words[i]);
 						}
 						return result;
 					}
