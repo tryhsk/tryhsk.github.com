@@ -113,8 +113,8 @@ tryHskServices.factory('settings', ['$cookies', function ($cookies) {
 			if ($cookies.settings === undefined) {
 				return {
 					sound: true,
-					color: true,
-					letter: false,
+					color: false,
+					letter: true,
 					number: false
 				}
 			} else {
