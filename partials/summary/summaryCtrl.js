@@ -2,9 +2,6 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 	$scope.refresh = function () {
 		SummaryStateManager.add('summary');
 		sortWords.getSortWords().then(function (words) {
-			var length = words.length;
-			for (var i = 0; i < length; i++) {
-			}
 			$scope.words = words;
 			SummaryStateManager.remove('summary');
 		});

@@ -50,8 +50,11 @@
 						<div ng-class="row" ng-repeat="word in words | filter:query | orderBy:predicate:reverse">
 							<div class="char char_big span3">{{word.id}} {{word.char}}</div>
 							<div class="pinyin span3">
-								<span style="color:{{tone.color}}"
-								      ng-repeat="tone in word.pinyin">{{tone.pinyin }}</span>
+								<span style="color:{{tone.color}}" ng-repeat="tone in word.pinyin">
+									<span ng-show="!settings.letter">{{tone.pinyin}}</span>
+									<span ng-show="settings.letter">{{tone.transpinyin}}</span>
+									<span ng-show="settings.number">{{tone.number}}</span>
+								</span>
 							</div>
 							<div class="russian span6">{{word.russian}}</div>
 							<div class="english span5" style="display:none">{{word.english}}</div>

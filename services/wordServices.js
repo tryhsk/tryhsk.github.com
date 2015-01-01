@@ -25,7 +25,6 @@ tryHskServices.service('prepareWords', ['Word', 'pinyin', function (Word, pinyin
 					object.id = i;
 					array.push(object);
 				}
-				console.log(array);
 				return array;
 			}
 		);
@@ -213,8 +212,8 @@ tryHskServices.service('pinyin', [function () {
 						color: 'black'
 					};
 			}
-		tone._pinyin = arrayOfSyllable[k];
-		tone.pinyin = this.filterLetter(tone._pinyin);
+		tone.transpinyin = arrayOfSyllable[k];
+		tone.pinyin = this.filterLetter(tone.transpinyin);
 			tones.push(tone);
 		}
 		return tones;

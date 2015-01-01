@@ -61,8 +61,12 @@
 									<div class="row" style="margin-top:0;margin-bottom:0">
 										<audio ngsrc="{{wordsTest.sound}}"></audio>
 										<div class="span4"><h2>{{wordsTest.char}}</h2></div>
-										<div class="span4"><h2>
-											<span style="color:{{tone.color}}" ng-repeat="tone in wordsTest.pinyin">{{tone.pinyin }}</span>
+										<div class="span6"><h2>
+											<span style="color:{{tone.color}}" ng-repeat="tone in wordsTest.pinyin">
+												<span ng-show="!settings.letter">{{tone.pinyin}}</span>
+												<span ng-show="settings.letter">{{tone.transpinyin}}</span>
+												<span ng-show="settings.number">{{tone.number}}</span>
+											</span>
 										</h2></div>
 									</div>
 									<div class="row" style="margin-top:0;margin-bottom:0">
