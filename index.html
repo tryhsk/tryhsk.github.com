@@ -43,13 +43,13 @@
     <script src="angular-route/angular-route.js"></script>
     <script src="angular-resource/angular-resource.js"></script>
     <script src="src/ngCookies/cookies.js"></script>
-    <script src="work/app.js"></script>
-    <script src="work/loveCtrl.js"></script>
-    <script src="work/summaryCtrl.js"></script>
-    <script src="work/testCtrl.js"></script>
-    <script src="work/infoCtrl.js"></script>
-    <script src="work/checkboxCtrl.js"></script>
-    <script src="work/settingsCtrl.js"></script>
+    <script src="app.js"></script>
+    <script src="partials/love/loveCtrl.js"></script>
+    <script src="partials/summary/summaryCtrl.js"></script>
+    <script src="partials/test/testCtrl.js"></script>
+    <script src="partials/info/infoCtrl.js"></script>
+    <script src="partials/checkbox/checkboxCtrl.js"></script>
+    <script src="partials/settings/settingsCtrl.js"></script>
     <script src="work/ratingCtrl.js"></script>
     <script src="work/filters.js"></script>
     <script src="work/services.js"></script>
@@ -82,23 +82,23 @@
     <div class="frames">
 
         <div class="frame" id="_page_1" style="padding: 0">
-            <div ng-include="'partials/test.html'"></div>
+            <div ng-include="'partials/test/test.html'"></div>
         </div>
 
         <div class="frame" id="_page_2" style="padding: 0">
-            <div ng-include="'partials/summary.html'"></div>
+            <div ng-include="'partials/summary/summary.html'"></div>
         </div>
 
         <div class="frame" id="_page_3">
-            <div ng-include="'partials/info.html'"></div>
+            <div ng-include="'partials/info/info.html'"></div>
         </div>
 
         <div class="frame" id="_page_4">
-            <div ng-include="'partials/settings.html'">dadad</div>
+            <div ng-include="'partials/settings/settings.html'">dadad</div>
         </div>
 
         <div class="frame" id="_page_5">
-            <div ng-include="'partials/love.html'"></div>
+            <div ng-include="'partials/love/love.html'"></div>
         </div>
     </div>
 </div>
