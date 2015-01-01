@@ -17,9 +17,9 @@ tryHskControllers.controller('settingsCtrl', function ($scope, $rootScope, langu
 	$scope.$watch('settings', function () {
 		settings.refreshSettings($scope.settings);
 		$rootScope.settings = $scope.settings;
-		$scope.example = $rootScope.processingOfPinyin('bàn4gōng1shì4');
+		//$scope.example = $rootScope.processingOfPinyin('bàn4gōng1shì4');
 	}, true);
-	$scope.example = $rootScope.processingOfPinyin('bàn4gōng1shì4');
+	//$scope.example = $rootScope.processingOfPinyin('bàn4gōng1shì4');
 
 	//$scope.languages = language.getLanguage();
 	//$scope.selections = [

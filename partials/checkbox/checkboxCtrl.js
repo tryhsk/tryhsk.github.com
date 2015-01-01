@@ -2,11 +2,14 @@ tryHskControllers.controller('checkboxCtrl', function ($scope, $rootScope, check
 
 	$rootScope.checkboxValues = checkboxValues.getCheckboxValues();
 	$scope.checkboxValues = $rootScope.checkboxValues;
+	$scope.count = 0;
 	$scope.$watch('checkboxValues', function () {
 		checkboxValues.refreshCheckboxValues($scope.checkboxValues);
 		$rootScope.checkboxValues = $scope.checkboxValues;
 		try {
-			$scope.$parent.refresh();
+			// init
+			if ($scope.count > 1) $scope.$parent.refresh();
+			$scope.count = ++$scope.count;
 		} catch (e) {
 		}
 	}, true);
