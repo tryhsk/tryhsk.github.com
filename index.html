@@ -1,119 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="product" content="">
-    <meta name="description"
-          content="Популярный тренажер для экзамена HSK. И просто отличное приложение для изучения основной лексики 汉语.">
-    <meta name="author" content="">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="product" content="">
+	<meta name="description"
+	      content="Популярный тренажер для экзамена HSK. И просто отличное приложение для изучения основной лексики 汉语.">
+	<meta name="author" content="">
 
-    <!--Metro UI-->
-    <link href="css/metro-bootstrap.css" rel="stylesheet">
-    <link href="css/iconFont.css" rel="stylesheet">
-    <link href="css/tryhsk.css" rel="stylesheet">
-    <script src="js/jquery/jquery-2.1.1.min.js"></script>
-    <script src="js/jquery/jquery.widget.min.js"></script>
-    <script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
-    <!--id пользователя-->
-    <script>
-        var vkid,
-                is_app_user,
-                language;
-        VK.init(function () {    // инициализируем Vk API
-            var parts = document.location.search.substr(1).split("&");
-            var flashVars = {}, curr;
-            for (i = 0; i < parts.length; i++) {
-                curr = parts[i].split('=');
-                flashVars[curr[0]] = curr[1];
-            }
-            vkid = flashVars['viewer_id'];
-            language = flashVars['language'];
-            is_app_user = flashVars['is_app_user'];
+	<!--Metro UI-->
+	<link href="css/metro-bootstrap.css" rel="stylesheet">
+	<link href="css/iconFont.css" rel="stylesheet">
+	<link href="css/tryhsk.css" rel="stylesheet">
+	<script src="js/jquery/jquery-2.1.1.min.js"></script>
+	<script src="js/jquery/jquery.widget.min.js"></script>
+	<script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+	<!--id пользователя-->
+	<script>
+		var vkid,
+				is_app_user,
+				language;
+		VK.init(function () {    // инициализируем Vk API
+			var parts = document.location.search.substr(1).split("&");
+			var flashVars = {}, curr;
+			for (i = 0; i < parts.length; i++) {
+				curr = parts[i].split('=');
+				flashVars[curr[0]] = curr[1];
+			}
+			vkid = flashVars['viewer_id'];
+			language = flashVars['language'];
+			is_app_user = flashVars['is_app_user'];
 //                vkid = 1000000;   // develop
-        });
-    </script>
-    <script src="js/metro.min.js"></script>
-    <script src="js/docs.js"></script>
-    <script src="js/underscore.js"></script>
+		});
+	</script>
+	<script src="js/metro.min.js"></script>
+	<script src="js/docs.js"></script>
+	<script src="js/underscore.js"></script>
 
-    <!--AngularJS-->
-    <script src="angular/angular.js"></script>
-    <script src="angular/angular-locale_ru-ru.js"></script>
-    <script src="angular-route/angular-route.js"></script>
-    <script src="angular-resource/angular-resource.js"></script>
-    <script src="src/ngCookies/cookies.js"></script>
-    <script src="app.js"></script>
-    <script src="partials/love/loveCtrl.js"></script>
-    <script src="partials/summary/summaryCtrl.js"></script>
-    <script src="partials/test/testCtrl.js"></script>
-    <script src="partials/info/infoCtrl.js"></script>
-    <script src="partials/checkbox/checkboxCtrl.js"></script>
-    <script src="partials/settings/settingsCtrl.js"></script>
-    <script src="work/ratingCtrl.js"></script>
-    <script src="work/filters.js"></script>
-    <script src="work/services.js"></script>
+	<!--AngularJS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="angular/angular-locale_ru-ru.js"></script>
+	<script src="angular-route/angular-route.js"></script>
+	<script src="angular-resource/angular-resource.js"></script>
+	<script src="src/ngCookies/cookies.js"></script>
+	<script src="app.js"></script>
+	<script src="partials/love/loveCtrl.js"></script>
+	<script src="partials/summary/summaryCtrl.js"></script>
+	<script src="partials/test/testCtrl.js"></script>
+	<script src="partials/info/infoCtrl.js"></script>
+	<script src="partials/checkbox/checkboxCtrl.js"></script>
+	<script src="partials/settings/settingsCtrl.js"></script>
+	<script src="work/filters.js"></script>
+	<script src="work/services.js"></script>
 
-    <title>HSK. Китайский язык 汉语</title>
+	<title>HSK. Китайский язык 汉语</title>
 
 
 </head>
 <body class="metro" ng-app="tryHsk" ng-cloak>
 <div class="loader" ng-show="globalLoader">
-    <div class="spinner">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
-    </div>
+	<div class="spinner">
+		<div class="rect1"></div>
+		<div class="rect2"></div>
+		<div class="rect3"></div>
+		<div class="rect4"></div>
+		<div class="rect5"></div>
+	</div>
 </div>
 <!--дурацкий костыль от вспышек-->
 <div id="f" style="height: 1000px; width: 500px;"></div>
 <div class="tab-control" data-role="tab-control" id="tab-control">
-    <ul class="tabs">
+	<ul class="tabs">
 
-        <li class="active"><a href="#_page_1">{{content.test}}</a></li>
-        <li><a href="#_page_2">{{content.summary}}</a></li>
-        <li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
-        <li class="place-right "><a href="#_page_4"><i class="icon-cog"></i></a></li>
-        <li class="place-right"><a href="#_page_3"><i class="icon-book"></i></a></li>
-    </ul>
-    <div class="frames">
+		<li class="active"><a href="#_page_1">{{content.test}}</a></li>
+		<li><a href="#_page_2">{{content.summary}}</a></li>
+		<li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
+		<li class="place-right "><a href="#_page_4"><i class="icon-cog"></i></a></li>
+		<li class="place-right"><a href="#_page_3"><i class="icon-book"></i></a></li>
+	</ul>
+	<div class="frames">
 
-        <div class="frame" id="_page_1" style="padding: 0">
-            <div ng-include="'partials/test/test.html'"></div>
-        </div>
+		<div class="frame" id="_page_1" style="padding: 0">
+			<div ng-include="'partials/test/test.html'"></div>
+		</div>
 
-        <div class="frame" id="_page_2" style="padding: 0">
-            <div ng-include="'partials/summary/summary.html'"></div>
-        </div>
+		<div class="frame" id="_page_2" style="padding: 0">
+			<div ng-include="'partials/summary/summary.html'"></div>
+		</div>
 
-        <div class="frame" id="_page_3">
-            <div ng-include="'partials/info/info.html'"></div>
-        </div>
+		<div class="frame" id="_page_3">
+			<div ng-include="'partials/info/info.html'"></div>
+		</div>
 
-        <div class="frame" id="_page_4">
-            <div ng-include="'partials/settings/settings.html'">dadad</div>
-        </div>
+		<div class="frame" id="_page_4">
+			<div ng-include="'partials/settings/settings.html'">dadad</div>
+		</div>
 
-        <div class="frame" id="_page_5">
-            <div ng-include="'partials/love/love.html'"></div>
-        </div>
-    </div>
+		<div class="frame" id="_page_5">
+			<div ng-include="'partials/love/love.html'"></div>
+		</div>
+	</div>
 </div>
 
 
-
-
 <script type="text/javascript" charset="cp1251">
-    var height = document.getElementById('tab-control').offsetHeight;
-    setInterval(function () {
-        if (height !== document.getElementById('tab-control').offsetHeight) {
-            height = document.getElementById('tab-control').offsetHeight;
-            VK.callMethod('resizeWindow', 1000, height);
-        }
-    }, 10);
+	var height = document.getElementById('tab-control').offsetHeight;
+	setInterval(function () {
+		if (height !== document.getElementById('tab-control').offsetHeight) {
+			height = document.getElementById('tab-control').offsetHeight;
+			VK.callMethod('resizeWindow', 1000, height);
+		}
+	}, 10);
 </script>
 
 

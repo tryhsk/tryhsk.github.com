@@ -31,7 +31,7 @@ tryHskServices.factory('prepareWords',
     ($q, Word, checkboxValues)->
 
 
-])
+  ])
 
 tryHskServices.factory('sortWords',
   [
@@ -43,7 +43,7 @@ tryHskServices.factory('sortWords',
         word.s = 'http://china-standart.ru/' + word.s
 
 
-])
+  ])
 
 preparePinyin = (string)->
   string

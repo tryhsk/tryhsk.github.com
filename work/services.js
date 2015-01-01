@@ -12,41 +12,37 @@ tryHskServices.factory('Word', ['$resource',
 	}]);
 
 
-
-
-
-
 tryHskServices.service('words', ['Word', '$q',
-    function (Word, $q) {
-        return {
-            words: [],
-            getWords : function() {
-                if (this.words.length === 0) {
-                    var deferred = $q.defer();
-                    deferred.resolve(Word.query().$promise.then(
-                        function (words) {
-                            var array = [],
-                                object,
-                                length = words.length;
-                            for (var i = 0; i < length; i++) {
-                                object = {};
-                                object.char = words[i].c;
-                                object.pinyin = words[i].p;
-                                object.russian = words[i].r;
-                                object.sound = 'http://china-standart.ru/' + words[i].s;
-                                object.mask = parseInt(words[i].i, 2);
-                                object.id = i;
-                                array.push(object);
-                            }
-                            return array;
-                        }
-                    ));
-                    return deferred.promise;
-                }
-                return this.words;
-            }
-        }
-    }]);
+	function (Word, $q) {
+		return {
+			words: [],
+			getWords: function () {
+				if (this.words.length === 0) {
+					var deferred = $q.defer();
+					deferred.resolve(Word.query().$promise.then(
+						function (words) {
+							var array = [],
+								object,
+								length = words.length;
+							for (var i = 0; i < length; i++) {
+								object = {};
+								object.char = words[i].c;
+								object.pinyin = words[i].p;
+								object.russian = words[i].r;
+								object.sound = 'http://china-standart.ru/' + words[i].s;
+								object.mask = parseInt(words[i].i, 2);
+								object.id = i;
+								array.push(object);
+							}
+							return array;
+						}
+					));
+					return deferred.promise;
+				}
+				return this.words;
+			}
+		}
+	}]);
 
 tryHskServices.factory('prepareWord', ['Word', '$q',
 	function (Word, $q) {
@@ -129,66 +125,66 @@ tryHskServices.factory('settings', ['$cookies', function ($cookies) {
 
 tryHskServices.factory('language', ['$cookies', function ($cookies) {
 
-    return {
-        getLanguage: function (selectLanguage) {
-            var language = {};
-            switch (selectLanguage) {
-                case 'Русский' :
-                    language = {
-                        "test": 'ТЕСТ',
-                        "summary": 'СЛОВАРЬ',
-                        "search": 'Поиск',
-                        "select": 'Выберите язык',
-                        "char": "Иероглиф",
-                        "pinyin": "Пиньинь",
-                        "translate": "Перевод",
-                        "eng": "Английский"
-                    };
-                    break;
-                case '汉语' :
-                    language = {
-                        "test": '__ТЕСТ__',
-                        "summary": '__СЛОВАРЬ__',
-                        "search": '搜索',
-                        "select": '选择语言',
-                        "char": "字",
-                        "pinyin": "拼音",
-                        "translate": "俄语",
-                        "eng": "英语"
-                    };
-                    break;
-                case 'English' :
-                    language = {
-                        "test": 'TEST',
-                        "summary": 'SUMMARY',
-                        "search": 'Search',
-                        "select": 'Choose language',
-                        "char": "Hieroglyph",
-                        "pinyin": "Pinyin",
-                        "translate": "Russian",
-                        "eng": "English"
-                    };
-                    break;
-                default:
-                    console.log('Error language()');
-                    break
-            }
-            return language;
-        },
-        getSelectlanguage: function () {
-            if ($cookies.language === undefined) {
-                return 'Русский'
-            } else {
-                return JSON.parse($cookies.language).selectLanguage;
-            }
-        },
-        refreshSelectlanguage: function (selectLanguage) {
-            var object = {
-                selectLanguage: selectLanguage
-            };
-            $cookies.language = JSON.stringify(object);
-        }
-    };
+	return {
+		getLanguage: function (selectLanguage) {
+			var language = {};
+			switch (selectLanguage) {
+				case 'Русский' :
+					language = {
+						"test": 'ТЕСТ',
+						"summary": 'СЛОВАРЬ',
+						"search": 'Поиск',
+						"select": 'Выберите язык',
+						"char": "Иероглиф",
+						"pinyin": "Пиньинь",
+						"translate": "Перевод",
+						"eng": "Английский"
+					};
+					break;
+				case '汉语' :
+					language = {
+						"test": '__ТЕСТ__',
+						"summary": '__СЛОВАРЬ__',
+						"search": '搜索',
+						"select": '选择语言',
+						"char": "字",
+						"pinyin": "拼音",
+						"translate": "俄语",
+						"eng": "英语"
+					};
+					break;
+				case 'English' :
+					language = {
+						"test": 'TEST',
+						"summary": 'SUMMARY',
+						"search": 'Search',
+						"select": 'Choose language',
+						"char": "Hieroglyph",
+						"pinyin": "Pinyin",
+						"translate": "Russian",
+						"eng": "English"
+					};
+					break;
+				default:
+					console.log('Error language()');
+					break
+			}
+			return language;
+		},
+		getSelectlanguage: function () {
+			if ($cookies.language === undefined) {
+				return 'Русский'
+			} else {
+				return JSON.parse($cookies.language).selectLanguage;
+			}
+		},
+		refreshSelectlanguage: function (selectLanguage) {
+			var object = {
+				selectLanguage: selectLanguage
+			};
+			$cookies.language = JSON.stringify(object);
+		}
+	};
 
 }])
 
@@ -230,19 +226,19 @@ tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
 								result.push(array[i]);
 								continue;
 							}
-							if (value.verb  && !!(words[array[i]].mask & 16 )) {
+							if (value.verb && !!(words[array[i]].mask & 16 )) {
 								result.push(array[i]);
 								continue;
 							}
-							if (value.adjective  && !!(words[array[i]].mask & 32 )) {
+							if (value.adjective && !!(words[array[i]].mask & 32 )) {
 								result.push(array[i]);
 								continue;
 							}
-							if (value.numeral  && !!(words[array[i]].mask & 64 )) {
+							if (value.numeral && !!(words[array[i]].mask & 64 )) {
 								result.push(array[i]);
 								continue;
 							}
-							if (value.pronoun  && !!(words[array[i]].mask & 128 )) {
+							if (value.pronoun && !!(words[array[i]].mask & 128 )) {
 								result.push(array[i]);
 								continue;
 							}
@@ -261,7 +257,7 @@ tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
 								result.push(array[i]);
 								continue;
 							}
-							if (value.relate  && !!(words[array[i]].mask & 512)) {
+							if (value.relate && !!(words[array[i]].mask & 512)) {
 								result.push(array[i]);
 								continue;
 							}
@@ -279,6 +275,7 @@ tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
 						}
 						return result;
 					}
+
 					return createFilterWords(filterOfThemes(filterOfPartOfSpeach(filterOfHskLevel(words))));
 
 				})
@@ -289,7 +286,6 @@ tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
 	}
 
 });
-
 
 
 tryHskServices.factory('StateManager', function ($rootScope, $log) {

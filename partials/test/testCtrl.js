@@ -9,11 +9,11 @@ tryHskControllers.controller('testCtrl',
 				{},
 				{}
 			]
-			,random = document.getElementById('random')
-			,russian_char = document.getElementById('russian_char')
-			,sound_test = document.getElementById('sound_test')
-		    ,test_randoms = []
-			,result_client;
+			, random = document.getElementById('random')
+			, russian_char = document.getElementById('russian_char')
+			, sound_test = document.getElementById('sound_test')
+			, test_randoms = []
+			, result_client;
 		$scope.currentRights = 0;
 		document.getElementById('classCurrentRights').style.display = 'none';
 		StateManager.add('test');
@@ -27,22 +27,18 @@ tryHskControllers.controller('testCtrl',
 		$scope.select = $scope.regimes[0];
 
 //берет ивставляет в базу результаты для рейтинга
-/*		$resource('/register?id=' + vkid, {}, {
-			query: {method:'GET',isArray:false}
-		}).query().$promise.then(function(stat) {
-				$scope.result = stat;
-				$rootScope.result = stat;
-			});
+		/*		$resource('/register?id=' + vkid, {}, {
+		 query: {method:'GET',isArray:false}
+		 }).query().$promise.then(function(stat) {
+		 $scope.result = stat;
+		 $rootScope.result = stat;
+		 });
 
-		$scope.$watch('result', function () {
-			$resource('/fresh?id='+ vkid+ '&amount=' + $scope.result.amount + '&rights=' + $scope.result.rights, {}, {
-				query: {method:'GET',isArray:false}
-			}).query()
-		}, true);*/
-
-
-
-
+		 $scope.$watch('result', function () {
+		 $resource('/fresh?id='+ vkid+ '&amount=' + $scope.result.amount + '&rights=' + $scope.result.rights, {}, {
+		 query: {method:'GET',isArray:false}
+		 }).query()
+		 }, true);*/
 
 
 		$scope.checkAnswer = function (ansv) {
@@ -56,6 +52,7 @@ tryHskControllers.controller('testCtrl',
 
 		function Hamster() {
 		}
+
 		Hamster.prototype.check = function (ansv) {
 			if (ansv) {
 				$scope.currentRights = ++$scope.currentRights;
@@ -64,26 +61,6 @@ tryHskControllers.controller('testCtrl',
 			} else {
 			}
 		};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Выдаёт рандомное число в зависимости от размера массива
@@ -106,7 +83,7 @@ tryHskControllers.controller('testCtrl',
 		function randomize(data) {
 			question = random_var(data);
 			var repeat = true,
-			length = Math.floor(data.length * 0.85);
+				length = Math.floor(data.length * 0.85);
 			do {
 				for (var i = 0; i < length; i++) {
 					if (question == arr[i]) {
@@ -142,7 +119,7 @@ tryHskControllers.controller('testCtrl',
 						if (i == j) {
 						} else {
 							if (test_random[i] == test_random[j]) {
-							test_random[i] = random_var(data);
+								test_random[i] = random_var(data);
 							}
 						}
 					}
@@ -165,6 +142,7 @@ tryHskControllers.controller('testCtrl',
 				wordsTests[i].button = 'лол!!!';
 			}
 		}
+
 //Создаёт 4 обьекта по id из  generate_var
 		function fill_test(words) {
 
@@ -191,7 +169,7 @@ tryHskControllers.controller('testCtrl',
 					wordsTests[i].button = 'Всё получится!';
 				}
 			}
-			result_client= null;
+			result_client = null;
 			result_client = new Hamster();
 			return wordsTests;
 		}
@@ -252,10 +230,10 @@ tryHskControllers.controller('testCtrl',
 			} else {
 				$scope.fill(swords);
 				setTimeout(function () {
-					if($rootScope.settings.sound || $scope.select === 'произношение - перевод' || $scope.select === 'произношение - иероглиф') {
-						document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\" autoplay ></audio>";
+					if ($rootScope.settings.sound || $scope.select === 'произношение - перевод' || $scope.select === 'произношение - иероглиф') {
+						document.getElementById("sound").innerHTML = "<audio id=\"playSound\" src=\"" + $scope.sound + "\" autoplay ></audio>";
 					} else {
-						document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\"></audio>";
+						document.getElementById("sound").innerHTML = "<audio id=\"playSound\" src=\"" + $scope.sound + "\"></audio>";
 					}
 				}, 100);
 				return wordsTests;
@@ -271,17 +249,17 @@ tryHskControllers.controller('testCtrl',
 				$scope.words = words;
 				swords = words;
 
-                if (words.length < 10) {
+				if (words.length < 10) {
 					setSmock();
 				} else {
 					arr = new Array(10);
 					$scope.fill(words);
 					StateManager.remove('test');
 					setTimeout(function () {
-						if($rootScope.settings.sound) {
-							document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\" autoplay ></audio>";
+						if ($rootScope.settings.sound) {
+							document.getElementById("sound").innerHTML = "<audio id=\"playSound\" src=\"" + $scope.sound + "\" autoplay ></audio>";
 						} else {
-							document.getElementById("sound").innerHTML="<audio id=\"playSound\" src=\"" + $scope.sound +"\"></audio>";
+							document.getElementById("sound").innerHTML = "<audio id=\"playSound\" src=\"" + $scope.sound + "\"></audio>";
 						}
 					}, 500);
 				}
@@ -300,7 +278,7 @@ tryHskControllers.controller('testCtrl',
 			$scope.refresh_regime();
 		}, true);
 
-		$scope.refresh_regime = function() {
+		$scope.refresh_regime = function () {
 			$scope.button_next = 'ОБНОВИТЬ';
 			$scope.class_button_next = 'warning';
 			document.getElementById('id_button_next').style.display = 'inline';
@@ -309,7 +287,7 @@ tryHskControllers.controller('testCtrl',
 
 		};
 
-		$scope.refresh = function() {
+		$scope.refresh = function () {
 			$scope.button_next = 'ОБНОВИТЬ';
 			$scope.class_button_next = 'warning';
 			document.getElementById('id_button_next').style.display = 'inline';
@@ -331,21 +309,14 @@ tryHskControllers.controller('testCtrl',
 		}, 3000);
 
 
-
-		$("#random").click(function (){
+		$("#random").click(function () {
 			document.getElementById('playSound').play();
 			return false;
 		});
-		$("#sound_test").click(function (){
+		$("#sound_test").click(function () {
 			document.getElementById('playSound').play();
 			return false;
 		});
-
-
-
-
-
-
 
 
 	});
