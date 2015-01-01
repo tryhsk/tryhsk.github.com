@@ -1,5 +1,5 @@
 tryHskControllers.controller('testCtrl',
-	function ($scope, $rootScope, sortWords, $timeout, StateManager, $resource) {
+	function ($scope, $rootScope, sortWords, $timeout, StateManager, score) {
 		var question
 			, swords
 			, arr = []
@@ -12,10 +12,8 @@ tryHskControllers.controller('testCtrl',
 			, random = document.getElementById('random')
 			, russian_char = document.getElementById('russian_char')
 			, sound_test = document.getElementById('sound_test')
-			, test_randoms = []
-			, result_client;
+			, test_randoms = [];
 		$scope.currentRights = 0;
-		document.getElementById('classCurrentRights').style.display = 'none';
 		StateManager.add('test');
 
 		$scope.regimes = [
@@ -26,40 +24,14 @@ tryHskControllers.controller('testCtrl',
 		];
 		$scope.select = $scope.regimes[0];
 
-//берет ивставляет в базу результаты для рейтинга
-		/*		$resource('/register?id=' + vkid, {}, {
-		 query: {method:'GET',isArray:false}
-		 }).query().$promise.then(function(stat) {
-		 $scope.result = stat;
-		 $rootScope.result = stat;
-		 });
-
-		 $scope.$watch('result', function () {
-		 $resource('/fresh?id='+ vkid+ '&amount=' + $scope.result.amount + '&rights=' + $scope.result.rights, {}, {
-		 query: {method:'GET',isArray:false}
-		 }).query()
-		 }, true);*/
 
 
-		$scope.checkAnswer = function (ansv) {
-			try {
-				result_client.check(ansv)
-			} catch (e) {
-			}
-			result_client = null;
-		};
-
-
-		function Hamster() {
-		}
-
-		Hamster.prototype.check = function (ansv) {
-			if (ansv) {
-				$scope.currentRights = ++$scope.currentRights;
-				document.getElementById('classCurrentRights').style.display = 'inline';
-//				$scope.result.rights = ++$scope.result.rights;
-			} else {
-			}
+		// TODO wrapper
+		$scope.isRight = function (answer) {
+			score.isRight(answer);
+			if(!score.count) return;
+			$scope.answer = true;
+			$scope.currentRights = score.count;
 		};
 
 
@@ -169,8 +141,6 @@ tryHskControllers.controller('testCtrl',
 					wordsTests[i].button = 'Всё получится!';
 				}
 			}
-			result_client = null;
-			result_client = new Hamster();
 			return wordsTests;
 		}
 
@@ -220,7 +190,7 @@ tryHskControllers.controller('testCtrl',
 		};
 
 		$scope.nextWord = function () {
-
+			score.answered = false;
 			document.getElementById('id_button_next').style.display = 'none';
 
 			$scope.button_next = 'СЛЕДУЮЩИЙ';
@@ -283,7 +253,6 @@ tryHskControllers.controller('testCtrl',
 			$scope.class_button_next = 'warning';
 			document.getElementById('id_button_next').style.display = 'inline';
 
-			result_client = null;
 
 		};
 
@@ -292,21 +261,13 @@ tryHskControllers.controller('testCtrl',
 			$scope.class_button_next = 'warning';
 			document.getElementById('id_button_next').style.display = 'inline';
 
-			result_client = null;
 			sortWords.getSortWords().then(function (words) {
 				$scope.words = words;
 				swords = words;
 			});
 		};
 
-//дурацкий костыль от вспышек
-		$timeout(function () {
-			$('#f').hide();
-		}, 500);
 		$scope.wordsTests = wordsTests;
-		$timeout(function () {
-			StateManager.remove('test');
-		}, 3000);
 
 
 		$("#random").click(function () {

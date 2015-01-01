@@ -44,6 +44,17 @@ tryHskServices.service('words', ['Word', '$q',
 		}
 	}]);
 
+tryHskServices.service('score', [ function () {
+		this.answered;
+		this.count;
+		this.isRight = function (answer) {
+			if (!this.answered && answer) {
+				this.count = this.count ? ++this.count : 1;
+			}
+			this.answered = true;
+		};
+}]);
+
 tryHskServices.factory('prepareWord', ['Word', '$q',
 	function (Word, $q) {
 
@@ -212,7 +223,7 @@ tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
 								result.push(i);
 								continue;
 							}
-							console.log(words[i]);
+							//console.log(words[i]);
 						}
 						return result;
 					}
@@ -288,7 +299,7 @@ tryHskServices.factory('sortWords', function ($q, words, checkboxValues) {
 });
 
 
-tryHskServices.factory('StateManager', function ($rootScope, $log) {
+tryHskServices.factory('StateManager', function ($rootScope) {
 
 	var stateContainer = [];
 
@@ -296,16 +307,12 @@ tryHskServices.factory('StateManager', function ($rootScope, $log) {
 		add: function (service) {
 			stateContainer.push(service);
 			$rootScope.globalLoader = true;
-//            $log.log('Add service: ' + service);
 		},
 
 		remove: function (service) {
 			stateContainer = _.without(stateContainer, service);
-//            $log.log('Remove service: ' + service);
-
 			if (stateContainer.length === 0) {
 				$rootScope.globalLoader = false;
-//                $log.log('StateContainer is empty.');
 			}
 
 		},
@@ -316,7 +323,6 @@ tryHskServices.factory('StateManager', function ($rootScope, $log) {
 
 		clear: function () {
 			stateContainer.length = 0;
-//            $log.log('StateContainer clear.');
 			return true;
 		}
 	}

@@ -1,5 +1,5 @@
-<div class="frame" id="_page_1" ng-controller="testCtrl" style="padding-bottom: 0">
-	<h1 id="classCurrentRights" style="position: absolute;left: 20px;top: 100px; margin-top: 0">{{currentRights}}</h1>
+<div class="frame" id="_page_1" ng-controller="testCtrl" style="padding-bottom: 0" >
+	<h1 id="classCurrentRights" style="position: absolute;left: 20px;top: 100px; margin-top: 0" ng-show="answer">{{currentRights}}</h1>
 	<!--<h1 style="position: absolute;left: 20px;top: 200px; margin-top: 0">{{result.amount}}</h1>-->
 
 
@@ -54,7 +54,7 @@
 
 
 						<div class="accordion-frame" ng-repeat="wordsTest in wordsTests">
-							<a class="heading" href="#" ng-click="checkAnswer(wordsTest.ansv)">{{wordsTest.russian}}</a>
+							<a class="heading" href="#" ng-click="isRight(wordsTest.ansv)">{{wordsTest.russian}}</a>
 
 							<div class="content">
 								<div class="grid" style="margin-top:0;margin-bottom:0">

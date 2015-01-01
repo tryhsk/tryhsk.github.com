@@ -58,7 +58,7 @@
 
 </head>
 <body class="metro" ng-app="tryHsk" ng-cloak>
-<div class="loader" ng-show="globalLoader">
+<div class="loader" ng-init="globalLoader = true" ng-show="globalLoader">
 	<div class="spinner">
 		<div class="rect1"></div>
 		<div class="rect2"></div>
@@ -67,8 +67,6 @@
 		<div class="rect5"></div>
 	</div>
 </div>
-<!--дурацкий костыль от вспышек-->
-<div id="f" style="height: 1000px; width: 500px;"></div>
 <div class="tab-control" data-role="tab-control" id="tab-control">
 	<ul class="tabs">
 
