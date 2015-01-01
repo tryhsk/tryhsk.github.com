@@ -10,3 +10,5 @@ var tryHsk = angular.module('tryHsk', [
 	'tryHskFilters',
 	'tryHskServices'
 ]);
+
+var tryHskServices = angular.module('tryHskServices', ['ngResource']);
