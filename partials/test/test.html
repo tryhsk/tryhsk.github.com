@@ -17,7 +17,6 @@
 					<!--@todo src porevo!!!!!-->
 					<div id="sound"></div>
 
-					<!--<object height="1" width="1" data="http://china-standart.ru{{sound}}"></object>-->
 					<button class="button {{class_button_next}}" ng-click="nextWord()" style="margin-left:50px">
 						{{button_next}} <i id='id_button_next' class="icon-spin"></i></button>
 					<output id="value"></output>
@@ -38,11 +37,14 @@
 					</ng-pluralize>
 					<!--@fixme pornography  <center>-->
 					<center>
-						<button class="shortcut link " id="sound_test"
-						        style="font-size: 40px;height: 120px !important;width: 120px !important;"><i
-								class="icon-volume-5"></i></button>
-						<button class="shortcut link " id="random" style="font-size: 60px;">{{char}}</button>
-						<div class="russian-char" style="font-size: 20px;" id="russian_char">{{russian}}</div>
+						<button class="shortcut link "
+						        ng-show="soundRegime"
+						        ng-click="playSound()"
+						        style="font-size: 40px;height: 120px !important;width: 120px !important;">
+							<i class="icon-volume-5"></i>
+						</button>
+						<button class="shortcut link " id="random" style="font-size: 60px;" ng-show="charRegime">{{char}}</button>
+						<div class="russian-char" style="font-size: 20px;" ng-show="translateRegime">{{russian}}</div>
 					</center>
 				</div>
 				<!--@todo  убрать h2 это порнография-->
@@ -61,13 +63,15 @@
 									<div class="row" style="margin-top:0;margin-bottom:0">
 										<audio ngsrc="{{wordsTest.sound}}"></audio>
 										<div class="span4"><h2>{{wordsTest.char}}</h2></div>
-										<div class="span6"><h2>
-											<span style="color:{{tone.color}}" ng-repeat="tone in wordsTest.pinyin">
-												<span ng-show="!settings.letter">{{tone.pinyin}}</span>
-												<span ng-show="settings.letter">{{tone.transpinyin}}</span>
-												<span ng-show="settings.number">{{tone.number}}</span>
-											</span>
-										</h2></div>
+										<div class="span6">
+											<h2>
+												<span style="color:{{tone.color}}" ng-repeat="tone in wordsTest.pinyin">
+													<span ng-hide="settings.letter">{{tone.pinyin}}</span>
+													<span ng-show="settings.letter">{{tone.transpinyin}}</span>
+													<span ng-show="settings.number">{{tone.number}}</span>
+												</span>
+											</h2>
+										</div>
 									</div>
 									<div class="row" style="margin-top:0;margin-bottom:0">
 										<div class="span4">
@@ -75,10 +79,6 @@
 												{{wordsTest.button}}
 											</button>
 										</div>
-										<div class="span8">
-											<!--<p class="text-muted">Результат не будет засчитан</p>-->
-										</div>
-
 									</div>
 								</div>
 							</div>

@@ -1,5 +1,2 @@
 'use strict';
-
-tryHskControllers.controller('loveCtrl', function ($scope) {
-
-});
+tryHskControllers.controller('loveCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {}]);

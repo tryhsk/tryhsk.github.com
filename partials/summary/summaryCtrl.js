@@ -1,4 +1,5 @@
-tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWords, SummaryStateManager) {
+tryHskControllers.controller('summaryCtrl', ['$scope', '$rootScope', 'sortWords', 'SummaryStateManager',
+	function ($scope, $rootScope, sortWords, SummaryStateManager) {
 	$scope.refresh = function () {
 		SummaryStateManager.add('summary');
 		sortWords.getSortWords().then(function (words) {
@@ -6,7 +7,6 @@ tryHskControllers.controller('summaryCtrl', function ($scope, $rootScope, sortWo
 			SummaryStateManager.remove('summary');
 		});
 	};
-
-	$scope.refresh();
+	$scope.refresh(); // init
 	$scope.predicate = 'id';
-});
+}]);

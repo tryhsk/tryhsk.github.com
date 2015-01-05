@@ -1,5 +1,6 @@
 tryHskControllers.controller('checkboxCtrl', function ($scope, $rootScope, checkboxValues) {
 
+	//TODO хрень какая то
 	$rootScope.checkboxValues = checkboxValues.getCheckboxValues();
 	$scope.checkboxValues = $rootScope.checkboxValues;
 	$scope.count = 0;

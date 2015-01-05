@@ -1,1 +1,2 @@
-tryHskControllers.controller('infoCtrl', function ($scope, $rootScope) {});
+'use strict';
+tryHskControllers.controller('infoCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {}]);

@@ -78,15 +78,3 @@ body  {
            -webkit-transform: scaleY(1.0);
        }
 }
-
-/*отступы в рейтинге*/
-.rating_content{
-    /*padding: 0 !important;*/
-
-}
-.rating_content > .grid {
-    margin: 0!important;
-}
-.rating_content > .row {
-    margin: 0!important;
-}

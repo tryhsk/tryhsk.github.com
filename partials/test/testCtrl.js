@@ -152,31 +152,28 @@ tryHskControllers.controller('testCtrl',
 
 			switch ($scope.select) {
 				case 'иероглиф - перевод':
-					russian_char.style.display = 'none';
-					random.style.display = 'inline';
-					sound_test.style.display = 'none';
+					$scope.charRegime = true;
+					$scope.translateRegime = false;
+					$scope.soundRegime = false;
 					break;
 				case 'перевод - иероглиф':
-					russian_char.style.display = 'inline';
-					random.style.display = 'none';
-					sound_test.style.display = 'none';
-
+					$scope.charRegime = false;
+					$scope.translateRegime = true;
+					$scope.soundRegime = false;
 					break;
 				case 'произношение - перевод':
-					russian_char.style.display = 'none';
-					random.style.display = 'none';
-					sound_test.style.display = 'inline';
+					$scope.charRegime = false;
+					$scope.translateRegime = false;
+					$scope.soundRegime = true;
 					document.getElementById('playSound').play();
 					break;
 				case 'произношение - иероглиф':
-					russian_char.style.display = 'none';
-					random.style.display = 'none';
-					sound_test.style.display = 'inline';
+					$scope.charRegime = false;
+					$scope.translateRegime = false;
+					$scope.soundRegime = true;
 					document.getElementById('playSound').play();
 					break;
 			}
-//			$scope.sound = n[1];
-//			var n = data[question].sound.split('http://china-standart.ru');
 			$scope.sound = data[question].sound;
 			generate_var(data);
 			fill_test(data);
@@ -251,8 +248,6 @@ tryHskControllers.controller('testCtrl',
 			$scope.button_next = 'ОБНОВИТЬ';
 			$scope.class_button_next = 'warning';
 			document.getElementById('id_button_next').style.display = 'inline';
-
-
 		};
 
 		$scope.refresh = function () {
@@ -269,14 +264,10 @@ tryHskControllers.controller('testCtrl',
 		$scope.wordsTests = wordsTests;
 
 
-		$("#random").click(function () {
+		$scope.playSound = function () {
 			document.getElementById('playSound').play();
 			return false;
-		});
-		$("#sound_test").click(function () {
-			document.getElementById('playSound').play();
-			return false;
-		});
+		}
 
 
 	});
