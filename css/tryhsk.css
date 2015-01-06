@@ -2,6 +2,14 @@
     width: 100% !important;
     position: absolute;
 }
+.full {
+margin-top:0;margin-bottom:0;
+}
+#classCurrentRights {
+    position: absolute;
+    left: 20px;top: 100px;
+    margin-top: 0;
+}
 body  {
     background-color: #ffffff;
 }

@@ -40,17 +40,6 @@ tryHskControllers.controller('testCtrl',
 			return Math.floor(Math.random() * (array.length - 1));
 		}
 
-//Перемешивает массив
-		function mixer(array) {
-			for (var i = array.length; i-- > 0;) {
-				var t = array[i],
-					j = Math.floor(i * Math.random());
-				array[i] = array[j];
-				array[j] = t;
-			}
-			return array;
-		}
-
 //Выдаёт id  следующего слова учитывая предъидущие
 		function randomize(data) {
 			question = random_var(data);
@@ -121,12 +110,13 @@ tryHskControllers.controller('testCtrl',
 			for (var i = 0; i < 4; i++) {
 				wordsTests[i].char = words[test_randoms[i]].char;
 				wordsTests[i].pinyin = words[test_randoms[i]].pinyin;
+				wordsTests[i].russian = words[test_randoms[i]].russian;
 				//путаница ...  будет больше опыта в именование переменных
 				if ($scope.select === 'произношение - перевод' || $scope.select === 'иероглиф - перевод') {
-					wordsTests[i].russian = words[test_randoms[i]].russian;
+					wordsTests[i].main = words[test_randoms[i]].russian;
 				}
 				if ($scope.select === 'перевод - иероглиф' || $scope.select === 'произношение - иероглиф') {
-					wordsTests[i].russian = words[test_randoms[i]].char;
+					wordsTests[i].main = words[test_randoms[i]].char;
 				}
 				wordsTests[i].sound = words[test_randoms[i]].sound;
 				wordsTests[i].id = words[test_randoms[i]].id;
@@ -149,17 +139,20 @@ tryHskControllers.controller('testCtrl',
 			main_char(data);
 			$scope.char = data[question].char;
 			$scope.russian = data[question].russian;
-
 			switch ($scope.select) {
 				case 'иероглиф - перевод':
 					$scope.charRegime = true;
 					$scope.translateRegime = false;
 					$scope.soundRegime = false;
+					//console.log('иероглиф - перевод');
+					//console.log($scope.charRegime,$scope.translateRegime)
 					break;
 				case 'перевод - иероглиф':
 					$scope.charRegime = false;
 					$scope.translateRegime = true;
 					$scope.soundRegime = false;
+					//console.log('перевод - иероглиф');
+					//console.log($scope.charRegime,$scope.translateRegime);
 					break;
 				case 'произношение - перевод':
 					$scope.charRegime = false;
@@ -182,6 +175,7 @@ tryHskControllers.controller('testCtrl',
 				$("div.content:has(button.danger)").css("border", "2px solid red");
 			}, 500);
 //			$scope.result.amount = ++$scope.result.amount;
+
 			return wordsTests;
 		};
 
@@ -230,6 +224,8 @@ tryHskControllers.controller('testCtrl',
 					}, 500);
 				}
 			});
+			console.log('ddd');
+
 		};
 // todo  костыль/  только первый запуск
 		$timeout(function () {
