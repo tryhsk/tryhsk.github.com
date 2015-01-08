@@ -1,0 +1,90 @@
+div(style='height: 500px ;overflow: scroll;overflow-x: hidden ')
+	ul.treeview(data-role='treeview', ng-controller='CheckboxController')
+		li.node
+			a(href='#')
+				span.node-toggle
+				| HSK level
+			ul
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.hsk1')
+							span.check
+							| HSK 1
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.hsk2')
+							span.check
+							| HSK 2
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.hsk3')
+							span.check
+							| HSK 3
+		li.node
+			a(href='#')
+				span.node-toggle
+				| часть речи
+			ul
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.noun')
+							span.check
+							| существительные
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							// именование переменных неправильное
+							input(type='checkbox', ng-model='checkboxValues.pronoun')
+							span.check
+							| числительные
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.verb')
+							span.check
+							| глаголы
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.adjective')
+							span.check
+							| прилагательные
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.numeral')
+							span.check
+							| счётное слово
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.otherPart')
+							span.check
+							| другие
+		li.node
+			a(href='#')
+				span.node-toggle
+				| Тематические
+			ul
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.place')
+							span.check
+							| Место
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.relate')
+							span.check
+							| Отношения
+				li
+					.input-control.checkbox(data-role='input-control')
+						label
+							input(type='checkbox', ng-model='checkboxValues.otherThemes')
+							span.check
+							| другие
