@@ -41,8 +41,11 @@ tryHskServices.service('sortWords', function ($q, prepareWords, $rootScope, chec
 
 
 		//todo убрать в инициализатор!!!
-		checkboxValues.initCheckboxValues();
-		$rootScope.$watch('checkboxValues', function () {
+		if(!this.loaded) checkboxValues.initCheckboxValues();
+		$rootScope.$watch('checkboxValues', function (newValue, oldValue) {
+			if(newValue === oldValue) return;
+			//sortWords.getSortWords();
+			self.getSortWords();
 			checkboxValues.refreshCheckboxValues();
 		}, true);
 
