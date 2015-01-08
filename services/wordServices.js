@@ -38,10 +38,10 @@ tryHskServices.service('sortWords', function ($q, prepareWords, $rootScope, chec
 	this.getSortWords = function () {
 		var self = this,
 			deferred;
-		checkboxValues.initCheckboxValues();
 
 
 		//todo убрать в инициализатор!!!
+		checkboxValues.initCheckboxValues();
 		$rootScope.$watch('checkboxValues', function () {
 			checkboxValues.refreshCheckboxValues();
 		}, true);

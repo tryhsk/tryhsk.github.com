@@ -28,34 +28,33 @@ tryHskServices.service('checkboxValues', ['$cookies', '$rootScope', function ($c
 
 }]);
 
-tryHskServices.service('settings', ['$cookies', function ($cookies) {
+tryHskServices.service('settings', ['$cookies', '$rootScope', function ($cookies, $rootScope) {
 
-	this.getSettings = function () {
+	this.initSettings = function () {
 		if ($cookies.settings === undefined) {
-			return {
+			$rootScope.settings = {
 				sound: true,
 				color: false,
 				letter: true,
 				number: false
 			}
 		} else {
-			return JSON.parse($cookies.settings);
+			$rootScope.settings = JSON.parse($cookies.settings);
 		}
 	};
-	this.refreshSettings = function (object) {
-		$cookies.settings = JSON.stringify(object);
+	this.refreshSettings = function () {
+		$cookies.settings = JSON.stringify($rootScope.settings);
 	}
 
 }]);
 
-tryHskServices.service('language', ['$cookies', function ($cookies) {
+tryHskServices.service('language', ['$cookies', '$rootScope', function ($cookies, $rootScope) {
 
 
 	this.getLanguage = function (selectLanguage) {
-		var language = {};
 		switch (selectLanguage) {
 			case 'Русский' :
-				language = {
+				$rootScope.content = {
 					"test": 'ТЕСТ',
 					"summary": 'СЛОВАРЬ',
 					"search": 'Поиск',
@@ -67,7 +66,7 @@ tryHskServices.service('language', ['$cookies', function ($cookies) {
 				};
 				break;
 			case '汉语' :
-				language = {
+				$rootScope.content = {
 					"test": '__ТЕСТ__',
 					"summary": '__СЛОВАРЬ__',
 					"search": '搜索',
@@ -79,7 +78,7 @@ tryHskServices.service('language', ['$cookies', function ($cookies) {
 				};
 				break;
 			case 'English' :
-				language = {
+				$rootScope.content = {
 					"test": 'TEST',
 					"summary": 'SUMMARY',
 					"search": 'Search',
@@ -90,13 +89,9 @@ tryHskServices.service('language', ['$cookies', function ($cookies) {
 					"eng": "English"
 				};
 				break;
-			default:
-				console.log('Error language()');
-				break
 		}
-		return language;
 	};
-	this.getSelectlanguage = function () {
+	this.initLanguage = function () {
 		if ($cookies.language === undefined) {
 			return 'Русский'
 		} else {
