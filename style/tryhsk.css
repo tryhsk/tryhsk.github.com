@@ -5,6 +5,9 @@
 .test {
     width: 50%;margin: 0 auto;
 }
+.checkboxtree {
+    height: 500px ;overflow: scroll;overflow-x: hidden;
+}
 .searchSummary {
     height: 20px;width: 100%;
 }
