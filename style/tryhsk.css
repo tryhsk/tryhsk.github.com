@@ -2,8 +2,23 @@
     width: 100% !important;
     position: absolute;
 }
-.full {
-margin-top:0;margin-bottom:0;
+.test {
+    width: 50%;margin: 0 auto;
+}
+.searchSummary {
+    height: 20px;width: 100%;
+}
+.zoneSummary {
+    height: 500px; overflow: scroll; overflow-x: hidden;
+}
+.buttonSound {
+    font-size: 40px;height: 120px !important;width: 120px !important;
+}
+.font60 {
+    font-size: 60px;
+}
+.font20 {
+    font-size: 20px;
 }
 #classCurrentRights {
     position: absolute;

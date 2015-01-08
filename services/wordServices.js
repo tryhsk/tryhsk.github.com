@@ -32,7 +32,7 @@ tryHskServices.service('prepareWords', ['Word', 'pinyin', function (Word, pinyin
 }]);
 
 
-tryHskServices.service('sortWords', function ($q, prepareWords, checkboxValues) {
+tryHskServices.service('sortWords', function ($q, prepareWords, checkboxValues, $rootScope) {
 	this.words = [];
 	this.loaded = false;
 	this.getSortWords = function () {
@@ -131,8 +131,8 @@ tryHskServices.service('sortWords', function ($q, prepareWords, checkboxValues) 
 			}
 			return result;
 		}
-
-		return createFilterWords(filterOfThemes(filterOfPartOfSpeach(filterOfHskLevel(words))));
+		$rootScope.words = createFilterWords(filterOfThemes(filterOfPartOfSpeach(filterOfHskLevel(words))));
+		return $rootScope.words;
 
 	}
 

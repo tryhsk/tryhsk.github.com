@@ -1,19 +1,17 @@
-#_page_1.frame(ng-controller='testCtrl', style='padding-bottom: 0')
-	h1#classCurrentRights(ng-show='answer') {{currentRights}}
+#_page_1.frame.nbp(ng-controller='testCtrl')
+	h1(ng-show='answer') {{currentRights}}
 	// <h1 style="position: absolute;left: 20px;top: 200px; margin-top: 0">{{result.amount}}</h1>
 	label
 		select(ng-model='select', ng-options='select for select in regimes')
 	.grid.fluid
 		.row
 			.span9
-				// @fixme pornography  style="margin-top: 0"
-				.row(style='margin-top: 0')
-					// @todo src porevo!!!!!
+				.row.ntm
 					#sound
-					button.button(class='{{class_button_next}}', ng-click='nextWord()', style='margin-left:50px')
+					button.button.padding20(ng-class='class_button_next', ng-click='nextWord()')
 						| {{button_next}}
-						i#id_button_next.icon-spin
-					output#value
+						i.icon-spin(ng-show='showSpin')
+					output#value.padding10
 					ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
 						'1': 'Слишком мало слов. Выбрано {} слово',\
 						'2': 'Слишком мало слов. Выбрано {} слова',\
@@ -29,20 +27,18 @@
 						'many': 'Выбрано {} слов'}")
 					// @fixme pornography  <center>
 					center
-						button.shortcut.link(ng-show='soundRegime', ng-click='playSound()', style='font-size: 40px;height: 120px !important;width: 120px !important;')
+						button.shortcut.link.buttonSound(ng-show='soundRegime', ng-click='playSound()')
 							i.icon-volume-5
-						button#random.shortcut.link(style='font-size: 60px;', ng-show='charRegime') {{char}}
-						.russian-char(style='font-size: 20px;', ng-show='translateRegime') {{russian}}
-				// @todo  убрать h2 это порнография
+						button.shortcut.link.font60(ng-show='charRegime', ng-style='questionStyle') {{char}}
+						.russian-char.font20(ng-show='translateRegime') {{russian}}
 				// @todo  не понятно как воспроизвести музыку юзабилити
 				.row
-					// @fixme pornography  style="margin-top: 0"
-					.accordion.place-center(data-role='accordion', data-closeany='true', style='width: 50%;margin: 0 auto;')
+					.accordion.place-center.test(data-role='accordion', data-closeany='true')
 						.accordion-frame(ng-repeat='wordsTest in wordsTests')
-							a.heading(href='#', ng-click='isRight(wordsTest.ansv)', ng-hide='charRegime') {{wordsTest.main}}
-							.content(ng-hide='charRegime')
-								.grid.full
-									.row.full
+							a.heading(href='#', ng-click='isRight(wordsTest.ansv)') {{wordsTest.main}}
+							.content
+								.grid.no-margin
+									.row.no-margin
 										audio(ngsrc='{{wordsTest.sound}}')
 										.span4
 											h2 {{wordsTest.char}}
@@ -52,9 +48,9 @@
 													span(ng-hide='settings.letter') {{tone.pinyin}}
 													span(ng-show='settings.letter') {{tone.transpinyin}}
 													span(ng-show='settings.number') {{tone.number}}
-									.row.full
+									.row.no-margin
 										.span4
-											button.button(class='{{wordsTest.ansver}}', ng-click='nextWord()')
+											button.button(ng-class='wordsTest.ansver', ng-click='nextWord()')
 												| {{wordsTest.button}}
 			.span3
 				div(ng-include="'partials/checkbox/checkbox.html'")

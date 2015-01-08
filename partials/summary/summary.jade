@@ -1,5 +1,5 @@
-#_page_2.frame(ng-controller='summaryCtrl', style='padding-bottom: 0')
-	div(style='height: 20px;width: 100%;')
+#_page_2.frame.nbp(ng-controller='summaryCtrl')
+	.searchSummary
 	| Поиск:
 	input(ng-model='query')
 	ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
@@ -10,7 +10,6 @@
 	h4
 		| docs.google.com/spreadsheets/d/1eCcrph6foyjtuQBQxeaZF8ZyrP3EUIE8uiJf3yVISS4/edit?usp=sharing
 	.grid.fluid
-		// TODO  вернуть предикат s и назвать нормально, чтоб больше не удалять
 		.row
 			.span3
 				div(ng-include="'partials/checkbox/checkbox.html'")
@@ -25,19 +24,19 @@
 				table.table
 					thead.fixedHeader
 						.row
-							.text-left.span3.char
+							.text-left.span3
 								a(href='', ng-click="predicate = 'id'; reverse=false") Иероглиф{{language.char}}
 								| (
 								a(href='', ng-click="predicate = '-id'; reverse=false") ^
 								| )
-							.text-left.span3.pinyin
+							.text-left.span3
 								a(href='', ng-click="predicate = 's'; reverse=!reverse") Пиньинь{{language.pinyin}}
-							.text-left.span3.russian
+							.text-left.span3
 								a(href='', ng-click="predicate = 'russian'; reverse=!reverse") Русский{{language.translate}}
-							.text-left.span3.english(style='display: none')
+							.text-left.span3(style='display: none')
 								a(href='', ng-click="predicate = 'english'; reverse=!reverse") Английский{{language.eng}}
 					tbody.scrollContent
-						div(style='height: 500px; overflow: scroll; overflow-x: hidden')
+						.zoneSummary
 							div(ng-class='row', ng-repeat='word in words | filter:query | orderBy:predicate:reverse')
 								.char.char_big.span3 {{word.id}} {{word.char}}
 								.pinyin.span3
