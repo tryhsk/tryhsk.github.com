@@ -1,4 +1,4 @@
-tryHskControllers.controller('testCtrl',
+tryHskControllers.controller('TestController',
 	function ($scope, $rootScope, sortWords, $timeout, StateManager, score) {
 		var question
 			, arr = []

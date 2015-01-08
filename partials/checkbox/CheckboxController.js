@@ -1,4 +1,4 @@
-tryHskControllers.controller('checkboxCtrl', function ($scope, $rootScope, checkboxValues) {
+tryHskControllers.controller('CheckboxController', function ($scope, $rootScope, checkboxValues) {
 
 	//TODO хрень какая то
 	$rootScope.checkboxValues = checkboxValues.getCheckboxValues();

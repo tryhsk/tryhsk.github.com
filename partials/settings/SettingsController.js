@@ -1,4 +1,4 @@
-tryHskControllers.controller('settingsCtrl', function ($scope, $rootScope, language, settings) {
+tryHskControllers.controller('SettingsController', function ($scope, $rootScope, language, settings) {
 
 
 	$scope.languages = [

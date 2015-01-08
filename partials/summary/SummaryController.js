@@ -1,4 +1,4 @@
-tryHskControllers.controller('summaryCtrl', ['$scope', '$rootScope', 'SummaryStateManager',
+tryHskControllers.controller('SummaryController', ['$scope', '$rootScope', 'SummaryStateManager',
 	function ($scope, $rootScope, SummaryStateManager) {
 		$rootScope.$watch('words', function () {
 			SummaryStateManager.add('summary');
