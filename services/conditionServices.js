@@ -1,10 +1,10 @@
 "use strict";
 
-tryHskServices.service('checkboxValues', ['$cookies', function ($cookies) {
+tryHskServices.service('checkboxValues', ['$cookies', '$rootScope', function ($cookies, $rootScope) {
 
-	this.getCheckboxValues = function () {
+	this.initCheckboxValues = function () {
 		if ($cookies.checkboxValues === undefined) {
-			return {
+			$rootScope.checkboxValues = {
 				hsk1: true,
 				hsk2: true,
 				hsk3: true,
@@ -19,11 +19,11 @@ tryHskServices.service('checkboxValues', ['$cookies', function ($cookies) {
 				otherThemes: true
 			}
 		} else {
-			return JSON.parse($cookies.checkboxValues);
+			$rootScope.checkboxValues = JSON.parse($cookies.checkboxValues);
 		}
 	};
-	this.refreshCheckboxValues = function (object) {
-		$cookies.checkboxValues = JSON.stringify(object);
+	this.refreshCheckboxValues = function () {
+		$cookies.checkboxValues = JSON.stringify($rootScope.checkboxValues);
 	}
 
 }]);

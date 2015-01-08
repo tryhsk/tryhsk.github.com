@@ -32,12 +32,23 @@ tryHskServices.service('prepareWords', ['Word', 'pinyin', function (Word, pinyin
 }]);
 
 
-tryHskServices.service('sortWords', function ($q, prepareWords, checkboxValues, $rootScope) {
+tryHskServices.service('sortWords', function ($q, prepareWords, $rootScope, checkboxValues) {
 	this.words = [];
 	this.loaded = false;
 	this.getSortWords = function () {
 		var self = this,
 			deferred;
+		checkboxValues.initCheckboxValues();
+
+
+		//todo убрать в инициализатор!!!
+		$rootScope.$watch('checkboxValues', function () {
+			checkboxValues.refreshCheckboxValues();
+		}, true);
+
+
+
+
 		if (!this.loaded) {
 			this.loaded = true;
 			return prepareWords.getWords().then(function (words) {
@@ -50,21 +61,20 @@ tryHskServices.service('sortWords', function ($q, prepareWords, checkboxValues, 
 
 	};
 	this.sortWords = function (words) {
-		var value = checkboxValues.getCheckboxValues();
 		this.words = words;
 		function filterOfHskLevel(words) {
 			var result = [],
 				length = words.length;
 			for (var i = 0; i < length; i++) {
-				if (value.hsk3 && !!(words[i].mask & 4)) {
+				if ($rootScope.checkboxValues.hsk3 && !!(words[i].mask & 4)) {
 					result.push(i);
 					continue;
 				}
-				if (value.hsk1 && !!(words[i].mask & 1)) {
+				if ($rootScope.checkboxValues.hsk1 && !!(words[i].mask & 1)) {
 					result.push(i);
 					continue;
 				}
-				if (value.hsk2 && !!(words[i].mask & 2)) {
+				if ($rootScope.checkboxValues.hsk2 && !!(words[i].mask & 2)) {
 					result.push(i);
 					continue;
 				}
@@ -78,27 +88,27 @@ tryHskServices.service('sortWords', function ($q, prepareWords, checkboxValues, 
 			var result = [],
 				length = array.length;
 			for (var i = 0; i < length; i++) {
-				if (value.noun && !!(words[array[i]].mask & 8 )) {
+				if ($rootScope.checkboxValues.noun && !!(words[array[i]].mask & 8 )) {
 					result.push(array[i]);
 					continue;
 				}
-				if (value.verb && !!(words[array[i]].mask & 16 )) {
+				if ($rootScope.checkboxValues.verb && !!(words[array[i]].mask & 16 )) {
 					result.push(array[i]);
 					continue;
 				}
-				if (value.adjective && !!(words[array[i]].mask & 32 )) {
+				if ($rootScope.checkboxValues.adjective && !!(words[array[i]].mask & 32 )) {
 					result.push(array[i]);
 					continue;
 				}
-				if (value.numeral && !!(words[array[i]].mask & 64 )) {
+				if ($rootScope.checkboxValues.numeral && !!(words[array[i]].mask & 64 )) {
 					result.push(array[i]);
 					continue;
 				}
-				if (value.pronoun && !!(words[array[i]].mask & 128 )) {
+				if ($rootScope.checkboxValues.pronoun && !!(words[array[i]].mask & 128 )) {
 					result.push(array[i]);
 					continue;
 				}
-				if (value.otherPart && !(words[array[i]].mask & 248 )) {
+				if ($rootScope.checkboxValues.otherPart && !(words[array[i]].mask & 248 )) {
 					result.push(array[i]);
 				}
 			}
@@ -109,15 +119,15 @@ tryHskServices.service('sortWords', function ($q, prepareWords, checkboxValues, 
 			var result = [],
 				length = array.length;
 			for (var i = 0; i < length; i++) {
-				if (value.place && !!(words[array[i]].mask & 256)) {
+				if ($rootScope.checkboxValues.place && !!(words[array[i]].mask & 256)) {
 					result.push(array[i]);
 					continue;
 				}
-				if (value.relate && !!(words[array[i]].mask & 512)) {
+				if ($rootScope.checkboxValues.relate && !!(words[array[i]].mask & 512)) {
 					result.push(array[i]);
 					continue;
 				}
-				if (value.otherThemes && !(words[array[i]].mask & 768  )) {
+				if ($rootScope.checkboxValues.otherThemes && !(words[array[i]].mask & 768  )) {
 					result.push(array[i]);
 				}
 			}
