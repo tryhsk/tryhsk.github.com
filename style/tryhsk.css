@@ -15,15 +15,15 @@
     height: 500px; overflow: scroll; overflow-x: hidden;
 }
 .buttonSound {
-    font-size: 40px;height: 120px !important;width: 120px !important;
+    font-size: 40px!important;height: 120px !important;width: 120px !important;
 }
 .font60 {
-    font-size: 60px;
+    font-size: 60px!important;
 }
 .font20 {
-    font-size: 20px;
+    font-size: 20px!important;
 }
-#classCurrentRights {
+.classCurrentRights {
     position: absolute;
     left: 20px;top: 100px;
     margin-top: 0;

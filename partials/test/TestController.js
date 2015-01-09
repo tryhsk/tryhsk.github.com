@@ -149,25 +149,34 @@ tryHskControllers.controller('TestController',
 				case 'иероглиф - перевод':
 					$scope.charRegime = true;
 					$scope.translateRegime = false;
-					$scope.soundRegime = false;
+					$scope.soundCharRegime = false;
+					$scope.soundTranslateRegime = false;
 					break;
 				case 'перевод - иероглиф':
 					$scope.charRegime = false;
 					$scope.translateRegime = true;
-					$scope.soundRegime = false;
+					$scope.soundCharRegime = false;
+					$scope.soundTranslateRegime = false;
 					break;
 				case 'произношение - перевод':
 					$scope.charRegime = false;
 					$scope.translateRegime = false;
-					$scope.soundRegime = true;
+					$scope.soundCharRegime = true;
+					$scope.soundTranslateRegime = false;
 					document.getElementById('playSound').play();
 					break;
 				case 'произношение - иероглиф':
 					$scope.charRegime = false;
 					$scope.translateRegime = false;
-					$scope.soundRegime = true;
+					$scope.soundCharRegime = false;
+					$scope.soundTranslateRegime = true;
 					document.getElementById('playSound').play();
 					break;
+			}
+			if ($scope.charRegime || $scope.soundCharRegime) {
+				$scope.variantStyle = '';
+			} else {
+				$scope.variantStyle = {'font-size': 40  + 'px'};
 			}
 			$scope.sound = data[question].sound;
 			generate_var(data);

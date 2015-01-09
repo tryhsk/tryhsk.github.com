@@ -1,12 +1,9 @@
 tryHskControllers.controller('SummaryController', ['$scope', '$rootScope', 'SummaryStateManager',
 	function ($scope, $rootScope, SummaryStateManager) {
-		$rootScope.$watch('words', function (newValue, oldValue) {
-			if(newValue === oldValue) return;
-			SummaryStateManager.add('summary');
-			$scope.words = $rootScope.words;
-			SummaryStateManager.remove('summary');
-		}, true);
-		$rootScope.$watch('settings.color', function (newValue, oldValue) {
+		$rootScope.$watch('words', refresh, true);
+		$rootScope.$watch('settings.color', refresh);
+
+		function refresh (newValue, oldValue) {
 			if(newValue === oldValue) return;
 			if ($rootScope.settings.color) {
 				$scope.words = $rootScope.words;
@@ -22,6 +19,7 @@ tryHskControllers.controller('SummaryController', ['$scope', '$rootScope', 'Summ
 				words = null;
 				SummaryStateManager.remove('summary');
 			}
-		});
+		}
+
 		$scope.predicate = 'id';
 	}]);

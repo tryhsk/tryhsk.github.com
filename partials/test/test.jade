@@ -1,5 +1,5 @@
 #_page_1.frame.nbp(ng-controller='TestController')
-	h1(ng-show='answer') {{currentRights}}
+	h1.classCurrentRights(ng-show='answer') {{currentRights}}
 	// <h1 style="position: absolute;left: 20px;top: 200px; margin-top: 0">{{result.amount}}</h1>
 	label
 		select(ng-model='select', ng-options='select for select in regimes')
@@ -27,7 +27,7 @@
 						'many': 'Выбрано {} слов'}")
 					// @fixme pornography  <center>
 					center
-						button.shortcut.link.buttonSound(ng-show='soundRegime', ng-click='playSound()')
+						button.shortcut.link.buttonSound(ng-show='soundCharRegime || soundTranslateRegime', ng-click='playSound()')
 							i.icon-volume-5
 						button.shortcut.link.font60(ng-show='charRegime', ng-style='questionStyle') {{char}}
 						.russian-char.font20(ng-show='translateRegime') {{russian}}
@@ -35,10 +35,10 @@
 				.row
 					.accordion.place-center.test(data-role='accordion', data-closeany='true')
 						.accordion-frame(ng-repeat='wordsTest in wordsTests')
-							a.heading(href='#', ng-click='isRight(wordsTest.ansv)') {{wordsTest.main}}
+							a.heading(href='#', ng-click='isRight(wordsTest.ansv)', ng-style='variantStyle') {{wordsTest.main}}
 							.content
 								.grid.no-margin
-									.row.no-margin
+									.row.no-margin(ng-show='charRegime || soundCharRegime')
 										audio(ngsrc='{{wordsTest.sound}}')
 										.span4
 											h2 {{wordsTest.char}}
@@ -48,6 +48,8 @@
 													span(ng-hide='settings.letter') {{tone.pinyin}}
 													span(ng-show='settings.letter') {{tone.transpinyin}}
 													span(ng-show='settings.number') {{tone.number}}
+									.row.no-margin(ng-show='translateRegime || soundTranslateRegime')
+										h4 {{wordsTest.russian}}
 									.row.no-margin
 										.span4
 											button.button(ng-class='wordsTest.ansver', ng-click='nextWord()')
