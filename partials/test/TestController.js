@@ -105,6 +105,11 @@ tryHskControllers.controller('TestController',
 			for (var i = 0; i < 4; i++) {
 				wordsTests[i].char = words[test_randoms[i]].char;
 				wordsTests[i].pinyin = words[test_randoms[i]].pinyin;
+				if (!$rootScope.settings.color) {
+					for (var j = 0; j < wordsTests[i].pinyin.length; j++) {
+						wordsTests[i].pinyin[j].color = 'black';
+					}
+				}
 				wordsTests[i].russian = words[test_randoms[i]].russian;
 
 				if ($scope.select === 'произношение - перевод' || $scope.select === 'иероглиф - перевод') {
