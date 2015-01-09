@@ -29,7 +29,7 @@
 					center
 						button.shortcut.link.buttonSound(ng-show='soundCharRegime || soundTranslateRegime', ng-click='playSound()')
 							i.icon-volume-5
-						button.shortcut.link.font60(ng-show='charRegime', ng-style='questionStyle') {{char}}
+						button.shortcut.link.font60(ng-show='charRegime', ng-style='questionStyle', ng-click='playSound()') {{char}}
 						.russian-char.font20(ng-show='translateRegime') {{russian}}
 				// @todo  не понятно как воспроизвести музыку юзабилити
 				.row
