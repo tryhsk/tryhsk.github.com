@@ -23,15 +23,6 @@ tryHskServices.factory('checkboxValues',
         null
   ])
 
-tryHskServices.factory('prepareWords',
-  [
-    '$q'
-    'Word'
-    'checkboxValues'
-    ($q, Word, checkboxValues)->
-
-
-  ])
 
 tryHskServices.factory('sortWords',
   [

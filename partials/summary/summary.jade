@@ -1,0 +1,47 @@
+#_page_2.frame.nbp(ng-controller='SummaryController')
+	.searchSummary
+	| Поиск:
+	input(ng-model='query')
+	ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
+		'one': 'Выбрано {} слово',\
+		'few': 'Выбрано {} слово',\
+		'many': 'Выбрано {} слов'}")
+	h4 База слов в формате google Docs/Свободное редактирование
+	h4
+		| docs.google.com/spreadsheets/d/1eCcrph6foyjtuQBQxeaZF8ZyrP3EUIE8uiJf3yVISS4/edit?usp=sharing
+	.grid.fluid
+		.row
+			.span3
+				div(ng-include="'partials/checkbox/checkbox.html'")
+			#table.span9.tableContainer
+				.summaryLoader(ng-show='summaryLoader')
+					.spinner
+						.rect1
+						.rect2
+						.rect3
+						.rect4
+						.rect5
+				table.table
+					thead.fixedHeader
+						.row
+							.text-left.span3
+								a(href='', ng-click="predicate = 'id'; reverse=false") Иероглиф{{language.char}}
+								| (
+								a(href='', ng-click="predicate = '-id'; reverse=false") ^
+								| )
+							.text-left.span3
+								a(href='', ng-click="predicate = 's'; reverse=!reverse") Пиньинь{{language.pinyin}}
+							.text-left.span3
+								a(href='', ng-click="predicate = 'russian'; reverse=!reverse") Русский{{language.translate}}
+							.text-left.span3(style='display: none')
+								a(href='', ng-click="predicate = 'english'; reverse=!reverse") Английский{{language.eng}}
+					tbody.scrollContent
+						.zoneSummary
+							div(ng-class='row', ng-repeat='word in words | filter:query | orderBy:predicate:reverse')
+								.char.char_big.span3 {{word.id}} {{word.char}}
+								.pinyin.span3
+									span(style='color:{{tone.color}}', ng-repeat='tone in word.pinyin')
+										span(ng-show='!settings.letter') {{tone.pinyin}}
+										span(ng-show='settings.letter') {{tone.transpinyin}}
+										span(ng-show='settings.number') {{tone.number}}
+								.russian.span6 {{word.russian}}
