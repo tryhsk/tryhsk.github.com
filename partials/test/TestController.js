@@ -185,7 +185,6 @@ tryHskControllers.controller('TestController',
 				$("div.content:has(button.success)").css("border", "2px solid #60a917");
 				$("div.content:has(button.danger)").css("border", "2px solid red");
 			}, 500);
-			console.log(0);
 //			$scope.result.amount = ++$scope.result.amount;
 
 			return wordsTests;
