@@ -4,7 +4,7 @@ tryHskControllers.controller('SummaryController', ['$scope', '$rootScope', 'Summ
 		$rootScope.$watch('settings.color', refresh);
 
 		function refresh (newValue, oldValue) {
-			if(newValue === oldValue) return;
+			if (newValue === oldValue) return;
 			SummaryStateManager.add('summary');
 			var words = $rootScope.words;
 			for (var i = 0; i < words.length; i++) {
@@ -18,11 +18,7 @@ tryHskControllers.controller('SummaryController', ['$scope', '$rootScope', 'Summ
 			}
 			$scope.words = words;
 			words = null;
-			console.log($rootScope.words);
-			console.log($rootScope.words == $scope.words);
 			SummaryStateManager.remove('summary');
-
-
 		}
 
 		$scope.predicate = 'id';

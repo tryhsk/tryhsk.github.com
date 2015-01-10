@@ -51,8 +51,7 @@
 									.row.no-margin(ng-show='translateRegime || soundTranslateRegime')
 										h4 {{wordsTest.russian}}
 									.row.no-margin
-										.span4
-											button.button(ng-class='wordsTest.ansver', ng-click='nextWord()')
-												| {{wordsTest.button}}
+										button.button(ng-class='wordsTest.ansver', ng-click='nextWord()')
+											| {{wordsTest.button}}
 			.span3
 				div(ng-include="'partials/checkbox/checkbox.html'")
