@@ -5,20 +5,24 @@ tryHskControllers.controller('SummaryController', ['$scope', '$rootScope', 'Summ
 
 		function refresh (newValue, oldValue) {
 			if(newValue === oldValue) return;
-			if ($rootScope.settings.color) {
-				$scope.words = $rootScope.words;
-			} else {
-				SummaryStateManager.add('summary');
-				var words = angular.copy($rootScope.words);
-				for (var i = 0; i < words.length; i++) {
-					for (var j = 0; j < words[i].pinyin.length; j++) {
-						words[i].pinyin[j].color = 'black';
+			SummaryStateManager.add('summary');
+			var words = $rootScope.words;
+			for (var i = 0; i < words.length; i++) {
+				for (var j = 0; j < words[i].pinyin.length; j++) {
+					if ($rootScope.settings.color) {
+						words[i].pinyin[j].colorStyle = words[i].pinyin[j].color;
+					} else {
+						words[i].pinyin[j].colorStyle = 'black';
 					}
 				}
-				$scope.words = words;
-				words = null;
-				SummaryStateManager.remove('summary');
 			}
+			$scope.words = words;
+			words = null;
+			console.log($rootScope.words);
+			console.log($rootScope.words == $scope.words);
+			SummaryStateManager.remove('summary');
+
+
 		}
 
 		$scope.predicate = 'id';

@@ -40,7 +40,7 @@
 							div(ng-class='row', ng-repeat='word in words | filter:query | orderBy:predicate:reverse')
 								.char.char_big.span3 {{word.id}} {{word.char}}
 								.pinyin.span3
-									span(style='color:{{tone.color}}', ng-repeat='tone in word.pinyin')
+									span(style='color:{{tone.colorStyle}}', ng-repeat='tone in word.pinyin')
 										span(ng-show='!settings.letter') {{tone.pinyin}}
 										span(ng-show='settings.letter') {{tone.transpinyin}}
 										span(ng-show='settings.number') {{tone.number}}
