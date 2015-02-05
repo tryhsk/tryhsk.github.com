@@ -2,19 +2,19 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	minifyCSS = require('gulp-minify-css'),
 	concat = require('gulp-concat'),
-	minifyHTML = require('gulp-minify-html');
+	minifyHTML = require('gulp-minify-html'),
+	templateCache = require('gulp-angular-templatecache');
 
 gulp.task('default', [
+		'compressHTML',
 		'compressJS'
-		,
-		'compressHTML'
 		//,'compressJSON'
-		,'compressCSS'
+		, 'compressCSS'
 	],
-	function() {
-});
+	function () {
+	});
 
-gulp.task('compressJS', function() {
+gulp.task('compressJS', function () {
 	gulp.src([
 		'appDev/vendor/js/jquery/jquery-2.1.1.min.js',
 		'appDev/vendor/js/jquery/jquery.widget.min.js',
@@ -26,42 +26,50 @@ gulp.task('compressJS', function() {
 		'appDev/vendor/angular-resource.js',
 		'appDev/vendor/cookies.js',
 		'appDev/app.js',
+		'public/partials/templates.js',
 		'appDev/services/*.js',
 		'appDev/filters/*.js',
 		'appDev/partials/*/*.js'
 	])
-		.pipe(uglify())
 		.pipe(concat('all.js'))
+		.pipe(uglify())
 		.pipe(gulp.dest('public/js'))
 });
 
-gulp.task('compressCSS', function() {
+gulp.task('compressCSS', function () {
 	gulp.src([
 		'appDev/style/tryhsk.css',
 		'appDev/vendor/css/*.css'
 	])
-		.pipe(minifyCSS({keepBreaks:true}))
+		.pipe(minifyCSS({keepBreaks: true}))
 		.pipe(concat('all.css'))
 		.pipe(gulp.dest('public/css'))
 });
 
-gulp.task('compressHTML', function() {
-	var opts = {comments:true,spare:true};
-
+gulp.task('compressHTML', function () {
 	gulp.src([
-		//'appDev/index.html',
 		'appDev/partials/*/*.html'
 	])
-		.pipe(minifyHTML(opts))
+		.pipe(minifyHTML(
+			{
+				comments: true,
+				spare: true
+			}
+		))
+		.pipe(templateCache(
+			{
+				root: 'partials',
+				standalone: true
+			}
+		))
 		.pipe(gulp.dest('public/partials'))
-
 });
 
-gulp.task('compressJSON', function() {
+gulp.task('compressJSON', function () {
 	gulp.src([
 		'appDev/words_.json'
 	])
-		.pipe(function(a) {
+		.pipe(function (a) {
 			console.log(a);
 		})
 });

@@ -14,6 +14,7 @@ underscore.factory('_', function() {
 var tryHsk = angular.module('tryHsk', [
 	'ngRoute',
 	'ngCookies',
+	'templates',
 	'tryHskControllers',
 	'tryHskFilters',
 	'tryHskDirectives',
