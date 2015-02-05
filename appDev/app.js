@@ -1,9 +1,10 @@
 'use strict';
 
 /* App Module */
-var tryHskControllers = angular.module('tryHskControllers', []);
-var tryHskDirectives = angular.module('tryHskDirectives', []);
-var tryHskServices = angular.module('tryHskServices', ['ngResource']);
+var tryHskControllers = angular.module('tryHskControllers', []),
+	tryHskDirectives = angular.module('tryHskDirectives', []),
+	tryHskServices = angular.module('tryHskServices', ['ngResource']),
+	templates = angular.module('templates', []);
 
 /* underscore */
 /*var underscore = angular.module('underscore', []);
@@ -14,7 +15,7 @@ underscore.factory('_', function() {
 var tryHsk = angular.module('tryHsk', [
 	'ngRoute',
 	'ngCookies',
-	'templates',
+	'templates', // for gulp task
 	'tryHskControllers',
 	'tryHskFilters',
 	'tryHskDirectives',

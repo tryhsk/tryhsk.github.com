@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	minifyCSS = require('gulp-minify-css'),
+	jade = require('gulp-jade'),
 	concat = require('gulp-concat'),
 	minifyHTML = require('gulp-minify-html'),
 	templateCache = require('gulp-angular-templatecache');
@@ -16,9 +17,6 @@ gulp.task('default', [
 
 gulp.task('compressJS', function () {
 	gulp.src([
-		'appDev/vendor/js/jquery/jquery-2.1.1.min.js',
-		'appDev/vendor/js/jquery/jquery.widget.min.js',
-		'appDev/vendor/js/metro.min.js',
 		'appDev/vendor/js/docs.js',
 		'appDev/vendor/js/underscore.js',
 		'appDev/vendor/angular-locale_ru-ru.js',
@@ -38,28 +36,28 @@ gulp.task('compressJS', function () {
 
 gulp.task('compressCSS', function () {
 	gulp.src([
-		'appDev/style/tryhsk.css',
-		'appDev/vendor/css/*.css'
+		'appDev/vendor/css/metro-bootstrap.css',
+		'appDev/vendor/css/iconFont.css',
+		'appDev/style/tryhsk.css'
 	])
-		.pipe(minifyCSS({keepBreaks: true}))
+		//.pipe(minifyCSS({keepBreaks: true}))
 		.pipe(concat('all.css'))
 		.pipe(gulp.dest('public/css'))
 });
 
 gulp.task('compressHTML', function () {
 	gulp.src([
-		'appDev/partials/*/*.html'
-	])
+		'appDev/partials/*/*.jade'
+		])
+		.pipe(jade())
 		.pipe(minifyHTML(
 			{
-				comments: true,
 				spare: true
 			}
 		))
 		.pipe(templateCache(
 			{
-				root: 'partials',
-				standalone: true
+				root: 'partials'
 			}
 		))
 		.pipe(gulp.dest('public/partials'))
