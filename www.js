@@ -6,7 +6,7 @@ var express = require("express")
 var port = Number(process.env.PORT || 5000);
 
 var index = fs.readFileSync('index.html');
-app.use(express.static('/home/peter/Desktop/tryhsk.github.com'));
+app.use(express.static(__dirname));
 app.use(logfmt.requestLogger());
 app.listen(port, function () {
 	console.log("Listening on " + port);
