@@ -1,4 +1,4 @@
-tryHskControllers.controller('TestController',
+tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWords', '$timeout', 'StateManager', 'score',
 	function ($scope, $rootScope, sortWords, $timeout, StateManager, score) {
 		var question
 			, arr = []
@@ -226,4 +226,4 @@ function alert (newValue, oldValue) {
 			});
 		})()
 
-	});
+}]);

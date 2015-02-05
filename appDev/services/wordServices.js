@@ -32,7 +32,7 @@ tryHskServices.service('prepareWords', ['Word', 'pinyin', function (Word, pinyin
 }]);
 
 
-tryHskServices.service('sortWords', function ($q, prepareWords, $rootScope, checkboxValues) {
+tryHskServices.service('sortWords', ['$q', 'prepareWords', '$rootScope', 'checkboxValues', function ($q, prepareWords, $rootScope, checkboxValues) {
 	this.words = [];
 	this.loaded = false;
 	this.getSortWords = function () {
@@ -149,7 +149,7 @@ tryHskServices.service('sortWords', function ($q, prepareWords, $rootScope, chec
 
 	}
 
-});
+}]);
 
 /**
  * Функция нужна для тоновой раскраски слогов в китайском языке

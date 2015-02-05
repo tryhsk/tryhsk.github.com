@@ -1,4 +1,5 @@
-tryHskControllers.controller('SettingsController', function ($scope, $rootScope, language, settings) {
+tryHskControllers.controller('SettingsController', ['$scope', '$rootScope', 'language','settings',
+	function ($scope, $rootScope, language, settings) {
 
 
 	$scope.languages = [
@@ -17,4 +18,4 @@ tryHskControllers.controller('SettingsController', function ($scope, $rootScope,
 	$scope.$watch('settings', function () {
 		settings.refreshSettings();
 	}, true);
-});
+}]);

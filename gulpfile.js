@@ -5,11 +5,11 @@ var gulp = require('gulp'),
 	minifyHTML = require('gulp-minify-html');
 
 gulp.task('default', [
-		//'compressJS'
-		//,
+		'compressJS'
+		,
 		'compressHTML'
 		//,'compressJSON'
-		//,'compressCSS'
+		,'compressCSS'
 	],
 	function() {
 });
@@ -32,7 +32,7 @@ gulp.task('compressJS', function() {
 	])
 		.pipe(uglify())
 		.pipe(concat('all.js'))
-		.pipe(gulp.dest('public'))
+		.pipe(gulp.dest('public/js'))
 });
 
 gulp.task('compressCSS', function() {
@@ -42,7 +42,7 @@ gulp.task('compressCSS', function() {
 	])
 		.pipe(minifyCSS({keepBreaks:true}))
 		.pipe(concat('all.css'))
-		.pipe(gulp.dest('public'))
+		.pipe(gulp.dest('public/css'))
 });
 
 gulp.task('compressHTML', function() {
@@ -53,7 +53,7 @@ gulp.task('compressHTML', function() {
 		'appDev/partials/*/*.html'
 	])
 		.pipe(minifyHTML(opts))
-		.pipe(gulp.dest('public'))
+		.pipe(gulp.dest('public/partials'))
 
 });
 

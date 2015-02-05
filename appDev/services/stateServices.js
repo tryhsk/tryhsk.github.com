@@ -1,6 +1,6 @@
 "use strict";
 
-tryHskServices.factory('StateManager', function ($rootScope) {
+tryHskServices.factory('StateManager', ['$rootScope', function ($rootScope) {
 
 	var stateContainer = [];
 
@@ -28,10 +28,10 @@ tryHskServices.factory('StateManager', function ($rootScope) {
 		}
 	}
 
-});
+}]);
 
 
-tryHskServices.factory('SummaryStateManager', function ($rootScope) {
+tryHskServices.factory('SummaryStateManager', ['$rootScope', function ($rootScope) {
 
 	var stateContainer = [];
 
@@ -60,4 +60,4 @@ tryHskServices.factory('SummaryStateManager', function ($rootScope) {
 		}
 	}
 
-});
+}]);
