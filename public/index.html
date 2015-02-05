@@ -8,33 +8,7 @@
 	      content="Популярный тренажер для экзамена HSK. И просто отличное приложение для изучения основной лексики 汉语.">
 	<meta name="author" content="">
 
-	<!--Metro UI-->
-    <link href="css/all.css" rel="stylesheet">
-    <script src="../appDev/vendor/js/jquery/jquery-2.1.1.min.js"></script>
-    <script src="../appDev/vendor/js/jquery/jquery.widget.min.js"></script>
-    <script src="../appDev/vendor/js/metro.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
 
-    <script src="js/all.js"></script>
-	<script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
-	<!--id пользователя-->
-	<script>
-		var vkid,
-				is_app_user,
-				language;
-		VK.init(function () {    // инициализируем Vk API
-			var parts = document.location.search.substr(1).split("&");
-			var flashVars = {}, curr;
-			for (i = 0; i < parts.length; i++) {
-				curr = parts[i].split('=');
-				flashVars[curr[0]] = curr[1];
-			}
-			vkid = flashVars['viewer_id'];
-			language = flashVars['language'];
-			is_app_user = flashVars['is_app_user'];
-//                vkid = 1000000;   // develop
-		});
-	</script>
 
 
 	<title>HSK. Китайский язык 汉语</title>
@@ -42,6 +16,7 @@
 
 </head>
 <body class="metro" ng-app="tryHsk" ng-cloak>
+<link href="css/loader.css" rel="stylesheet">
 <div class="loader" ng-init="globalLoader = true" ng-show="globalLoader">
 	<div class="spinner">
 		<div class="rect1"></div>
@@ -51,6 +26,36 @@
 		<div class="rect5"></div>
 	</div>
 </div>
+
+<!--Metro UI-->
+<link href="css/all.css" rel="stylesheet">
+<script src="../appDev/vendor/js/jquery/jquery-2.1.1.min.js"></script>
+<script src="../appDev/vendor/js/jquery/jquery.widget.min.js"></script>
+<script src="../appDev/vendor/js/metro.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+
+<script src="js/all.js"></script>
+<script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+<!--id пользователя-->
+<script>
+    var vkid,
+            is_app_user,
+            language;
+    VK.init(function () {    // инициализируем Vk API
+        var parts = document.location.search.substr(1).split("&");
+        var flashVars = {}, curr;
+        for (i = 0; i < parts.length; i++) {
+            curr = parts[i].split('=');
+            flashVars[curr[0]] = curr[1];
+        }
+        vkid = flashVars['viewer_id'];
+        language = flashVars['language'];
+        is_app_user = flashVars['is_app_user'];
+//                vkid = 1000000;   // develop
+    });
+</script>
+
+
 <div class="tab-control" data-role="tab-control" id="tab-control">
 	<ul class="tabs">
 

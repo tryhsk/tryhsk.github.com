@@ -11,6 +11,7 @@ gulp.task('default', [
 		'compressJS'
 		//,'compressJSON'
 		, 'compressCSS'
+		, 'compressCSSLoader'
 	],
 	function () {
 	});
@@ -42,6 +43,14 @@ gulp.task('compressCSS', function () {
 	])
 		//.pipe(minifyCSS({keepBreaks: true}))
 		.pipe(concat('all.css'))
+		.pipe(gulp.dest('public/css'))
+});
+
+gulp.task('compressCSSLoader', function () {
+	gulp.src([
+		'appDev/style/loader.css'
+	])
+		.pipe(minifyCSS({keepBreaks: true}))
 		.pipe(gulp.dest('public/css'))
 });
 
