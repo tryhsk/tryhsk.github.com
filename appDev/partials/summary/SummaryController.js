@@ -3,6 +3,7 @@ tryHskControllers.controller('SummaryController', ['$scope', '$rootScope', 'Summ
 		$rootScope.$watch('words', refresh, true);
 		$rootScope.$watch('settings.color', refresh);
 
+		console.log(0);
 		function refresh (newValue, oldValue) {
 			if (newValue === oldValue) return;
 			SummaryStateManager.add('summary');
