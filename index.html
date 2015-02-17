@@ -67,24 +67,31 @@
 	}
 </script>
 <script src="public/js/all.js"></script>
-<script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
-<!--id пользователя-->
+<!--<script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>-->
 <script>
-    var vkid,
-            is_app_user,
-            language;
-    VK.init(function () {    // инициализируем Vk API
-        var parts = document.location.search.substr(1).split("&");
-        var flashVars = {}, curr;
-        for (i = 0; i < parts.length; i++) {
-            curr = parts[i].split('=');
-            flashVars[curr[0]] = curr[1];
-        }
-        vkid = flashVars['viewer_id'];
-        language = flashVars['language'];
-        is_app_user = flashVars['is_app_user'];
-//                vkid = 1000000;   // develop
-    });
+	if(window.location.toString().indexOf('vk.com') + 1) {
+		document.write(
+				unescape("%3Cscript src='//vk.com/js/api/xd_connection.js?2' type='text/javascript'%3E%3C/script%3E")
+		);
+	}
+</script>
+
+<script>
+	if (window.VK) {
+		VK.init(function () {    // инициализируем Vk API
+			var parts = document.location.search.substr(1).split("&");
+			var flashVars = {}, curr;
+			for (i = 0; i < parts.length; i++) {
+				curr = parts[i].split('=');
+				flashVars[curr[0]] = curr[1];
+			}
+			window.vkid = flashVars['viewer_id'];
+			window.language = flashVars['language'];
+			window.is_app_user = flashVars['is_app_user'];
+//			window.vkid = 1000000;   // develop
+		});
+	}
+
 </script>
 <div class="tab-control" data-role="tab-control" id="tab-control">
 	<ul class="tabs">
@@ -121,13 +128,15 @@
 
 
 <script type="text/javascript" charset="cp1251">
-	var height = document.getElementById('tab-control').offsetHeight;
-	setInterval(function () {
-		if (height !== document.getElementById('tab-control').offsetHeight) {
-			height = document.getElementById('tab-control').offsetHeight;
-			VK.callMethod('resizeWindow', 1000, height);
-		}
-	}, 10);
+	if (window.VK) {
+		var height = document.getElementById('tab-control').offsetHeight;
+		setInterval(function () {
+			if (height !== document.getElementById('tab-control').offsetHeight) {
+				height = document.getElementById('tab-control').offsetHeight;
+				VK.callMethod('resizeWindow', 1000, height);
+			}
+		}, 40);
+	}
 </script>
 
 
