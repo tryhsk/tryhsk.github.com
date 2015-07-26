@@ -7,37 +7,37 @@
 	// </label>
 	// {{select}}
 	// <button class="button" ng-click="nextWord()">СЛЕДУЮЩИЙ</button>
-	label
+	.input-control.select
 		select(ng-model='selectLang', ng-options='selectLang for selectLang in languages', ng-change='freshLanguage(selectLang)')
 	.grid.fluid
-		.row
-			.span6
-				.row
+		.row.cells2
+			.cell
+				.row.condensed
 					.input-control.checkbox(data-role='input-control')
 						label
 							input(type='checkbox', ng-model='settings.sound')
 							span.check
 							| Произношение
-				.row
+				.row.condensed
 					.input-control.checkbox(data-role='input-control')
 						label
 							input(type='checkbox', ng-model='settings.color')
 							span.check
 							| Расскаска слогов по тонам
-				.row
+				.row.condensed
 					.input-control.checkbox(data-role='input-control')
 						label
 							input(type='checkbox', ng-model='settings.number')
 							span.check
 							| Цифры тонов
-				.row
+				.row.condensed
 					.input-control.checkbox(data-role='input-control')
 						label
 							input(type='checkbox', ng-model='settings.letter')
 							span.check
 							| Подчёркивания
-			.span6
-				.pinyin.span3
+			.cell
+				.pinyin
 					span(style='font-size: xx-large; color:{{tone.color}}', ng-repeat='tone in example')
 						span(ng-hide='settings.letter') {{tone.pinyin}}
 						span(ng-show='settings.letter') {{tone.transpinyin}}
