@@ -4,7 +4,8 @@ var gulp = require('gulp'),
 	jade = require('gulp-jade'),
 	concat = require('gulp-concat'),
 	minifyHTML = require('gulp-minify-html'),
-	templateCache = require('gulp-angular-templatecache');
+	templateCache = require('gulp-angular-templatecache'),
+	changed = require('gulp-changed');
 
 gulp.task('default', [
 		'compressHTML',
@@ -30,6 +31,7 @@ gulp.task('compressJS', function () {
 		'appDev/filters/*.js',
 		'appDev/partials/*/*.js'
 	])
+		.pipe(changed('public/js'))
 		.pipe(concat('all.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('public/js'))
@@ -41,6 +43,7 @@ gulp.task('compressCSS', function () {
 		'appDev/vendor/css/iconFont.css',
 		'appDev/style/tryhsk.css'
 	])
+		.pipe(changed('public/css'))
 		//.pipe(minifyCSS({keepBreaks: true}))
 		.pipe(concat('all.css'))
 		.pipe(gulp.dest('public/css'))
@@ -50,6 +53,7 @@ gulp.task('compressCSSLoader', function () {
 	gulp.src([
 		'appDev/style/loader.css'
 	])
+		.pipe(changed('public/css'))
 		.pipe(minifyCSS({keepBreaks: true}))
 		.pipe(gulp.dest('public/css'))
 });
@@ -58,6 +62,7 @@ gulp.task('compressHTML', function () {
 	gulp.src([
 		'appDev/partials/*/*.jade'
 		])
+		.pipe(changed('public/partials'))
 		.pipe(jade())
 		.pipe(minifyHTML(
 			{
