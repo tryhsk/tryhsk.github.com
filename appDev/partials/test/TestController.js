@@ -42,22 +42,19 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 
 		//Выдаёт рандомное число в зависимости от размера массива
 		function getRandom(number) {
-			return Math.round(Math.random() * (number - 1));
+			return Math.round(Math.random() * (number));
 		}
 
 		//Выдаёт id  следующего слова учитывая предъидущие
-		function randomize(data) {
-			question = getRandom(data.length);
-			var repeat = true,
-				length = Math.floor(data.length * 0.85);
+		function randomize(length, arr) {
+			var length85 = Math.floor(length * 0.85);
 			do {
-				for (var i = 0; i < length; i++) {
+				var repeat = false;
+				var question = getRandom(length - 1);
+				for (var i = 0; i < length85; i++) {
 					if (question == arr[i]) {
-						question = getRandom(data.length);
 						repeat = true;
 						break
-					} else {
-						repeat = false
 					}
 				}
 			} while (repeat);
@@ -71,7 +68,7 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 			var arr = [];
 			for (var i = 2; i >= 0; i--) {
 				do {
-					var next = getRandom(length);
+					var next = getRandom(length - 1);
 					var uniq = false;
 					for (var j = arr.length - 1; j >= 0; j--) {
 						if (next === arr[j]) {
@@ -85,8 +82,7 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 				while (uniq);
 				arr.push(next);
 			}
-			// magic 4. see getRandom()
-			arr.splice(getRandom(4), 0, question);
+			arr.splice(getRandom(3), 0, question);
 			return arr;
 		}
 
@@ -139,7 +135,7 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 		$scope.fill = function () {
 			var data = $rootScope.words;
 			$("div.content").css("display", "none").css("border", "");
-			randomize(data);
+			question = randomize(data.length, arr);
 
 			//Изменяет ширину окна главного иероглифа
 			if (data[question].char.length == 1) {
