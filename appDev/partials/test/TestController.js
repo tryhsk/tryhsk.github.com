@@ -40,20 +40,20 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 			return false;
 		};
 
-//Выдаёт рандомное число в зависимости от размера массива
-		function random_var(array) {
-			return Math.floor(Math.random() * (array.length - 1));
+		//Выдаёт рандомное число в зависимости от размера массива
+		function getRandom(number) {
+			return Math.round(Math.random() * (number - 1));
 		}
 
-//Выдаёт id  следующего слова учитывая предъидущие
+		//Выдаёт id  следующего слова учитывая предъидущие
 		function randomize(data) {
-			question = random_var(data);
+			question = getRandom(data.length);
 			var repeat = true,
 				length = Math.floor(data.length * 0.85);
 			do {
 				for (var i = 0; i < length; i++) {
 					if (question == arr[i]) {
-						question = random_var(data);
+						question = getRandom(data.length);
 						repeat = true;
 						break
 					} else {
@@ -66,24 +66,28 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 		}
 
 
-//Создаётся массив из 4 элементов, один из них id главного иероглифа
-		function generate_var(data) {
-			var test_random = (function () {
-				var test_random = [question, random_var(data), random_var(data), random_var(data)];
-
-				for (var i = 0; i < 4; i++) {
-					for (var j = 0; j < 4; j++) {
-						if (i == j) {
-						} else {
-							if (test_random[i] == test_random[j]) {
-								test_random[i] = random_var(data);
-							}
+		//Создаётся массив из 4 элементов, один из них id главного иероглифа
+		function generate_var(length) {
+			var arr = [];
+			for (var i = 2; i >= 0; i--) {
+				do {
+					var next = getRandom(length);
+					var uniq = false;
+					for (var j = arr.length - 1; j >= 0; j--) {
+						if (next === arr[j]) {
+							uniq = true;
 						}
 					}
+					if (next === question) {
+						uniq = true;
+					}
 				}
-				return test_random;
-			})();
-			test_randoms = _.shuffle(test_random);
+				while (uniq);
+				arr.push(next);
+			}
+			// magic 4. see getRandom()
+			arr.splice(getRandom(4), 0, question);
+			return arr;
 		}
 
 		function setSmock() {
@@ -99,7 +103,7 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 			}
 		}
 
-//Создаёт 4 обьекта по id из  generate_var
+		//Создаёт 4 обьекта по id из  generate_var
 		function fill_test(words) {
 
 			for (var i = 0; i < 4; i++) {
@@ -179,7 +183,7 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 				$scope.variantStyle = {'font-size': 40  + 'px'};
 			}
 			$scope.sound = data[question].sound;
-			generate_var(data);
+			test_randoms = generate_var(data.length);
 			fill_test(data);
 			setTimeout(function () {
 				$("div.content:has(button.success)").css("border", "2px solid #60a917");
