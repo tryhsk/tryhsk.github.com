@@ -8,9 +8,6 @@
 	      content="Популярный тренажер для экзамена HSK. И просто отличное приложение для изучения основной лексики 汉语.">
 	<meta name="author" content="">
 
-
-
-
 	<title>HSK. Китайский язык 汉语</title>
 
 
@@ -40,7 +37,50 @@
 	</div>
 </div>
 <!--Metro UI-->
-<link href="public/css/all.css" rel="stylesheet">
+<div class="tab-control" data-role="tab-control" id="tab-control">
+	<ul class="tabs">
+
+		<li class="active"><a href="#_page_1" ng-bind="content.test"></a></li>
+		<li><a href="#_page_2" ng-bind="content.summary"></a></li>
+		<li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
+		<li class="place-right "><a href="#_page_4"><i class="icon-cog"></i></a></li>
+		<li class="place-right"><a href="#_page_3"><i class="icon-book"></i></a></li>
+	</ul>
+	<div class="frames">
+
+		<div class="frame" id="_page_1" style="padding: 0">
+			<div ng-include="'partials/test/test.html'"></div>
+		</div>
+
+		<div class="frame" id="_page_2" style="padding: 0">
+			<div ng-include="'partials/summary/summary.html'"></div>
+		</div>
+
+		<div class="frame" id="_page_3">
+			<div ng-include="'partials/info/info.html'"></div>
+		</div>
+
+		<div class="frame" id="_page_4">
+			<div ng-include="'partials/settings/settings.html'">dadad</div>
+		</div>
+
+		<div class="frame" id="_page_5">
+			<div ng-include="'partials/love/love.html'"></div>
+		</div>
+	</div>
+</div>
+
+<script>document.addEventListener("DOMContentLoaded", function (event) {
+	var head = document.getElementsByTagName('head')[0];
+	var NewStyles = document.createElement("link");
+	NewStyles.rel = "stylesheet";
+	NewStyles.type = "text/css";
+	NewStyles.href = "public/css/all.css";
+	head.appendChild(NewStyles);
+});</script>
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
 	if(typeof window.jQuery === 'undefined') {
@@ -93,40 +133,6 @@
 	}
 
 </script>
-<div class="tab-control" data-role="tab-control" id="tab-control">
-	<ul class="tabs">
-
-		<li class="active"><a href="#_page_1">{{content.test}}</a></li>
-		<li><a href="#_page_2">{{content.summary}}</a></li>
-		<li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
-		<li class="place-right "><a href="#_page_4"><i class="icon-cog"></i></a></li>
-		<li class="place-right"><a href="#_page_3"><i class="icon-book"></i></a></li>
-	</ul>
-	<div class="frames">
-
-		<div class="frame" id="_page_1" style="padding: 0">
-			<div ng-include="'partials/test/test.html'"></div>
-		</div>
-
-		<div class="frame" id="_page_2" style="padding: 0">
-			<div ng-include="'partials/summary/summary.html'"></div>
-		</div>
-
-		<div class="frame" id="_page_3">
-			<div ng-include="'partials/info/info.html'"></div>
-		</div>
-
-		<div class="frame" id="_page_4">
-			<div ng-include="'partials/settings/settings.html'">dadad</div>
-		</div>
-
-		<div class="frame" id="_page_5">
-			<div ng-include="'partials/love/love.html'"></div>
-		</div>
-	</div>
-</div>
-
-
 <script type="text/javascript" charset="cp1251">
 	if (window.VK) {
 		var height = document.getElementById('tab-control').offsetHeight;
