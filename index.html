@@ -12,7 +12,7 @@
 
 
 </head>
-<body class="metro" ng-app="tryHsk" ng-cloak>
+<body ng-app="tryHsk">
 <style>
     .loader{position:fixed;width:100%;height:100%;z-index:1000;opacity:1;background-color:#fff}
     .summaryLoader{position:fixed;width:inherit;height:100%;z-index:1000;opacity:1;background-color:#fff}
@@ -37,38 +37,50 @@
 	</div>
 </div>
 <!--Metro UI-->
-<div class="tab-control" data-role="tab-control" id="tab-control">
+<div class="tabcontrol"  data-role="tabControl">
 	<ul class="tabs">
 
 		<li class="active"><a href="#_page_1" ng-bind="content.test"></a></li>
 		<li><a href="#_page_2" ng-bind="content.summary"></a></li>
-		<li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
-		<li class="place-right "><a href="#_page_4"><i class="icon-cog"></i></a></li>
-		<li class="place-right"><a href="#_page_3"><i class="icon-book"></i></a></li>
+		<li class="place-right"><a href="#_page_5"><span class="mif-heart"></span></a></li>
+		<li class="place-right "><a href="#_page_4"><span class="mif-cog"></span></a></li>
+		<li class="place-right"><a href="#_page_3"><span class="mif-book"></span></a></li>
 	</ul>
 	<div class="frames">
 
-		<div class="frame" id="_page_1" style="padding: 0">
+		<div class="frame no-padding" id="_page_1">
 			<div ng-include="'partials/test/test.html'"></div>
 		</div>
 
-		<div class="frame" id="_page_2" style="padding: 0">
+		<div class="frame no-padding" id="_page_2">
 			<div ng-include="'partials/summary/summary.html'"></div>
 		</div>
 
-		<div class="frame" id="_page_3">
+		<div class="frame no-padding" id="_page_3">
 			<div ng-include="'partials/info/info.html'"></div>
 		</div>
 
-		<div class="frame" id="_page_4">
+		<div class="frame no-padding" id="_page_4">
 			<div ng-include="'partials/settings/settings.html'">dadad</div>
 		</div>
 
-		<div class="frame" id="_page_5">
+		<div class="frame no-padding" id="_page_5">
 			<div ng-include="'partials/love/love.html'"></div>
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>document.addEventListener("DOMContentLoaded", function (event) {
 	var head = document.getElementsByTagName('head')[0];
@@ -97,7 +109,7 @@
 		);
 	}
 </script>
-<script src="appDev/vendor/js/metro.min.js"></script>
+<!--<script src="appDev/vendor/js/metro.min.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
 <script>
 	if(typeof window.angular === 'undefined') {
@@ -145,6 +157,16 @@
 	}
 </script>
 
-
+<!--<script>
+	$(function(){
+		$("#tab-control").tabControl();
+	});
+</script>-->
+<script src="appDev/vendor/js/metro.js"></script>
+<!--<script>-->
+	<!--$(function(){-->
+		<!--$("#accordion").accordion();-->
+	<!--});-->
+<!--</script>-->
 </body>
 </html>

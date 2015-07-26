@@ -64,6 +64,11 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 
 
 		//Создаётся массив из 4 элементов, один из них id главного иероглифа
+		/**
+		 *
+		 * @param length
+		 * @returns {Array} 3 random numbers + question
+		 */
 		function generate_var(length) {
 			var arr = [];
 			for (var i = 2; i >= 0; i--) {
@@ -135,6 +140,7 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 		$scope.fill = function () {
 			var data = $rootScope.words;
 			$("div.content").css("display", "none").css("border", "");
+			$("div.frame").removeClass( 'active' );
 			question = randomize(data.length, arr);
 
 			//Изменяет ширину окна главного иероглифа

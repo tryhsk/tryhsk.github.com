@@ -17,6 +17,11 @@ gulp.task('default', [
 	function () {
 	});
 
+var watcher = gulp.watch('appDev/**', ['default']);
+watcher.on('change', function(event) {
+	console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+});
+
 gulp.task('compressJS', function () {
 	gulp.src([
 		'appDev/vendor/js/docs.js',
@@ -39,8 +44,13 @@ gulp.task('compressJS', function () {
 
 gulp.task('compressCSS', function () {
 	gulp.src([
-		'appDev/vendor/css/metro-bootstrap.css',
-		'appDev/vendor/css/iconFont.css',
+		//'appDev/vendor/css/metro-bootstrap.css',
+		//'appDev/vendor/css/iconFont.css',
+		'appDev/vendor/css/metro.css',
+		'appDev/vendor/css/metro-rtl.css',
+		'appDev/vendor/css/metro-icons.css',
+		'appDev/vendor/css/metro-responsive.css',
+		'appDev/vendor/css/metro-schemes.css',
 		'appDev/style/tryhsk.css'
 	])
 		.pipe(changed('public/css'))

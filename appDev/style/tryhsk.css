@@ -3,8 +3,14 @@
     position: absolute;
 }
 .test {
-    width: 50%;margin: 0 auto;
+    width: 50%;
+    margin: 0 auto;
 }
+
+.tabcontrol .frames .frame {
+    background-color: #ffffff;
+}
+
 .checkboxtree {
     height: 500px ;overflow: scroll;overflow-x: hidden;
 }
@@ -28,6 +34,7 @@
     left: 20px;top: 100px;
     margin-top: 0;
 }
-body  {
-    background-color: #ffffff;
+frame  {
+    background-color: #ffffff!important;
 }
+
