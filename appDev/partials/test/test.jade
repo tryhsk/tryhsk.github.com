@@ -9,8 +9,9 @@
 						select(ng-model='select', ng-options='select for select in regimes')
 				.row.condensed
 					#sound
-					button.button.padding20.margin20.align-center(ng-class='class_button_next' ng-click='nextWord()' ng-bind='button_next')
-						i.mif-spin(ng-show='showSpin')
+					button.button.padding20.margin20.align-center(ng-class='class_button_next' ng-click='nextWord()')
+						|{{button_next}}
+						span.mif-loop2.align-right(ng-show='showSpin')
 					output#value.padding10
 					ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
 						'1': 'Слишком мало слов. Выбрано {} слово',\
@@ -31,7 +32,7 @@
 					// @fixme pornography  <center>
 					center
 						button.shortcut.link.buttonSound(ng-show='soundCharRegime || soundTranslateRegime', ng-click='playSound()')
-							i.icon-volume-5
+							i.mif-volume-medium
 						button.shortcut.link.font60(ng-show='charRegime', ng-style='questionStyle', ng-click='playSound()') {{char}}
 						.russian-char.font20(ng-show='translateRegime') {{russian}}
 				// @todo  не понятно как воспроизвести музыку юзабилити
