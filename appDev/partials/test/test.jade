@@ -1,5 +1,4 @@
 #_page_1.frame.no-padding(ng-controller='TestController')
-	h1.classCurrentRights(ng-show='answer' ng-bind='currentRights')
 	// <h1 style="position: absolute;left: 20px;top: 200px; margin-top: 0">{{result.amount}}</h1>
 	.grid
 		.row.cells12
@@ -13,6 +12,7 @@
 					button.button.margin10.align-center(ng-class='class_button_next' ng-click='nextWord()')
 						|{{button_next}}
 						span.mif-loop2.align-right(ng-show='showSpin')
+				.row.condensed
 					output#value
 					ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
 						'1': 'Слишком мало слов. Выбрано {} слово',\
@@ -27,6 +27,8 @@
 						'one': 'Выбрано {} слово',\
 						'few': 'Выбрано {} слово',\
 						'many': 'Выбрано {} слов'}")
+				.row.condensed
+					h1.classCurrentRights(ng-show='answer' ng-bind='currentRights')
 					// @fixme pornography  <center>
 			.cell.colspan6
 				.row.condensed

@@ -32,11 +32,11 @@ body{
 .font20 {
     font-size: 20px!important;
 }
-.classCurrentRights {
-    position: absolute;
-    left: 20px;top: 100px;
-    margin-top: 0;
-}
+/*.classCurrentRights {*/
+    /*position: absolute;*/
+    /*left: 20px;top: 100px;*/
+    /*margin-top: 0;*/
+/*}*/
 frame  {
     background-color: #ffffff!important;
 }
