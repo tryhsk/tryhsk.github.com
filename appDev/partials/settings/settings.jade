@@ -17,25 +17,25 @@
 						label
 							input(type='checkbox', ng-model='settings.sound')
 							span.check
-							| Произношение
+							span.leaf Произношение
 				.row.condensed
 					.input-control.checkbox(data-role='input-control')
 						label
 							input(type='checkbox', ng-model='settings.color')
 							span.check
-							| Расскаска слогов по тонам
+							span.leaf Расскаска слогов по тонам
 				.row.condensed
 					.input-control.checkbox(data-role='input-control')
 						label
 							input(type='checkbox', ng-model='settings.number')
 							span.check
-							| Цифры тонов
+							span.leaf Цифры тонов
 				.row.condensed
 					.input-control.checkbox(data-role='input-control')
 						label
 							input(type='checkbox', ng-model='settings.letter')
 							span.check
-							| Подчёркивания
+							span.leaf Подчёркивания
 			.cell
 				.pinyin
 					span(style='font-size: xx-large; color:{{tone.color}}', ng-repeat='tone in example')

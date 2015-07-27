@@ -42,6 +42,8 @@ frame  {
 }
 
 .input-control.select {
-    width: 12.875rem;
+    width: 13.875rem;
 }
-
+.leaf {
+    padding-left: 10px;
+}

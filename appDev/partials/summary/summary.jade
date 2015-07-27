@@ -2,11 +2,11 @@
 	.searchSummary.padding10
 		| Поиск:
 		input(ng-model='query')
-		ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
+		ng-pluralize.padding10(count='words.length', when="{'0': 'Ничего не выбрано',\
 			'one': 'Выбрано {} слово',\
 			'few': 'Выбрано {} слово',\
 			'many': 'Выбрано {} слов'}")
-	.grid
+	.grid(style='margin-top: 20px')
 		.row.cells12
 			.cell.colspan3
 				div(ng-include="'partials/checkbox/checkbox.html'")
