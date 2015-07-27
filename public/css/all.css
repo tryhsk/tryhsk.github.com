@@ -25059,10 +25059,10 @@ blockquote[dir=rtl] {
     width: 100% !important;
     position: absolute;
 }
-.test {
+/*.test {
     width: 50%;
     margin: 0 auto;
-}
+}*/
 
 .tabcontrol .frames .frame {
     background-color: #ffffff;
