@@ -182,7 +182,7 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 			if ($scope.charRegime || $scope.soundCharRegime) {
 				$scope.variantStyle = '';
 			} else {
-				$scope.variantStyle = {'font-size': 40  + 'px'};
+				$scope.variantStyle = {'font-size': 40  + 'px','font-weight': 'normal'};
 			}
 			$scope.sound = data[question].sound;
 			test_randoms = generate_var(data.length);
