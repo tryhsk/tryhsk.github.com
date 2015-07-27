@@ -10,6 +10,9 @@
 .tabcontrol .frames .frame {
     background-color: #ffffff;
 }
+body{
+    background-color: #ffffff;
+}
 
 .checkboxtree {
     height: 500px ;overflow: scroll;overflow-x: hidden;
@@ -36,5 +39,9 @@
 }
 frame  {
     background-color: #ffffff!important;
+}
+
+.input-control.select {
+    width: 12.875rem;
 }
 

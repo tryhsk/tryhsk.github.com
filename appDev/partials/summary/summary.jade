@@ -1,14 +1,11 @@
-#_page_2.frame.nbp(ng-controller='SummaryController')
-	.searchSummary
-	| Поиск:
-	input(ng-model='query')
-	ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
-		'one': 'Выбрано {} слово',\
-		'few': 'Выбрано {} слово',\
-		'many': 'Выбрано {} слов'}")
-	h4 База слов в формате google Docs/Свободное редактирование
-	h4
-		| sddocs.google.com/spreadsheets/d/1eCcrph6foyjtuQBQxeaZF8ZyrP3EUIE8uiJf3yVISS4/edit?usp=sharing
+#_page_2.frame.frame.no-padding(ng-controller='SummaryController')
+	.searchSummary.padding10
+		| Поиск:
+		input(ng-model='query')
+		ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
+			'one': 'Выбрано {} слово',\
+			'few': 'Выбрано {} слово',\
+			'many': 'Выбрано {} слов'}")
 	.grid
 		.row.cells12
 			.cell.colspan3

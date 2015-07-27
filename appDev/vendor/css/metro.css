@@ -9113,7 +9113,7 @@ textarea.required {
   height: 1.625rem;
   background-color: #ffffff;
   border: 1px #999999 solid;
-  padding: 0;
+  padding: 10px;
   position: relative;
   display: inline-block;
   vertical-align: middle;

@@ -3,16 +3,17 @@
 	// <h1 style="position: absolute;left: 20px;top: 200px; margin-top: 0">{{result.amount}}</h1>
 	.grid
 		.row.cells12
-			.cell.colspan2
+			.cell.colspan3
 				.row.condensed
-					.margin20.no-margin-bottom.label
-						select(ng-model='select', ng-options='select for select in regimes')
+					.margin10.label
+						.input-control.select
+							select(ng-model='select', ng-options='select for select in regimes')
 				.row.condensed
 					#sound
-					button.button.padding20.margin20.align-center(ng-class='class_button_next' ng-click='nextWord()')
+					button.button.margin10.align-center(ng-class='class_button_next' ng-click='nextWord()')
 						|{{button_next}}
 						span.mif-loop2.align-right(ng-show='showSpin')
-					output#value.padding10
+					output#value
 					ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
 						'1': 'Слишком мало слов. Выбрано {} слово',\
 						'2': 'Слишком мало слов. Выбрано {} слова',\
@@ -27,7 +28,7 @@
 						'few': 'Выбрано {} слово',\
 						'many': 'Выбрано {} слов'}")
 					// @fixme pornography  <center>
-			.cell.colspan7
+			.cell.colspan6
 				.row.condensed
 					// @fixme pornography  <center>
 					center

@@ -9113,7 +9113,7 @@ textarea.required {
   height: 1.625rem;
   background-color: #ffffff;
   border: 1px #999999 solid;
-  padding: 0;
+  padding: 10px;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -25067,6 +25067,9 @@ blockquote[dir=rtl] {
 .tabcontrol .frames .frame {
     background-color: #ffffff;
 }
+body{
+    background-color: #ffffff;
+}
 
 .checkboxtree {
     height: 500px ;overflow: scroll;overflow-x: hidden;
@@ -25093,5 +25096,9 @@ blockquote[dir=rtl] {
 }
 frame  {
     background-color: #ffffff!important;
+}
+
+.input-control.select {
+    width: 12.875rem;
 }
 

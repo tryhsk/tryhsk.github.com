@@ -1,90 +1,75 @@
-.checkboxtree
-	div.treeview(data-role="treeview")
-		ul
-			li.node
-				span.node-toggle
-				span.leaf
-				| HSK level
-				ul
-					li(data-mode='checkbox')
-						label.input-control.checkbox
-							input(type='checkbox', ng-model='checkboxValues.hsk1')
-							span.check
-							span.leaf HSK 1
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.hsk2')
-								span.check
-								| HSK 2
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.hsk3')
-								span.check
-								| HSK 3
-			li.node
-				span.leaf
-				| часть речи
-				span.node-toggle
-				ul
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.noun')
-								span.check
-								| существительные
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								// именование переменных неправильное
-								input(type='checkbox', ng-model='checkboxValues.pronoun')
-								span.check
-								| числительные
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.verb')
-								span.check
-								| глаголы
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.adjective')
-								span.check
-								| прилагательные
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.numeral')
-								span.check
-								| счётное слово
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.otherPart')
-								span.check
-								| другие
-			li.node
-				span.leaf
-				| Тематические
-				span.node-toggle
-				ul
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.place')
-								span.check
-								| Место
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.relate')
-								span.check
-								| Отношения
-					li
-						.input-control.checkbox(data-role='input-control')
-							label
-								input(type='checkbox', ng-model='checkboxValues.otherThemes')
-								span.check
-								| другие
+div.treeview(data-role="treeview")
+	ul
+		li.node
+			span.node-toggle
+			span.leaf HSK level
+			ul
+				li(data-mode='checkbox')
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.hsk1')
+						span.check
+						span.leaf HSK 1
+				li(data-mode='checkbox')
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.hsk2')
+						span.check
+						span.leaf HSK 2
+				li(data-mode='checkbox')
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.hsk3')
+						span.check
+						span.leaf HSK 3
+		li.node
+			span.node-toggle
+			span.leaf часть речи
+			ul
+				li
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.noun')
+						span.check
+						span.leaf существительные
+				li
+					label.input-control.checkbox
+						//TODO именование переменных неправильное
+						input(type='checkbox', ng-model='checkboxValues.pronoun')
+						span.check
+						span.leaf числительные
+				li
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.verb')
+						span.check
+						span.leaf глаголы
+				li
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.adjective')
+						span.check
+						span.leaf прилагательные
+				li
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.numeral')
+						span.check
+						span.leaf счётное слово
+				li
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.otherPart')
+						span.check
+						span.leaf другие
+		li.node
+			span.node-toggle
+			span.leaf Тематические
+			ul
+				li
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.place')
+						span.check
+						span.leaf Место
+				li
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.relate')
+						span.check
+						span.leaf Отношения
+				li
+					label.input-control.checkbox
+						input(type='checkbox', ng-model='checkboxValues.otherThemes')
+						span.check
+						span.leaf другие
