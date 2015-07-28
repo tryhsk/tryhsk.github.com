@@ -1,12 +1,4 @@
 #_page_4.frame(ng-controller='SettingsController')
-	// {{languages.select}}
-	// <label>
-	// <select  ng-model="select" ng-options="select.text for select in selections">
-	// <option></option>
-	// </select>
-	// </label>
-	// {{select}}
-	// <button class="button" ng-click="nextWord()">СЛЕДУЮЩИЙ</button>
 	.input-control.select
 		select(ng-model='selectLang', ng-options='selectLang for selectLang in languages', ng-change='freshLanguage(selectLang)')
 	.grid.fluid
