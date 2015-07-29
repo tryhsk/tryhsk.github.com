@@ -53,8 +53,9 @@ tryHskServices.service('language', ['$cookies', '$rootScope', function ($cookies
 
 	this.getLanguage = function (selectLanguage) {
 		switch (selectLanguage) {
-			case 'Русский' :
+			case 'ru' :
 				$rootScope.content = {
+					"code": 'ru',
 					"test": 'ТЕСТ',
 					"summary": 'СЛОВАРЬ',
 					"search": 'Поиск',
@@ -106,8 +107,9 @@ tryHskServices.service('language', ['$cookies', '$rootScope', function ($cookies
 						'many': 'Выбрано {} слов'}"
 				};
 				break;
-			case '汉语' :
+			case 'zh' :
 				$rootScope.content = {
+					"code": 'zh',
 					"test": '__ТЕСТ__',
 					"summary": '__СЛОВАРЬ__',
 					"search": '搜索',
@@ -142,8 +144,9 @@ tryHskServices.service('language', ['$cookies', '$rootScope', function ($cookies
 					"pron-trans": "pronunciation - translation"
 				};
 				break;
-			case 'English' :
+			default :
 				$rootScope.content = {
+					"code": 'en',
 					"test": 'TEST',
 					"summary": 'SUMMARY',
 					"search": 'Search',
@@ -186,7 +189,7 @@ tryHskServices.service('language', ['$cookies', '$rootScope', function ($cookies
 	};
 	this.initLanguage = function () {
 		if ($cookies.language === undefined) {
-			return 'Русский'
+			return 'ru'
 		} else {
 			return JSON.parse($cookies.language).selectLanguage;
 		}

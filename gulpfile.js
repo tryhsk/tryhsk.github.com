@@ -26,7 +26,7 @@ gulp.task('compressJS', function () {
 	gulp.src([
 		'appDev/vendor/js/docs.js',
 		'appDev/vendor/js/underscore.js',
-		'appDev/vendor/angular-locale_en-us.js',
+		//'appDev/vendor/angular-locale_en-us.js',
 		'appDev/vendor/angular-locale_ru-ru.js',
 		'appDev/vendor/angular-route.js',
 		'appDev/vendor/angular-resource.js',

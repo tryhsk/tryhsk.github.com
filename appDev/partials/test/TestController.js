@@ -14,6 +14,7 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 
 		$scope.currentRights = 0;
 		StateManager.add('test');
+		//todo убрать в инициализатор!!!
 		language.getLanguage(language.initLanguage()); // TODO need replace  NOT GOOD
 		$scope.regimes = [
 			{"option": $rootScope.content['char-trans'], "value": "char-trans"},

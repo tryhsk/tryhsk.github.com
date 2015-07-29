@@ -19,7 +19,7 @@
 						span.mif-loop2.align-right
 				.row.condensed
 					output#value
-					ng-pluralize.margin10(count='words.length', when="{'0': 'Ничего не выбрано',\
+					ng-pluralize.margin10(ng-show="content.code === 'ru'" count='words.length', when="{'0': 'Ничего не выбрано',\
 						'1': 'Слишком мало слов. Выбрано {} слово',\
 						'2': 'Слишком мало слов. Выбрано {} слова',\
 						'3': 'Слишком мало слов. Выбрано {} слова',\
@@ -32,6 +32,30 @@
 						'one': 'Выбрано {} слово',\
 						'few': 'Выбрано {} слово',\
 						'many': 'Выбрано {} слов'}")
+					ng-pluralize.margin10(ng-show="content.code === 'en'" count='words.length', when="{'0': 'None selected',\
+						'1': 'Too few words. Joined {} words',\
+						'2': 'Too few words. Joined {} words',\
+						'3': 'Too few words. Joined {} words',\
+						'4': 'Too few words. Joined {} words',\
+						'5': 'Too few words. Joined {} words',\
+						'6': 'Too few words. Joined {} words',\
+						'7': 'Too few words. Joined {} words',\
+						'8': 'Too few words. Joined {} words',\
+						'9': 'Too few words. Joined {} words',\
+						'one': 'Chosen one word',\
+						'many': 'Joined word {}'}")
+					ng-pluralize.margin10(ng-show="content.code === 'zh'" count='words.length', when="{'0': 'None selected',\
+						'1': 'Too few words. Joined {} words',\
+						'2': 'Too few words. Joined {} words',\
+						'3': 'Too few words. Joined {} words',\
+						'4': 'Too few words. Joined {} words',\
+						'5': 'Too few words. Joined {} words',\
+						'6': 'Too few words. Joined {} words',\
+						'7': 'Too few words. Joined {} words',\
+						'8': 'Too few words. Joined {} words',\
+						'9': 'Too few words. Joined {} words',\
+						'one': 'Chosen one word',\
+						'many': 'Joined word {} zh'}")
 				.row.condensed
 					h1.margin10.align-center(ng-show='answer' ng-bind='currentRights')
 					// @fixme pornography  <center>

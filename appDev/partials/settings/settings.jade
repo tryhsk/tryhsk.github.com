@@ -1,6 +1,9 @@
 #_page_4.frame(ng-controller='SettingsController')
 	.input-control.select
-		select(ng-model='selectLang', ng-options='selectLang for selectLang in languages', ng-change='freshLanguage(selectLang)')
+		select(ng-model='selectLang' ng-change='freshLanguage(selectLang)')
+			option(value="ru") Русский
+			option(value="zh") 汉语
+			option(value="en") English
 	.grid.fluid
 		.row.cells2
 			.cell

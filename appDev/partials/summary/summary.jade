@@ -2,14 +2,14 @@
 	.searchSummary.padding10
 		| {{content.search}}:
 		input(ng-model='query')
-		ng-pluralize.padding10(count='words.length', when="{'0': 'Ничего не выбрано',\
+		ng-pluralize.padding10(ng-show="content.code === 'ru'" count='words.length', when="{'0': 'Ничего не выбрано',\
 			'one': 'Выбрано {} слово',\
 			'few': 'Выбрано {} слово',\
 			'many': 'Выбрано {} слов'}")
-		ng-pluralize.padding10(count='words.length', when="{'0': 'Ничего не выбрано',\
-			'one': 'Выбрано {} сло###во',\
-			'few': 'Выбрано {} слово',\
-			'many': 'Выбрано {} слов'}")
+		ng-pluralize.padding10(ng-show="content.code === 'en'" count='words.length', when="{'0': 'None selected',\
+			'many': 'Joined word {}'}")
+		ng-pluralize.padding10(ng-show="content.code === 'zh'" count='words.length', when="{'0': 'None selected',\
+			'many': 'Joined word {} zh'}")
 	.grid.margin20
 		.row.cells12
 			.cell.colspan3
