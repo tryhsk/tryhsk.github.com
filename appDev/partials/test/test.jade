@@ -1,17 +1,22 @@
 #_page_1.frame.no-padding(ng-controller='TestController')
-	// <h1 style="position: absolute;left: 20px;top: 200px; margin-top: 0">{{result.amount}}</h1>
 	.grid
 		.row.cells12
 			.cell.colspan3
 				.row.condensed
 					.margin10.label
 						.input-control.select
-							select(ng-model='select', ng-options='select for select in regimes')
+							//select(ng-model='select', ng-options='select.select for select in regimes')
+							select(ng-model='select')
+								option(value="char-trans" ng-bind="content['char-trans']")
+								option(value="trans-char" ng-bind="content['trans-char']")
+								option(value="pron-char" ng-bind="content['pron-char']")
+								option(value="pron-trans" ng-bind="content['pron-trans']")
 				.row.condensed
 					#sound
-					button.button.margin10.align-center(ng-class='class_button_next' ng-click='nextWord()')
-						|{{button_next}}
-						span.mif-loop2.align-right(ng-show='showSpin')
+					button.button.margin10.info(ng-show='nextShow' ng-click='nextWord()' ng-bind='content.next')
+					button.button.margin10.warning(ng-show='nextRefresh' ng-click='nextWord()')
+						|{{content.refresh}}
+						span.mif-loop2.align-right
 				.row.condensed
 					output#value
 					ng-pluralize.margin10(count='words.length', when="{'0': 'Ничего не выбрано',\

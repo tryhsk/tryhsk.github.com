@@ -5,29 +5,29 @@
 		.row.cells2
 			.cell
 				.row.condensed
-					.input-control.checkbox(data-role='input-control')
+					.input-control.checkbox
 						label
 							input(type='checkbox', ng-model='settings.sound')
 							span.check
-							span.leaf Произношение
+							span.leaf {{content.pronunciation}}
 				.row.condensed
-					.input-control.checkbox(data-role='input-control')
+					.input-control.checkbox
 						label
 							input(type='checkbox', ng-model='settings.color')
 							span.check
-							span.leaf Расскаска слогов по тонам
+							span.leaf {{content.color}}
 				.row.condensed
-					.input-control.checkbox(data-role='input-control')
+					.input-control.checkbox
 						label
 							input(type='checkbox', ng-model='settings.number')
 							span.check
-							span.leaf Цифры тонов
+							span.leaf {{content.numberTone}}
 				.row.condensed
-					.input-control.checkbox(data-role='input-control')
+					.input-control.checkbox
 						label
 							input(type='checkbox', ng-model='settings.letter')
 							span.check
-							span.leaf Подчёркивания
+							span.leaf {{content.score}}
 			.cell
 				.pinyin
 					span(style='font-size: xx-large; color:{{tone.color}}', ng-repeat='tone in example')

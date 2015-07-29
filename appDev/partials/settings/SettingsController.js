@@ -7,7 +7,7 @@ tryHskControllers.controller('SettingsController', ['$scope', '$rootScope', 'lan
 		'汉语',
 		'English'
 	];
-	$scope.selectLang = language.initLanguage(language);
+	$scope.selectLang = language.initLanguage();
 	language.getLanguage($scope.selectLang);
 	$scope.freshLanguage = function (selectLanguage) {
 		language.refreshSelectlanguage(selectLanguage);

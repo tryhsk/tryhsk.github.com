@@ -1,5 +1,5 @@
-tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWords', '$timeout', 'StateManager', 'score',
-	function ($scope, $rootScope, sortWords, $timeout, StateManager, score) {
+tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWords', '$timeout', 'StateManager', 'score', 'language',
+	function ($scope, $rootScope, sortWords, $timeout, StateManager, score, language) {
 		var question
 			, arr = []
 			, wordsTests = [
@@ -14,14 +14,14 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 
 		$scope.currentRights = 0;
 		StateManager.add('test');
-
+		language.getLanguage(language.initLanguage()); // TODO need replace  NOT GOOD
 		$scope.regimes = [
-			'иероглиф - перевод',
-			'перевод - иероглиф',
-			'произношение - перевод',
-			'произношение - иероглиф'
+			{"option": $rootScope.content['char-trans'], "value": "char-trans"},
+			{"option": $rootScope.content['trans-char'], "value": "trans-char"},
+			{"option": $rootScope.content['pron-char'], "value": "pron-char"},
+			{"option": $rootScope.content['pron-trans'], "value": "pron-trans"}
 		];
-		$scope.select = $scope.regimes[0];
+		$scope.select = $scope.regimes[0].value;
 		$scope.$watch('select', alert, true);
 		$rootScope.$watch('checkboxValues', alert, true);
 
@@ -116,11 +116,10 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 					}
 				}
 				wordsTests[i].russian = words[test_randoms[i]].russian;
-
-				if ($scope.select === 'произношение - перевод' || $scope.select === 'иероглиф - перевод') {
+				if ($scope.select === 'pron-char' || $scope.select === 'char-trans') {
 					wordsTests[i].main = words[test_randoms[i]].russian;
 				}
-				if ($scope.select === 'перевод - иероглиф' || $scope.select === 'произношение - иероглиф') {
+				if ($scope.select === 'trans-char' || $scope.select === 'pron-trans') {
 					wordsTests[i].main = words[test_randoms[i]].char;
 				}
 				wordsTests[i].sound = words[test_randoms[i]].sound;
@@ -128,11 +127,11 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 				if (test_randoms[i] == question) {
 					wordsTests[i].ansver = 'success';
 					wordsTests[i].ansv = true;
-					wordsTests[i].button = 'Молодец!';
+					wordsTests[i].button = $rootScope.content.success;
 				} else {
 					wordsTests[i].ansver = 'danger';
 					wordsTests[i].ansv = false;
-					wordsTests[i].button = 'Всё получится!';
+					wordsTests[i].button = $rootScope.content.fail;
 				}
 			}
 		}
@@ -152,26 +151,26 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 			$scope.char = data[question].char;
 			$scope.russian = data[question].russian;
 			switch ($scope.select) {
-				case 'иероглиф - перевод':
+				case 'char-trans':
 					$scope.charRegime = true;
 					$scope.translateRegime = false;
 					$scope.soundCharRegime = false;
 					$scope.soundTranslateRegime = false;
 					break;
-				case 'перевод - иероглиф':
+				case 'trans-char':
 					$scope.charRegime = false;
 					$scope.translateRegime = true;
 					$scope.soundCharRegime = false;
 					$scope.soundTranslateRegime = false;
 					break;
-				case 'произношение - перевод':
+				case 'pron-char':
 					$scope.charRegime = false;
 					$scope.translateRegime = false;
 					$scope.soundCharRegime = true;
 					$scope.soundTranslateRegime = false;
 					document.getElementById('playSound').play();
 					break;
-				case 'произношение - иероглиф':
+				case 'pron-trans':
 					$scope.charRegime = false;
 					$scope.translateRegime = false;
 					$scope.soundCharRegime = false;
@@ -198,15 +197,14 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 
 		$scope.nextWord = function () {
 			score.answered = false;
-			$scope.showSpin = false;
-			$scope.button_next = 'СЛЕДУЮЩИЙ';
-			$scope.class_button_next = 'info';
+			$scope.nextShow = true;
+			$scope.nextRefresh = false;
 			if ($rootScope.words.length < 10) {
 				setSmock();
 			} else {
 				$scope.fill();
 				$timeout(function () {
-					if ($rootScope.settings.sound || $scope.select === 'произношение - перевод' || $scope.select === 'произношение - иероглиф') {
+					if ($rootScope.settings.sound || $scope.select === 'pron-char' || $scope.select === 'pron-trans') {
 						document.getElementById("sound").innerHTML = "<audio id=\"playSound\" src=\"" + $scope.sound + "\" autoplay ></audio>";
 					} else {
 						document.getElementById("sound").innerHTML = "<audio id=\"playSound\" src=\"" + $scope.sound + "\"></audio>";
@@ -218,9 +216,9 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 
 function alert (newValue, oldValue) {
 	if(newValue === oldValue) return;
-	$scope.button_next = 'ОБНОВИТЬ';
-	$scope.class_button_next = 'warning';
-	$scope.showSpin = true;
+	console.log($scope.select);
+	$scope.nextShow = false;
+	$scope.nextRefresh = true;
 	arr = new Array(10);
 }
 

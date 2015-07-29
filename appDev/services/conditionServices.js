@@ -62,7 +62,48 @@ tryHskServices.service('language', ['$cookies', '$rootScope', function ($cookies
 					"char": "Иероглиф",
 					"pinyin": "Пиньинь",
 					"translate": "Перевод",
-					"eng": "Английский"
+					"eng": "Английский",
+					"pronunciation": "Произношение",
+					"color": "Расскаска слогов по тонам",
+					"numberTone": "Цифры тонов",
+					"score": "Подчёркивания",
+					"partOfSpeech": "часть речи",
+					"noun": "существительные",
+					"pronoun": "числительные",
+					"verb": "глаголы",
+					"adjective": "прилагательные",
+					"numeral": "счётное слово",
+					"otherPart": "другие",
+					"theme": "Тематические",
+					"place": "Место",
+					"relate": "Отношения",
+					"otherThemes": "другие",
+					"baseWords": "База слов в формате google Docs",
+					"next": "СЛЕДУЮЩИЙ",
+					"refresh": "ОБНОВИТЬ",
+					"success": "Молодец!",
+					"fail": "Всё получится!",
+					"char-trans": "иероглиф - перевод",
+					"trans-char": "перевод - иероглиф",
+					"pron-char": "произношение - перевод",
+					"pron-trans": "произношение - иероглиф",
+					"pluralizeTest": "{'0': 'Ничего не выбрано',\
+						'1': 'Слишком мало слов. Выбрано {} слово',\
+						'2': 'Слишком мало слов. Выбрано {} слова',\
+						'3': 'Слишком мало слов. Выбрано {} слова',\
+						'4': 'Слишком мало слов. Выбрано {} слова',\
+						'5': 'Слишком мало слов. Выбрано {} слов',\
+						'6': 'Слишком мало слов. Выбрано {} слов',\
+						'7': 'Слишком мало слов. Выбрано {} слов',\
+						'8': 'Слишком мало слов. Выбрано {} слов',\
+						'9': 'Слишком мало слов. Выбрано {} слов',\
+						'one': 'Выбрано {} слово',\
+						'few': 'Выбрано {} слово',\
+						'many': 'Выбрано {} слов'}",
+					"pluralizeSummary": "{'0': 'Ничего не выбрано',\
+						'one': 'Выбрано {} слово',\
+						'few': 'Выбрано {} слово',\
+						'many': 'Выбрано {} слов'}"
 				};
 				break;
 			case '汉语' :
@@ -74,7 +115,31 @@ tryHskServices.service('language', ['$cookies', '$rootScope', function ($cookies
 					"char": "字",
 					"pinyin": "拼音",
 					"translate": "俄语",
-					"eng": "英语"
+					"eng": "英语",
+					"pronunciation": "拼音",
+					"color": "拼音",
+					"numberTone": "拼音",
+					"score": "拼音",
+					"partOfSpeech": "拼音",
+					"noun": "拼音",
+					"pronoun": "拼音",
+					"verb": "拼音",
+					"adjective": "拼音",
+					"numeral": "拼音",
+					"otherPart": "拼音",
+					"theme": "拼音",
+					"place": "拼音",
+					"relate": "拼音",
+					"otherThemes": "拼音",
+					"baseWords": "База слов в формате google Docs",
+					"next": "NEXT",
+					"refresh": "refresh",
+					"success": "success!",
+					"fail": "fail",
+					"char-trans": "character - translation",
+					"trans-char": "translation - character",
+					"pron-char": "pronunciation - character",
+					"pron-trans": "pronunciation - translation"
 				};
 				break;
 			case 'English' :
@@ -86,7 +151,35 @@ tryHskServices.service('language', ['$cookies', '$rootScope', function ($cookies
 					"char": "Hieroglyph",
 					"pinyin": "Pinyin",
 					"translate": "Russian",
-					"eng": "English"
+					"eng": "English",
+					"pronunciation": "pronunciation",
+					"color": "color",
+					"numberTone": "number of tone",
+					"score": "score",
+					"partOfSpeech": "part of speech",
+					"noun": "noun",
+					"pronoun": "pronoun",
+					"verb": "verb",
+					"adjective": "adjective",
+					"numeral": "numeral",
+					"otherPart": "other part",
+					"theme": "theme",
+					"place": "place",
+					"relate": "relate",
+					"otherThemes": "other themes",
+					"baseWords": "Base words in google Docs format",
+					"next": "NEXT",
+					"refresh": "refresh",
+					"success": "success!",
+					"fail": "fail",
+					"char-trans": "character - translation",
+					"trans-char": "translation - character",
+					"pron-char": "pronunciation - character",
+					"pron-trans": "pronunciation - translation",
+					"pluralizeSummary": "{'0': '######',\
+						'one': 'Выбрано {} слово',\
+						'few': 'Выбрано {} слово',\
+						'many': 'Выбрано {} слов'}"
 				};
 				break;
 		}
@@ -102,6 +195,7 @@ tryHskServices.service('language', ['$cookies', '$rootScope', function ($cookies
 		var object = {
 			selectLanguage: selectLanguage
 		};
+		this.getLanguage(selectLanguage);
 		$cookies.language = JSON.stringify(object);
 	}
 

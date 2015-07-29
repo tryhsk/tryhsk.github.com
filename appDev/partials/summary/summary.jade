@@ -1,9 +1,13 @@
 #_page_2.frame.frame.no-padding(ng-controller='SummaryController')
 	.searchSummary.padding10
-		| Поиск:
+		| {{content.search}}:
 		input(ng-model='query')
 		ng-pluralize.padding10(count='words.length', when="{'0': 'Ничего не выбрано',\
 			'one': 'Выбрано {} слово',\
+			'few': 'Выбрано {} слово',\
+			'many': 'Выбрано {} слов'}")
+		ng-pluralize.padding10(count='words.length', when="{'0': 'Ничего не выбрано',\
+			'one': 'Выбрано {} сло###во',\
 			'few': 'Выбрано {} слово',\
 			'many': 'Выбрано {} слов'}")
 	.grid.margin20
@@ -22,16 +26,16 @@
 					thead
 						.row.cells4
 							.text-left.cell
-								a(href='', ng-click="predicate = 'id'; reverse=false") Иероглиф{{language.char}}
+								a(href='', ng-click="predicate = 'id'; reverse=false") {{content.char}}
 								| (
 								a(href='', ng-click="predicate = '-id'; reverse=false") ^
 								| )
 							.text-left.cell
-								a(href='', ng-click="predicate = 's'; reverse=!reverse") Пиньинь{{language.pinyin}}
+								a(href='', ng-click="predicate = 's'; reverse=!reverse") {{content.pinyin}}
 							.text-left.cell
-								a(href='', ng-click="predicate = 'russian'; reverse=!reverse") Русский{{language.translate}}
+								a(href='', ng-click="predicate = 'russian'; reverse=!reverse") {{content.translate}}
 							.text-left.cell(style='display: none')
-								a(href='', ng-click="predicate = 'english'; reverse=!reverse") Английский{{language.eng}}
+								a(href='', ng-click="predicate = 'english'; reverse=!reverse") {{content.eng}}
 					tbody.scrollContent
 						.zoneSummary
 							div.row.cells12(ng-repeat='word in words | filter:query | orderBy:predicate:reverse')
