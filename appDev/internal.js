@@ -34,7 +34,7 @@ if(window.location.toString().indexOf('vk.com') + 1) {
 		unescape("%3Cscript src='//vk.com/js/api/xd_connection.js?2' type='text/javascript'%3E%3C/script%3E")
 	);
 }
-
+console.log(window.location.href);
 if (window.VK) {
 	VK.init(function () {    // инициализируем Vk API
 		var parts = document.location.search.substr(1).split("&");
