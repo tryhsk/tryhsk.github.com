@@ -1,11 +1,3 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-	var head = document.getElementsByTagName('head')[0];
-	var NewStyles = document.createElement("link");
-	NewStyles.rel = "stylesheet";
-	NewStyles.type = "text/css";
-	NewStyles.href = "public/css/all.css";
-	head.appendChild(NewStyles);
-});
 
 
 if(typeof window.jQuery === 'undefined') {
