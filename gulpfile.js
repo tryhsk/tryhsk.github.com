@@ -46,8 +46,6 @@ gulp.task('compressJS', function () {
 
 gulp.task('compressCSS', function () {
 	gulp.src([
-		//'appDev/vendor/css/metro-bootstrap.css',
-		//'appDev/vendor/css/iconFont.css',
 		'appDev/vendor/css/metro.css',
 		'appDev/vendor/css/metro-rtl.css',
 		'appDev/vendor/css/metro-icons.css',
@@ -56,7 +54,7 @@ gulp.task('compressCSS', function () {
 		'appDev/style/tryhsk.css'
 	])
 		//.pipe(changed('public/css'))
-		//.pipe(minifyCSS({keepBreaks: true}))
+		.pipe(minifyCSS({keepBreaks: true}))
 		.pipe(concat('all.css'))
 		.pipe(gulp.dest('public/css'))
 });
