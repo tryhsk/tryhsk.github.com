@@ -54,7 +54,7 @@ gulp.task('compressCSS', function () {
 		'appDev/style/tryhsk.css'
 	])
 		//.pipe(changed('public/css'))
-		.pipe(minifyCSS({keepBreaks: true}))
+		.pipe(minifyCSS())
 		.pipe(concat('all.css'))
 		.pipe(gulp.dest('public/css'))
 });
