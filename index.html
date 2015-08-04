@@ -71,6 +71,12 @@
 </style>
 <script>
 	document.getElementsByClassName('tabcontrol')[0].style.display = 'block';
+	var __head = document.getElementsByTagName('head')[0];
+	var NewStyles = document.createElement("link");
+	NewStyles.rel = "stylesheet";
+	NewStyles.type = "text/css";
+	NewStyles.href = "public/css/all.css";
+	__head.appendChild(NewStyles);
 </script>
 <link rel="stylesheet" type="text/css" href="public/css/all.css" defer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
