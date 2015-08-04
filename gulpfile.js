@@ -32,6 +32,7 @@ gulp.task('compressJS', function () {
 		'appDev/vendor/angular-route.js',
 		'appDev/vendor/angular-resource.js',
 		'appDev/vendor/cookies.js',
+		'appDev/vendor/js/metro.js',
 		'appDev/app.js',
 		'public/partials/templates.js',
 		'appDev/services/*.js',
@@ -42,6 +43,14 @@ gulp.task('compressJS', function () {
 		.pipe(concat('all.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('public/js'))
+});
+
+gulp.task('compressJSON', function () {
+	gulp.src([
+		'words_.json'
+	])
+		.pipe(uglify())
+		.pipe(gulp.dest('public'))
 });
 
 gulp.task('compressCSS', function () {
