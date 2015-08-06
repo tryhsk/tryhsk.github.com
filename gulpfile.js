@@ -6,12 +6,13 @@ var gulp = require('gulp'),
 	minifyHTML = require('gulp-minify-html'),
 	templateCache = require('gulp-angular-templatecache'),
 	changed = require('gulp-changed');
-
+var Server = require('karma').Server;
 gulp.task('default', [
 		'compressHTML',
 		'compressJS'
 		//,'compressJSON'
 		, 'compressCSS'
+		, 'test'
 		, 'compressCSSLoader'
 	],
 	function () {
@@ -24,7 +25,6 @@ watcher.on('change', function(event) {
 
 gulp.task('compressJS', function () {
 	gulp.src([
-		'appDev/vendor/js/docs.js',
 		'appDev/vendor/js/underscore.js',
 		'appDev/internal.js',
 		//'appDev/vendor/angular-locale_en-us.js',
@@ -103,4 +103,11 @@ gulp.task('compressJSON', function () {
 		.pipe(function (a) {
 			console.log(a);
 		})
+});
+
+gulp.task('test', function (done) {
+	new Server({
+		configFile: __dirname + '/karma.conf.js',
+		singleRun: true
+	}, done).start();
 });
