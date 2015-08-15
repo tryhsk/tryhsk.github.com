@@ -1,19 +1,20 @@
-#_page_2.frame.nbp(ng-controller='SummaryController')
-	.searchSummary
-	| Поиск:
-	input(ng-model='query')
-	ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
-		'one': 'Выбрано {} слово',\
-		'few': 'Выбрано {} слово',\
-		'many': 'Выбрано {} слов'}")
-	h4 База слов в формате google Docs/Свободное редактирование
-	h4
-		| docs.google.com/spreadsheets/d/1eCcrph6foyjtuQBQxeaZF8ZyrP3EUIE8uiJf3yVISS4/edit?usp=sharing
-	.grid.fluid
-		.row
-			.span3
+#_page_2.frame.frame.no-padding(ng-controller='SummaryController')
+	.searchSummary.padding10
+		| {{content.search}}:
+		input(ng-model='query')
+		ng-pluralize.padding10(ng-show="content.code === 'ru'" count='words.length', when="{'0': 'Ничего не выбрано',\
+			'one': 'Выбрано {} слово',\
+			'few': 'Выбрано {} слово',\
+			'many': 'Выбрано {} слов'}")
+		ng-pluralize.padding10(ng-show="content.code === 'en'" count='words.length', when="{'0': 'None selected',\
+			'many': 'Joined word {}'}")
+		ng-pluralize.padding10(ng-show="content.code === 'zh'" count='words.length', when="{'0': 'None selected',\
+			'many': 'Joined word {} zh'}")
+	.grid.margin20
+		.row.cells12
+			.cell.colspan3
 				div(ng-include="'partials/checkbox/checkbox.html'")
-			#table.span9.tableContainer
+			#table.cell.colspan9.tableContainer
 				.summaryLoader(ng-show='summaryLoader')
 					.spinner
 						.rect1
@@ -22,26 +23,26 @@
 						.rect4
 						.rect5
 				table.table
-					thead.fixedHeader
-						.row
-							.text-left.span3
-								a(href='', ng-click="predicate = 'id'; reverse=false") Иероглиф{{language.char}}
+					thead
+						.row.cells4
+							.text-left.cell
+								a(href='', ng-click="predicate = 'id'; reverse=false") {{content.char}}
 								| (
 								a(href='', ng-click="predicate = '-id'; reverse=false") ^
 								| )
-							.text-left.span3
-								a(href='', ng-click="predicate = 's'; reverse=!reverse") Пиньинь{{language.pinyin}}
-							.text-left.span3
-								a(href='', ng-click="predicate = 'russian'; reverse=!reverse") Русский{{language.translate}}
-							.text-left.span3(style='display: none')
-								a(href='', ng-click="predicate = 'english'; reverse=!reverse") Английский{{language.eng}}
+							.text-left.cell
+								a(href='', ng-click="predicate = 's'; reverse=!reverse") {{content.pinyin}}
+							.text-left.cell
+								a(href='', ng-click="predicate = 'russian'; reverse=!reverse") {{content.translate}}
+							.text-left.cell(style='display: none')
+								a(href='', ng-click="predicate = 'english'; reverse=!reverse") {{content.eng}}
 					tbody.scrollContent
 						.zoneSummary
-							div(ng-class='row', ng-repeat='word in words | filter:query | orderBy:predicate:reverse')
-								.char.char_big.span3 {{word.id}} {{word.char}}
-								.pinyin.span3
+							div.row.cells12(ng-repeat='word in words | filter:query | orderBy:predicate:reverse')
+								.char.char_big.cell.colspan3 {{word.id}}	{{word.char}}
+								.pinyin.cell.colspan3
 									span(style='color:{{tone.colorStyle}}', ng-repeat='tone in word.pinyin')
 										span(ng-show='!settings.letter') {{tone.pinyin}}
 										span(ng-show='settings.letter') {{tone.transpinyin}}
 										span(ng-show='settings.number') {{tone.number}}
-								.russian.span6 {{word.russian}}
+								.russian.cell.colspan6 {{word.russian}}

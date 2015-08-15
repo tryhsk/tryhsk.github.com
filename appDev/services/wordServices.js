@@ -2,7 +2,7 @@
 
 tryHskServices.factory('Word', ['$resource',
 	function ($resource) {
-		return $resource('words_.json', {}, {
+		return $resource('public/words_.json', {}, {
 			query: {method: 'GET', isArray: true, cash: true}
 		})
 	}]);

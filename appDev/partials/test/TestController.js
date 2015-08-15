@@ -1,5 +1,5 @@
-tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWords', '$timeout', 'StateManager', 'score',
-	function ($scope, $rootScope, sortWords, $timeout, StateManager, score) {
+tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWords', '$timeout', 'StateManager', 'score', 'language',
+	function ($scope, $rootScope, sortWords, $timeout, StateManager, score, language) {
 		var question
 			, arr = []
 			, wordsTests = [
@@ -14,14 +14,15 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 
 		$scope.currentRights = 0;
 		StateManager.add('test');
-
+		//todo убрать в инициализатор!!!
+		language.getLanguage(language.initLanguage()); // TODO need replace  NOT GOOD
 		$scope.regimes = [
-			'иероглиф - перевод',
-			'перевод - иероглиф',
-			'произношение - перевод',
-			'произношение - иероглиф'
+			{"option": $rootScope.content['char-trans'], "value": "char-trans"},
+			{"option": $rootScope.content['trans-char'], "value": "trans-char"},
+			{"option": $rootScope.content['pron-char'], "value": "pron-char"},
+			{"option": $rootScope.content['pron-trans'], "value": "pron-trans"}
 		];
-		$scope.select = $scope.regimes[0];
+		$scope.select = $scope.regimes[0].value;
 		$scope.$watch('select', alert, true);
 		$rootScope.$watch('checkboxValues', alert, true);
 
@@ -40,24 +41,21 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 			return false;
 		};
 
-//Выдаёт рандомное число в зависимости от размера массива
-		function random_var(array) {
-			return Math.floor(Math.random() * (array.length - 1));
+		//Выдаёт рандомное число в зависимости от размера массива
+		function getRandom(number) {
+			return Math.round(Math.random() * (number));
 		}
 
-//Выдаёт id  следующего слова учитывая предъидущие
-		function randomize(data) {
-			question = random_var(data);
-			var repeat = true,
-				length = Math.floor(data.length * 0.85);
+		//Выдаёт id  следующего слова учитывая предъидущие
+		function randomize(length, arr) {
+			var length85 = Math.floor(length * 0.85);
 			do {
-				for (var i = 0; i < length; i++) {
+				var repeat = false;
+				var question = getRandom(length - 1);
+				for (var i = 0; i < length85; i++) {
 					if (question == arr[i]) {
-						question = random_var(data);
 						repeat = true;
 						break
-					} else {
-						repeat = false
 					}
 				}
 			} while (repeat);
@@ -66,24 +64,32 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 		}
 
 
-//Создаётся массив из 4 элементов, один из них id главного иероглифа
-		function generate_var(data) {
-			var test_random = (function () {
-				var test_random = [question, random_var(data), random_var(data), random_var(data)];
-
-				for (var i = 0; i < 4; i++) {
-					for (var j = 0; j < 4; j++) {
-						if (i == j) {
-						} else {
-							if (test_random[i] == test_random[j]) {
-								test_random[i] = random_var(data);
-							}
+		//Создаётся массив из 4 элементов, один из них id главного иероглифа
+		/**
+		 *
+		 * @param length
+		 * @returns {Array} 3 random numbers + question
+		 */
+		function generate_var(length) {
+			var arr = [];
+			for (var i = 2; i >= 0; i--) {
+				do {
+					var next = getRandom(length - 1);
+					var uniq = false;
+					for (var j = arr.length - 1; j >= 0; j--) {
+						if (next === arr[j]) {
+							uniq = true;
 						}
 					}
+					if (next === question) {
+						uniq = true;
+					}
 				}
-				return test_random;
-			})();
-			test_randoms = _.shuffle(test_random);
+				while (uniq);
+				arr.push(next);
+			}
+			arr.splice(getRandom(3), 0, question);
+			return arr;
 		}
 
 		function setSmock() {
@@ -99,7 +105,7 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 			}
 		}
 
-//Создаёт 4 обьекта по id из  generate_var
+		//Создаёт 4 обьекта по id из  generate_var
 		function fill_test(words) {
 
 			for (var i = 0; i < 4; i++) {
@@ -111,11 +117,10 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 					}
 				}
 				wordsTests[i].russian = words[test_randoms[i]].russian;
-
-				if ($scope.select === 'произношение - перевод' || $scope.select === 'иероглиф - перевод') {
+				if ($scope.select === 'pron-char' || $scope.select === 'char-trans') {
 					wordsTests[i].main = words[test_randoms[i]].russian;
 				}
-				if ($scope.select === 'перевод - иероглиф' || $scope.select === 'произношение - иероглиф') {
+				if ($scope.select === 'trans-char' || $scope.select === 'pron-trans') {
 					wordsTests[i].main = words[test_randoms[i]].char;
 				}
 				wordsTests[i].sound = words[test_randoms[i]].sound;
@@ -123,11 +128,11 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 				if (test_randoms[i] == question) {
 					wordsTests[i].ansver = 'success';
 					wordsTests[i].ansv = true;
-					wordsTests[i].button = 'Молодец!';
+					wordsTests[i].button = $rootScope.content.success;
 				} else {
 					wordsTests[i].ansver = 'danger';
 					wordsTests[i].ansv = false;
-					wordsTests[i].button = 'Всё получится!';
+					wordsTests[i].button = $rootScope.content.fail;
 				}
 			}
 		}
@@ -135,7 +140,8 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 		$scope.fill = function () {
 			var data = $rootScope.words;
 			$("div.content").css("display", "none").css("border", "");
-			randomize(data);
+			$("div.frame").removeClass( 'active' );
+			question = randomize(data.length, arr);
 
 			//Изменяет ширину окна главного иероглифа
 			if (data[question].char.length == 1) {
@@ -146,26 +152,26 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 			$scope.char = data[question].char;
 			$scope.russian = data[question].russian;
 			switch ($scope.select) {
-				case 'иероглиф - перевод':
+				case 'char-trans':
 					$scope.charRegime = true;
 					$scope.translateRegime = false;
 					$scope.soundCharRegime = false;
 					$scope.soundTranslateRegime = false;
 					break;
-				case 'перевод - иероглиф':
+				case 'trans-char':
 					$scope.charRegime = false;
 					$scope.translateRegime = true;
 					$scope.soundCharRegime = false;
 					$scope.soundTranslateRegime = false;
 					break;
-				case 'произношение - перевод':
+				case 'pron-char':
 					$scope.charRegime = false;
 					$scope.translateRegime = false;
 					$scope.soundCharRegime = true;
 					$scope.soundTranslateRegime = false;
 					document.getElementById('playSound').play();
 					break;
-				case 'произношение - иероглиф':
+				case 'pron-trans':
 					$scope.charRegime = false;
 					$scope.translateRegime = false;
 					$scope.soundCharRegime = false;
@@ -176,10 +182,10 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 			if ($scope.charRegime || $scope.soundCharRegime) {
 				$scope.variantStyle = '';
 			} else {
-				$scope.variantStyle = {'font-size': 40  + 'px'};
+				$scope.variantStyle = {'font-size': 40  + 'px','font-weight': 'normal'};
 			}
 			$scope.sound = data[question].sound;
-			generate_var(data);
+			test_randoms = generate_var(data.length);
 			fill_test(data);
 			setTimeout(function () {
 				$("div.content:has(button.success)").css("border", "2px solid #60a917");
@@ -192,15 +198,14 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 
 		$scope.nextWord = function () {
 			score.answered = false;
-			$scope.showSpin = false;
-			$scope.button_next = 'СЛЕДУЮЩИЙ';
-			$scope.class_button_next = 'info';
+			$scope.nextShow = true;
+			$scope.nextRefresh = false;
 			if ($rootScope.words.length < 10) {
 				setSmock();
 			} else {
 				$scope.fill();
 				$timeout(function () {
-					if ($rootScope.settings.sound || $scope.select === 'произношение - перевод' || $scope.select === 'произношение - иероглиф') {
+					if ($rootScope.settings.sound || $scope.select === 'pron-char' || $scope.select === 'pron-trans') {
 						document.getElementById("sound").innerHTML = "<audio id=\"playSound\" src=\"" + $scope.sound + "\" autoplay ></audio>";
 					} else {
 						document.getElementById("sound").innerHTML = "<audio id=\"playSound\" src=\"" + $scope.sound + "\"></audio>";
@@ -212,9 +217,9 @@ tryHskControllers.controller('TestController', ['$scope', '$rootScope', 'sortWor
 
 function alert (newValue, oldValue) {
 	if(newValue === oldValue) return;
-	$scope.button_next = 'ОБНОВИТЬ';
-	$scope.class_button_next = 'warning';
-	$scope.showSpin = true;
+	console.log($scope.select);
+	$scope.nextShow = false;
+	$scope.nextRefresh = true;
 	arr = new Array(10);
 }
 

@@ -2,9 +2,18 @@
     width: 100% !important;
     position: absolute;
 }
-.test {
-    width: 50%;margin: 0 auto;
+/*.test {
+    width: 50%;
+    margin: 0 auto;
+}*/
+
+.tabcontrol .frames .frame {
+    background-color: #ffffff;
 }
+body{
+    background-color: #ffffff;
+}
+
 .checkboxtree {
     height: 500px ;overflow: scroll;overflow-x: hidden;
 }
@@ -23,11 +32,22 @@
 .font20 {
     font-size: 20px!important;
 }
-.classCurrentRights {
-    position: absolute;
-    left: 20px;top: 100px;
-    margin-top: 0;
+/*.classCurrentRights {*/
+    /*position: absolute;*/
+    /*left: 20px;top: 100px;*/
+    /*margin-top: 0;*/
+/*}*/
+frame  {
+    background-color: #ffffff!important;
 }
-body  {
-    background-color: #ffffff;
+
+.input-control.select {
+    width: 13.875rem;
 }
+.leaf {
+    padding-left: 10px;
+}
+/*
+.accordion > .frame > .heading {
+    font-weight: normal;
+}*/

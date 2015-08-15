@@ -1,9 +1,9 @@
-#_page_5.frame(ng-controller='LoveController')
-	div(style='height: 100px;')
-		img(style='position: fixed; top: 32px; right: 0; border: 0;', src='https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67', alt='Fork me on GitHub', data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png')
-		h1 github.com/tryhsk/tryhsk.github.com
-		img(style='float: left', src='http://cdn.dice.com/wp-content/uploads/2014/02/Open-Source-Logo.png', alt='Open source', height='42', width='42')
-		h2(style='margin-left: 50px') Open source
-	h1 База слов в формате google Docs
-	h3
-		| docs.google.com/spreadsheets/d/1eCcrph6foyjtuQBQxeaZF8ZyrP3EUIE8uiJf3yVISS4/edit?usp=sharing
+#_page_5.frame.no-padding-top.no-padding-right(ng-controller='LoveController')
+	img.place-right(src='public/img/g.png', alt='Fork me on GitHub')
+	.grid.no-margin
+		.row.condensed.no-margin
+			p.leader.v-align-middle github.com/tryhsk/tryhsk.github.com
+		.row.condensed
+			p.sub-leader {{content.baseWords}}
+		.row.condensed
+			p.header docs.google.com/spreadsheets/d/1eCcrph6foyjtuQBQxeaZF8ZyrP3EUIE8uiJf3yVISS4/edit?usp=sharing

@@ -1,18 +1,25 @@
-#_page_1.frame.nbp(ng-controller='TestController')
-	h1.classCurrentRights(ng-show='answer') {{currentRights}}
-	// <h1 style="position: absolute;left: 20px;top: 200px; margin-top: 0">{{result.amount}}</h1>
-	label
-		select(ng-model='select', ng-options='select for select in regimes')
-	.grid.fluid
-		.row
-			.span9
-				.row.ntm
+#_page_1.frame.no-padding(ng-controller='TestController')
+	.grid
+		.row.cells12
+			.cell.colspan3
+				.row.condensed
+					.margin10.label
+						.input-control.select
+							//select(ng-model='select', ng-options='select.select for select in regimes')
+							select(ng-model='select')
+								option(value="char-trans" ng-bind="content['char-trans']")
+								option(value="trans-char" ng-bind="content['trans-char']")
+								option(value="pron-char" ng-bind="content['pron-char']")
+								option(value="pron-trans" ng-bind="content['pron-trans']")
+				.row.condensed
 					#sound
-					button.button.padding20(ng-class='class_button_next', ng-click='nextWord()')
-						| {{button_next}}
-						i.icon-spin(ng-show='showSpin')
-					output#value.padding10
-					ng-pluralize(count='words.length', when="{'0': 'Ничего не выбрано',\
+					button.button.margin10.info(ng-show='nextShow' ng-click='nextWord()' ng-bind='content.next')
+					button.button.margin10.warning(ng-show='nextRefresh' ng-click='nextWord()')
+						|{{content.refresh}}
+						span.mif-loop2.align-right
+				.row.condensed
+					output#value
+					ng-pluralize.margin10(ng-show="content.code === 'ru'" count='words.length', when="{'0': 'Ничего не выбрано',\
 						'1': 'Слишком мало слов. Выбрано {} слово',\
 						'2': 'Слишком мало слов. Выбрано {} слова',\
 						'3': 'Слишком мало слов. Выбрано {} слова',\
@@ -25,33 +32,61 @@
 						'one': 'Выбрано {} слово',\
 						'few': 'Выбрано {} слово',\
 						'many': 'Выбрано {} слов'}")
+					ng-pluralize.margin10(ng-show="content.code === 'en'" count='words.length', when="{'0': 'None selected',\
+						'1': 'Too few words. Joined {} words',\
+						'2': 'Too few words. Joined {} words',\
+						'3': 'Too few words. Joined {} words',\
+						'4': 'Too few words. Joined {} words',\
+						'5': 'Too few words. Joined {} words',\
+						'6': 'Too few words. Joined {} words',\
+						'7': 'Too few words. Joined {} words',\
+						'8': 'Too few words. Joined {} words',\
+						'9': 'Too few words. Joined {} words',\
+						'one': 'Chosen one word',\
+						'many': 'Joined word {}'}")
+					ng-pluralize.margin10(ng-show="content.code === 'zh'" count='words.length', when="{'0': 'None selected',\
+						'1': 'Too few words. Joined {} words',\
+						'2': 'Too few words. Joined {} words',\
+						'3': 'Too few words. Joined {} words',\
+						'4': 'Too few words. Joined {} words',\
+						'5': 'Too few words. Joined {} words',\
+						'6': 'Too few words. Joined {} words',\
+						'7': 'Too few words. Joined {} words',\
+						'8': 'Too few words. Joined {} words',\
+						'9': 'Too few words. Joined {} words',\
+						'one': 'Chosen one word',\
+						'many': 'Joined word {} zh'}")
+				.row.condensed
+					h1.margin10.align-center(ng-show='answer' ng-bind='currentRights')
+					// @fixme pornography  <center>
+			.cell.colspan6
+				.row.condensed
 					// @fixme pornography  <center>
 					center
 						button.shortcut.link.buttonSound(ng-show='soundCharRegime || soundTranslateRegime', ng-click='playSound()')
-							i.icon-volume-5
+							i.mif-volume-medium
 						button.shortcut.link.font60(ng-show='charRegime', ng-style='questionStyle', ng-click='playSound()') {{char}}
 						.russian-char.font20(ng-show='translateRegime') {{russian}}
 				// @todo  не понятно как воспроизвести музыку юзабилити
-				.row
-					.accordion.place-center.test(data-role='accordion', data-closeany='true')
-						.accordion-frame(ng-repeat='wordsTest in wordsTests')
+				.row.condensed
+					.accordion.place-center.test( id="accordion" data-role="accordion", data-closeany-any='true')
+						.frame.no-padding(ng-repeat='wordsTest in wordsTests')
 							a.heading(href='#', ng-click='isRight(wordsTest.ansv)', ng-style='variantStyle') {{wordsTest.main}}
-							.content
-								.grid.no-margin
-									.row.no-margin(ng-show='charRegime || soundCharRegime')
-										audio(ngsrc='{{wordsTest.sound}}')
-										.span4
-											h2 {{wordsTest.char}}
-										.span6
-											h2
-												span(style='color:{{tone.color}}', ng-repeat='tone in wordsTest.pinyin')
-													span(ng-hide='settings.letter') {{tone.pinyin}}
-													span(ng-show='settings.letter') {{tone.transpinyin}}
-													span(ng-show='settings.number') {{tone.number}}
-									.row.no-margin(ng-show='translateRegime || soundTranslateRegime')
-										h4 {{wordsTest.russian}}
-									.row.no-margin
-										button.button(ng-class='wordsTest.ansver', ng-click='nextWord()')
-											| {{wordsTest.button}}
-			.span3
+							.content.no-margin
+								.row.cells6.no-margin(ng-show='charRegime || soundCharRegime')
+									audio(ngsrc='{{wordsTest.sound}}')
+									.cell.colspan2
+										h2 {{wordsTest.char}}
+									.cell.colspan3
+										h2
+											span(style='color:{{tone.color}}', ng-repeat='tone in wordsTest.pinyin')
+												span(ng-hide='settings.letter') {{tone.pinyin}}
+												span(ng-show='settings.letter') {{tone.transpinyin}}
+												span(ng-show='settings.number') {{tone.number}}
+								.row.condensed.no-margin(ng-show='translateRegime || soundTranslateRegime')
+									h4 {{wordsTest.russian}}
+								.row.condensed.no-margin
+									button.button(ng-class='wordsTest.ansver', ng-click='nextWord()')
+										| {{wordsTest.button}}
+			.cell.colspan3
 				div(ng-include="'partials/checkbox/checkbox.html'")

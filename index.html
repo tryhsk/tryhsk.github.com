@@ -8,28 +8,11 @@
 	      content="Популярный тренажер для экзамена HSK. И просто отличное приложение для изучения основной лексики 汉语.">
 	<meta name="author" content="">
 
-
-
-
 	<title>HSK. Китайский язык 汉语</title>
 
 
 </head>
-<body class="metro" ng-app="tryHsk" ng-cloak>
-<style>
-    .loader{position:fixed;width:100%;height:100%;z-index:1000;opacity:1;background-color:#fff}
-    .summaryLoader{position:fixed;width:inherit;height:100%;z-index:1000;opacity:1;background-color:#fff}
-    .spinner{margin:100px auto;width:50px;height:30px;text-align:center;font-size:10px;right:50%}
-    .spinner>div{background-color:#333;height:100%;width:6px;display:inline-block;-webkit-animation:stretchdelay 1.2s infinite ease-in-out;animation:stretchdelay 1.2s infinite ease-in-out}
-    .spinner .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}
-    .spinner .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}
-    .spinner .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}
-    .spinner .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}
-    @-webkit-keyframes stretchdelay{0%,100%,40%{-webkit-transform:scaleY(.4)}
-        20%{-webkit-transform:scaleY(1)}}
-    @keyframes stretchdelay{0%,100%,40%{transform:scaleY(.4);-webkit-transform:scaleY(.4)}
-        20%{transform:scaleY(1);-webkit-transform:scaleY(1)}}
-</style>
+<body ng-app="tryHsk">
 <div class="loader" ng-init="globalLoader = true" ng-show="globalLoader">
 	<div class="spinner">
 		<div class="rect1"></div>
@@ -40,105 +23,68 @@
 	</div>
 </div>
 <!--Metro UI-->
-<link href="public/css/all.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script>
-	if(typeof window.jQuery === 'undefined') {
-		document.write(
-				unescape("%3Cscript src='appDev/vendor/jquery.min.js' type='text/javascript'%3E%3C/script%3E")
-		);
-	}
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script>
-	if(typeof window.jQuery.effect === 'undefined') {
-		document.write(
-				unescape("%3Cscript src='appDev/vendor/jquery-ui.min.js' type='text/javascript'%3E%3C/script%3E")
-		);
-	}
-</script>
-<script src="appDev/vendor/js/metro.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
-<script>
-	if(typeof window.angular === 'undefined') {
-		document.write(
-				unescape("%3Cscript src='appDev/vendor/angular.min.js' type='text/javascript'%3E%3C/script%3E")
-		);
-	}
-</script>
-<script src="public/js/all.js"></script>
-<!--<script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>-->
-<script>
-	if(window.location.toString().indexOf('vk.com') + 1) {
-		document.write(
-				unescape("%3Cscript src='//vk.com/js/api/xd_connection.js?2' type='text/javascript'%3E%3C/script%3E")
-		);
-	}
-</script>
-
-<script>
-	if (window.VK) {
-		VK.init(function () {    // инициализируем Vk API
-			var parts = document.location.search.substr(1).split("&");
-			var flashVars = {}, curr;
-			for (i = 0; i < parts.length; i++) {
-				curr = parts[i].split('=');
-				flashVars[curr[0]] = curr[1];
-			}
-			window.vkid = flashVars['viewer_id'];
-			window.language = flashVars['language'];
-			window.is_app_user = flashVars['is_app_user'];
-//			window.vkid = 1000000;   // develop
-		});
-	}
-
-</script>
-<div class="tab-control" data-role="tab-control" id="tab-control">
+<div class="tabcontrol" id="tab-control" data-role="tabControl" style="display: none">
 	<ul class="tabs">
 
-		<li class="active"><a href="#_page_1">{{content.test}}</a></li>
-		<li><a href="#_page_2">{{content.summary}}</a></li>
-		<li class="place-right"><a href="#_page_5"><i class="icon-heart"></i></a></li>
-		<li class="place-right "><a href="#_page_4"><i class="icon-cog"></i></a></li>
-		<li class="place-right"><a href="#_page_3"><i class="icon-book"></i></a></li>
+		<li class="active"><a href="#_page_1" ng-bind="content.test"></a></li>
+		<li><a href="#_page_2" ng-bind="content.summary"></a></li>
+		<li class="place-right"><a href="#_page_5"><span class="mif-heart mif-lg fg-red"></span></a></li>
+		<li class="place-right "><a href="#_page_4"><span class="mif-cog mif-lg"></span></a></li>
+		<!--<li class="place-right"><a href="#_page_3"><span class="mif-book mif-lg"></span></a></li>-->
 	</ul>
 	<div class="frames">
 
-		<div class="frame" id="_page_1" style="padding: 0">
+		<div class="frame no-padding" id="_page_1">
 			<div ng-include="'partials/test/test.html'"></div>
 		</div>
 
-		<div class="frame" id="_page_2" style="padding: 0">
+		<div class="frame no-padding" id="_page_2">
 			<div ng-include="'partials/summary/summary.html'"></div>
 		</div>
 
-		<div class="frame" id="_page_3">
+		<div class="frame no-padding" id="_page_3">
 			<div ng-include="'partials/info/info.html'"></div>
 		</div>
 
-		<div class="frame" id="_page_4">
+		<div class="frame no-padding" id="_page_4">
 			<div ng-include="'partials/settings/settings.html'">dadad</div>
 		</div>
 
-		<div class="frame" id="_page_5">
+		<div class="frame no-padding" id="_page_5">
 			<div ng-include="'partials/love/love.html'"></div>
 		</div>
 	</div>
 </div>
-
-
-<script type="text/javascript" charset="cp1251">
-	if (window.VK) {
-		var height = document.getElementById('tab-control').offsetHeight;
-		setInterval(function () {
-			if (height !== document.getElementById('tab-control').offsetHeight) {
-				height = document.getElementById('tab-control').offsetHeight;
-				VK.callMethod('resizeWindow', 1000, height);
-			}
-		}, 40);
-	}
+<style>
+	.loader{position:fixed;width:100%;height:100%;z-index:1000;opacity:1;background-color:#fff}
+	.summaryLoader{position:fixed;width:inherit;height:100%;z-index:1000;opacity:1;background-color:#fff}
+	.spinner{margin:100px auto;width:50px;height:30px;text-align:center;font-size:10px;right:50%}
+	.spinner>div{background-color:#333;height:100%;width:6px;display:inline-block;-webkit-animation:stretchdelay 1.2s infinite ease-in-out;animation:stretchdelay 1.2s infinite ease-in-out}
+	.spinner .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}
+	.spinner .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}
+	.spinner .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}
+	.spinner .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}
+	@-webkit-keyframes stretchdelay{0%,100%,40%{-webkit-transform:scaleY(.4)}
+		20%{-webkit-transform:scaleY(1)}}
+	@keyframes stretchdelay{0%,100%,40%{transform:scaleY(.4);-webkit-transform:scaleY(.4)}
+		20%{transform:scaleY(1);-webkit-transform:scaleY(1)}}
+</style>
+<script>
+	document.getElementsByClassName('tabcontrol')[0].style.display = 'block';
+	var cb = function() {
+		var l = document.createElement('link'); l.rel = 'stylesheet';
+		l.href = 'public/css/all.css';
+		var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+	};
+	var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+			webkitRequestAnimationFrame || msRequestAnimationFrame;
+	if (raf) raf(cb);
+	else window.addEventListener('load', cb);
 </script>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js" defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js" defer></script>
+<!--<script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript" async></script>-->
+<script src="public/js/all.js" defer></script>
 </body>
 </html>
