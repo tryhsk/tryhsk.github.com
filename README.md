@@ -1,10 +1,11 @@
 [tryhsk.github.com](http://tryhsk.github.io/)
 =================
 
-- [ ] Figure out wormholes
-  - [ ] Call @arfon
-  - [ ] Research ([docs](http://en.wikipedia.org/wiki/Wormhole#Time_travel))
-  - [ ] Build prototype #15
-  - [ ] Test run #43 @world-domination/time-travel
-- [ ] ...?
-- [ ] Profit!
+Тренер для изучения китайского языка. 
+По адресу http://tryhsk.github.io/ web приложение.
+По адресу http://im7mortal.github.io/tryhsk.github.com/ последняя версия.
+По адресу http://hsk.herokuapp.com/ серверная версия в которую сабмодулем встроена последняя версия.
+База слов
+docs.google.com/spreadsheets/d/1eCcrph6foyjtuQBQxeaZF8ZyrP3EUIE8uiJf3yVISS4/edit?usp=sharing
+
+
